@@ -91,11 +91,63 @@
     return { text: (a.status || "—").toUpperCase().slice(0, 10), cls: "" };
   }
 
+  function cacheBust(url) {
+    const u = new URL(url, location.href);
+    u.searchParams.set("_", String(Date.now()));
+    return u.pathname.split("/").pop() + u.search; // relative name + query
+  }
+
   async function loadBook() {
-    const res = await fetch("book.json", { cache: "no-store" });
+    const res = await fetch(cacheBust("book.json"), { cache: "no-store" });
     if (!res.ok) throw new Error("Could not load book.json (" + res.status + ")");
     return res.json();
   }
+
+  /** Refresh button: re-fetch book (bypass CDN) and re-render. Also soft-bust assets. */
+  async function hardRefresh(ev) {
+    const btn = ev && ev.currentTarget;
+    const prev = btn ? btn.textContent : "";
+    if (btn) {
+      btn.disabled = true;
+      btn.textContent = "Refreshing…";
+    }
+    try {
+      // Bust HTML/JS/CSS CDN by reloading once with a stamp (first click after deploy)
+      const params = new URLSearchParams(location.search);
+      const last = params.get("r");
+      const now = String(Date.now());
+      // Always re-fetch data in place; only full-reload assets if stamp is older than 30s
+      if (!last || Date.now() - Number(last) > 30000) {
+        params.set("r", now);
+        const next = location.pathname + "?" + params.toString() + location.hash;
+        location.replace(next);
+        return;
+      }
+      const loading = $("#loading");
+      if (!loading) {
+        const el = document.createElement("div");
+        el.id = "loading";
+        el.className = "loading";
+        el.textContent = "Refreshing book…";
+        const content = document.querySelector(".content") || document.body;
+        content.prepend(el);
+      } else {
+        loading.hidden = false;
+        loading.textContent = "Refreshing book…";
+        if (!loading.parentNode) document.body.prepend(loading);
+      }
+      await boot();
+    } catch (err) {
+      console.error(err);
+      alert("Refresh failed: " + (err && err.message ? err.message : err));
+    } finally {
+      if (btn) {
+        btn.disabled = false;
+        btn.textContent = prev || "Refresh";
+      }
+    }
+  }
+  window.hardRefresh = hardRefresh;
 
   function setAsOf(book) {
     $all("[data-asof]").forEach((el) => {
@@ -117,7 +169,7 @@
           <p class="meta">${cashNote}<span data-asof>${book.as_of_et || ""}</span>
             </p>
         </div>
-        <button class="btn btn-soft" type="button" onclick="location.reload()">Refresh</button>
+        <button class="btn btn-soft" type="button" onclick="hardRefresh(event)">Refresh</button>
       </div>
       <div class="chips" id="account-chips"></div>`;
 
@@ -523,7 +575,7 @@
   let __baroTypeFilter = "all";
 
   async function loadBarometer() {
-    const res = await fetch("barometer.json", { cache: "no-store" });
+    const res = await fetch(cacheBust("barometer.json"), { cache: "no-store" });
     if (!res.ok) throw new Error("Could not load barometer.json (" + res.status + ")");
     return res.json();
   }
