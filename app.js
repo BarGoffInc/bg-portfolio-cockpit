@@ -20,17 +20,24 @@
 
   function fmtUSD(n, opts) {
     if (n === null || n === undefined || Number.isNaN(Number(n))) return "—";
-    const abs = Math.abs(Number(n));
-    const digits = opts && opts.cents === false
-      ? (abs >= 1000 ? 0 : 2)
-      : (abs >= 10000 ? 0 : 2);
-    const s = new Intl.NumberFormat("en-US", {
+    const x = Number(n);
+    const abs = Math.abs(x);
+    let digits;
+    if (opts && opts.cents === false) {
+      digits = abs >= 1000 ? 0 : 2;
+    } else if (abs > 0 && abs < 0.01) {
+      digits = abs < 0.0001 ? 6 : 4; // micro-priced tokens (WOOD etc.)
+    } else if (abs >= 10000) {
+      digits = 0;
+    } else {
+      digits = 2;
+    }
+    return new Intl.NumberFormat("en-US", {
       style: "currency",
       currency: "USD",
       minimumFractionDigits: digits,
       maximumFractionDigits: digits,
-    }).format(Number(n));
-    return s;
+    }).format(x);
   }
 
   function fmtNum(n, digits) {
@@ -291,11 +298,14 @@
         panel.innerHTML = `<div class="empty">${escapeHtml(a.note || "No holdings listed yet.")}</div>`;
       } else {
         panel.innerHTML = `<div class="table-wrap"><table class="data"><thead><tr>
-          <th>Symbol</th><th>Kind</th><th class="right">Qty</th><th class="right">Mark</th><th class="right">MV</th><th class="right">uPnL</th>
+          <th>Symbol</th><th>Kind</th><th class="right">Qty</th><th class="right">Price</th><th class="right">Value</th><th class="right">uPnL</th>
         </tr></thead><tbody>
         ${pos
           .map((p) => {
-            const mv = p.mv != null ? p.mv : p.margin;
+            const mv = p.mv != null ? p.mv
+              : p.value != null ? p.value
+              : p.market_value != null ? p.market_value
+              : (p.qty != null && p.mark != null ? Number(p.qty) * Number(p.mark) : p.margin);
             return `<tr>
               <td><strong>${escapeHtml(p.symbol)}</strong></td>
               <td class="text-muted">${escapeHtml(p.kind || "")}</td>
