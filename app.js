@@ -192,18 +192,73 @@
     renderLargest(book);
   }
 
+  function pieCanonical(sym) {
+    if (!sym || sym === "Other (dust)") return null;
+    const s = String(sym).trim();
+    // options / dated contracts stay unique
+    if (/\s/.test(s) && /\d/.test(s)) return s;
+    if (/-PERP$/i.test(s)) return s;
+    const ALIAS = {
+      WETH: "ETH", wETH: "ETH", stETH: "ETH", cbETH: "ETH",
+      WBTC: "BTC", cbBTC: "BTC", tBTC: "BTC",
+      "JupSOL · LST": "SOL", JupSOL: "SOL", "SOL-STAKE": "SOL", mSOL: "SOL", bSOL: "SOL",
+      "USDC.e": "USDC", USDbC: "USDC", USDCE: "USDC",
+      "USDT.e": "USDT",
+    };
+    return ALIAS[s] || s;
+  }
+
+  function consolidateLargest(items) {
+    const buckets = new Map();
+    for (const h of items || []) {
+      const key = pieCanonical(h.symbol);
+      if (!key || h.mv == null) continue;
+      let b = buckets.get(key);
+      if (!b) {
+        b = { symbol: key, mv: 0, qty: 0, qtyOk: true, accounts: [] };
+        buckets.set(key, b);
+      }
+      b.mv += Number(h.mv) || 0;
+      if (h.qty == null || Number.isNaN(Number(h.qty))) b.qtyOk = false;
+      else b.qty += Number(h.qty);
+      const accts = h.accounts && h.accounts.length ? h.accounts : (h.account ? [h.account] : []);
+      for (const a of accts) {
+        if (a && !b.accounts.includes(a)) b.accounts.push(a);
+      }
+    }
+    return Array.from(buckets.values())
+      .map((b) => ({
+        symbol: b.symbol,
+        mv: b.mv,
+        qty: b.qtyOk ? b.qty : null,
+        accounts: b.accounts,
+        account: b.accounts.length <= 1
+          ? (b.accounts[0] || "")
+          : b.accounts.length <= 3
+            ? b.accounts.join(" + ")
+            : b.accounts.slice(0, 2).join(" + ") + ` +${b.accounts.length - 2} more`,
+      }))
+      .sort((a, b) => Math.abs(b.mv) - Math.abs(a.mv));
+  }
+
   function renderLargest(book) {
     const list = $("#holdings-list");
     const donut = $("#donut");
-    const items = book.largest_holdings || [];
+    const items = consolidateLargest(book.largest_holdings || []).slice(0, 12);
     const total = (book.totals && book.totals.book_usd) || 1;
     if (list) {
       list.innerHTML = items
         .map((h, i) => {
           const w = h.weight_pct != null ? h.weight_pct : (h.mv / total) * 100;
+          const acctHint = (h.accounts && h.accounts.length > 1)
+            ? `<div class="text-muted" style="font-size:10px;font-weight:400;overflow:hidden;text-overflow:ellipsis">${escapeHtml(h.account || "")}</div>`
+            : "";
           return `<div class="list-row">
             <i class="swatch" style="background:${SWATCHES[i % SWATCHES.length]}"></i>
-            <strong style="flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${escapeHtml(h.symbol)}</strong>
+            <div style="flex:1;min-width:0;overflow:hidden">
+              <strong style="display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${escapeHtml(h.symbol)}</strong>
+              ${acctHint}
+            </div>
             <span class="text-muted mono" style="font-size:11px">${fmtPct(w).replace("+", "")}</span>
             <span class="mono" style="width:96px;text-align:right">${fmtUSD(h.mv, { cents: false })}</span>
           </div>`;
@@ -462,6 +517,189 @@
       .join("");
   }
 
+
+  /* ---- Barometer ---- */
+  let __BARO__ = null;
+  let __baroTypeFilter = "all";
+
+  async function loadBarometer() {
+    const res = await fetch("barometer.json", { cache: "no-store" });
+    if (!res.ok) throw new Error("Could not load barometer.json (" + res.status + ")");
+    return res.json();
+  }
+
+  function renderBarometer(baro, book) {
+    __BARO__ = baro;
+    const note = $("#baro-note");
+    const span = baro.span || {};
+    const t = baro.totals || {};
+    if (note) {
+      note.textContent =
+        "Barometer-grade · " +
+        (span.first || "?") + " → " + (span.last || "?") +
+        " · " + (t.event_count || 0).toLocaleString() + " events" +
+        " · spam/noise bucket " + (baro.spam_noise_count || 0).toLocaleString() +
+        " (toggle below). Explorers + archive; not tax-grade.";
+    }
+
+    const hero = $("#baro-hero");
+    if (hero) {
+      hero.hidden = false;
+      const pnl = (baro.running_pnl && baro.running_pnl.headline) || {};
+      hero.innerHTML = `
+        <div class="hero-top">
+          <div>
+            <p class="label">All-time net (sells − buys)</p>
+            <h2 class="total tabular ${pnlClass(t.all_time_net_usd)}">${fmtUSD(t.all_time_net_usd, { cents: false })}</h2>
+            <p class="meta">Buys ${fmtUSD(t.all_time_buys_usd, { cents: false })} · Sells ${fmtUSD(t.all_time_sells_usd, { cents: false })}
+              · Majors P&amp;L ${fmtUSD(pnl.total_pnl_usd, { cents: false })}</p>
+          </div>
+        </div>`;
+    }
+
+    // wallet picker
+    const sel = $("#baro-wallet");
+    if (sel && !sel.dataset.ready) {
+      sel.innerHTML = `<option value="all">All wallets (roll-up)</option>` +
+        (baro.wallets || []).map((w) =>
+          `<option value="${escapeHtml(w.address)}">${escapeHtml(w.label || w.address)} · ${w.event_count || 0} ev</option>`
+        ).join("");
+      sel.dataset.ready = "1";
+      sel.addEventListener("change", () => renderBarometerTables(__BARO__));
+    }
+    const spam = $("#baro-show-spam");
+    if (spam && !spam.dataset.ready) {
+      spam.dataset.ready = "1";
+      spam.addEventListener("change", () => renderBarometerTables(__BARO__));
+    }
+
+    // type filter chips
+    const typesWrap = $("#baro-type-filters");
+    if (typesWrap && !typesWrap.dataset.ready) {
+      const hist = baro.type_histogram || {};
+      const keys = ["all", "swap", "transfer", "airdrop", "nft_mint", "nft_buy", "nft_sell", "lp_add", "lp_remove", "stake", "unstake"];
+      typesWrap.innerHTML = keys.map((k) => {
+        const n = k === "all" ? (t.event_count || 0) : (hist[k] || 0);
+        return `<button type="button" class="chip baro-type${k === "all" ? " on" : ""}" data-type="${k}">${k}<strong class="val tabular">${n}</strong></button>`;
+      }).join("");
+      typesWrap.dataset.ready = "1";
+      typesWrap.addEventListener("click", (ev) => {
+        const btn = ev.target.closest("[data-type]");
+        if (!btn) return;
+        __baroTypeFilter = btn.getAttribute("data-type") || "all";
+        $all(".baro-type", typesWrap).forEach((b) => b.classList.toggle("on", b === btn));
+        renderBarometerTables(__BARO__);
+      });
+    }
+
+    // PnL table
+    const pnlBody = $("#baro-pnl-body");
+    const assets = (baro.running_pnl && baro.running_pnl.assets) || {};
+    if (pnlBody) {
+      const rows = Object.keys(assets).map((sym) => {
+        const a = assets[sym];
+        return `<tr>
+          <td><strong>${escapeHtml(sym)}</strong></td>
+          <td class="right mono">${fmtNum(a.qty, 6)}</td>
+          <td class="right mono">${a.avg_cost_usd != null ? fmtUSD(a.avg_cost_usd) : "—"}</td>
+          <td class="right mono">${a.mark_usd != null ? fmtUSD(a.mark_usd) : "—"}</td>
+          <td class="right mono ${pnlClass(a.unrealized_pnl_usd)}">${a.unrealized_pnl_usd != null ? fmtUSD(a.unrealized_pnl_usd, { cents: false }) : "—"}</td>
+          <td class="right mono ${pnlClass(a.realized_pnl_usd)}">${fmtUSD(a.realized_pnl_usd, { cents: false })}</td>
+        </tr>`;
+      });
+      pnlBody.innerHTML = rows.join("") || `<tr><td colspan="6" class="empty">No majors P&amp;L yet</td></tr>`;
+    }
+    const gaps = $("#baro-pnl-gaps");
+    if (gaps) {
+      const g = (baro.running_pnl && baro.running_pnl.gaps) || [];
+      gaps.textContent = g.length ? ("Gaps: " + g.join(" ")) : "";
+    }
+
+    renderBarometerTables(baro);
+
+    // Overview one-liner lives in book; optional banner already handled separately
+    if (book && book.barometer && $("#interim-banner") && PAGE === "overview") {
+      /* no-op here */
+    }
+  }
+
+  function renderBarometerTables(baro) {
+    if (!baro) return;
+    const wallet = ($("#baro-wallet") && $("#baro-wallet").value) || "all";
+    const showSpam = $("#baro-show-spam") && $("#baro-show-spam").checked;
+    const typeF = __baroTypeFilter || "all";
+
+    let days;
+    if (wallet === "all") {
+      days = baro.rollup || [];
+    } else {
+      days = (baro.by_wallet && baro.by_wallet[wallet]) || [];
+    }
+
+    // notable days
+    const notable = (wallet === "all" ? (baro.notable_days || []) : [...days].sort((a, b) => Math.abs(b.net_usd) - Math.abs(a.net_usd)).slice(0, 40));
+    const daysBody = $("#baro-days-body");
+    if (daysBody) {
+      daysBody.innerHTML = notable.slice(0, 25).map((r) => `<tr>
+        <td class="mono">${escapeHtml(r.day)}</td>
+        <td class="right mono">${fmtUSD(r.buys_usd, { cents: false })}</td>
+        <td class="right mono">${fmtUSD(r.sells_usd, { cents: false })}</td>
+        <td class="right mono ${pnlClass(r.net_usd)}">${fmtUSD(r.net_usd, { cents: false })}</td>
+        <td class="right mono">${r.event_count || "—"}</td>
+        <td class="text-muted" style="font-size:12px">${escapeHtml(r.notes || "")}</td>
+      </tr>`).join("") || `<tr><td colspan="6" class="empty">No days</td></tr>`;
+    }
+
+    // daily table (newest first)
+    const dailyBody = $("#baro-daily-body");
+    const dailySorted = [...days].reverse().slice(0, 366);
+    if (dailyBody) {
+      dailyBody.innerHTML = dailySorted.map((r) => `<tr>
+        <td class="mono">${escapeHtml(r.day)}</td>
+        <td class="right mono">${fmtUSD(r.buys_usd, { cents: false })}</td>
+        <td class="right mono">${fmtUSD(r.sells_usd, { cents: false })}</td>
+        <td class="right mono">${fmtUSD(r.transfer_in_usd, { cents: false })}</td>
+        <td class="right mono">${fmtUSD(r.transfer_out_usd, { cents: false })}</td>
+        <td class="right mono ${pnlClass(r.net_usd)}">${fmtUSD(r.net_usd, { cents: false })}</td>
+        <td class="text-muted" style="font-size:12px">${escapeHtml(r.notes || "")}</td>
+      </tr>`).join("") || `<tr><td colspan="7" class="empty">No daily rows</td></tr>`;
+    }
+
+    // spark bars for last ~90 days with activity
+    const chart = $("#baro-chart");
+    if (chart) {
+      const series = days.filter((d) => d.buys_usd || d.sells_usd || d.net_usd).slice(-90);
+      const maxAbs = Math.max(1, ...series.map((d) => Math.abs(d.net_usd || 0)));
+      chart.innerHTML = series.map((d) => {
+        const h = Math.max(2, Math.round((Math.abs(d.net_usd) / maxAbs) * 56));
+        const cls = (d.net_usd || 0) >= 0 ? "up" : "down";
+        return `<i class="baro-bar ${cls}" style="height:${h}px" title="${escapeHtml(d.day)}: net ${d.net_usd}"></i>`;
+      }).join("");
+    }
+
+    // events
+    let events = baro.recent_events || [];
+    if (wallet !== "all") events = events.filter((e) => e.wallet === wallet);
+    if (typeF !== "all") events = events.filter((e) => e.type === typeF);
+    if (showSpam) {
+      const spam = (baro.spam_noise_sample || []).slice().reverse();
+      const spamF = wallet === "all" ? spam : spam.filter((e) => e.wallet === wallet);
+      events = spamF.concat(events);
+    }
+    const evBody = $("#baro-events-body");
+    if (evBody) {
+      evBody.innerHTML = events.slice(0, 200).map((e) => `<tr>
+        <td class="mono text-muted">${escapeHtml(formatTs(e.ts))}</td>
+        <td>${escapeHtml(e.wallet_label || e.wallet || "")}</td>
+        <td><span class="baro-tag">${escapeHtml(e.type || "")}</span></td>
+        <td>${escapeHtml((e.symbols || []).slice(0, 4).join(", ") || "—")}</td>
+        <td class="right mono">${e.buy_usd != null ? fmtUSD(e.buy_usd, { cents: false }) : (e.usd_fuzzy ? "fuzzy" : "—")}</td>
+        <td class="right mono">${e.sell_usd != null ? fmtUSD(e.sell_usd, { cents: false }) : "—"}</td>
+        <td class="text-muted" style="font-size:11px">${escapeHtml((e.source || "").replace("_archive", ""))}</td>
+      </tr>`).join("") || `<tr><td colspan="7" class="empty">No events for filter</td></tr>`;
+    }
+  }
+
   function formatAsOf(iso) {
   if (!iso) return "—";
   try {
@@ -530,14 +768,37 @@ function escapeHtml(s) {
       const book = await loadBook();
       window.__BOOK__ = book;
       setAsOf(book);
-      if (PAGE === "overview" || PAGE === "owner") renderOverview(book);
+      if (PAGE === "overview" || PAGE === "owner") {
+        renderOverview(book);
+        if (book.barometer) {
+          const banner = $("#interim-banner");
+          if (banner && !banner.dataset.baro) {
+            const b = book.barometer;
+            const line = `Barometer: buys ${fmtUSD(b.all_time_buys_usd, { cents: false })} · sells ${fmtUSD(b.all_time_sells_usd, { cents: false })} · net ${fmtUSD(b.all_time_net_usd, { cents: false })} (as of ${(b.as_of_day || "").slice(0, 10)}).`;
+            const existing = banner.innerHTML || "";
+            banner.hidden = false;
+            banner.innerHTML = (existing ? existing + " · " : "") + line + ' <a class="link-teal" href="barometer.html">Open</a>';
+            banner.dataset.baro = "1";
+          }
+        }
+      }
       if (PAGE === "consolidated") renderConsolidated(book);
       if (PAGE === "pnl") renderPnL(book);
       if (PAGE === "history") renderHistory(book);
+      if (PAGE === "barometer") {
+        const baro = await loadBarometer();
+        window.__BARO__ = baro;
+        if (baro.generated_at) {
+          $all("[data-asof]").forEach((el) => {
+            el.textContent = formatAsOf(baro.generated_at);
+          });
+        }
+        renderBarometer(baro, book);
+      }
       if (loading) loading.remove();
     } catch (err) {
       if (loading) {
-        loading.textContent = "Failed to load book.json. Serve this folder over HTTP (see README). " + err.message;
+        loading.textContent = "Failed to load data. Serve this folder over HTTP (see README). " + err.message;
       }
       console.error(err);
     }
