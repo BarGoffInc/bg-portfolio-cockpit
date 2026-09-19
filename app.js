@@ -302,8 +302,9 @@
       list.innerHTML = items
         .map((h, i) => {
           const w = h.weight_pct != null ? h.weight_pct : (h.mv / total) * 100;
-          const acctHint = (h.accounts && h.accounts.length > 1)
-            ? `<div class="text-muted" style="font-size:10px;font-weight:400;overflow:hidden;text-overflow:ellipsis">${escapeHtml(h.account || "")}</div>`
+          const src = h.account || ((h.accounts && h.accounts.length) ? h.accounts.join(" + ") : "");
+          const acctHint = src
+            ? `<div class="text-muted" style="font-size:10px;font-weight:400;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${escapeHtml(src)}</div>`
             : "";
           return `<div class="list-row">
             <i class="swatch" style="background:${SWATCHES[i % SWATCHES.length]}"></i>
