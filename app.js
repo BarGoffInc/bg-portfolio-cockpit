@@ -398,22 +398,55 @@
   function renderHistory(book) {
     const body = $("#history-body");
     const note = $("#history-note");
-    if (note) note.textContent = book.fills_note || "";
+    if (note) {
+      const parts = [];
+      if (book.fills_note) parts.push(book.fills_note);
+      if (book.activity_note) parts.push(book.activity_note);
+      note.textContent = parts.join(" ");
+    }
     if (!body) return;
-    const fills = book.fills || [];
-    if (!fills.length) {
-      body.innerHTML = `<tr><td colspan="6" class="empty">No fill data in this snapshot</td></tr>`;
+
+    const rows = [];
+    (book.fills || []).forEach((f) => {
+      rows.push({
+        ts: f.ts,
+        account: f.account || "",
+        symbol: f.symbol || "—",
+        side: f.side || f.raw_type || "fill",
+        qty: f.qty,
+        notional: f.notional != null ? f.notional : f.price,
+        kind: "broker",
+      });
+    });
+    (book.activity || []).forEach((a) => {
+      const chain = a.chain && a.chain !== "broker" ? " · " + a.chain : "";
+      rows.push({
+        ts: a.date || a.ts,
+        account: (a.account || "") + chain,
+        symbol: a.symbol || "—",
+        side: a.type || "tx",
+        qty: a.qty,
+        notional: a.amount_usd,
+        kind: "onchain",
+      });
+    });
+    rows.sort((a, b) => String(b.ts || "").localeCompare(String(a.ts || "")));
+
+    if (!rows.length) {
+      body.innerHTML = `<tr><td colspan="6" class="empty">No fill or on-chain activity in this snapshot</td></tr>`;
       return;
     }
-    body.innerHTML = fills
+    // Cap display for UI responsiveness
+    const shown = rows.slice(0, 500);
+    body.innerHTML = shown
       .map(
         (f) => `<tr>
           <td class="mono text-muted">${escapeHtml(formatTs(f.ts))}</td>
           <td>${escapeHtml(f.account || "")}</td>
           <td><strong>${escapeHtml(String(f.symbol || "—"))}</strong></td>
           <td>${escapeHtml(f.side || "")}</td>
-          <td class="right mono">${fmtNum(f.qty, 6)}</td>
-          <td class="right mono">${f.notional != null ? fmtUSD(f.notional, { cents: false }) : f.price != null ? fmtUSD(f.price) : "—"}</td>
+          <td class="right mono">${f.qty != null ? fmtNum(f.qty, 6) : "—"}</td>
+          <td class="right mono">${f.notional != null ? fmtUSD(f.notional, { cents: false }) : "—"}</td>
         </tr>`
       )
       .join("");
