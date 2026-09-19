@@ -1,5 +1,5 @@
 {
-  "as_of": "2026-09-19T17:56:29.845191+00:00",
+  "as_of": "2026-09-19T18:03:48.544603+00:00",
   "as_of_et": "Sep 19, 1:56 PM ET",
   "timezone": "America/New_York",
   "book_name": "BG Portfolio Cockpit",
@@ -9,7 +9,7 @@
   "totals": {
     "book_usd": 493499.84,
     "cash_usd": 42201.31,
-    "uPnL_usd": 41769.09,
+    "uPnL_usd": 52384.69,
     "note": "Book total includes Coinbase, E*TRADE, Robinhood, Hyperliquid perps, and all EVM/Solana wallet MVs from 2026-09-19 Zerion/Helius pull. HL spot USDC not double-counted (perp collateral). Coinbase cost basis still incomplete for many transfer-ins.",
     "excluded": [
       "retirement"
@@ -25,7 +25,8 @@
       "cash": 47015.22,
       "uPnL": 16151.8,
       "position_count": 18,
-      "note": "Qty from Coinbase Advanced Trade accounts; marks from Sep 19 7am ET crypto desk + public UNI/PYR spot. Cost basis incomplete for many transfer-in holdings."
+      "note": "Qty from Coinbase Advanced Trade accounts; marks from Sep 19 7am ET crypto desk + public UNI/PYR spot. Cost basis incomplete for many transfer-in holdings. SOL basis corrected 2026-09-19 (was wrongly $218 on all 100).",
+      "sol_basis_fixed": true
     },
     {
       "id": "etrade",
@@ -395,11 +396,26 @@
         "symbol": "SOL",
         "kind": "crypto",
         "qty": 100.0,
-        "cost_basis": 218.0,
+        "cost_basis": 111.844,
         "mark": 111.895,
         "mv": 11189.5,
-        "uPnL": -10610.5,
-        "basis_status": "incomplete_history_short"
+        "uPnL": 5.1,
+        "basis_status": "hybrid_api_plus_reported",
+        "basis_note": "API only saw 6.8807 SOL @ $218 (2024-12-03). Remaining 93.1193 SOL costed at your reported ~$104 fill (~$10k add). Advanced Trade API missing that buy (retail/simple/transfer).",
+        "lots": [
+          {
+            "qty": 6.88073394,
+            "price": 218.0,
+            "source": "coinbase_at_fill",
+            "date": "2024-12-03"
+          },
+          {
+            "qty": 93.11926606,
+            "price": 104.0,
+            "source": "user_reported_2026-09-17ish",
+            "date": "2026-09-17"
+          }
+        ]
       },
       {
         "symbol": "UNI",
