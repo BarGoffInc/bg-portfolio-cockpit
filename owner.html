@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Owner view · BG Portfolio Cockpit</title>
+  <meta name="description" content="Interim static Portfolio Cockpit for BG book (no retirement)."/>
+  <meta name="theme-color" content="#102832"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body data-page="owner" data-role="owner">
+<div id="pin-gate" class="pin-gate" hidden>
+  <div class="pin-card">
+    <span class="brand-mark" style="display:inline-grid">BG</span>
+    <h1>Owner view</h1>
+    <p>View-only numbers. No edit buttons. Temporary PIN gate for this interim share.</p>
+    <form id="pin-form">
+      <div class="err" id="pin-err"></div>
+      <input id="pin-input" type="password" placeholder="PIN" autocomplete="current-password" autofocus/>
+      <button class="btn btn-teal" type="submit" style="width:100%;height:44px;font-size:14px">Unlock</button>
+    </form>
+    <div class="temp"><strong>Temporary:</strong> default PIN is <code>view</code>. This is not real security — replace when Origin ships.</div>
+  </div>
+</div>
+<div class="app" id="app-root" hidden>
+<aside class="sidebar">
+  <a class="brand" href="owner.html">
+    <span class="brand-mark">BG</span>
+    <span class="brand-title">Portfolio<br>Cockpit</span>
+  </a>
+  <p class="brand-sub">interim · no retirement · owner</p>
+  <nav style="flex:1;overflow:auto;margin-top:12px">
+    <div class="nav-section">
+      <p class="nav-label">Book</p>
+      <a class="nav-link active" href="owner.html"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg><span>Overview</span></a>
+    </div>
+    <div class="nav-section"><p class="nav-label">Note</p><p style="padding:8px 12px;font-size:12px;color:rgba(255,255,255,0.55);line-height:1.4">View-only share. No Connections, no edit.</p></div>
+  </nav>
+  <div class="sidebar-foot">
+    <span class="dot warn"></span>Interim static book
+    <small>As of <span data-asof>—</span></small>
+  </div>
+</aside>
+<main class="main">
+  <header class="page-header">
+    <div>
+      <p class="eyebrow">Owner share</p>
+      <h1>Overview <span class="owner-badge">View only</span></h1>
+    </div>
+    <div class="header-actions">
+      <div class="status-pill"><span class="dot ok"></span><span><strong>No edit affordances</strong><small data-asof>—</small></span></div>
+    </div>
+  </header>
+  <div class="content">
+    <div class="banner" id="interim-banner">Loading…</div>
+    <div id="loading" class="loading">Loading book.json…</div>
+    <section class="hero" id="hero"></section>
+    <section class="card">
+      <div class="card-head">
+        <div>
+          <p class="sub">uPnL vs margin</p>
+          <h3>Open perps</h3>
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table class="data">
+          <thead><tr>
+            <th>Contract</th><th>Side</th><th>Size</th><th>Mark</th><th>Margin</th><th>uPnL</th>
+          </tr></thead>
+          <tbody id="perps-body"></tbody>
+        </table>
+      </div>
+    </section>
+    <section class="card card-tight">
+      <div style="padding:16px 20px 0"><h3>Recent activity</h3></div>
+      <div id="activity-list"></div>
+    </section>
+    <section class="card">
+      <div class="card-head"><h3>Largest holdings</h3></div>
+      <div class="holdings-grid">
+        <div class="donut-wrap" id="donut"></div>
+        <div id="holdings-list"></div>
+      </div>
+    </section>
+  </div>
+</main>
+<nav class="mobile-nav"><a class="active" href="owner.html"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>Overview</a></nav>
+</div>
+<script src="app.js"></script>
+</body></html>
