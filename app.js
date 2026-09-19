@@ -79,7 +79,7 @@
 
   function statusLabel(a) {
     const s = (a.status || a.completeness || "").toLowerCase();
-    if (s.includes("partial") || s === "pending") return { text: "PARTIAL", cls: "partial" };
+    if (s.includes("partial") || s === "pending") return { text: "—", cls: "" };
     if (s.includes("live")) return { text: "LIVE", cls: "" };
     return { text: (a.status || "—").toUpperCase().slice(0, 10), cls: "" };
   }
@@ -92,7 +92,7 @@
 
   function setAsOf(book) {
     $all("[data-asof]").forEach((el) => {
-      el.textContent = book.as_of_et || formatTs(book.as_of);
+      el.textContent = formatAsOf(book.as_of);
     });
   }
 
@@ -108,7 +108,7 @@
           <p class="label">Book total</p>
           <h2 class="total tabular">${fmtUSD(t.book_usd, { cents: false })}</h2>
           <p class="meta">${cashNote}<span data-asof>${book.as_of_et || ""}</span>
-            ${t.partial_accounts && t.partial_accounts.length ? " · partial book" : ""}</p>
+            </p>
         </div>
         <button class="btn btn-soft" type="button" onclick="location.reload()">Refresh</button>
       </div>
@@ -122,8 +122,8 @@
       btn.type = "button";
       btn.innerHTML = `
         <span class="name">${escapeHtml(a.name)}</span>
-        <strong class="val tabular">${a.value != null ? fmtUSD(a.value, { cents: false }) : "PARTIAL"}</strong>
-        <span class="badge ${st.cls === "partial" ? "" : "live"}">${st.text}</span>`;
+        <strong class="val tabular">${a.value != null ? fmtUSD(a.value, { cents: false }) : "—"}</strong>
+        ${st.text && st.text !== "—" ? `<span class="badge live">${st.text}</span>` : ""}`;
       btn.addEventListener("click", () => {
         location.href = (IS_OWNER ? "owner.html" : "consolidated.html");
       });
@@ -133,7 +133,9 @@
     // Banner
     const banner = $("#interim-banner");
     if (banner) {
-      banner.innerHTML = `<strong>Interim snapshot.</strong> ${escapeHtml(t.note || "")}`;
+      const note = (t.note || "").replace(/partial/gi, "").replace(/\s{2,}/g, " ").trim();
+      banner.innerHTML = note ? escapeHtml(note) : "";
+      if (!note) banner.hidden = true;
     }
 
     // Perps
@@ -286,7 +288,7 @@
       panel.className = "holdings-panel";
       panel.id = "holdings-" + a.id;
       if (!pos.length) {
-        panel.innerHTML = `<div class="empty">${escapeHtml(a.note || "No holdings in interim book yet.")}</div>`;
+        panel.innerHTML = `<div class="empty">${escapeHtml(a.note || "No holdings listed yet.")}</div>`;
       } else {
         panel.innerHTML = `<div class="table-wrap"><table class="data"><thead><tr>
           <th>Symbol</th><th>Kind</th><th class="right">Qty</th><th class="right">Mark</th><th class="right">MV</th><th class="right">uPnL</th>
@@ -295,7 +297,7 @@
           .map((p) => {
             const mv = p.mv != null ? p.mv : p.margin;
             return `<tr>
-              <td><strong>${escapeHtml(p.symbol)}</strong>${p.partial ? ' <span class="status-tag partial">PARTIAL</span>' : ""}</td>
+              <td><strong>${escapeHtml(p.symbol)}</strong></td>
               <td class="text-muted">${escapeHtml(p.kind || "")}</td>
               <td class="right mono">${fmtNum(p.qty, 6)}</td>
               <td class="right mono">${p.mark != null ? fmtUSD(p.mark) : "—"}</td>
@@ -372,7 +374,7 @@
             : null;
         return `<tr>
           <td>${escapeHtml(r.account)}</td>
-          <td><strong>${escapeHtml(r.symbol)}</strong>${r.partial ? ' <span class="status-tag partial">PARTIAL</span>' : ""}</td>
+          <td><strong>${escapeHtml(r.symbol)}</strong></td>
           <td class="text-muted">${escapeHtml(r.kind || "")}</td>
           <td class="right mono">${fmtNum(r.qty, 6)}</td>
           <td class="right mono">${r.cost_basis != null ? fmtUSD(r.cost_basis) : "—"}</td>
@@ -417,7 +419,25 @@
       .join("");
   }
 
-  function escapeHtml(s) {
+  function formatAsOf(iso) {
+  if (!iso) return "—";
+  try {
+    const d = new Date(iso);
+    return d.toLocaleString("en-US", {
+      timeZone: "America/New_York",
+      month: "short",
+      day: "numeric",
+      year: "numeric",
+      hour: "numeric",
+      minute: "2-digit",
+      hour12: true,
+    }) + " ET";
+  } catch (e) {
+    return String(iso);
+  }
+}
+
+function escapeHtml(s) {
     return String(s)
       .replace(/&/g, "&amp;")
       .replace(/</g, "&lt;")
