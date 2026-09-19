@@ -1,8 +1,5 @@
 # BG Portfolio Cockpit
 
-Private portfolio snapshot for Adriano (manager) and a PIN-gated owner view.
+Shared live book for Adriano and the account owner. One site, view-only numbers (no trading, no API keys).
 
-- Manager: open the site root
-- Owner: `/owner.html` — PIN provided separately
-
-Numbers come from `book.json` (refreshed by Conviction). No brokerage API keys are stored in this repo.
+Open: https://bargoffinc.github.io/bg-portfolio-cockpit/
