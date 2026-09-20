@@ -91,63 +91,38 @@
     return { text: (a.status || "—").toUpperCase().slice(0, 10), cls: "" };
   }
 
-  function cacheBust(url) {
-    const u = new URL(url, location.href);
-    u.searchParams.set("_", String(Date.now()));
-    return u.pathname.split("/").pop() + u.search; // relative name + query
+  // Bust cache only when the user hits Refresh (normal loads use CDN / browser cache).
+  let FORCE_BUST = false;
+
+  function dataUrl(name) {
+    if (!FORCE_BUST) return name;
+    return name + (name.includes("?") ? "&" : "?") + "_=" + Date.now();
   }
 
   async function loadBook() {
-    const res = await fetch(cacheBust("book.json"), { cache: "no-store" });
+    const res = await fetch(dataUrl("book.json"), {
+      cache: FORCE_BUST ? "no-store" : "default",
+    });
     if (!res.ok) throw new Error("Could not load book.json (" + res.status + ")");
     return res.json();
   }
 
-  /** Refresh button: re-fetch book (bypass CDN) and re-render. Also soft-bust assets. */
-  async function hardRefresh(ev) {
-    const btn = ev && ev.currentTarget;
-    const prev = btn ? btn.textContent : "";
-    if (btn) {
-      btn.disabled = true;
-      btn.textContent = "Refreshing…";
-    }
-    try {
-      // Bust HTML/JS/CSS CDN by reloading once with a stamp (first click after deploy)
-      const params = new URLSearchParams(location.search);
-      const last = params.get("r");
-      const now = String(Date.now());
-      // Always re-fetch data in place; only full-reload assets if stamp is older than 30s
-      if (!last || Date.now() - Number(last) > 30000) {
-        params.set("r", now);
-        const next = location.pathname + "?" + params.toString() + location.hash;
-        location.replace(next);
-        return;
-      }
-      const loading = $("#loading");
-      if (!loading) {
-        const el = document.createElement("div");
-        el.id = "loading";
-        el.className = "loading";
-        el.textContent = "Refreshing book…";
-        const content = document.querySelector(".content") || document.body;
-        content.prepend(el);
-      } else {
-        loading.hidden = false;
-        loading.textContent = "Refreshing book…";
-        if (!loading.parentNode) document.body.prepend(loading);
-      }
-      await boot();
-    } catch (err) {
-      console.error(err);
-      alert("Refresh failed: " + (err && err.message ? err.message : err));
-    } finally {
-      if (btn) {
-        btn.disabled = false;
-        btn.textContent = prev || "Refresh";
-      }
-    }
+  /** Refresh button: one cache-busting reload of the page. */
+  function hardRefresh() {
+    const params = new URLSearchParams(location.search);
+    params.set("r", String(Date.now()));
+    location.replace(location.pathname + "?" + params.toString() + location.hash);
   }
   window.hardRefresh = hardRefresh;
+
+  // If landed with ?r=, force one busted data fetch then clean the URL
+  if (new URLSearchParams(location.search).has("r")) {
+    FORCE_BUST = true;
+    try {
+      const clean = location.pathname + location.hash;
+      history.replaceState(null, "", clean);
+    } catch (_) {}
+  }
 
   function setAsOf(book) {
     $all("[data-asof]").forEach((el) => {
@@ -555,7 +530,7 @@
       return;
     }
     // Cap display for UI responsiveness
-    const shown = rows.slice(0, 500);
+    const shown = rows.slice(0, 150);
     body.innerHTML = shown
       .map(
         (f) => `<tr>
@@ -576,7 +551,7 @@
   let __baroTypeFilter = "all";
 
   async function loadBarometer() {
-    const res = await fetch(cacheBust("barometer.json"), { cache: "no-store" });
+    const res = await fetch(dataUrl("barometer.json"), { cache: FORCE_BUST ? "no-store" : "default" });
     if (!res.ok) throw new Error("Could not load barometer.json (" + res.status + ")");
     return res.json();
   }
@@ -732,6 +707,8 @@
 
     // events
     let events = baro.recent_events || [];
+    // Cap DOM for mobile speed
+    // (full archive lives in journal snapshots)
     if (wallet !== "all") events = events.filter((e) => e.wallet === wallet);
     if (typeF !== "all") events = events.filter((e) => e.type === typeF);
     if (showSpam) {
