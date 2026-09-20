@@ -558,40 +558,71 @@
 
   function renderBarometer(baro, book) {
     __BARO__ = baro;
-    const note = $("#baro-note");
     const span = baro.span || {};
     const t = baro.totals || {};
+    const pnl = (baro.running_pnl && baro.running_pnl.headline) || {};
+    const note = $("#baro-note");
     if (note) {
       note.textContent =
-        "Barometer-grade · " +
-        (span.first || "?") + " → " + (span.last || "?") +
-        " · " + (t.event_count || 0).toLocaleString() + " events" +
-        " · spam/noise bucket " + (baro.spam_noise_count || 0).toLocaleString() +
-        " (toggle below). Explorers + archive; not tax-grade.";
+        "Ledger span " + (span.first || "?") + " → " + (span.last || "?") +
+        " · " + Number(t.event_count || 0).toLocaleString() + " tagged events" +
+        " · spam/noise bucket " + Number(baro.spam_noise_count || 0).toLocaleString() +
+        " (toggle above). Explorers + archive; not tax-grade.";
     }
 
     const hero = $("#baro-hero");
     if (hero) {
+      // Always paint — never leave hidden blank scoreboard
       hero.hidden = false;
-      const pnl = (baro.running_pnl && baro.running_pnl.headline) || {};
+      hero.removeAttribute("hidden");
+      const net = t.all_time_net_usd;
+      const buys = t.all_time_buys_usd;
+      const sells = t.all_time_sells_usd;
+      const events = t.event_count || 0;
+      const spanLabel = (span.first && span.last)
+        ? String(span.first).slice(0, 4) + "–" + String(span.last).slice(0, 4)
+        : "—";
+      const spanFull = (span.first || "?") + " → " + (span.last || "?");
       hero.innerHTML = `
         <div class="hero-top">
           <div>
             <p class="label">All-time net (sells − buys)</p>
-            <h2 class="total tabular ${pnlClass(t.all_time_net_usd)}">${fmtUSD(t.all_time_net_usd, { cents: false })}</h2>
-            <p class="meta">Buys ${fmtUSD(t.all_time_buys_usd, { cents: false })} · Sells ${fmtUSD(t.all_time_sells_usd, { cents: false })}
+            <h2 class="total tabular">${fmtUSD(net, { cents: false })}</h2>
+            <p class="meta">${escapeHtml(spanFull)} · ${Number(events).toLocaleString()} events
               · Majors P&amp;L ${fmtUSD(pnl.total_pnl_usd, { cents: false })}</p>
+          </div>
+        </div>
+        <div class="chips" id="baro-hero-chips">
+          <div class="chip" role="group">
+            <span class="name">Buys</span>
+            <strong class="val tabular">${fmtUSD(buys, { cents: false })}</strong>
+          </div>
+          <div class="chip" role="group">
+            <span class="name">Sells</span>
+            <strong class="val tabular">${fmtUSD(sells, { cents: false })}</strong>
+          </div>
+          <div class="chip" role="group">
+            <span class="name">Events</span>
+            <strong class="val tabular">${Number(events).toLocaleString()}</strong>
+          </div>
+          <div class="chip" role="group">
+            <span class="name">Date span</span>
+            <strong class="val tabular">${escapeHtml(spanLabel)}</strong>
           </div>
         </div>`;
     }
 
-    // wallet picker
+    // wallet picker — value must match by_wallet keys (full address)
     const sel = $("#baro-wallet");
     if (sel && !sel.dataset.ready) {
+      const wallets = (baro.wallets || []).slice().sort((a, b) => (b.event_count || 0) - (a.event_count || 0));
       sel.innerHTML = `<option value="all">All wallets (roll-up)</option>` +
-        (baro.wallets || []).map((w) =>
-          `<option value="${escapeHtml(w.address)}">${escapeHtml(w.label || w.address)} · ${w.event_count || 0} ev</option>`
-        ).join("");
+        wallets.map((w) => {
+          const addr = w.address || "";
+          const hasSeries = !!(baro.by_wallet && baro.by_wallet[addr]);
+          const label = (w.label || addr) + (hasSeries ? "" : " · no daily rows");
+          return `<option value="${escapeHtml(addr)}">${escapeHtml(label)} · ${w.event_count || 0} ev</option>`;
+        }).join("");
       sel.dataset.ready = "1";
       sel.addEventListener("change", () => renderBarometerTables(__BARO__));
     }
@@ -601,14 +632,14 @@
       spam.addEventListener("change", () => renderBarometerTables(__BARO__));
     }
 
-    // type filter chips
+    // type filter chips (light-card styles via .baro-filter-chips)
     const typesWrap = $("#baro-type-filters");
     if (typesWrap && !typesWrap.dataset.ready) {
       const hist = baro.type_histogram || {};
       const keys = ["all", "swap", "transfer", "airdrop", "nft_mint", "nft_buy", "nft_sell", "lp_add", "lp_remove", "stake", "unstake"];
       typesWrap.innerHTML = keys.map((k) => {
         const n = k === "all" ? (t.event_count || 0) : (hist[k] || 0);
-        return `<button type="button" class="chip baro-type${k === "all" ? " on" : ""}" data-type="${k}">${k}<strong class="val tabular">${n}</strong></button>`;
+        return `<button type="button" class="chip baro-type${k === "all" ? " on" : ""}" data-type="${k}">${k}<strong class="val tabular">${Number(n).toLocaleString()}</strong></button>`;
       }).join("");
       typesWrap.dataset.ready = "1";
       typesWrap.addEventListener("click", (ev) => {
@@ -625,7 +656,7 @@
     const assets = (baro.running_pnl && baro.running_pnl.assets) || {};
     if (pnlBody) {
       const rows = Object.keys(assets).map((sym) => {
-        const a = assets[sym];
+        const a = assets[sym] || {};
         return `<tr>
           <td><strong>${escapeHtml(sym)}</strong></td>
           <td class="right mono">${fmtNum(a.qty, 6)}</td>
@@ -644,11 +675,18 @@
     }
 
     renderBarometerTables(baro);
+  }
 
-    // Overview one-liner lives in book; optional banner already handled separately
-    if (book && book.barometer && $("#interim-banner") && PAGE === "overview") {
-      /* no-op here */
-    }
+  function baroWeekKey(dayStr) {
+    // Monday-start ISO-ish week key from YYYY-MM-DD
+    const parts = String(dayStr || "").split("-").map(Number);
+    if (parts.length < 3 || !parts[0]) return dayStr;
+    const d = new Date(Date.UTC(parts[0], parts[1] - 1, parts[2]));
+    if (Number.isNaN(d.getTime())) return dayStr;
+    const dow = d.getUTCDay(); // 0 Sun
+    const offset = dow === 0 ? -6 : 1 - dow;
+    d.setUTCDate(d.getUTCDate() + offset);
+    return d.toISOString().slice(0, 10);
   }
 
   function renderBarometerTables(baro) {
@@ -659,13 +697,27 @@
 
     let days;
     if (wallet === "all") {
-      days = baro.rollup || [];
+      days = Array.isArray(baro.rollup) ? baro.rollup : [];
     } else {
-      days = (baro.by_wallet && baro.by_wallet[wallet]) || [];
+      const series = baro.by_wallet && baro.by_wallet[wallet];
+      days = Array.isArray(series) ? series : [];
+    }
+
+    const windowLabel = $("#baro-window-label");
+    if (windowLabel) {
+      if (days.length) {
+        windowLabel.textContent =
+          "Recent daily window · " + days[0].day + " → " + days[days.length - 1].day +
+          " (" + days.length + " days)";
+      } else {
+        windowLabel.textContent = "Recent daily window · no rows for this filter";
+      }
     }
 
     // notable days
-    const notable = (wallet === "all" ? (baro.notable_days || []) : [...days].sort((a, b) => Math.abs(b.net_usd) - Math.abs(a.net_usd)).slice(0, 40));
+    const notable = (wallet === "all"
+      ? (baro.notable_days || [])
+      : [...days].sort((a, b) => Math.abs(b.net_usd || 0) - Math.abs(a.net_usd || 0)).slice(0, 40));
     const daysBody = $("#baro-days-body");
     if (daysBody) {
       daysBody.innerHTML = notable.slice(0, 25).map((r) => `<tr>
@@ -673,9 +725,36 @@
         <td class="right mono">${fmtUSD(r.buys_usd, { cents: false })}</td>
         <td class="right mono">${fmtUSD(r.sells_usd, { cents: false })}</td>
         <td class="right mono ${pnlClass(r.net_usd)}">${fmtUSD(r.net_usd, { cents: false })}</td>
-        <td class="right mono">${r.event_count || "—"}</td>
+        <td class="right mono">${r.event_count != null ? r.event_count : "—"}</td>
         <td class="text-muted" style="font-size:12px">${escapeHtml(r.notes || "")}</td>
       </tr>`).join("") || `<tr><td colspan="6" class="empty">No days</td></tr>`;
+    }
+
+    // weekly summary (last ~12 weeks with any activity preferred)
+    const weekMap = new Map();
+    days.forEach((r) => {
+      const k = baroWeekKey(r.day);
+      let w = weekMap.get(k);
+      if (!w) {
+        w = { week: k, buys_usd: 0, sells_usd: 0, net_usd: 0, event_count: 0 };
+        weekMap.set(k, w);
+      }
+      w.buys_usd += Number(r.buys_usd) || 0;
+      w.sells_usd += Number(r.sells_usd) || 0;
+      w.net_usd += Number(r.net_usd) || 0;
+      w.event_count += Number(r.event_count) || 0;
+    });
+    const weeks = [...weekMap.values()].sort((a, b) => (a.week < b.week ? -1 : 1));
+    const weeklyBody = $("#baro-weekly-body");
+    if (weeklyBody) {
+      const show = weeks.slice(-12).reverse();
+      weeklyBody.innerHTML = show.map((r) => `<tr>
+        <td class="mono">${escapeHtml(r.week)}</td>
+        <td class="right mono">${fmtUSD(r.buys_usd, { cents: false })}</td>
+        <td class="right mono">${fmtUSD(r.sells_usd, { cents: false })}</td>
+        <td class="right mono ${pnlClass(r.net_usd)}">${fmtUSD(r.net_usd, { cents: false })}</td>
+        <td class="right mono">${r.event_count}</td>
+      </tr>`).join("") || `<tr><td colspan="5" class="empty">No weekly rows in window</td></tr>`;
     }
 
     // daily table (newest first)
@@ -690,31 +769,45 @@
         <td class="right mono">${fmtUSD(r.transfer_out_usd, { cents: false })}</td>
         <td class="right mono ${pnlClass(r.net_usd)}">${fmtUSD(r.net_usd, { cents: false })}</td>
         <td class="text-muted" style="font-size:12px">${escapeHtml(r.notes || "")}</td>
-      </tr>`).join("") || `<tr><td colspan="7" class="empty">No daily rows</td></tr>`;
+      </tr>`).join("") || `<tr><td colspan="7" class="empty">No daily rows in recent window</td></tr>`;
     }
 
-    // spark bars for last ~90 days with activity
+    // spark bars for last ~90 days with buy/sell/net activity
     const chart = $("#baro-chart");
+    const caption = $("#baro-chart-caption");
     if (chart) {
       const series = days.filter((d) => d.buys_usd || d.sells_usd || d.net_usd).slice(-90);
-      const maxAbs = Math.max(1, ...series.map((d) => Math.abs(d.net_usd || 0)));
-      chart.innerHTML = series.map((d) => {
-        const h = Math.max(2, Math.round((Math.abs(d.net_usd) / maxAbs) * 56));
-        const cls = (d.net_usd || 0) >= 0 ? "up" : "down";
-        return `<i class="baro-bar ${cls}" style="height:${h}px" title="${escapeHtml(d.day)}: net ${d.net_usd}"></i>`;
-      }).join("");
+      if (!series.length) {
+        chart.innerHTML = "";
+        if (caption) {
+          caption.textContent = days.length
+            ? "No buy/sell activity in the recent daily window for this filter (transfers-only days omitted from spark)."
+            : "No daily series for this wallet in the recent window.";
+        }
+      } else {
+        const maxAbs = Math.max(1, ...series.map((d) => Math.abs(Number(d.net_usd) || 0)));
+        chart.innerHTML = series.map((d) => {
+          const net = Number(d.net_usd) || 0;
+          const h = Math.max(2, Math.round((Math.abs(net) / maxAbs) * 56));
+          const cls = net >= 0 ? "up" : "down";
+          return `<i class="baro-bar ${cls}" style="height:${h}px" title="${escapeHtml(d.day)}: net ${net}"></i>`;
+        }).join("");
+        if (caption) {
+          caption.textContent =
+            "Spark: last " + series.length + " active days in window (" +
+            series[0].day + " → " + series[series.length - 1].day + "). Teal = net sells > buys.";
+        }
+      }
     }
 
     // events
     let events = baro.recent_events || [];
-    // Cap DOM for mobile speed
-    // (full archive lives in journal snapshots)
     if (wallet !== "all") events = events.filter((e) => e.wallet === wallet);
     if (typeF !== "all") events = events.filter((e) => e.type === typeF);
     events = events.slice(0, 80);
     if (showSpam) {
-      const spam = (baro.spam_noise_sample || []).slice().reverse();
-      const spamF = wallet === "all" ? spam : spam.filter((e) => e.wallet === wallet);
+      const spamRows = (baro.spam_noise_sample || []).slice().reverse();
+      const spamF = wallet === "all" ? spamRows : spamRows.filter((e) => e.wallet === wallet);
       events = spamF.concat(events);
     }
     const evBody = $("#baro-events-body");

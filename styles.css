@@ -576,6 +576,22 @@ table.data tr:first-child td { border-top: 0; }
 
 
 /* Barometer */
+.baro-explainer {
+  margin: 0 0 14px;
+  padding: 12px 14px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--ink);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+}
+.baro-explainer strong { font-weight: 700; }
+
+/* Hero scoreboard stays white on navy — do not use table gain/loss colors */
+.hero .total { color: #fff; }
+.hero .meta { color: rgba(255,255,255,0.7); }
+
 .baro-chart {
   display: flex;
   align-items: flex-end;
@@ -604,7 +620,29 @@ table.data tr:first-child td { border-top: 0; }
   color: var(--teal-2);
   text-transform: lowercase;
 }
-.chip.baro-type.on {
+
+/* Type filter chips sit on light cards — override navy-hero chip colors */
+.baro-filter-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  grid-template-columns: none;
+}
+.baro-filter-chips .chip.baro-type {
+  background: #f4f7f8;
+  color: var(--ink);
+  border: 1px solid var(--line);
+  padding: 8px 10px;
+}
+.baro-filter-chips .chip.baro-type .val {
+  color: var(--ink);
+  font-size: 13px;
+}
+.baro-filter-chips .chip.baro-type:hover {
+  background: #e8eef1;
+}
+.baro-filter-chips .chip.baro-type.on {
   outline: 2px solid var(--teal);
   background: var(--teal-soft);
+  border-color: transparent;
 }
