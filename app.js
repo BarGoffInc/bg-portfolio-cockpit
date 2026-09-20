@@ -193,14 +193,45 @@
     return out;
   }
 
+  function isPerpSymbol(sym) {
+    return /-PERP$/i.test(String(sym || ""));
+  }
+
+  function isLikelyStock(sym) {
+    const s = String(sym || "").toUpperCase();
+    if (!s || isPerpSymbol(s)) return false;
+    // crypto majors / common book cryptos — everything else treated as stock/tradfi for weekend lock
+    const crypto = {
+      BTC:1, ETH:1, SOL:1, TAO:1, HYPE:1, SUI:1, UNI:1, XRP:1, USDC:1, USD:1, USDT:1,
+      WOOD:1, DRIFT:1, SPX:1, VVV:1, ZEC:1, LIT:1, AITECH:1, SUPER:1, BNB:1, ZF:1,
+      JUPSOL:1, NEAR:1, RENDER:1, FET:1, AKT:1, PEAQ:1, SEI:1, JUP:1, CAKE:1,
+    };
+    const b = baseSymbol(sym);
+    if (!b) return true; // options / unknown — don't live-override
+    if (crypto[b]) return false;
+    return true;
+  }
+
   function applyLiveMarks(book, prices) {
     if (!book || !prices) return book;
     const positions = book.positions || {};
     let bookUsd = 0;
     (book.accounts || []).forEach((a) => {
       const plist = positions[a.id] || [];
+      const priorValue = a.value;
       let acct = 0;
+      let touched = false;
       plist.forEach((p) => {
+        // Never revalue perps by qty*mark — that is notional, not equity
+        if (isPerpSymbol(p.symbol)) {
+          if (p.mv != null) acct += Number(p.mv) || 0;
+          return;
+        }
+        // Weekend / closed session: leave stock marks alone (SnapTrade last RTH)
+        if (isLikelyStock(p.symbol)) {
+          if (p.mv != null) acct += Number(p.mv) || 0;
+          return;
+        }
         const base = baseSymbol(p.symbol);
         const px = base && prices[base] != null ? prices[base] : null;
         if (px != null && p.qty != null && Number.isFinite(Number(p.qty))) {
@@ -211,30 +242,38 @@
             p.uPnL = Math.round((p.mv - costTotal) * 100) / 100;
             if (costTotal) p.uPnL_pct = Math.round((p.uPnL / costTotal) * 10000) / 100;
           }
+          touched = true;
         }
         if (p.mv != null) acct += Number(p.mv) || 0;
       });
-      // Keep broker cash / margin overlay
-      if (a.cash != null && (a.id === "etrade" || a.id === "robinhood" || a.id === "coinbase")) {
-        // coinbase value should be positions sum (USDC included); etrade/rh often cash separate
-        if (a.id === "coinbase") {
-          a.value = Math.round(acct * 100) / 100;
-        } else {
-          // stocks MV + cash (cash can be negative on margin)
-          a.value = Math.round((acct + Number(a.cash || 0)) * 100) / 100;
-        }
-      } else if (plist.length) {
+
+      // Hyperliquid / perp accounts: keep broker equity — do not sum notionals
+      if (a.id === "hyperliquid" || (a.name || "").toLowerCase().includes("hyperliquid")) {
+        a.value = priorValue;
+      } else if (a.id === "coinbase") {
+        a.value = Math.round(acct * 100) / 100;
+      } else if (a.id === "etrade" || a.id === "robinhood") {
+        // Stocks unchanged on weekend; preserve prior account value unless we only hold crypto there
+        a.value = priorValue;
+      } else if (plist.length && touched) {
         a.value = Math.round(acct * 100) / 100;
       }
       bookUsd += Number(a.value) || 0;
     });
     book.totals = book.totals || {};
     book.totals.book_usd = Math.round(bookUsd * 100) / 100;
-    // rebuild largest holdings from positions (consolidated)
+    // Rebuild largest from positions but for HL use account value not notionals in pie? keep positions as stored
     const buckets = {};
-    Object.keys(positions).forEach((aid) => {
-      const acctName = ((book.accounts || []).find((x) => x.id === aid) || {}).name || aid;
-      (positions[aid] || []).forEach((p) => {
+    (book.accounts || []).forEach((a) => {
+      const acctName = a.name || a.id;
+      // For pie, skip raw perp rows — attribute HL account equity as one sleeve
+      if (a.id === "hyperliquid") {
+        const key = "Hyperliquid equity";
+        buckets[key] = { symbol: key, mv: Number(a.value) || 0, accounts: [acctName] };
+        return;
+      }
+      (positions[a.id] || []).forEach((p) => {
+        if (isPerpSymbol(p.symbol)) return;
         const key = baseSymbol(p.symbol) || p.symbol;
         if (!key || p.mv == null) return;
         if (!buckets[key]) buckets[key] = { symbol: key, mv: 0, accounts: [] };
@@ -253,27 +292,26 @@
       }));
     const now = new Date();
     book.as_of = now.toISOString();
-    book.as_of_et = now.toLocaleString("en-US", {
-      timeZone: "America/New_York",
-      month: "short",
-      day: "numeric",
-      hour: "numeric",
-      minute: "2-digit",
-      hour12: true,
-    }) + " ET · live marks";
+    book.as_of_et =
+      now.toLocaleString("en-US", {
+        timeZone: "America/New_York",
+        month: "short",
+        day: "numeric",
+        hour: "numeric",
+        minute: "2-digit",
+        hour12: true,
+      }) + " ET · live crypto marks";
     book._live_marks = true;
     return book;
   }
 
-
-  /** Refresh: re-fetch saved book.json (CDN bust) and re-render. Live API still every 3h. */
   async function hardRefresh(ev) {
     if (ev && ev.preventDefault) ev.preventDefault();
     if (hardRefresh._busy) return;
     hardRefresh._busy = true;
     FORCE_BUST = true;
     setRefreshingUI(true);
-    toast("Pulling live prices…", 8000);
+    toast("Pulling live crypto marks…", 8000);
     const started = Date.now();
     try {
       let book = await loadBook();
