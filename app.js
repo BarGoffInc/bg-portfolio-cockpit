@@ -151,6 +151,121 @@
     });
   }
 
+
+  function baseSymbol(sym) {
+    if (!sym) return null;
+    let s = String(sym).trim();
+    if (s === "Other (dust)" || s === "USDC" || s === "USD" || s === "USDT") return s;
+    if (/\s/.test(s) && /\d/.test(s)) return null; // options
+    if (/-PERP$/i.test(s)) return s.replace(/-PERP$/i, "").toUpperCase();
+    if (s.indexOf("JupSOL") === 0 || s === "SOL-STAKE") return "SOL";
+    if (s === "WETH" || s === "wETH") return "ETH";
+    if (s === "WBTC" || s === "cbBTC") return "BTC";
+    return s.split(" ")[0].toUpperCase();
+  }
+
+  async function fetchCoinbasePrice(product) {
+    const url = "https://api.exchange.coinbase.com/products/" + encodeURIComponent(product) + "/ticker";
+    const res = await fetch(url, { cache: "no-store" });
+    if (!res.ok) return null;
+    const j = await res.json();
+    const px = Number(j.price);
+    return Number.isFinite(px) ? px : null;
+  }
+
+  async function fetchLivePrices(symbols) {
+    const out = {};
+    const uniq = [...new Set(symbols.filter(Boolean))];
+    // Coinbase public tickers (crypto + many Coinbase stocks)
+    await Promise.all(
+      uniq.map(async (sym) => {
+        if (sym === "USDC" || sym === "USD" || sym === "USDT") {
+          out[sym] = 1;
+          return;
+        }
+        const product = sym + "-USD";
+        try {
+          const px = await fetchCoinbasePrice(product);
+          if (px != null) out[sym] = px;
+        } catch (_) {}
+      })
+    );
+    return out;
+  }
+
+  function applyLiveMarks(book, prices) {
+    if (!book || !prices) return book;
+    const positions = book.positions || {};
+    let bookUsd = 0;
+    (book.accounts || []).forEach((a) => {
+      const plist = positions[a.id] || [];
+      let acct = 0;
+      plist.forEach((p) => {
+        const base = baseSymbol(p.symbol);
+        const px = base && prices[base] != null ? prices[base] : null;
+        if (px != null && p.qty != null && Number.isFinite(Number(p.qty))) {
+          p.mark = px;
+          p.mv = Math.round(Number(p.qty) * px * 100) / 100;
+          if (p.cost_basis != null && Number.isFinite(Number(p.cost_basis))) {
+            const costTotal = p.cost_total != null ? Number(p.cost_total) : Number(p.cost_basis) * Number(p.qty);
+            p.uPnL = Math.round((p.mv - costTotal) * 100) / 100;
+            if (costTotal) p.uPnL_pct = Math.round((p.uPnL / costTotal) * 10000) / 100;
+          }
+        }
+        if (p.mv != null) acct += Number(p.mv) || 0;
+      });
+      // Keep broker cash / margin overlay
+      if (a.cash != null && (a.id === "etrade" || a.id === "robinhood" || a.id === "coinbase")) {
+        // coinbase value should be positions sum (USDC included); etrade/rh often cash separate
+        if (a.id === "coinbase") {
+          a.value = Math.round(acct * 100) / 100;
+        } else {
+          // stocks MV + cash (cash can be negative on margin)
+          a.value = Math.round((acct + Number(a.cash || 0)) * 100) / 100;
+        }
+      } else if (plist.length) {
+        a.value = Math.round(acct * 100) / 100;
+      }
+      bookUsd += Number(a.value) || 0;
+    });
+    book.totals = book.totals || {};
+    book.totals.book_usd = Math.round(bookUsd * 100) / 100;
+    // rebuild largest holdings from positions (consolidated)
+    const buckets = {};
+    Object.keys(positions).forEach((aid) => {
+      const acctName = ((book.accounts || []).find((x) => x.id === aid) || {}).name || aid;
+      (positions[aid] || []).forEach((p) => {
+        const key = baseSymbol(p.symbol) || p.symbol;
+        if (!key || p.mv == null) return;
+        if (!buckets[key]) buckets[key] = { symbol: key, mv: 0, accounts: [] };
+        buckets[key].mv += Number(p.mv) || 0;
+        if (acctName && !buckets[key].accounts.includes(acctName)) buckets[key].accounts.push(acctName);
+      });
+    });
+    book.largest_holdings = Object.values(buckets)
+      .sort((a, b) => Math.abs(b.mv) - Math.abs(a.mv))
+      .slice(0, 25)
+      .map((b) => ({
+        symbol: b.symbol,
+        mv: Math.round(b.mv * 100) / 100,
+        accounts: b.accounts,
+        account: b.accounts.length <= 1 ? (b.accounts[0] || "") : b.accounts.join(" + "),
+      }));
+    const now = new Date();
+    book.as_of = now.toISOString();
+    book.as_of_et = now.toLocaleString("en-US", {
+      timeZone: "America/New_York",
+      month: "short",
+      day: "numeric",
+      hour: "numeric",
+      minute: "2-digit",
+      hour12: true,
+    }) + " ET · live marks";
+    book._live_marks = true;
+    return book;
+  }
+
+
   /** Refresh: re-fetch saved book.json (CDN bust) and re-render. Live API still every 3h. */
   async function hardRefresh(ev) {
     if (ev && ev.preventDefault) ev.preventDefault();
@@ -158,10 +273,21 @@
     hardRefresh._busy = true;
     FORCE_BUST = true;
     setRefreshingUI(true);
-    toast("Refreshing…", 8000);
+    toast("Pulling live prices…", 8000);
     const started = Date.now();
     try {
-      const book = await loadBook();
+      let book = await loadBook();
+      // Gather symbols across accounts for live marks
+      const syms = [];
+      Object.values(book.positions || {}).forEach((plist) => {
+        (plist || []).forEach((p) => {
+          const b = baseSymbol(p.symbol);
+          if (b) syms.push(b);
+        });
+      });
+      const prices = await fetchLivePrices(syms);
+      const priced = Object.keys(prices).length;
+      book = applyLiveMarks(book, prices);
       window.__BOOK__ = book;
       setAsOf(book);
       if (PAGE === "overview" || PAGE === "owner") renderOverview(book);
@@ -173,11 +299,14 @@
         window.__BARO__ = baro;
         renderBarometer(baro, book);
       }
-      // Keep "Refreshing…" on screen long enough to notice (fetch is often instant)
-      const wait = Math.max(0, 900 - (Date.now() - started));
+      const wait = Math.max(0, 700 - (Date.now() - started));
       if (wait) await new Promise((r) => setTimeout(r, wait));
-      const when = book.as_of_et || formatAsOf(book.as_of) || "unknown time";
-      toast("Reloaded · last update " + when + " · live feeds auto-pull every 3 hours");
+      const when = book.as_of_et || formatAsOf(book.as_of) || "";
+      toast(
+        priced
+          ? ("Live marks updated · " + priced + " prices · " + when)
+          : ("Book reloaded but no live prices (network?) · " + when)
+      );
     } catch (err) {
       console.error(err);
       toast("Refresh failed: " + (err && err.message ? err.message : err));
