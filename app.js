@@ -107,7 +107,7 @@
     return res.json();
   }
 
-  function toast(msg) {
+  function toast(msg, ms) {
     let el = document.getElementById("cockpit-toast");
     if (!el) {
       el = document.createElement("div");
@@ -119,26 +119,52 @@
     el.textContent = msg;
     el.hidden = false;
     clearTimeout(toast._t);
-    toast._t = setTimeout(() => { el.hidden = true; }, 4500);
+    toast._t = setTimeout(() => { el.hidden = true; }, ms || 4500);
   }
 
-  /** Refresh: re-fetch book.json past CDN/browser cache and re-render in place. */
-  async function hardRefresh(ev) {
-    const btn = ev && ev.currentTarget;
-    const label = btn ? btn.textContent : "";
-    if (btn) {
-      btn.disabled = true;
-      btn.textContent = "Refreshing…";
+  function setRefreshingUI(on) {
+    document.body.classList.toggle("is-refreshing", !!on);
+    let banner = document.getElementById("refresh-banner");
+    if (on) {
+      if (!banner) {
+        banner = document.createElement("div");
+        banner.id = "refresh-banner";
+        banner.setAttribute("role", "status");
+        banner.style.cssText = "position:fixed;top:0;left:0;right:0;z-index:10000;background:#3db8c5;color:#102832;font-weight:700;font-size:14px;padding:10px 16px;text-align:center";
+        document.body.appendChild(banner);
+      }
+      banner.textContent = "Refreshing…";
+      banner.hidden = false;
+    } else if (banner) {
+      banner.hidden = true;
     }
+    document.querySelectorAll("[data-refresh]").forEach((b) => {
+      if (on) {
+        if (!b.dataset.prevLabel) b.dataset.prevLabel = b.textContent || "Refresh";
+        b.disabled = true;
+        b.textContent = "Refreshing…";
+      } else {
+        b.disabled = false;
+        b.textContent = b.dataset.prevLabel || "Refresh";
+        delete b.dataset.prevLabel;
+      }
+    });
+  }
+
+  /** Refresh: re-fetch saved book.json (CDN bust) and re-render. Live API still every 3h. */
+  async function hardRefresh(ev) {
+    if (ev && ev.preventDefault) ev.preventDefault();
+    if (hardRefresh._busy) return;
+    hardRefresh._busy = true;
     FORCE_BUST = true;
+    setRefreshingUI(true);
+    toast("Refreshing…", 8000);
+    const started = Date.now();
     try {
       const book = await loadBook();
       window.__BOOK__ = book;
       setAsOf(book);
-      // Re-run the same page render path as boot (without full navigation)
-      if (PAGE === "overview" || PAGE === "owner") {
-        renderOverview(book);
-      }
+      if (PAGE === "overview" || PAGE === "owner") renderOverview(book);
       if (PAGE === "consolidated") renderConsolidated(book);
       if (PAGE === "pnl") renderPnL(book);
       if (PAGE === "history") renderHistory(book);
@@ -147,20 +173,28 @@
         window.__BARO__ = baro;
         renderBarometer(baro, book);
       }
+      // Keep "Refreshing…" on screen long enough to notice (fetch is often instant)
+      const wait = Math.max(0, 900 - (Date.now() - started));
+      if (wait) await new Promise((r) => setTimeout(r, wait));
       const when = book.as_of_et || formatAsOf(book.as_of) || "unknown time";
-      toast("Reloaded book · last update " + when + " (live API pull is every 3 hours)");
+      toast("Reloaded · last update " + when + " · live feeds auto-pull every 3 hours");
     } catch (err) {
       console.error(err);
       toast("Refresh failed: " + (err && err.message ? err.message : err));
     } finally {
       FORCE_BUST = false;
-      if (btn) {
-        btn.disabled = false;
-        btn.textContent = label || "Refresh";
-      }
+      setRefreshingUI(false);
+      hardRefresh._busy = false;
     }
   }
   window.hardRefresh = hardRefresh;
+
+  // Event delegation — survives hero re-renders
+  document.addEventListener("click", (ev) => {
+    const btn = ev.target && ev.target.closest && ev.target.closest("[data-refresh]");
+    if (!btn) return;
+    hardRefresh(ev);
+  });
 
   function setAsOf(book) {
     $all("[data-asof]").forEach((el) => {
@@ -182,7 +216,7 @@
           <p class="meta">${cashNote}<span data-asof>${book.as_of_et || ""}</span>
             </p>
         </div>
-        <button class="btn btn-soft" type="button" onclick="hardRefresh(event)">Refresh</button>
+        <button class="btn btn-soft" type="button" data-refresh>Refresh</button>
       </div>
       <div class="chips" id="account-chips"></div>`;
 
