@@ -711,6 +711,7 @@
     // (full archive lives in journal snapshots)
     if (wallet !== "all") events = events.filter((e) => e.wallet === wallet);
     if (typeF !== "all") events = events.filter((e) => e.type === typeF);
+    events = events.slice(0, 80);
     if (showSpam) {
       const spam = (baro.spam_noise_sample || []).slice().reverse();
       const spamF = wallet === "all" ? spam : spam.filter((e) => e.wallet === wallet);
