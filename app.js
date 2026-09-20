@@ -107,22 +107,60 @@
     return res.json();
   }
 
-  /** Refresh button: one cache-busting reload of the page. */
-  function hardRefresh() {
-    const params = new URLSearchParams(location.search);
-    params.set("r", String(Date.now()));
-    location.replace(location.pathname + "?" + params.toString() + location.hash);
+  function toast(msg) {
+    let el = document.getElementById("cockpit-toast");
+    if (!el) {
+      el = document.createElement("div");
+      el.id = "cockpit-toast";
+      el.setAttribute("role", "status");
+      el.style.cssText = "position:fixed;bottom:72px;left:50%;transform:translateX(-50%);z-index:9999;background:#102832;color:#fff;padding:10px 16px;border-radius:10px;font-size:13px;box-shadow:0 8px 24px rgba(0,0,0,.35);max-width:90vw;text-align:center";
+      document.body.appendChild(el);
+    }
+    el.textContent = msg;
+    el.hidden = false;
+    clearTimeout(toast._t);
+    toast._t = setTimeout(() => { el.hidden = true; }, 4500);
   }
-  window.hardRefresh = hardRefresh;
 
-  // If landed with ?r=, force one busted data fetch then clean the URL
-  if (new URLSearchParams(location.search).has("r")) {
+  /** Refresh: re-fetch book.json past CDN/browser cache and re-render in place. */
+  async function hardRefresh(ev) {
+    const btn = ev && ev.currentTarget;
+    const label = btn ? btn.textContent : "";
+    if (btn) {
+      btn.disabled = true;
+      btn.textContent = "Refreshing…";
+    }
     FORCE_BUST = true;
     try {
-      const clean = location.pathname + location.hash;
-      history.replaceState(null, "", clean);
-    } catch (_) {}
+      const book = await loadBook();
+      window.__BOOK__ = book;
+      setAsOf(book);
+      // Re-run the same page render path as boot (without full navigation)
+      if (PAGE === "overview" || PAGE === "owner") {
+        renderOverview(book);
+      }
+      if (PAGE === "consolidated") renderConsolidated(book);
+      if (PAGE === "pnl") renderPnL(book);
+      if (PAGE === "history") renderHistory(book);
+      if (PAGE === "barometer") {
+        const baro = await loadBarometer();
+        window.__BARO__ = baro;
+        renderBarometer(baro, book);
+      }
+      const when = book.as_of_et || formatAsOf(book.as_of) || "unknown time";
+      toast("Reloaded book · last update " + when + " (live API pull is every 3 hours)");
+    } catch (err) {
+      console.error(err);
+      toast("Refresh failed: " + (err && err.message ? err.message : err));
+    } finally {
+      FORCE_BUST = false;
+      if (btn) {
+        btn.disabled = false;
+        btn.textContent = label || "Refresh";
+      }
+    }
   }
+  window.hardRefresh = hardRefresh;
 
   function setAsOf(book) {
     $all("[data-asof]").forEach((el) => {
