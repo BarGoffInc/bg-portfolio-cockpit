@@ -1,0 +1,81 @@
+{
+  "day": "2026-09-13",
+  "tz": "America/New_York",
+  "generated_at": "2026-09-21T17:32:32.352008-04:00",
+  "buy_usd": 0.0,
+  "sell_usd": 602.95,
+  "net_flow_usd": -602.95,
+  "known_realized_pnl_usd": 102.9,
+  "event_count": 4,
+  "platforms": [
+    "Hyperliquid"
+  ],
+  "lines": [
+    {
+      "platform": "Hyperliquid",
+      "symbol": "VVV-PERP",
+      "side": "SELL",
+      "qty": 0.63,
+      "price": 21.957,
+      "notional_usd": 13.83,
+      "realized_pnl_usd": 2.36,
+      "ts": "2026-09-13T17:47:01.935000-04:00",
+      "note": "Close Long; fee $0.0062 USDC",
+      "source": "hyperliquid-raw-2026-09-19"
+    },
+    {
+      "platform": "Hyperliquid",
+      "symbol": "VVV-PERP",
+      "side": "SELL",
+      "qty": 6.83,
+      "price": 21.957,
+      "notional_usd": 149.97,
+      "realized_pnl_usd": 25.59,
+      "ts": "2026-09-13T17:47:01.935000-04:00",
+      "note": "Close Long; fee $0.0675 USDC",
+      "source": "hyperliquid-raw-2026-09-19"
+    },
+    {
+      "platform": "Hyperliquid",
+      "symbol": "VVV-PERP",
+      "side": "SELL",
+      "qty": 10.0,
+      "price": 21.957,
+      "notional_usd": 219.57,
+      "realized_pnl_usd": 37.47,
+      "ts": "2026-09-13T17:47:01.935000-04:00",
+      "note": "Close Long; fee $0.0988 USDC",
+      "source": "hyperliquid-raw-2026-09-19"
+    },
+    {
+      "platform": "Hyperliquid",
+      "symbol": "VVV-PERP",
+      "side": "SELL",
+      "qty": 10.0,
+      "price": 21.958,
+      "notional_usd": 219.58,
+      "realized_pnl_usd": 37.48,
+      "ts": "2026-09-13T17:47:01.935000-04:00",
+      "note": "Close Long; fee $0.0988 USDC",
+      "source": "hyperliquid-raw-2026-09-19"
+    }
+  ],
+  "coverage_notes": [
+    "Coinbase Advanced Trade API snapshot 2026-09-19: 36 fills total (cursor exhausted).",
+    "Coinbase fills in window: 35.",
+    "E*TRADE PDF-derived fills in window: 11 (from 17 total extracts).",
+    "Robinhood activity CSV fills in window: 17 (export excludes Crypto/Spending).",
+    "SnapTrade activities added after dedupe vs E*TRADE/RH: 0.",
+    "Hyperliquid fills in window: 66; known closedPnl sum $-1055.21.",
+    "On-chain (barometer events_normalized) rows in window: 17.",
+    "Journal/manual fills kept after broker dedupe: 10.",
+    "Book.json fills added (unique only; capped history preferred snapshots): 0."
+  ],
+  "gaps": [
+    "Coinbase API returned only 36 fills total (1 page); older retail/transfer history and many held assets lack fill-derived cost basis (BTC, DRIFT, ETH, SOL, TAO, etc.).",
+    "Robinhood export excludes Crypto and Spending accounts; crypto activity there is not in this report.",
+    "SnapTrade activity feeds are capped (~33 per account) and may miss older fills; E*TRADE PDF + Robinhood CSV used as primary for those brokers.",
+    "On-chain barometer window is sparse (few events since 2026-07-23); Solana multi-leg rows are typed as transfer (not swap) with in/out USD \u2014 counted as transfers, excluded from buy/sell totals. No buy_usd/sell_usd present in-window.",
+    "Cockpit book.json fills/activity are capped (~120 recent); fuller Coinbase/HL/RH/E*TRADE snapshots used as primary. Book activity on-chain capped similarly \u2014 barometer events_normalized used for wallets."
+  ]
+}

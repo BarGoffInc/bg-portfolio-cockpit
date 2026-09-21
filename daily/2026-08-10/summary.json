@@ -1,0 +1,50 @@
+{
+  "day": "2026-08-10",
+  "tz": "America/New_York",
+  "generated_at": "2026-09-21T17:32:32.352008-04:00",
+  "as_of": "2026-09-21T17:32:32.352008-04:00",
+  "book": {
+    "nav_usd": null,
+    "cash_usd": null,
+    "positions_count": null,
+    "exclude_retirement": true
+  },
+  "day_pnl": {
+    "vs_prior_eod_usd": null,
+    "known_realized_pnl_usd": null,
+    "method": "fills_only"
+  },
+  "activity_totals": {
+    "buy_usd": 0.0,
+    "sell_usd": 0.0,
+    "net_flow_usd": 0.0,
+    "event_count": 2,
+    "platforms": [
+      "EVM wallets (EVM-4)"
+    ]
+  },
+  "coverage_notes": [
+    "Coinbase Advanced Trade API snapshot 2026-09-19: 36 fills total (cursor exhausted).",
+    "Coinbase fills in window: 35.",
+    "E*TRADE PDF-derived fills in window: 11 (from 17 total extracts).",
+    "Robinhood activity CSV fills in window: 17 (export excludes Crypto/Spending).",
+    "SnapTrade activities added after dedupe vs E*TRADE/RH: 0.",
+    "Hyperliquid fills in window: 66; known closedPnl sum $-1055.21.",
+    "On-chain (barometer events_normalized) rows in window: 17.",
+    "Journal/manual fills kept after broker dedupe: 10.",
+    "Book.json fills added (unique only; capped history preferred snapshots): 0."
+  ],
+  "gaps": [
+    "Coinbase API returned only 36 fills total (1 page); older retail/transfer history and many held assets lack fill-derived cost basis (BTC, DRIFT, ETH, SOL, TAO, etc.).",
+    "Robinhood export excludes Crypto and Spending accounts; crypto activity there is not in this report.",
+    "SnapTrade activity feeds are capped (~33 per account) and may miss older fills; E*TRADE PDF + Robinhood CSV used as primary for those brokers.",
+    "On-chain barometer window is sparse (few events since 2026-07-23); Solana multi-leg rows are typed as transfer (not swap) with in/out USD \u2014 counted as transfers, excluded from buy/sell totals. No buy_usd/sell_usd present in-window.",
+    "Cockpit book.json fills/activity are capped (~120 recent); fuller Coinbase/HL/RH/E*TRADE snapshots used as primary. Book activity on-chain capped similarly \u2014 barometer events_normalized used for wallets.",
+    "No EOD book.json for this seeded backfill day; NAV fields null."
+  ],
+  "pointers": {
+    "book": null,
+    "activity": "activity.json",
+    "activity_md": "activity.md"
+  }
+}
