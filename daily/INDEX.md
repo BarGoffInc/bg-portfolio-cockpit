@@ -2,7 +2,7 @@
 
 Rolling index of America/New_York end-of-day activity archives.
 
-Latest 60-day rollup: see Conviction journal/snapshots/activity-60d-*.md (not mirrored to Pages).
+Latest 60-day rollup: [activity-60d rollup](../snapshots/activity-60d-2026-09-21.md)
 
 | Day | NAV | Day P/L | Buy | Sell | Events | Link |
 |---|---:|---:|---:|---:|---:|---|

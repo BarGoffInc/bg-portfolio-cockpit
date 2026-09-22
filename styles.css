@@ -681,3 +681,55 @@ body.is-refreshing .btn[data-refresh] { opacity: 0.75; }
   height: 16px;
   accent-color: var(--teal);
 }
+
+/* Daily NAV balance + P/L chart */
+.nav-series-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  padding: 0 16px 4px;
+}
+.nav-series-wrap {
+  position: relative;
+  padding: 4px 8px 8px;
+  overflow-x: auto;
+}
+.nav-series-svg {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  min-height: 220px;
+  touch-action: manipulation;
+}
+.nav-series-svg .nav-hit { cursor: crosshair; }
+.nav-series-svg .nav-dot { pointer-events: none; }
+.nav-series-tip {
+  position: absolute;
+  z-index: 5;
+  min-width: 140px;
+  max-width: 220px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: #102832;
+  color: #fff;
+  font-size: 12px;
+  line-height: 1.35;
+  box-shadow: 0 8px 24px rgba(16, 40, 50, 0.28);
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.nav-series-tip[hidden] { display: none !important; }
+.nav-series-tip strong { font-size: 13px; }
+.nav-series-caveat {
+  margin: 0;
+  padding: 0 16px 14px;
+  font-size: 12px;
+  line-height: 1.4;
+}
+#nav-series-card .card-head {
+  padding-bottom: 4px;
+}
