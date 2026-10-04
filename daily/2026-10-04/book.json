@@ -1,0 +1,1266 @@
+{
+  "as_of": "2026-10-04T01:33:02.879294+00:00",
+  "as_of_et": "Oct 3, 9:33 PM ET",
+  "timezone": "America/New_York",
+  "book_name": "BG Portfolio Cockpit",
+  "exclude_retirement": true,
+  "interim": true,
+  "version": "interim-2026.09.19-refresh",
+  "totals": {
+    "book_usd": 562412.16,
+    "cash_usd": 37741.03,
+    "uPnL_usd": 71505.81,
+    "note": "Book total includes Coinbase, E*TRADE, Robinhood, Hyperliquid perps, and all EVM/Solana wallet MVs from live Zerion/Helius. HL spot USDC not double-counted. Coinbase cost basis still incomplete for many transfer-ins.",
+    "excluded": [
+      "retirement"
+    ]
+  },
+  "accounts": [
+    {
+      "id": "coinbase",
+      "name": "Coinbase",
+      "kind": "broker",
+      "status": "live",
+      "value": 306147.48,
+      "cash": 52902.27,
+      "uPnL": 44016.5,
+      "position_count": 17,
+      "note": "Qty from Coinbase Advanced Trade available+hold, plus staked balances from the portfolio breakdown (labeled staked, not added again when already in liquid qty). Live marks. V2 bank buys are fills only. Cost basis preserved from prior where fills incomplete (transfer-ins).",
+      "sol_basis_fixed": true
+    },
+    {
+      "id": "etrade",
+      "name": "E*TRADE",
+      "kind": "broker",
+      "status": "live",
+      "value": 64052.03,
+      "cash": -23548.97,
+      "uPnL": 33294.61,
+      "position_count": 4,
+      "completeness": "computed"
+    },
+    {
+      "id": "robinhood",
+      "name": "Robinhood",
+      "kind": "broker",
+      "status": "live",
+      "value": 67564.23,
+      "cash": 8387.73,
+      "uPnL": -12290.41,
+      "position_count": 4,
+      "completeness": "computed",
+      "history": "robinhood_csv_2026-09-19",
+      "note": "TSLA basis from Robinhood CSV lots when present; options from SnapTrade; excludes RH Crypto"
+    },
+    {
+      "id": "hyperliquid",
+      "name": "Hyperliquid",
+      "kind": "perp",
+      "status": "live",
+      "wallet": "0x8E4387b4Ddaf01F6B70B5A477d22b0F22f8D500f",
+      "value": 14668.34,
+      "cash": null,
+      "uPnL": 6193.69,
+      "position_count": 4,
+      "completeness": "computed",
+      "note": "Perps equity from Hyperliquid clearinghouseState including HIP-3 builder dexes (xyz equity perps such as TSM). Spot USDC is collateral (not added separately)."
+    },
+    {
+      "id": "solana1",
+      "name": "Solana 1 \u00b7 F5DS\u2026tmUi",
+      "kind": "wallet",
+      "status": "live",
+      "wallet": "F5DSyXxc6i1de548wSYCzMuEhnCC8KPwqv4Qj71QtmUi",
+      "value": 80711.03,
+      "cash": null,
+      "uPnL": null,
+      "position_count": 7,
+      "completeness": "computed",
+      "note": "Helius DAS fungibles + native; JupSOL LST as staked. Native stake accounts included when present."
+    },
+    {
+      "id": "solana2",
+      "name": "Solana 2 \u00b7 9AT1\u2026NGNL",
+      "kind": "wallet",
+      "status": "live",
+      "wallet": "9AT17mgyzesULv6D8CqiDqenFB7huACXJKSyuf5oNGNL",
+      "value": 1243.08,
+      "cash": null,
+      "uPnL": null,
+      "position_count": 4,
+      "completeness": "computed",
+      "note": "Helius DAS fungibles + native; LSTs counted as staked when present."
+    },
+    {
+      "id": "evm_ac40",
+      "name": "EVM \u00b7 0xAC40\u2026d9cB (legacy HL label)",
+      "kind": "wallet",
+      "status": "live_empty",
+      "wallet": "0xAC407064CA22E72CDCBc918625A420Ec9FE6d9cB",
+      "value": 0.0,
+      "cash": null,
+      "uPnL": null,
+      "position_count": 0,
+      "completeness": "computed",
+      "chains": {},
+      "note": "Zerion portfolio $0 (legacy HL-labeled addr; unindexed historically)."
+    },
+    {
+      "id": "evm_acb6",
+      "name": "EVM \u00b7 0xACB6\u202662aD",
+      "kind": "wallet",
+      "status": "live",
+      "wallet": "0xACB6bE8D3E6A582e98dB6F4cDe91Ac6e705162aD",
+      "value": 8632.34,
+      "cash": null,
+      "uPnL": null,
+      "position_count": 10,
+      "completeness": "computed",
+      "chains": {
+        "ethereum": 4697.85,
+        "robinhood": 2144.67,
+        "base": 1632.74,
+        "binance-smart-chain": 157.08
+      },
+      "note": "Zerion all-chains; ethereum $4,698, robinhood $2,145, base $1,633, binance-smart-chain $157"
+    },
+    {
+      "id": "evm_453e",
+      "name": "EVM \u00b7 0x453e\u2026E1DE",
+      "kind": "wallet",
+      "status": "live",
+      "wallet": "0x453e101591d317982AADebB66E8677500168E1DE",
+      "value": 3769.63,
+      "cash": null,
+      "uPnL": null,
+      "position_count": 10,
+      "completeness": "computed",
+      "chains": {
+        "ethereum": 2076.98,
+        "zksync-era": 1376.61,
+        "binance-smart-chain": 192.92,
+        "base": 123.09,
+        "monad": 0.03
+      },
+      "note": "Zerion all-chains; ethereum $2,077, zksync-era $1,377, binance-smart-chain $193, base $123, monad $0"
+    },
+    {
+      "id": "evm_622f",
+      "name": "EVM \u00b7 0x622F\u2026fdda",
+      "kind": "wallet",
+      "status": "live",
+      "wallet": "0x622Fad71b701A0249e69BD723415415A6D0bfdda",
+      "value": 15624.0,
+      "cash": null,
+      "uPnL": null,
+      "position_count": 3,
+      "completeness": "computed",
+      "chains": {
+        "ethereum": 15090.53,
+        "robinhood": 533.47
+      },
+      "note": "Zerion all-chains; ethereum $15,091, robinhood $533"
+    },
+    {
+      "id": "evm_hl_spot",
+      "name": "EVM \u00b7 HL trading 0x8E43\u2026500f",
+      "kind": "wallet",
+      "status": "live_empty_tokens",
+      "wallet": "0x8E4387b4Ddaf01F6B70B5A477d22b0F22f8D500f",
+      "value": 0.0,
+      "cash": null,
+      "uPnL": null,
+      "position_count": 0,
+      "completeness": "computed",
+      "chains": {},
+      "note": "No EVM/token balances on Zerion; Hyperliquid perps equity lives in Hyperliquid account (spot USDC is perp collateral, not double-counted)."
+    }
+  ],
+  "positions": {
+    "etrade": [
+      {
+        "symbol": "SPCX",
+        "kind": "stock",
+        "qty": 100,
+        "cost_basis": 145.8568,
+        "mark": 152.71,
+        "mv": 15271.0,
+        "cost_total": 14585.68,
+        "uPnL": 685.32,
+        "uPnL_pct": 4.7,
+        "opened": "2026-09-18"
+      },
+      {
+        "symbol": "TSLA",
+        "kind": "stock",
+        "qty": 200,
+        "cost_basis": 202.0068,
+        "mark": 364.27,
+        "mv": 72854.0,
+        "cost_total": 40401.36,
+        "uPnL": 32452.64,
+        "uPnL_pct": 80.33,
+        "opened": "2023-10-24"
+      },
+      {
+        "symbol": "MRVL 260925P00235000",
+        "kind": "option",
+        "qty": -1,
+        "cost_basis": 5.8432,
+        "mark": 4.25,
+        "mv": -425.0,
+        "cost_total": 584.32,
+        "uPnL": 159.32,
+        "uPnL_pct": 27.27
+      },
+      {
+        "symbol": "TSLA 260925C00390000",
+        "kind": "option",
+        "qty": -1,
+        "cost_basis": 0.9633,
+        "mark": 0.99,
+        "mv": -99.0,
+        "cost_total": 96.33,
+        "uPnL": -2.67,
+        "uPnL_pct": -2.77
+      }
+    ],
+    "robinhood": [
+      {
+        "symbol": "TSLA",
+        "kind": "stock",
+        "qty": 110.022928,
+        "cost_basis": 478.1441,
+        "mark": 370.7,
+        "mv": 40785.5,
+        "cost_total": 52606.81,
+        "uPnL": -11821.31,
+        "uPnL_pct": -22.47,
+        "lots": [
+          {
+            "qty": 10.0,
+            "price": 360.68,
+            "date": "3/27/2026",
+            "source": "Buy"
+          },
+          {
+            "qty": 100.0,
+            "price": 490.0,
+            "date": "11/6/2025",
+            "source": "Buy"
+          },
+          {
+            "qty": 0.0229,
+            "price": 0.0,
+            "date": "3/12/2025",
+            "source": "REC"
+          }
+        ],
+        "basis_source": "robinhood_csv_2026-09-19"
+      },
+      {
+        "symbol": "HOOD",
+        "kind": "stock",
+        "qty": 100,
+        "cost_basis": 115.701,
+        "mark": 112.74,
+        "mv": 11274.0,
+        "cost_total": 11570.1,
+        "uPnL": -296.1,
+        "uPnL_pct": -2.56
+      },
+      {
+        "symbol": "ALAB 261009P00350000",
+        "kind": "option",
+        "qty": -1,
+        "cost_basis": 13.0,
+        "mark": 13.43,
+        "mv": -1343.0,
+        "cost_total": 1300.0,
+        "uPnL": -43.0,
+        "uPnL_pct": -3.31
+      },
+      {
+        "symbol": "HOOD 270917C00085000",
+        "kind": "option",
+        "qty": 2,
+        "cost_basis": 42.95,
+        "mark": 42.3,
+        "mv": 8460.0,
+        "cost_total": 8590.0,
+        "uPnL": -130.0,
+        "uPnL_pct": -1.51
+      }
+    ],
+    "hyperliquid": [
+      {
+        "symbol": "BTC-PERP",
+        "kind": "perp",
+        "qty": 0.70769,
+        "entry": 82725.4,
+        "mark": 84716.0,
+        "leverage": 10.0,
+        "leverage_type": "cross",
+        "uPnL": 1408.67,
+        "margin": 5995.27,
+        "liq": 56839.3420347284,
+        "mv": 59952.67,
+        "side": "long"
+      },
+      {
+        "symbol": "SOL-PERP",
+        "kind": "perp",
+        "qty": 303.17,
+        "entry": 106.3089,
+        "mark": 120.01,
+        "leverage": 15.0,
+        "leverage_type": "cross",
+        "uPnL": 4153.74,
+        "margin": 2425.56,
+        "liq": 54.1032296613,
+        "mv": 36383.43,
+        "side": "long"
+      },
+      {
+        "symbol": "TAO-PERP",
+        "kind": "perp",
+        "qty": 50.0,
+        "entry": 302.104,
+        "mark": 305.54,
+        "leverage": 5.0,
+        "leverage_type": "cross",
+        "uPnL": 171.75,
+        "margin": 3055.4,
+        "liq": null,
+        "mv": 15277.0,
+        "side": "long"
+      },
+      {
+        "symbol": "TSM-PERP",
+        "kind": "perp",
+        "qty": 28.462,
+        "entry": 457.484,
+        "mark": 473.63,
+        "leverage": 10.0,
+        "leverage_type": "isolated",
+        "uPnL": 459.52,
+        "margin": 1755.7,
+        "liq": 433.6255865808,
+        "mv": 13480.46,
+        "side": "long",
+        "ticker": "TSM",
+        "venue": "Hyperliquid",
+        "instrument": "perp",
+        "dex": "xyz",
+        "market": "xyz:TSM"
+      }
+    ],
+    "coinbase": [
+      {
+        "symbol": "BTC",
+        "kind": "crypto",
+        "qty": 1.60903292,
+        "cost_basis": 69155.94,
+        "mark": 84735.18,
+        "mv": 136341.69,
+        "uPnL": 25067.51,
+        "basis_status": "incomplete_history_short"
+      },
+      {
+        "symbol": "USDC",
+        "kind": "crypto",
+        "qty": 42604.864666167254,
+        "cost_basis": 1.0,
+        "mark": 1.0,
+        "mv": 42604.86,
+        "uPnL": 0.0,
+        "basis_status": "stable"
+      },
+      {
+        "symbol": "TAO",
+        "kind": "crypto",
+        "qty": 100.13942663,
+        "cost_basis": 220.0,
+        "mark": 305.55,
+        "mv": 30597.6,
+        "uPnL": 8566.93,
+        "basis_status": "incomplete_history_short"
+      },
+      {
+        "symbol": "UNI",
+        "kind": "crypto",
+        "qty": 2446.61049438,
+        "cost_basis": 6.228142462571955,
+        "mark": 9.0566,
+        "mv": 22157.97,
+        "uPnL": 6920.13,
+        "basis_status": "solid_fifo"
+      },
+      {
+        "symbol": "SUI (staked)",
+        "kind": "crypto",
+        "qty": 13990.915836324,
+        "cost_basis": 1.0722092335277629,
+        "mark": 1.178,
+        "mv": 16481.3,
+        "uPnL": 1480.11,
+        "basis_status": "coinbase_staked_avg_entry",
+        "position_type": "staked",
+        "name": "Staked SUI (Coinbase)"
+      },
+      {
+        "symbol": "DRIFT",
+        "kind": "crypto",
+        "qty": 772833.113432,
+        "cost_basis": null,
+        "mark": 0.01991,
+        "mv": 15387.11,
+        "uPnL": null,
+        "basis_status": "incomplete_no_fills"
+      },
+      {
+        "symbol": "SOL (staked)",
+        "kind": "crypto",
+        "qty": 107.524941014,
+        "cost_basis": 102.1897361768405,
+        "mark": 120.05,
+        "mv": 12908.37,
+        "uPnL": 1920.42,
+        "basis_status": "coinbase_staked_avg_entry",
+        "position_type": "staked",
+        "name": "Staked SOL (Coinbase)"
+      },
+      {
+        "symbol": "USD",
+        "kind": "fiat",
+        "qty": 10297.40690231105,
+        "cost_basis": 1.0,
+        "mark": 1.0,
+        "mv": 10297.41,
+        "uPnL": 0.0,
+        "basis_status": "stable"
+      },
+      {
+        "symbol": "SPX",
+        "kind": "crypto",
+        "qty": 10000.0,
+        "cost_basis": null,
+        "mark": 0.4423,
+        "mv": 4423.0,
+        "uPnL": null,
+        "basis_status": "incomplete_no_fills"
+      },
+      {
+        "symbol": "ETH (staked)",
+        "kind": "crypto",
+        "qty": 1.35952351,
+        "cost_basis": 2842.1366427415755,
+        "mark": 2690.41,
+        "mv": 3657.68,
+        "uPnL": -206.28,
+        "basis_status": "coinbase_staked_avg_entry",
+        "position_type": "staked",
+        "name": "Staked ETH (Coinbase)"
+      },
+      {
+        "symbol": "SUPER",
+        "kind": "crypto",
+        "qty": 13036.44,
+        "cost_basis": null,
+        "mark": 0.25947,
+        "mv": 3382.57,
+        "uPnL": null,
+        "basis_status": "incomplete_no_fills"
+      },
+      {
+        "symbol": "HYPE",
+        "kind": "crypto",
+        "qty": 36.124,
+        "cost_basis": 82.05,
+        "mark": 89.46,
+        "mv": 3231.65,
+        "uPnL": 267.68,
+        "basis_status": "solid_fifo"
+      },
+      {
+        "symbol": "VVV",
+        "kind": "crypto",
+        "qty": 100.0,
+        "cost_basis": null,
+        "mark": 27.9749,
+        "mv": 2797.49,
+        "uPnL": null,
+        "basis_status": "incomplete_no_fills"
+      },
+      {
+        "symbol": "NEAR",
+        "kind": "crypto",
+        "qty": 198.4987897702532,
+        "cost_basis": null,
+        "mark": 4.8263,
+        "mv": 958.01,
+        "uPnL": null,
+        "basis_status": "incomplete_no_fills"
+      },
+      {
+        "symbol": "XRP",
+        "kind": "crypto",
+        "qty": 612.946597,
+        "cost_basis": null,
+        "mark": 1.4876,
+        "mv": 911.82,
+        "uPnL": null,
+        "basis_status": "incomplete_no_fills"
+      },
+      {
+        "symbol": "PYR",
+        "kind": "crypto",
+        "qty": 153.0,
+        "cost_basis": null,
+        "mark": 0.05847,
+        "mv": 8.95,
+        "uPnL": null,
+        "basis_status": "incomplete_no_fills"
+      },
+      {
+        "symbol": "SKY",
+        "kind": "crypto",
+        "qty": 8.86344144e-05,
+        "cost_basis": null,
+        "mark": 0.0916,
+        "mv": 0.0,
+        "uPnL": null,
+        "basis_status": "incomplete_no_fills"
+      }
+    ],
+    "solana1": [
+      {
+        "symbol": "JupSOL \u00b7 LST",
+        "kind": "defi",
+        "qty": 505.051505809,
+        "mark": 145.2105,
+        "mv": 73338.76,
+        "chain": "solana",
+        "position_type": "staked",
+        "protocol": "LST",
+        "name": "Jupiter Staked SOL",
+        "mint": "jupSoLaHXQiZZTSfEWMTRRgpnyFm8f6sZdosWBjx93v"
+      },
+      {
+        "symbol": "SOL",
+        "kind": "crypto",
+        "qty": 25.060786211,
+        "mark": 120.0892,
+        "mv": 3009.53,
+        "chain": "solana",
+        "position_type": "wallet",
+        "protocol": null,
+        "name": "Solana",
+        "mint": null
+      },
+      {
+        "symbol": "DJI6930",
+        "kind": "crypto",
+        "qty": 572227.695323,
+        "mark": 0.0049,
+        "mv": 2783.56,
+        "chain": "solana",
+        "position_type": "wallet",
+        "protocol": null,
+        "name": "DOWGE",
+        "mint": "DQnkBM4eYYMnVE8Qy2K3BB7uts1fh2EwBVktEz6jpump"
+      },
+      {
+        "symbol": "arc",
+        "kind": "crypto",
+        "qty": 8405.449514,
+        "mark": 0.0718,
+        "mv": 603.51,
+        "chain": "solana",
+        "position_type": "wallet",
+        "protocol": null,
+        "name": "AI Rig Complex",
+        "mint": "61V8vBaqAGMpgDQi4JcAwo1dmBGHsyhzodcPqnEVpump"
+      },
+      {
+        "symbol": "Fartcoin",
+        "kind": "crypto",
+        "qty": 2942.0,
+        "mark": 0.1752,
+        "mv": 515.44,
+        "chain": "solana",
+        "position_type": "wallet",
+        "protocol": null,
+        "name": "Fartcoin ",
+        "mint": "9BB6NFEcjBCtnNLFko2FqVQBq8HHM13kCyYcdQbgpump"
+      },
+      {
+        "symbol": "NOS",
+        "kind": "crypto",
+        "qty": 712.915805,
+        "mark": 0.6387,
+        "mv": 455.37,
+        "chain": "solana",
+        "position_type": "wallet",
+        "protocol": null,
+        "name": "NOS",
+        "mint": "nosXBVoaCTtYdLvKY6Csb4AC8JCdQKKAaWYtx2ZMoo7"
+      },
+      {
+        "symbol": "CLOUD",
+        "kind": "crypto",
+        "qty": 72.185832109,
+        "mark": 0.0662,
+        "mv": 4.78,
+        "chain": "solana",
+        "position_type": "wallet",
+        "protocol": null,
+        "name": "Sanctum",
+        "mint": "CLoUDKc4Ane7HeQcPpE3YHnznRxhMimJ4MyaUqyHFzAu"
+      },
+      {
+        "symbol": "Other (dust)",
+        "kind": "crypto",
+        "qty": null,
+        "mark": null,
+        "mv": 0.08,
+        "chain": "solana",
+        "position_type": "dust",
+        "protocol": null,
+        "name": null,
+        "mint": null
+      }
+    ],
+    "solana2": [
+      {
+        "symbol": "DJI6930",
+        "kind": "crypto",
+        "qty": 170773.888417,
+        "mark": 0.0049,
+        "mv": 830.72,
+        "chain": "solana",
+        "position_type": "wallet",
+        "protocol": null,
+        "name": "DOWGE",
+        "mint": "DQnkBM4eYYMnVE8Qy2K3BB7uts1fh2EwBVktEz6jpump"
+      },
+      {
+        "symbol": "SOL",
+        "kind": "crypto",
+        "qty": 1.434559969,
+        "mark": 120.0892,
+        "mv": 172.28,
+        "chain": "solana",
+        "position_type": "wallet",
+        "protocol": null,
+        "name": "Solana",
+        "mint": null
+      },
+      {
+        "symbol": "DFDVx",
+        "kind": "crypto",
+        "qty": 25.01463398,
+        "mark": 5.2875,
+        "mv": 132.26,
+        "chain": "solana",
+        "position_type": "wallet",
+        "protocol": null,
+        "name": "DFDV xStock",
+        "mint": "Xs2yquAgsHByNzx68WJC55WHjHBvG9JsMB7CWjTLyPy"
+      },
+      {
+        "symbol": "NEON",
+        "kind": "crypto",
+        "qty": 4639.27598947,
+        "mark": 0.023,
+        "mv": 106.77,
+        "chain": "solana",
+        "position_type": "wallet",
+        "protocol": null,
+        "name": "Neon EVM Token",
+        "mint": "NeonTjSjsuo3rexg9o6vHuMXw62f9V7zvmu8M8Zut44"
+      },
+      {
+        "symbol": "Other (dust)",
+        "kind": "crypto",
+        "qty": null,
+        "mark": null,
+        "mv": 1.06,
+        "chain": "solana",
+        "position_type": "dust",
+        "protocol": null,
+        "name": null,
+        "mint": null
+      }
+    ],
+    "evm_ac40": [],
+    "evm_acb6": [
+      {
+        "symbol": "USDC",
+        "kind": "crypto",
+        "qty": 2450.0001,
+        "mark": 1,
+        "mv": 2450.0,
+        "chain": "ethereum",
+        "position_type": "wallet",
+        "name": "Asset"
+      },
+      {
+        "symbol": "ETH",
+        "kind": "crypto",
+        "qty": 0.8312466659401325,
+        "mark": 2690.5,
+        "mv": 2236.47,
+        "chain": "ethereum",
+        "position_type": "wallet",
+        "name": "Asset"
+      },
+      {
+        "symbol": "WOOD",
+        "kind": "crypto",
+        "qty": 468898.09439323767,
+        "mark": 0.00457385,
+        "mv": 2144.67,
+        "chain": "robinhood",
+        "position_type": "wallet",
+        "name": "Asset"
+      },
+      {
+        "symbol": "USDC",
+        "kind": "crypto",
+        "qty": 1500.01,
+        "mark": 1,
+        "mv": 1500.01,
+        "chain": "base",
+        "position_type": "wallet",
+        "name": "Asset"
+      },
+      {
+        "symbol": "ETH",
+        "kind": "crypto",
+        "qty": 0.0493246930342467,
+        "mark": 2690.5,
+        "mv": 132.71,
+        "chain": "base",
+        "position_type": "wallet",
+        "name": "Asset"
+      },
+      {
+        "symbol": "BROWNIE",
+        "kind": "crypto",
+        "qty": 327330.9150560395,
+        "mark": 0.0003133905413690981,
+        "mv": 102.58,
+        "chain": "binance-smart-chain",
+        "position_type": "wallet",
+        "name": "Asset"
+      },
+      {
+        "symbol": "USDC",
+        "kind": "crypto",
+        "qty": 49.669999,
+        "mark": 1,
+        "mv": 49.67,
+        "chain": "binance-smart-chain",
+        "position_type": "wallet",
+        "name": "Asset"
+      },
+      {
+        "symbol": "CND",
+        "kind": "crypto",
+        "qty": 200000,
+        "mark": 4.71079645e-05,
+        "mv": 9.42,
+        "chain": "ethereum",
+        "position_type": "wallet",
+        "name": "Asset"
+      },
+      {
+        "symbol": "BNB",
+        "kind": "crypto",
+        "qty": 0.0061002893742065,
+        "mark": 783.4849332963,
+        "mv": 4.78,
+        "chain": "binance-smart-chain",
+        "position_type": "wallet",
+        "name": "Asset"
+      },
+      {
+        "symbol": "RNDR",
+        "kind": "crypto",
+        "qty": 1,
+        "mark": 1.9579648423000002,
+        "mv": 1.96,
+        "chain": "ethereum",
+        "position_type": "wallet",
+        "name": "Asset"
+      },
+      {
+        "symbol": "Other (dust)",
+        "kind": "crypto",
+        "qty": null,
+        "mark": null,
+        "mv": 0.07,
+        "chain": null,
+        "position_type": "dust",
+        "name": null
+      }
+    ],
+    "evm_453e": [
+      {
+        "symbol": "ETH",
+        "kind": "crypto",
+        "qty": 0.5106808362979144,
+        "mark": 2690.5,
+        "mv": 1373.99,
+        "chain": "zksync-era",
+        "position_type": "wallet",
+        "name": "Asset"
+      },
+      {
+        "symbol": "SUPER",
+        "kind": "crypto",
+        "qty": 5205.57939096,
+        "mark": 0.26073732410000006,
+        "mv": 1357.29,
+        "chain": "ethereum",
+        "position_type": "staked",
+        "name": "SuperVerse DAO NFT Staked"
+      },
+      {
+        "symbol": "ETH",
+        "kind": "crypto",
+        "qty": 0.2361207528031356,
+        "mark": 2690.5,
+        "mv": 635.28,
+        "chain": "ethereum",
+        "position_type": "wallet",
+        "name": "Asset"
+      },
+      {
+        "symbol": "ETH",
+        "kind": "crypto",
+        "qty": 0.0457489923251117,
+        "mark": 2690.5,
+        "mv": 123.09,
+        "chain": "base",
+        "position_type": "wallet",
+        "name": "Asset"
+      },
+      {
+        "symbol": "USDC",
+        "kind": "crypto",
+        "qty": 94.76679024,
+        "mark": 1,
+        "mv": 94.77,
+        "chain": "binance-smart-chain",
+        "position_type": "wallet",
+        "name": "Asset"
+      },
+      {
+        "symbol": "AITECH",
+        "kind": "crypto",
+        "qty": 22224.575744231755,
+        "mark": 0.00414337,
+        "mv": 92.08,
+        "chain": "binance-smart-chain",
+        "position_type": "wallet",
+        "name": "Asset"
+      },
+      {
+        "symbol": "ETH",
+        "kind": "crypto",
+        "qty": 0.0251750571218057,
+        "mark": 2690.51,
+        "mv": 67.73,
+        "chain": "ethereum",
+        "position_type": "reward",
+        "name": "SuperVerse DAO NFT Staked"
+      },
+      {
+        "symbol": "USDC",
+        "kind": "crypto",
+        "qty": 16.669389,
+        "mark": 1,
+        "mv": 16.67,
+        "chain": "ethereum",
+        "position_type": "wallet",
+        "name": "Asset"
+      },
+      {
+        "symbol": "BNB",
+        "kind": "crypto",
+        "qty": 0.007741792,
+        "mark": 783.4849332963,
+        "mv": 6.07,
+        "chain": "binance-smart-chain",
+        "position_type": "wallet",
+        "name": "Asset"
+      },
+      {
+        "symbol": "ZF",
+        "kind": "crypto",
+        "qty": 25003.167383218697,
+        "mark": 0.00010499138149999999,
+        "mv": 2.63,
+        "chain": "zksync-era",
+        "position_type": "wallet",
+        "name": "Asset"
+      },
+      {
+        "symbol": "Other (dust)",
+        "kind": "crypto",
+        "qty": null,
+        "mark": null,
+        "mv": 0.04,
+        "chain": null,
+        "position_type": "dust",
+        "name": null
+      }
+    ],
+    "evm_622f": [
+      {
+        "symbol": "ETH",
+        "kind": "crypto",
+        "qty": 5.00877549094535,
+        "mark": 2690.5,
+        "mv": 13476.11,
+        "chain": "ethereum",
+        "position_type": "wallet",
+        "name": "Asset"
+      },
+      {
+        "symbol": "WETH",
+        "kind": "crypto",
+        "qty": 0.6,
+        "mark": 2690.7037167200006,
+        "mv": 1614.42,
+        "chain": "ethereum",
+        "position_type": "wallet",
+        "name": "Asset"
+      },
+      {
+        "symbol": "WETH",
+        "kind": "crypto",
+        "qty": 0.1982626316778961,
+        "mark": 2690.7037167200006,
+        "mv": 533.47,
+        "chain": "robinhood",
+        "position_type": "wallet",
+        "name": "Asset"
+      }
+    ],
+    "evm_hl_spot": []
+  },
+  "hl_account_value": 14668.34,
+  "largest_holdings": [
+    {
+      "symbol": "BTC",
+      "account": "Coinbase",
+      "account_id": "coinbase",
+      "accounts": [
+        "Coinbase"
+      ],
+      "mv": 136341.69,
+      "qty": 1.61,
+      "chain": null
+    },
+    {
+      "symbol": "TSLA",
+      "account": "E*TRADE + Robinhood",
+      "account_id": "merged",
+      "accounts": [
+        "E*TRADE",
+        "Robinhood"
+      ],
+      "mv": 113639.5,
+      "qty": 310.02,
+      "chain": null
+    },
+    {
+      "symbol": "SOL",
+      "account": "Solana 1 \u00b7 F5DS\u2026tmUi + Solana 2 \u00b7 9AT1\u2026NGNL",
+      "account_id": "merged",
+      "accounts": [
+        "Solana 1 \u00b7 F5DS\u2026tmUi",
+        "Solana 2 \u00b7 9AT1\u2026NGNL"
+      ],
+      "mv": 76520.57,
+      "qty": 531.55,
+      "chain": "solana"
+    },
+    {
+      "symbol": "BTC-PERP",
+      "account": "Hyperliquid",
+      "account_id": "hyperliquid",
+      "accounts": [
+        "Hyperliquid"
+      ],
+      "mv": 59967.53,
+      "qty": 0.71,
+      "chain": null
+    },
+    {
+      "symbol": "USDC",
+      "account": "Coinbase + EVM \u00b7 0xACB6\u202662aD + EVM \u00b7 0x453e\u2026E1DE",
+      "account_id": "merged",
+      "accounts": [
+        "Coinbase",
+        "EVM \u00b7 0xACB6\u202662aD",
+        "EVM \u00b7 0x453e\u2026E1DE"
+      ],
+      "mv": 46715.98,
+      "qty": 46715.98,
+      "chain": "ethereum"
+    },
+    {
+      "symbol": "SOL-PERP",
+      "account": "Hyperliquid",
+      "account_id": "hyperliquid",
+      "accounts": [
+        "Hyperliquid"
+      ],
+      "mv": 36307.64,
+      "qty": 303.17,
+      "chain": null
+    },
+    {
+      "symbol": "TAO",
+      "account": "Coinbase",
+      "account_id": "coinbase",
+      "accounts": [
+        "Coinbase"
+      ],
+      "mv": 30597.6,
+      "qty": 100.14,
+      "chain": null
+    },
+    {
+      "symbol": "UNI",
+      "account": "Coinbase",
+      "account_id": "coinbase",
+      "accounts": [
+        "Coinbase"
+      ],
+      "mv": 22157.97,
+      "qty": 2446.61,
+      "chain": null
+    },
+    {
+      "symbol": "ETH",
+      "account": "EVM \u00b7 0xACB6\u202662aD + EVM \u00b7 0x453e\u2026E1DE + EVM \u00b7 0x622F\u2026fdda",
+      "account_id": "merged",
+      "accounts": [
+        "EVM \u00b7 0xACB6\u202662aD",
+        "EVM \u00b7 0x453e\u2026E1DE",
+        "EVM \u00b7 0x622F\u2026fdda"
+      ],
+      "mv": 20193.27,
+      "qty": 7.51,
+      "chain": "ethereum"
+    },
+    {
+      "symbol": "SUI (staked)",
+      "account": "Coinbase",
+      "account_id": "coinbase",
+      "accounts": [
+        "Coinbase"
+      ],
+      "mv": 16481.3,
+      "qty": 13990.92,
+      "chain": null
+    },
+    {
+      "symbol": "DRIFT",
+      "account": "Coinbase",
+      "account_id": "coinbase",
+      "accounts": [
+        "Coinbase"
+      ],
+      "mv": 15387.11,
+      "qty": 772833.11,
+      "chain": null
+    },
+    {
+      "symbol": "SPCX",
+      "account": "E*TRADE",
+      "account_id": "etrade",
+      "accounts": [
+        "E*TRADE"
+      ],
+      "mv": 15271.0,
+      "qty": 100.0,
+      "chain": null
+    },
+    {
+      "symbol": "TAO-PERP",
+      "account": "Hyperliquid",
+      "account_id": "hyperliquid",
+      "accounts": [
+        "Hyperliquid"
+      ],
+      "mv": 15156.05,
+      "qty": 50.0,
+      "chain": null
+    },
+    {
+      "symbol": "TSM-PERP",
+      "account": "Hyperliquid",
+      "account_id": "hyperliquid",
+      "accounts": [
+        "Hyperliquid"
+      ],
+      "mv": 13481.6,
+      "qty": 28.46,
+      "chain": null
+    },
+    {
+      "symbol": "SOL (staked)",
+      "account": "Coinbase",
+      "account_id": "coinbase",
+      "accounts": [
+        "Coinbase"
+      ],
+      "mv": 12908.37,
+      "qty": 107.52,
+      "chain": null
+    },
+    {
+      "symbol": "HOOD",
+      "account": "Robinhood",
+      "account_id": "robinhood",
+      "accounts": [
+        "Robinhood"
+      ],
+      "mv": 11274.0,
+      "qty": 100.0,
+      "chain": null
+    },
+    {
+      "symbol": "USD",
+      "account": "Coinbase",
+      "account_id": "coinbase",
+      "accounts": [
+        "Coinbase"
+      ],
+      "mv": 10297.41,
+      "qty": 10297.41,
+      "chain": null
+    },
+    {
+      "symbol": "HOOD 270917C00085000",
+      "account": "Robinhood",
+      "account_id": "robinhood",
+      "accounts": [
+        "Robinhood"
+      ],
+      "mv": 8460.0,
+      "qty": 2.0,
+      "chain": null
+    },
+    {
+      "symbol": "SUPER",
+      "account": "Coinbase + EVM \u00b7 0x453e\u2026E1DE",
+      "account_id": "merged",
+      "accounts": [
+        "Coinbase",
+        "EVM \u00b7 0x453e\u2026E1DE"
+      ],
+      "mv": 4739.86,
+      "qty": 18242.02,
+      "chain": "ethereum"
+    },
+    {
+      "symbol": "SPX",
+      "account": "Coinbase",
+      "account_id": "coinbase",
+      "accounts": [
+        "Coinbase"
+      ],
+      "mv": 4423.0,
+      "qty": 10000.0,
+      "chain": null
+    },
+    {
+      "symbol": "ETH (staked)",
+      "account": "Coinbase",
+      "account_id": "coinbase",
+      "accounts": [
+        "Coinbase"
+      ],
+      "mv": 3657.68,
+      "qty": 1.36,
+      "chain": null
+    },
+    {
+      "symbol": "DJI6930",
+      "account": "Solana 1 \u00b7 F5DS\u2026tmUi + Solana 2 \u00b7 9AT1\u2026NGNL",
+      "account_id": "merged",
+      "accounts": [
+        "Solana 1 \u00b7 F5DS\u2026tmUi",
+        "Solana 2 \u00b7 9AT1\u2026NGNL"
+      ],
+      "mv": 3614.28,
+      "qty": 743001.58,
+      "chain": "solana"
+    },
+    {
+      "symbol": "HYPE",
+      "account": "Coinbase",
+      "account_id": "coinbase",
+      "accounts": [
+        "Coinbase"
+      ],
+      "mv": 3231.65,
+      "qty": 36.12,
+      "chain": null
+    },
+    {
+      "symbol": "VVV",
+      "account": "Coinbase",
+      "account_id": "coinbase",
+      "accounts": [
+        "Coinbase"
+      ],
+      "mv": 2797.49,
+      "qty": 100.0,
+      "chain": null
+    },
+    {
+      "symbol": "WOOD",
+      "account": "EVM \u00b7 0xACB6\u202662aD",
+      "account_id": "evm_acb6",
+      "accounts": [
+        "EVM \u00b7 0xACB6\u202662aD"
+      ],
+      "mv": 2144.67,
+      "qty": 468898.09,
+      "chain": "robinhood"
+    }
+  ],
+  "price_sources": {
+    "stocks_options": "SnapTrade live marks",
+    "crypto": "Coinbase Exchange public tickers + Advanced Trade balances + portfolio staked balances",
+    "hyperliquid": "clearinghouseState accountValue live, native plus HIP-3 dexes",
+    "evm_wallets": "Zerion API positions+portfolio live",
+    "solana_wallets": "Helius DAS getAssetsByOwner live",
+    "robinhood_basis": "Robinhood activity CSV 2026-09-19 (preserved)",
+    "wallet_deepen": "Zerion+Helius live refresh"
+  },
+  "roles": {
+    "manager": "Adriano \u2014 full book",
+    "owner": "view-only share (no Connections secrets, no edit)"
+  },
+  "gaps": [
+    "Coinbase: Advanced Trade fill history short \u2014 many holdings lack solid cost basis (transfer-ins).",
+    "Retirement accounts intentionally excluded.",
+    "Negative E*TRADE cash reflects margin / unsettled.",
+    "EVM 0xAC40\u2026 and HL trading addr show $0 token balances on Zerion (HL equity in Hyperliquid account).",
+    "Solana 2 historically heavy Orca/Jupiter LP activity but no open LP MV now; phishing airdrop NFTs ignored.",
+    "Helius Solana enhanced history has little/no USD \u2014 on-chain activity notional often blank.",
+    "Zerion EVM history includes spam airdrops; activity feed filters claim/phishing symbols.",
+    "Harmony via public RPC only (Zerion unsupported). HOOKR not found on Robinhood chain.",
+    "Wallet FIFO cost basis seeded 2026-09-20 for ETH/WETH, SOL, JupSOL, WOOD, USDC (archives+CB dailies; not tax-grade)."
+  ],
+  "eod_note": "Slim EOD snapshot: fills/activity/broker_history/barometer omitted; see activity.json for day fills."
+}
