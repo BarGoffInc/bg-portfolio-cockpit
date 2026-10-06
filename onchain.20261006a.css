@@ -1,0 +1,35 @@
+/* Home "On-chain wallets" card */
+.onchain-card { padding: 0; overflow: hidden; }
+.onchain-card .oc-link { display: block; padding: 20px; color: inherit; text-decoration: none; }
+.onchain-card .oc-link:hover { background: rgba(20, 123, 131, 0.03); }
+.onchain-card .oc-link:hover .link-teal { text-decoration: underline; }
+.onchain-card .oc-link:focus-visible { outline: 2px solid var(--teal); outline-offset: -2px; border-radius: var(--radius); }
+.oc-kpis { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 14px; }
+@media (min-width: 640px) { .oc-kpis { grid-template-columns: repeat(4, 1fr); } }
+.oc-kpi { background: var(--bg); border-radius: 10px; padding: 10px 12px; display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.oc-kpi.oc-total { background: var(--teal-soft); }
+.oc-k { font-size: 10.5px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.oc-v { font-size: 20px; font-weight: 700; letter-spacing: -0.01em; color: var(--ink); white-space: nowrap; }
+.oc-rows { border-top: 1px solid var(--line); }
+.oc-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px 10px; padding: 10px 0; border-bottom: 1px solid var(--line); font-size: 13px; }
+.oc-row .oc-name { grid-column: 1 / -1; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.oc-row .oc-num { display: flex; flex-direction: column; min-width: 0; }
+.oc-row .oc-num .oc-k { font-size: 9.5px; }
+.oc-row .oc-why { grid-column: 1 / -1; font-size: 11.5px; color: var(--muted); line-height: 1.4; }
+.onchain-card .card-head .link-teal { white-space: nowrap; }
+.oc-row.oc-head { display: none; }
+@media (min-width: 720px) {
+  .oc-row { grid-template-columns: minmax(170px, 1.3fr) 1fr 1fr 1fr; align-items: center; }
+  .oc-row .oc-name { grid-column: auto; }
+  .oc-row .oc-num { text-align: right; }
+  .oc-row .oc-num .oc-k { display: none; }
+  .oc-row .oc-why { grid-column: 1 / -1; margin-top: -2px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .oc-row.oc-head { display: grid; padding: 6px 0; font-size: 10.5px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+}
+.oc-row.oc-muted { opacity: 0.6; }
+.oc-chip { display: inline-block; font-size: 10.5px; font-weight: 700; letter-spacing: 0.04em; padding: 2px 8px; border-radius: 999px; line-height: 1.5; }
+.oc-chip.oc-checked { background: var(--teal-soft); color: var(--teal); }
+.oc-chip.oc-gaps { background: rgba(208, 137, 42, 0.15); color: #9a6418; }
+.oc-chip.oc-unreadable { background: rgba(107, 124, 134, 0.15); color: var(--muted); }
+.oc-star { color: var(--warn); font-weight: 700; margin-left: 1px; }
+.oc-foot { font-size: 11.5px; margin: 10px 0 0; line-height: 1.5; }
