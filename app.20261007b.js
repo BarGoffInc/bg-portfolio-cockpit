@@ -907,7 +907,7 @@
     const totalFlows = rows.reduce((s, r) => s + (r.flow || 0), 0);
     if (sub) sub.textContent = `Balance ${fmtCompactUSD(last.nav)} · P/L excludes ${fmtCompactUSD(totalFlows)} of deposits · *since ${rows[0].day}`;
 
-    const W = 720, H = 300, pad = { l: 52, r: 12, t: 14, b: 26 };
+    const W = Math.round(Math.max(340, Math.min(720, (svg.parentElement && svg.parentElement.clientWidth) || 720))), H = W < 500 ? 320 : 300, pad = { l: 52, r: 12, t: 14, b: 26 };
     const plotW = W - pad.l - pad.r;
     const barTop = pad.t, barH = 150, lineTop = barTop + barH + 14, lineH = H - pad.b - lineTop;
     const n = rows.length;
