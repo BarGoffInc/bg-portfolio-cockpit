@@ -1,0 +1,2649 @@
+{
+  "generated_at": "2026-09-21T21:29:09.860818Z",
+  "window": {
+    "start": "2026-07-23",
+    "end": "2026-09-21",
+    "tz": "America/New_York"
+  },
+  "coverage_notes": [
+    "Coinbase Advanced Trade API snapshot 2026-09-19: 36 fills total (cursor exhausted).",
+    "Coinbase fills in window: 35.",
+    "E*TRADE PDF-derived fills in window: 11 (from 17 total extracts).",
+    "Robinhood activity CSV fills in window: 17 (export excludes Crypto/Spending).",
+    "SnapTrade activities added after dedupe vs E*TRADE/RH: 0.",
+    "Hyperliquid fills in window: 66; known closedPnl sum $-1055.21.",
+    "On-chain (barometer events_normalized) rows in window: 17.",
+    "Journal/manual fills kept after broker dedupe: 10.",
+    "Book.json fills added (unique only; capped history preferred snapshots): 0."
+  ],
+  "gaps": [
+    "Coinbase API returned only 36 fills total (1 page); older retail/transfer history and many held assets lack fill-derived cost basis (BTC, DRIFT, ETH, SOL, TAO, etc.).",
+    "Robinhood export excludes Crypto and Spending accounts; crypto activity there is not in this report.",
+    "SnapTrade activity feeds are capped (~33 per account) and may miss older fills; E*TRADE PDF + Robinhood CSV used as primary for those brokers.",
+    "On-chain barometer window is sparse (few events since 2026-07-23); Solana multi-leg rows are typed as transfer (not swap) with in/out USD \u2014 counted as transfers, excluded from buy/sell totals. No buy_usd/sell_usd present in-window.",
+    "Cockpit book.json fills/activity are capped (~120 recent); fuller Coinbase/HL/RH/E*TRADE snapshots used as primary. Book activity on-chain capped similarly \u2014 barometer events_normalized used for wallets."
+  ],
+  "totals": {
+    "buy_usd": 188304.01,
+    "sell_usd": 67036.71,
+    "known_realized_pnl_usd": -1055.21,
+    "event_count": 156,
+    "trade_days": 24
+  },
+  "by_platform": {
+    "Coinbase": {
+      "buy_usd": 39671.14,
+      "sell_usd": 12797.4,
+      "known_realized_pnl_usd": null,
+      "event_count": 35
+    },
+    "E*TRADE": {
+      "buy_usd": 15356.33,
+      "sell_usd": 2301.96,
+      "known_realized_pnl_usd": null,
+      "event_count": 11
+    },
+    "EVM wallets (EVM-2)": {
+      "buy_usd": 0.0,
+      "sell_usd": 0.0,
+      "known_realized_pnl_usd": null,
+      "event_count": 5
+    },
+    "EVM wallets (EVM-4)": {
+      "buy_usd": 0.0,
+      "sell_usd": 0.0,
+      "known_realized_pnl_usd": null,
+      "event_count": 3
+    },
+    "Hyperliquid": {
+      "buy_usd": 117293.18,
+      "sell_usd": 36794.15,
+      "known_realized_pnl_usd": -1055.21,
+      "event_count": 66
+    },
+    "Journal/manual": {
+      "buy_usd": 0.0,
+      "sell_usd": 2925.0,
+      "known_realized_pnl_usd": null,
+      "event_count": 10
+    },
+    "Robinhood": {
+      "buy_usd": 15983.36,
+      "sell_usd": 12218.2,
+      "known_realized_pnl_usd": null,
+      "event_count": 17
+    },
+    "Solana wallets": {
+      "buy_usd": 0.0,
+      "sell_usd": 0.0,
+      "known_realized_pnl_usd": null,
+      "event_count": 9
+    }
+  },
+  "days": [
+    {
+      "day": "2026-07-23",
+      "buy_usd": 0.0,
+      "sell_usd": 5619.83,
+      "net_flow_usd": -5619.83,
+      "known_realized_pnl_usd": null,
+      "event_count": 1,
+      "platforms": [
+        "Robinhood"
+      ],
+      "lines": [
+        {
+          "platform": "Robinhood",
+          "symbol": "TSLA 1/15/2027 Put $350.00",
+          "side": "STO",
+          "qty": 1.0,
+          "price": 56.2,
+          "notional_usd": 5619.83,
+          "realized_pnl_usd": null,
+          "ts": "2026-07-23T12:00:00-04:00",
+          "note": "STO",
+          "source": "robinhood-activity-2026-09-19"
+        }
+      ]
+    },
+    {
+      "day": "2026-07-24",
+      "buy_usd": 0.0,
+      "sell_usd": 0.0,
+      "net_flow_usd": 0.0,
+      "known_realized_pnl_usd": null,
+      "event_count": 0,
+      "platforms": [],
+      "lines": []
+    },
+    {
+      "day": "2026-07-25",
+      "buy_usd": 0.0,
+      "sell_usd": 0.0,
+      "net_flow_usd": 0.0,
+      "known_realized_pnl_usd": null,
+      "event_count": 0,
+      "platforms": [],
+      "lines": []
+    },
+    {
+      "day": "2026-07-26",
+      "buy_usd": 0.0,
+      "sell_usd": 0.0,
+      "net_flow_usd": 0.0,
+      "known_realized_pnl_usd": null,
+      "event_count": 0,
+      "platforms": [],
+      "lines": []
+    },
+    {
+      "day": "2026-07-27",
+      "buy_usd": 0.0,
+      "sell_usd": 0.0,
+      "net_flow_usd": 0.0,
+      "known_realized_pnl_usd": null,
+      "event_count": 0,
+      "platforms": [],
+      "lines": []
+    },
+    {
+      "day": "2026-07-28",
+      "buy_usd": 0.0,
+      "sell_usd": 0.0,
+      "net_flow_usd": 0.0,
+      "known_realized_pnl_usd": null,
+      "event_count": 0,
+      "platforms": [],
+      "lines": []
+    },
+    {
+      "day": "2026-07-29",
+      "buy_usd": 0.0,
+      "sell_usd": 0.0,
+      "net_flow_usd": 0.0,
+      "known_realized_pnl_usd": null,
+      "event_count": 3,
+      "platforms": [
+        "Solana wallets"
+      ],
+      "lines": [
+        {
+          "platform": "Solana wallets",
+          "symbol": "SOL/USDC/SOL/SOL",
+          "side": "TRANSFER",
+          "qty": null,
+          "price": null,
+          "notional_usd": 1729.52,
+          "realized_pnl_usd": null,
+          "ts": "2026-07-29T20:38:15-04:00",
+          "note": "transfer (in $570.88 / out $1729.52); multi-leg; Solana 2",
+          "source": "barometer-events_normalized"
+        },
+        {
+          "platform": "Solana wallets",
+          "symbol": "SOL/USDC/SOL/SOL",
+          "side": "TRANSFER",
+          "qty": null,
+          "price": null,
+          "notional_usd": 1454.33,
+          "realized_pnl_usd": null,
+          "ts": "2026-07-29T15:34:49-04:00",
+          "note": "transfer (in $483.34 / out $1454.33); multi-leg; Solana 2",
+          "source": "barometer-events_normalized"
+        },
+        {
+          "platform": "Solana wallets",
+          "symbol": "SOL/USDC/SOL/SOL",
+          "side": "TRANSFER",
+          "qty": null,
+          "price": null,
+          "notional_usd": 1435.93,
+          "realized_pnl_usd": null,
+          "ts": "2026-07-29T10:15:46-04:00",
+          "note": "transfer (in $477.64 / out $1435.93); multi-leg; Solana 2",
+          "source": "barometer-events_normalized"
+        }
+      ]
+    },
+    {
+      "day": "2026-07-30",
+      "buy_usd": 0.0,
+      "sell_usd": 0.0,
+      "net_flow_usd": 0.0,
+      "known_realized_pnl_usd": null,
+      "event_count": 0,
+      "platforms": [],
+      "lines": []
+    },
+    {
+      "day": "2026-07-31",
+      "buy_usd": 0.0,
+      "sell_usd": 0.0,
+      "net_flow_usd": 0.0,
+      "known_realized_pnl_usd": null,
+      "event_count": 4,
+      "platforms": [
+        "Solana wallets"
+      ],
+      "lines": [
+        {
+          "platform": "Solana wallets",
+          "symbol": "SOL/USDC/SOL/SOL",
+          "side": "TRANSFER",
+          "qty": null,
+          "price": null,
+          "notional_usd": 457.65,
+          "realized_pnl_usd": null,
+          "ts": "2026-07-31T11:17:09-04:00",
+          "note": "transfer (in $152.65 / out $457.65); multi-leg; Solana 2",
+          "source": "barometer-events_normalized"
+        },
+        {
+          "platform": "Solana wallets",
+          "symbol": "SOL/USDC/SOL/SOL",
+          "side": "TRANSFER",
+          "qty": null,
+          "price": null,
+          "notional_usd": 464.21,
+          "realized_pnl_usd": null,
+          "ts": "2026-07-31T11:16:57-04:00",
+          "note": "transfer (in $154.83 / out $464.21); multi-leg; Solana 2",
+          "source": "barometer-events_normalized"
+        },
+        {
+          "platform": "Solana wallets",
+          "symbol": "SOL/USDC/SOL/SOL",
+          "side": "TRANSFER",
+          "qty": null,
+          "price": null,
+          "notional_usd": 847.49,
+          "realized_pnl_usd": null,
+          "ts": "2026-07-31T10:28:41-04:00",
+          "note": "transfer (in $283.60 / out $847.49); multi-leg; Solana 2",
+          "source": "barometer-events_normalized"
+        },
+        {
+          "platform": "Solana wallets",
+          "symbol": "SOL/USDC/SOL/SOL",
+          "side": "TRANSFER",
+          "qty": null,
+          "price": null,
+          "notional_usd": 821.78,
+          "realized_pnl_usd": null,
+          "ts": "2026-07-31T09:30:28-04:00",
+          "note": "transfer (in $275.96 / out $821.78); multi-leg; Solana 2",
+          "source": "barometer-events_normalized"
+        }
+      ]
+    },
+    {
+      "day": "2026-08-01",
+      "buy_usd": 0.0,
+      "sell_usd": 0.0,
+      "net_flow_usd": 0.0,
+      "known_realized_pnl_usd": null,
+      "event_count": 0,
+      "platforms": [],
+      "lines": []
+    },
+    {
+      "day": "2026-08-02",
+      "buy_usd": 0.0,
+      "sell_usd": 0.0,
+      "net_flow_usd": 0.0,
+      "known_realized_pnl_usd": null,
+      "event_count": 0,
+      "platforms": [],
+      "lines": []
+    },
+    {
+      "day": "2026-08-03",
+      "buy_usd": 0.0,
+      "sell_usd": 0.0,
+      "net_flow_usd": 0.0,
+      "known_realized_pnl_usd": null,
+      "event_count": 0,
+      "platforms": [],
+      "lines": []
+    },
+    {
+      "day": "2026-08-04",
+      "buy_usd": 0.0,
+      "sell_usd": 0.0,
+      "net_flow_usd": 0.0,
+      "known_realized_pnl_usd": null,
+      "event_count": 0,
+      "platforms": [],
+      "lines": []
+    },
+    {
+      "day": "2026-08-05",
+      "buy_usd": 0.0,
+      "sell_usd": 0.0,
+      "net_flow_usd": 0.0,
+      "known_realized_pnl_usd": null,
+      "event_count": 0,
+      "platforms": [],
+      "lines": []
+    },
+    {
+      "day": "2026-08-06",
+      "buy_usd": 0.0,
+      "sell_usd": 0.0,
+      "net_flow_usd": 0.0,
+      "known_realized_pnl_usd": null,
+      "event_count": 0,
+      "platforms": [],
+      "lines": []
+    },
+    {
+      "day": "2026-08-07",
+      "buy_usd": 0.0,
+      "sell_usd": 0.0,
+      "net_flow_usd": 0.0,
+      "known_realized_pnl_usd": null,
+      "event_count": 1,
+      "platforms": [
+        "EVM wallets (EVM-2)"
+      ],
+      "lines": [
+        {
+          "platform": "EVM wallets (EVM-2)",
+          "symbol": "yRise",
+          "side": "AIRDROP",
+          "qty": null,
+          "price": null,
+          "notional_usd": null,
+          "realized_pnl_usd": null,
+          "ts": "2026-08-07T23:49:35-04:00",
+          "note": "airdrop; EVM-2 (user paste)",
+          "source": "barometer-events_normalized"
+        }
+      ]
+    },
+    {
+      "day": "2026-08-08",
+      "buy_usd": 0.0,
+      "sell_usd": 0.0,
+      "net_flow_usd": 0.0,
+      "known_realized_pnl_usd": null,
+      "event_count": 0,
+      "platforms": [],
+      "lines": []
+    },
+    {
+      "day": "2026-08-09",
+      "buy_usd": 0.0,
+      "sell_usd": 0.0,
+      "net_flow_usd": 0.0,
+      "known_realized_pnl_usd": null,
+      "event_count": 1,
+      "platforms": [
+        "EVM wallets (EVM-4)"
+      ],
+      "lines": [
+        {
+          "platform": "EVM wallets (EVM-4)",
+          "symbol": "yRise",
+          "side": "AIRDROP",
+          "qty": null,
+          "price": null,
+          "notional_usd": null,
+          "realized_pnl_usd": null,
+          "ts": "2026-08-09T20:22:35-04:00",
+          "note": "airdrop; EVM-4 (user paste)",
+          "source": "barometer-events_normalized"
+        }
+      ]
+    },
+    {
+      "day": "2026-08-10",
+      "buy_usd": 0.0,
+      "sell_usd": 0.0,
+      "net_flow_usd": 0.0,
+      "known_realized_pnl_usd": null,
+      "event_count": 2,
+      "platforms": [
+        "EVM wallets (EVM-4)"
+      ],
+      "lines": [
+        {
+          "platform": "EVM wallets (EVM-4)",
+          "symbol": "WETH",
+          "side": "TRANSFER",
+          "qty": null,
+          "price": null,
+          "notional_usd": 371.39,
+          "realized_pnl_usd": null,
+          "ts": "2026-08-10T15:12:01-04:00",
+          "note": "transfer in; EVM-4 (user paste)",
+          "source": "barometer-events_normalized"
+        },
+        {
+          "platform": "EVM wallets (EVM-4)",
+          "symbol": "ETH",
+          "side": "EXECUTE",
+          "qty": null,
+          "price": null,
+          "notional_usd": 374.47,
+          "realized_pnl_usd": null,
+          "ts": "2026-08-10T15:11:59-04:00",
+          "note": "execute via Relay; EVM-4 (user paste)",
+          "source": "barometer-events_normalized"
+        }
+      ]
+    },
+    {
+      "day": "2026-08-11",
+      "buy_usd": 0.0,
+      "sell_usd": 0.0,
+      "net_flow_usd": 0.0,
+      "known_realized_pnl_usd": null,
+      "event_count": 0,
+      "platforms": [],
+      "lines": []
+    },
+    {
+      "day": "2026-08-12",
+      "buy_usd": 0.0,
+      "sell_usd": 0.0,
+      "net_flow_usd": 0.0,
+      "known_realized_pnl_usd": null,
+      "event_count": 0,
+      "platforms": [],
+      "lines": []
+    },
+    {
+      "day": "2026-08-13",
+      "buy_usd": 0.0,
+      "sell_usd": 0.0,
+      "net_flow_usd": 0.0,
+      "known_realized_pnl_usd": null,
+      "event_count": 0,
+      "platforms": [],
+      "lines": []
+    },
+    {
+      "day": "2026-08-14",
+      "buy_usd": 4110.04,
+      "sell_usd": 1027.86,
+      "net_flow_usd": 3082.18,
+      "known_realized_pnl_usd": null,
+      "event_count": 3,
+      "platforms": [
+        "Robinhood"
+      ],
+      "lines": [
+        {
+          "platform": "Robinhood",
+          "symbol": "IONQ 10/16/2026 Put $45.00",
+          "side": "STO",
+          "qty": 1.0,
+          "price": 5.18,
+          "notional_usd": 517.93,
+          "realized_pnl_usd": null,
+          "ts": "2026-08-14T12:00:00-04:00",
+          "note": "STO",
+          "source": "robinhood-activity-2026-09-19"
+        },
+        {
+          "platform": "Robinhood",
+          "symbol": "IONQ 10/16/2026 Put $45.00",
+          "side": "STO",
+          "qty": 1.0,
+          "price": 5.1,
+          "notional_usd": 509.93,
+          "realized_pnl_usd": null,
+          "ts": "2026-08-14T12:00:00-04:00",
+          "note": "STO",
+          "source": "robinhood-activity-2026-09-19"
+        },
+        {
+          "platform": "Robinhood",
+          "symbol": "TSLA 1/15/2027 Put $350.00",
+          "side": "BTC",
+          "qty": 1.0,
+          "price": 41.1,
+          "notional_usd": 4110.04,
+          "realized_pnl_usd": null,
+          "ts": "2026-08-14T12:00:00-04:00",
+          "note": "BTC",
+          "source": "robinhood-activity-2026-09-19"
+        }
+      ]
+    },
+    {
+      "day": "2026-08-15",
+      "buy_usd": 0.0,
+      "sell_usd": 0.0,
+      "net_flow_usd": 0.0,
+      "known_realized_pnl_usd": null,
+      "event_count": 0,
+      "platforms": [],
+      "lines": []
+    },
+    {
+      "day": "2026-08-16",
+      "buy_usd": 0.0,
+      "sell_usd": 0.0,
+      "net_flow_usd": 0.0,
+      "known_realized_pnl_usd": null,
+      "event_count": 0,
+      "platforms": [],
+      "lines": []
+    },
+    {
+      "day": "2026-08-17",
+      "buy_usd": 0.0,
+      "sell_usd": 2644.83,
+      "net_flow_usd": -2644.83,
+      "known_realized_pnl_usd": null,
+      "event_count": 4,
+      "platforms": [
+        "Robinhood",
+        "Solana wallets"
+      ],
+      "lines": [
+        {
+          "platform": "Solana wallets",
+          "symbol": "SOL/USDC/SOL/SOL",
+          "side": "TRANSFER",
+          "qty": null,
+          "price": null,
+          "notional_usd": 204.89,
+          "realized_pnl_usd": null,
+          "ts": "2026-08-17T13:05:37-04:00",
+          "note": "transfer (in $68.34 / out $204.89); multi-leg; Solana 2",
+          "source": "barometer-events_normalized"
+        },
+        {
+          "platform": "Robinhood",
+          "symbol": "SPCX 10/16/2026 Put $140.00",
+          "side": "STO",
+          "qty": 1.0,
+          "price": 11.07,
+          "notional_usd": 1106.92,
+          "realized_pnl_usd": null,
+          "ts": "2026-08-17T12:00:00-04:00",
+          "note": "STO",
+          "source": "robinhood-activity-2026-09-19"
+        },
+        {
+          "platform": "Robinhood",
+          "symbol": "SPCX 11/20/2026 Put $140.00",
+          "side": "STO",
+          "qty": 1.0,
+          "price": 15.38,
+          "notional_usd": 1537.91,
+          "realized_pnl_usd": null,
+          "ts": "2026-08-17T12:00:00-04:00",
+          "note": "STO",
+          "source": "robinhood-activity-2026-09-19"
+        },
+        {
+          "platform": "Solana wallets",
+          "symbol": "SOL/USDC/SOL/SOL",
+          "side": "TRANSFER",
+          "qty": null,
+          "price": null,
+          "notional_usd": 669.71,
+          "realized_pnl_usd": null,
+          "ts": "2026-08-17T09:05:40-04:00",
+          "note": "transfer (in $221.79 / out $669.71); multi-leg; Solana 2",
+          "source": "barometer-events_normalized"
+        }
+      ]
+    },
+    {
+      "day": "2026-08-18",
+      "buy_usd": 0.0,
+      "sell_usd": 0.0,
+      "net_flow_usd": 0.0,
+      "known_realized_pnl_usd": null,
+      "event_count": 0,
+      "platforms": [],
+      "lines": []
+    },
+    {
+      "day": "2026-08-19",
+      "buy_usd": 6916.52,
+      "sell_usd": 0.0,
+      "net_flow_usd": 6916.52,
+      "known_realized_pnl_usd": null,
+      "event_count": 2,
+      "platforms": [
+        "Coinbase"
+      ],
+      "lines": [
+        {
+          "platform": "Coinbase",
+          "symbol": "BTC",
+          "side": "BUY",
+          "qty": 0.09989785,
+          "price": 69155.94,
+          "notional_usd": 6908.53,
+          "realized_pnl_usd": null,
+          "ts": "2026-08-19T16:56:23.946718-04:00",
+          "note": "commission $82.9024; BTC-USDC",
+          "source": "coinbase-fills-2026-09-19"
+        },
+        {
+          "platform": "Coinbase",
+          "symbol": "BTC",
+          "side": "BUY",
+          "qty": 0.00011554000000000001,
+          "price": 69155.94,
+          "notional_usd": 7.99,
+          "realized_pnl_usd": null,
+          "ts": "2026-08-19T16:56:23.946718-04:00",
+          "note": "commission $0.0959; BTC-USDC",
+          "source": "coinbase-fills-2026-09-19"
+        }
+      ]
+    },
+    {
+      "day": "2026-08-20",
+      "buy_usd": 0.0,
+      "sell_usd": 0.0,
+      "net_flow_usd": 0.0,
+      "known_realized_pnl_usd": null,
+      "event_count": 0,
+      "platforms": [],
+      "lines": []
+    },
+    {
+      "day": "2026-08-21",
+      "buy_usd": 8590.08,
+      "sell_usd": 0.0,
+      "net_flow_usd": 8590.08,
+      "known_realized_pnl_usd": null,
+      "event_count": 2,
+      "platforms": [
+        "Robinhood"
+      ],
+      "lines": [
+        {
+          "platform": "Robinhood",
+          "symbol": "HOOD 9/17/2027 Call $85.00",
+          "side": "BTO",
+          "qty": 1.0,
+          "price": 42.95,
+          "notional_usd": 4295.04,
+          "realized_pnl_usd": null,
+          "ts": "2026-08-21T12:00:00-04:00",
+          "note": "BTO",
+          "source": "robinhood-activity-2026-09-19"
+        },
+        {
+          "platform": "Robinhood",
+          "symbol": "HOOD 9/17/2027 Call $85.00",
+          "side": "BTO",
+          "qty": 1.0,
+          "price": 42.95,
+          "notional_usd": 4295.04,
+          "realized_pnl_usd": null,
+          "ts": "2026-08-21T12:00:00-04:00",
+          "note": "BTO",
+          "source": "robinhood-activity-2026-09-19"
+        }
+      ]
+    },
+    {
+      "day": "2026-08-22",
+      "buy_usd": 0.0,
+      "sell_usd": 0.0,
+      "net_flow_usd": 0.0,
+      "known_realized_pnl_usd": null,
+      "event_count": 0,
+      "platforms": [],
+      "lines": []
+    },
+    {
+      "day": "2026-08-23",
+      "buy_usd": 0.0,
+      "sell_usd": 0.0,
+      "net_flow_usd": 0.0,
+      "known_realized_pnl_usd": null,
+      "event_count": 0,
+      "platforms": [],
+      "lines": []
+    },
+    {
+      "day": "2026-08-24",
+      "buy_usd": 0.0,
+      "sell_usd": 2925.0,
+      "net_flow_usd": -2925.0,
+      "known_realized_pnl_usd": null,
+      "event_count": 2,
+      "platforms": [
+        "Journal/manual"
+      ],
+      "lines": [
+        {
+          "platform": "Journal/manual",
+          "symbol": "WIF",
+          "side": "SELL",
+          "qty": null,
+          "price": 0.2,
+          "notional_usd": 638.0,
+          "realized_pnl_usd": null,
+          "ts": "2026-08-24T15:14:00-04:00",
+          "note": "venue=Coinbase; approximate; Full Coinbase close ~3:14pm ET. Approximate market close \u2014 last-known cockpit size ~$638 this morning and spot ~$0.20. Fill price and share count were not given",
+          "source": "journal-fills.json"
+        },
+        {
+          "platform": "Journal/manual",
+          "symbol": "DRIFT",
+          "side": "SELL",
+          "qty": null,
+          "price": 0.0123,
+          "notional_usd": 2287.0,
+          "realized_pnl_usd": null,
+          "ts": "2026-08-24T15:12:00-04:00",
+          "note": "venue=Coinbase; approximate; Full Coinbase close ~3:12pm ET. Approximate market close \u2014 last-known cockpit size ~$2,287 (0.23% of ~$1.00M book) and last live Coinbase/Kraken spot ~$0.0123. ",
+          "source": "journal-fills.json"
+        }
+      ]
+    },
+    {
+      "day": "2026-08-25",
+      "buy_usd": 1346.08,
+      "sell_usd": 1065.88,
+      "net_flow_usd": 280.2,
+      "known_realized_pnl_usd": null,
+      "event_count": 2,
+      "platforms": [
+        "Robinhood"
+      ],
+      "lines": [
+        {
+          "platform": "Robinhood",
+          "symbol": "IONQ 10/16/2026 Put $45.00",
+          "side": "BTC",
+          "qty": 2.0,
+          "price": 6.73,
+          "notional_usd": 1346.08,
+          "realized_pnl_usd": null,
+          "ts": "2026-08-25T12:00:00-04:00",
+          "note": "BTC",
+          "source": "robinhood-activity-2026-09-19"
+        },
+        {
+          "platform": "Robinhood",
+          "symbol": "IONQ 11/20/2026 Put $40.00",
+          "side": "STO",
+          "qty": 2.0,
+          "price": 5.33,
+          "notional_usd": 1065.88,
+          "realized_pnl_usd": null,
+          "ts": "2026-08-25T12:00:00-04:00",
+          "note": "STO",
+          "source": "robinhood-activity-2026-09-19"
+        }
+      ]
+    },
+    {
+      "day": "2026-08-26",
+      "buy_usd": 0.0,
+      "sell_usd": 0.0,
+      "net_flow_usd": 0.0,
+      "known_realized_pnl_usd": null,
+      "event_count": 0,
+      "platforms": [],
+      "lines": []
+    },
+    {
+      "day": "2026-08-27",
+      "buy_usd": 66002.49,
+      "sell_usd": 18184.16,
+      "net_flow_usd": 47818.33,
+      "known_realized_pnl_usd": 260.64,
+      "event_count": 15,
+      "platforms": [
+        "Hyperliquid"
+      ],
+      "lines": [
+        {
+          "platform": "Hyperliquid",
+          "symbol": "SOL-PERP",
+          "side": "SELL",
+          "qty": 107.49,
+          "price": 108.42,
+          "notional_usd": 11654.07,
+          "realized_pnl_usd": 129.97,
+          "ts": "2026-08-27T21:49:16.853000-04:00",
+          "note": "Close Long; fee $5.2443 USDC",
+          "source": "hyperliquid-raw-2026-09-19"
+        },
+        {
+          "platform": "Hyperliquid",
+          "symbol": "SOL-PERP",
+          "side": "SELL",
+          "qty": 59.69,
+          "price": 109.4,
+          "notional_usd": 6530.09,
+          "realized_pnl_usd": 130.67,
+          "ts": "2026-08-27T18:25:50.251000-04:00",
+          "note": "Close Long; fee $2.9385 USDC",
+          "source": "hyperliquid-raw-2026-09-19"
+        },
+        {
+          "platform": "Hyperliquid",
+          "symbol": "VVV-PERP",
+          "side": "BUY",
+          "qty": 5.49,
+          "price": 18.214,
+          "notional_usd": 99.99,
+          "realized_pnl_usd": null,
+          "ts": "2026-08-27T14:55:16.292000-04:00",
+          "note": "Open Long; fee $0.0450 USDC",
+          "source": "hyperliquid-raw-2026-09-19"
+        },
+        {
+          "platform": "Hyperliquid",
+          "symbol": "VVV-PERP",
+          "side": "BUY",
+          "qty": 1.66,
+          "price": 18.213,
+          "notional_usd": 30.23,
+          "realized_pnl_usd": null,
+          "ts": "2026-08-27T14:55:16.292000-04:00",
+          "note": "Open Long; fee $0.0136 USDC",
+          "source": "hyperliquid-raw-2026-09-19"
+        },
+        {
+          "platform": "Hyperliquid",
+          "symbol": "VVV-PERP",
+          "side": "BUY",
+          "qty": 8.48,
+          "price": 18.212,
+          "notional_usd": 154.44,
+          "realized_pnl_usd": null,
+          "ts": "2026-08-27T14:55:16.292000-04:00",
+          "note": "Open Long; fee $0.0695 USDC",
+          "source": "hyperliquid-raw-2026-09-19"
+        },
+        {
+          "platform": "Hyperliquid",
+          "symbol": "VVV-PERP",
+          "side": "BUY",
+          "qty": 2.26,
+          "price": 18.211,
+          "notional_usd": 41.16,
+          "realized_pnl_usd": null,
+          "ts": "2026-08-27T14:55:16.292000-04:00",
+          "note": "Open Long; fee $0.0185 USDC",
+          "source": "hyperliquid-raw-2026-09-19"
+        },
+        {
+          "platform": "Hyperliquid",
+          "symbol": "VVV-PERP",
+          "side": "BUY",
+          "qty": 10.14,
+          "price": 18.209,
+          "notional_usd": 184.64,
+          "realized_pnl_usd": null,
+          "ts": "2026-08-27T14:55:16.292000-04:00",
+          "note": "Open Long; fee $0.0831 USDC",
+          "source": "hyperliquid-raw-2026-09-19"
+        },
+        {
+          "platform": "Hyperliquid",
+          "symbol": "VVV-PERP",
+          "side": "BUY",
+          "qty": 21.97,
+          "price": 18.209,
+          "notional_usd": 400.05,
+          "realized_pnl_usd": null,
+          "ts": "2026-08-27T14:55:16.292000-04:00",
+          "note": "Open Long; fee $0.1800 USDC",
+          "source": "hyperliquid-raw-2026-09-19"
+        },
+        {
+          "platform": "Hyperliquid",
+          "symbol": "VVV-PERP",
+          "side": "BUY",
+          "qty": 2.3,
+          "price": 18.209,
+          "notional_usd": 41.88,
+          "realized_pnl_usd": null,
+          "ts": "2026-08-27T14:55:16.292000-04:00",
+          "note": "Open Long; fee $0.0188 USDC",
+          "source": "hyperliquid-raw-2026-09-19"
+        },
+        {
+          "platform": "Hyperliquid",
+          "symbol": "VVV-PERP",
+          "side": "BUY",
+          "qty": 2.63,
+          "price": 18.207,
+          "notional_usd": 47.88,
+          "realized_pnl_usd": null,
+          "ts": "2026-08-27T14:55:16.292000-04:00",
+          "note": "Open Long; fee $0.0215 USDC",
+          "source": "hyperliquid-raw-2026-09-19"
+        },
+        {
+          "platform": "Hyperliquid",
+          "symbol": "HYPE-PERP",
+          "side": "BUY",
+          "qty": 11.65,
+          "price": 85.79,
+          "notional_usd": 999.45,
+          "realized_pnl_usd": null,
+          "ts": "2026-08-27T14:06:20.288000-04:00",
+          "note": "Open Long; fee $0.4498 USDC",
+          "source": "hyperliquid-raw-2026-09-19"
+        },
+        {
+          "platform": "Hyperliquid",
+          "symbol": "SOL-PERP",
+          "side": "BUY",
+          "qty": 53.95,
+          "price": 107.22,
+          "notional_usd": 5784.52,
+          "realized_pnl_usd": null,
+          "ts": "2026-08-27T11:31:56.834000-04:00",
+          "note": "Open Long; fee $2.6030 USDC",
+          "source": "hyperliquid-raw-2026-09-19"
+        },
+        {
+          "platform": "Hyperliquid",
+          "symbol": "SOL-PERP",
+          "side": "BUY",
+          "qty": 117.71,
+          "price": 107.21,
+          "notional_usd": 12619.69,
+          "realized_pnl_usd": null,
+          "ts": "2026-08-27T11:31:56.834000-04:00",
+          "note": "Open Long; fee $5.6789 USDC",
+          "source": "hyperliquid-raw-2026-09-19"
+        },
+        {
+          "platform": "Hyperliquid",
+          "symbol": "SOL-PERP",
+          "side": "BUY",
+          "qty": 218.7,
+          "price": 107.21,
+          "notional_usd": 23446.83,
+          "realized_pnl_usd": null,
+          "ts": "2026-08-27T11:31:56.834000-04:00",
+          "note": "Open Long; fee $10.5511 USDC",
+          "source": "hyperliquid-raw-2026-09-19"
+        },
+        {
+          "platform": "Hyperliquid",
+          "symbol": "SOL-PERP",
+          "side": "BUY",
+          "qty": 206.62,
+          "price": 107.21,
+          "notional_usd": 22151.73,
+          "realized_pnl_usd": null,
+          "ts": "2026-08-27T11:31:56.834000-04:00",
+          "note": "Open Long; fee $9.9683 USDC",
+          "source": "hyperliquid-raw-2026-09-19"
+        }
+      ]
+    },
+    {
+      "day": "2026-08-28",
+      "buy_usd": 0.0,
+      "sell_usd": 376.33,
+      "net_flow_usd": -376.33,
+      "known_realized_pnl_usd": null,
+      "event_count": 1,
+      "platforms": [
+        "E*TRADE"
+      ],
+      "lines": [
+        {
+          "platform": "E*TRADE",
+          "symbol": "SPCX 260904P00141000",
+          "side": "SELL",
+          "qty": 1.0,
+          "price": 3.77,
+          "notional_usd": 376.33,
+          "realized_pnl_usd": null,
+          "ts": "2026-08-28T12:00:00-04:00",
+          "note": "PUT SPACE EXPLORATION TECHN- AT 141.000 EXPIRES 09-04-2026; fees $1.32",
+          "source": "etrade-fills-2026-09-19"
+        }
+      ]
+    },
+    {
+      "day": "2026-08-29",
+      "buy_usd": 0.0,
+      "sell_usd": 0.0,
+      "net_flow_usd": 0.0,
+      "known_realized_pnl_usd": null,
+      "event_count": 0,
+      "platforms": [],
+      "lines": []
+    },
+    {
+      "day": "2026-08-30",
+      "buy_usd": 0.0,
+      "sell_usd": 0.0,
+      "net_flow_usd": 0.0,
+      "known_realized_pnl_usd": null,
+      "event_count": 0,
+      "platforms": [],
+      "lines": []
+    },
+    {
+      "day": "2026-08-31",
+      "buy_usd": 0.0,
+      "sell_usd": 0.0,
+      "net_flow_usd": 0.0,
+      "known_realized_pnl_usd": null,
+      "event_count": 0,
+      "platforms": [],
+      "lines": []
+    },
+    {
+      "day": "2026-09-01",
+      "buy_usd": 0.0,
+      "sell_usd": 17077.17,
+      "net_flow_usd": -17077.17,
+      "known_realized_pnl_usd": -1349.16,
+      "event_count": 9,
+      "platforms": [
+        "Hyperliquid"
+      ],
+      "lines": [
+        {
+          "platform": "Hyperliquid",
+          "symbol": "SOL-PERP",
+          "side": "SELL",
+          "qty": 37.03,
+          "price": 99.361,
+          "notional_usd": 3679.34,
+          "realized_pnl_usd": -290.68,
+          "ts": "2026-09-01T14:33:02.640000-04:00",
+          "note": "Close Long; fee $1.6557 USDC",
+          "source": "hyperliquid-raw-2026-09-19"
+        },
+        {
+          "platform": "Hyperliquid",
+          "symbol": "SOL-PERP",
+          "side": "SELL",
+          "qty": 10.06,
+          "price": 99.361,
+          "notional_usd": 999.57,
+          "realized_pnl_usd": -78.97,
+          "ts": "2026-09-01T14:33:02.640000-04:00",
+          "note": "Close Long; fee $0.4498 USDC",
+          "source": "hyperliquid-raw-2026-09-19"
+        },
+        {
+          "platform": "Hyperliquid",
+          "symbol": "SOL-PERP",
+          "side": "SELL",
+          "qty": 2.99,
+          "price": 99.361,
+          "notional_usd": 297.09,
+          "realized_pnl_usd": -23.47,
+          "ts": "2026-09-01T14:33:02.640000-04:00",
+          "note": "Close Long; fee $0.1337 USDC",
+          "source": "hyperliquid-raw-2026-09-19"
+        },
+        {
+          "platform": "Hyperliquid",
+          "symbol": "SOL-PERP",
+          "side": "SELL",
+          "qty": 0.15,
+          "price": 99.361,
+          "notional_usd": 14.9,
+          "realized_pnl_usd": -1.18,
+          "ts": "2026-09-01T14:33:02.640000-04:00",
+          "note": "Close Long; fee $0.0067 USDC",
+          "source": "hyperliquid-raw-2026-09-19"
+        },
+        {
+          "platform": "Hyperliquid",
+          "symbol": "SOL-PERP",
+          "side": "SELL",
+          "qty": 99.53,
+          "price": 99.361,
+          "notional_usd": 9889.4,
+          "realized_pnl_usd": -781.3,
+          "ts": "2026-09-01T14:33:02.640000-04:00",
+          "note": "Close Long; fee $4.4502 USDC",
+          "source": "hyperliquid-raw-2026-09-19"
+        },
+        {
+          "platform": "Hyperliquid",
+          "symbol": "SOL-PERP",
+          "side": "SELL",
+          "qty": 0.6,
+          "price": 99.361,
+          "notional_usd": 59.62,
+          "realized_pnl_usd": -4.71,
+          "ts": "2026-09-01T14:33:02.640000-04:00",
+          "note": "Close Long; fee $0.0268 USDC",
+          "source": "hyperliquid-raw-2026-09-19"
+        },
+        {
+          "platform": "Hyperliquid",
+          "symbol": "SOL-PERP",
+          "side": "SELL",
+          "qty": 20.12,
+          "price": 99.361,
+          "notional_usd": 1999.14,
+          "realized_pnl_usd": -157.94,
+          "ts": "2026-09-01T14:33:02.640000-04:00",
+          "note": "Close Long; fee $0.8996 USDC",
+          "source": "hyperliquid-raw-2026-09-19"
+        },
+        {
+          "platform": "Hyperliquid",
+          "symbol": "SOL-PERP",
+          "side": "SELL",
+          "qty": 1.0,
+          "price": 99.361,
+          "notional_usd": 99.36,
+          "realized_pnl_usd": -7.85,
+          "ts": "2026-09-01T14:33:02.640000-04:00",
+          "note": "Close Long; fee $0.0447 USDC",
+          "source": "hyperliquid-raw-2026-09-19"
+        },
+        {
+          "platform": "Hyperliquid",
+          "symbol": "SOL-PERP",
+          "side": "SELL",
+          "qty": 0.39,
+          "price": 99.361,
+          "notional_usd": 38.75,
+          "realized_pnl_usd": -3.06,
+          "ts": "2026-09-01T14:33:02.640000-04:00",
+          "note": "Close Long; fee $0.0174 USDC",
+          "source": "hyperliquid-raw-2026-09-19"
+        }
+      ]
+    },
+    {
+      "day": "2026-09-02",
+      "buy_usd": 0.0,
+      "sell_usd": 0.0,
+      "net_flow_usd": 0.0,
+      "known_realized_pnl_usd": null,
+      "event_count": 0,
+      "platforms": [],
+      "lines": []
+    },
+    {
+      "day": "2026-09-03",
+      "buy_usd": 33151.84,
+      "sell_usd": 431.33,
+      "net_flow_usd": 32720.51,
+      "known_realized_pnl_usd": null,
+      "event_count": 20,
+      "platforms": [
+        "Coinbase",
+        "E*TRADE",
+        "Hyperliquid"
+      ],
+      "lines": [
+        {
+          "platform": "E*TRADE",
+          "symbol": "SPCX 260911P00148000",
+          "side": "SELL",
+          "qty": 1.0,
+          "price": 4.32,
+          "notional_usd": 431.33,
+          "realized_pnl_usd": null,
+          "ts": "2026-09-03T12:00:00-04:00",
+          "note": "PUT SPACE EXPLORATION TECHN- AT 148.000 EXPIRES 09-11-2026; fees $1.32",
+          "source": "etrade-fills-2026-09-19"
+        },
+        {
+          "platform": "E*TRADE",
+          "symbol": "SPCX 260904P00141000",
+          "side": "BUY",
+          "qty": 1.0,
+          "price": 0.32,
+          "notional_usd": 32.66,
+          "realized_pnl_usd": null,
+          "ts": "2026-09-03T12:00:00-04:00",
+          "note": "PUT SPACE EXPLORATION TECHN- AT 141.000 EXPIRES 09-04-2026; fees $1.31",
+          "source": "etrade-fills-2026-09-19"
+        },
+        {
+          "platform": "Hyperliquid",
+          "symbol": "BTC-PERP",
+          "side": "BUY",
+          "qty": 0.16188,
+          "price": 80475.0,
+          "notional_usd": 13027.29,
+          "realized_pnl_usd": null,
+          "ts": "2026-09-03T11:10:28.146000-04:00",
+          "note": "Open Long; fee $5.8623 USDC",
+          "source": "hyperliquid-raw-2026-09-19"
+        },
+        {
+          "platform": "Hyperliquid",
+          "symbol": "BTC-PERP",
+          "side": "BUY",
+          "qty": 0.15169,
+          "price": 80475.0,
+          "notional_usd": 12207.25,
+          "realized_pnl_usd": null,
+          "ts": "2026-09-03T11:10:28.146000-04:00",
+          "note": "Open Long; fee $5.4933 USDC",
+          "source": "hyperliquid-raw-2026-09-19"
+        },
+        {
+          "platform": "Coinbase",
+          "symbol": "HYPE",
+          "side": "BUY",
+          "qty": 8.712,
+          "price": 82.05,
+          "notional_usd": 714.82,
+          "realized_pnl_usd": null,
+          "ts": "2026-09-03T07:53:57.663553-04:00",
+          "note": "commission $8.5778; HYPE-USDC",
+          "source": "coinbase-fills-2026-09-19"
+        },
+        {
+          "platform": "Coinbase",
+          "symbol": "HYPE",
+          "side": "BUY",
+          "qty": 7.875,
+          "price": 82.05,
+          "notional_usd": 646.14,
+          "realized_pnl_usd": null,
+          "ts": "2026-09-03T07:53:57.663553-04:00",
+          "note": "commission $7.7537; HYPE-USDC",
+          "source": "coinbase-fills-2026-09-19"
+        },
+        {
+          "platform": "Coinbase",
+          "symbol": "HYPE",
+          "side": "BUY",
+          "qty": 19.537,
+          "price": 82.05,
+          "notional_usd": 1603.01,
+          "realized_pnl_usd": null,
+          "ts": "2026-09-03T07:53:57.663553-04:00",
+          "note": "commission $19.2361; HYPE-USDC",
+          "source": "coinbase-fills-2026-09-19"
+        },
+        {
+          "platform": "Coinbase",
+          "symbol": "UNI",
+          "side": "BUY",
+          "qty": 12.018849,
+          "price": 6.2314,
+          "notional_usd": 74.89,
+          "realized_pnl_usd": null,
+          "ts": "2026-09-03T07:53:11.506511-04:00",
+          "note": "commission $0.8987; UNI-USDC",
+          "source": "coinbase-fills-2026-09-19"
+        },
+        {
+          "platform": "Coinbase",
+          "symbol": "UNI",
+          "side": "BUY",
+          "qty": 40.19601,
+          "price": 6.2313,
+          "notional_usd": 250.47,
+          "realized_pnl_usd": null,
+          "ts": "2026-09-03T07:53:11.506511-04:00",
+          "note": "commission $3.0057; UNI-USDC",
+          "source": "coinbase-fills-2026-09-19"
+        },
+        {
+          "platform": "Coinbase",
+          "symbol": "UNI",
+          "side": "BUY",
+          "qty": 148.486674,
+          "price": 6.2292,
+          "notional_usd": 924.95,
+          "realized_pnl_usd": null,
+          "ts": "2026-09-03T07:53:11.506511-04:00",
+          "note": "commission $11.0994; UNI-USDC",
+          "source": "coinbase-fills-2026-09-19"
+        },
+        {
+          "platform": "Coinbase",
+          "symbol": "UNI",
+          "side": "BUY",
+          "qty": 44.77909,
+          "price": 6.2291,
+          "notional_usd": 278.93,
+          "realized_pnl_usd": null,
+          "ts": "2026-09-03T07:53:11.506511-04:00",
+          "note": "commission $3.3472; UNI-USDC",
+          "source": "coinbase-fills-2026-09-19"
+        },
+        {
+          "platform": "Coinbase",
+          "symbol": "UNI",
+          "side": "BUY",
+          "qty": 100.097004,
+          "price": 6.229,
+          "notional_usd": 623.5,
+          "realized_pnl_usd": null,
+          "ts": "2026-09-03T07:53:11.506511-04:00",
+          "note": "commission $7.4821; UNI-USDC",
+          "source": "coinbase-fills-2026-09-19"
+        },
+        {
+          "platform": "Coinbase",
+          "symbol": "UNI",
+          "side": "BUY",
+          "qty": 19.18,
+          "price": 6.2289,
+          "notional_usd": 119.47,
+          "realized_pnl_usd": null,
+          "ts": "2026-09-03T07:53:11.506511-04:00",
+          "note": "commission $1.4336; UNI-USDC",
+          "source": "coinbase-fills-2026-09-19"
+        },
+        {
+          "platform": "Coinbase",
+          "symbol": "UNI",
+          "side": "BUY",
+          "qty": 19.18,
+          "price": 6.2288,
+          "notional_usd": 119.47,
+          "realized_pnl_usd": null,
+          "ts": "2026-09-03T07:53:11.506511-04:00",
+          "note": "commission $1.4336; UNI-USDC",
+          "source": "coinbase-fills-2026-09-19"
+        },
+        {
+          "platform": "Coinbase",
+          "symbol": "UNI",
+          "side": "BUY",
+          "qty": 81.803685,
+          "price": 6.2283,
+          "notional_usd": 509.5,
+          "realized_pnl_usd": null,
+          "ts": "2026-09-03T07:53:11.506511-04:00",
+          "note": "commission $6.1140; UNI-USDC",
+          "source": "coinbase-fills-2026-09-19"
+        },
+        {
+          "platform": "Coinbase",
+          "symbol": "UNI",
+          "side": "BUY",
+          "qty": 48.8368,
+          "price": 6.2282,
+          "notional_usd": 304.17,
+          "realized_pnl_usd": null,
+          "ts": "2026-09-03T07:53:11.506511-04:00",
+          "note": "commission $3.6500; UNI-USDC",
+          "source": "coinbase-fills-2026-09-19"
+        },
+        {
+          "platform": "Coinbase",
+          "symbol": "UNI",
+          "side": "BUY",
+          "qty": 148.486674,
+          "price": 6.2264,
+          "notional_usd": 924.54,
+          "realized_pnl_usd": null,
+          "ts": "2026-09-03T07:53:11.506511-04:00",
+          "note": "commission $11.0944; UNI-USDC",
+          "source": "coinbase-fills-2026-09-19"
+        },
+        {
+          "platform": "Coinbase",
+          "symbol": "UNI",
+          "side": "BUY",
+          "qty": 88.646544,
+          "price": 6.2263,
+          "notional_usd": 551.94,
+          "realized_pnl_usd": null,
+          "ts": "2026-09-03T07:53:11.506511-04:00",
+          "note": "commission $6.6233; UNI-USDC",
+          "source": "coinbase-fills-2026-09-19"
+        },
+        {
+          "platform": "Coinbase",
+          "symbol": "UNI",
+          "side": "BUY",
+          "qty": 19.18,
+          "price": 6.2263,
+          "notional_usd": 119.42,
+          "realized_pnl_usd": null,
+          "ts": "2026-09-03T07:53:11.506511-04:00",
+          "note": "commission $1.4330; UNI-USDC",
+          "source": "coinbase-fills-2026-09-19"
+        },
+        {
+          "platform": "Coinbase",
+          "symbol": "UNI",
+          "side": "BUY",
+          "qty": 19.18,
+          "price": 6.2262,
+          "notional_usd": 119.42,
+          "realized_pnl_usd": null,
+          "ts": "2026-09-03T07:53:11.506511-04:00",
+          "note": "commission $1.4330; UNI-USDC",
+          "source": "coinbase-fills-2026-09-19"
+        }
+      ]
+    },
+    {
+      "day": "2026-09-04",
+      "buy_usd": 0.0,
+      "sell_usd": 0.0,
+      "net_flow_usd": 0.0,
+      "known_realized_pnl_usd": null,
+      "event_count": 0,
+      "platforms": [],
+      "lines": []
+    },
+    {
+      "day": "2026-09-05",
+      "buy_usd": 0.0,
+      "sell_usd": 0.0,
+      "net_flow_usd": 0.0,
+      "known_realized_pnl_usd": null,
+      "event_count": 0,
+      "platforms": [],
+      "lines": []
+    },
+    {
+      "day": "2026-09-06",
+      "buy_usd": 0.0,
+      "sell_usd": 0.0,
+      "net_flow_usd": 0.0,
+      "known_realized_pnl_usd": null,
+      "event_count": 0,
+      "platforms": [],
+      "lines": []
+    },
+    {
+      "day": "2026-09-07",
+      "buy_usd": 0.0,
+      "sell_usd": 0.0,
+      "net_flow_usd": 0.0,
+      "known_realized_pnl_usd": null,
+      "event_count": 0,
+      "platforms": [],
+      "lines": []
+    },
+    {
+      "day": "2026-09-08",
+      "buy_usd": 0.0,
+      "sell_usd": 0.0,
+      "net_flow_usd": 0.0,
+      "known_realized_pnl_usd": null,
+      "event_count": 0,
+      "platforms": [],
+      "lines": []
+    },
+    {
+      "day": "2026-09-09",
+      "buy_usd": 0.0,
+      "sell_usd": 0.0,
+      "net_flow_usd": 0.0,
+      "known_realized_pnl_usd": null,
+      "event_count": 0,
+      "platforms": [],
+      "lines": []
+    },
+    {
+      "day": "2026-09-10",
+      "buy_usd": 0.0,
+      "sell_usd": 0.0,
+      "net_flow_usd": 0.0,
+      "known_realized_pnl_usd": null,
+      "event_count": 0,
+      "platforms": [],
+      "lines": []
+    },
+    {
+      "day": "2026-09-11",
+      "buy_usd": 72.66,
+      "sell_usd": 1743.52,
+      "net_flow_usd": -1670.86,
+      "known_realized_pnl_usd": -69.59,
+      "event_count": 4,
+      "platforms": [
+        "E*TRADE",
+        "Hyperliquid"
+      ],
+      "lines": [
+        {
+          "platform": "Hyperliquid",
+          "symbol": "HYPE-PERP",
+          "side": "SELL",
+          "qty": 11.65,
+          "price": 79.817,
+          "notional_usd": 929.87,
+          "realized_pnl_usd": -69.59,
+          "ts": "2026-09-11T15:03:19.533000-04:00",
+          "note": "Close Long; fee $0.4184 USDC",
+          "source": "hyperliquid-raw-2026-09-19"
+        },
+        {
+          "platform": "E*TRADE",
+          "symbol": "SPCX 260918P00152500",
+          "side": "SELL",
+          "qty": 1.0,
+          "price": 6.65,
+          "notional_usd": 664.32,
+          "realized_pnl_usd": null,
+          "ts": "2026-09-11T12:00:00-04:00",
+          "note": "PUT SPACE EXPLORATION TECHN- AT 152.500 EXPIRES 09-18-2026; fees $1.33",
+          "source": "etrade-fills-2026-09-19"
+        },
+        {
+          "platform": "E*TRADE",
+          "symbol": "TSLA 260918C00390000",
+          "side": "SELL",
+          "qty": 1.0,
+          "price": 1.5,
+          "notional_usd": 149.33,
+          "realized_pnl_usd": null,
+          "ts": "2026-09-11T12:00:00-04:00",
+          "note": "CALL TESLA MOTORS INC AT 390.000 EXPIRES 09-18-2026; fees $1.32",
+          "source": "etrade-fills-2026-09-19"
+        },
+        {
+          "platform": "E*TRADE",
+          "symbol": "SPCX 260911P00148000",
+          "side": "BUY",
+          "qty": 1.0,
+          "price": 0.72,
+          "notional_usd": 72.66,
+          "realized_pnl_usd": null,
+          "ts": "2026-09-11T12:00:00-04:00",
+          "note": "PUT SPACE EXPLORATION TECHN- AT 148.000 EXPIRES 09-11-2026; fees $1.31",
+          "source": "etrade-fills-2026-09-19"
+        }
+      ]
+    },
+    {
+      "day": "2026-09-12",
+      "buy_usd": 0.0,
+      "sell_usd": 0.0,
+      "net_flow_usd": 0.0,
+      "known_realized_pnl_usd": null,
+      "event_count": 3,
+      "platforms": [
+        "EVM wallets (EVM-2)"
+      ],
+      "lines": [
+        {
+          "platform": "EVM wallets (EVM-2)",
+          "symbol": "USDG/WOOD",
+          "side": "TRANSFER",
+          "qty": null,
+          "price": null,
+          "notional_usd": 2447.96,
+          "realized_pnl_usd": null,
+          "ts": "2026-09-12T15:08:12-04:00",
+          "note": "transfer in; EVM-2 (user paste)",
+          "source": "barometer-events_normalized"
+        },
+        {
+          "platform": "EVM wallets (EVM-2)",
+          "symbol": "USDC",
+          "side": "TRANSFER",
+          "qty": null,
+          "price": null,
+          "notional_usd": 2500.22,
+          "realized_pnl_usd": null,
+          "ts": "2026-09-12T15:08:11-04:00",
+          "note": "transfer out; EVM-2 (user paste)",
+          "source": "barometer-events_normalized"
+        },
+        {
+          "platform": "EVM wallets (EVM-2)",
+          "symbol": "?",
+          "side": "APPROVE",
+          "qty": null,
+          "price": null,
+          "notional_usd": null,
+          "realized_pnl_usd": null,
+          "ts": "2026-09-12T15:07:59-04:00",
+          "note": "approve via LI.FI; EVM-2 (user paste)",
+          "source": "barometer-events_normalized"
+        }
+      ]
+    },
+    {
+      "day": "2026-09-13",
+      "buy_usd": 0.0,
+      "sell_usd": 602.95,
+      "net_flow_usd": -602.95,
+      "known_realized_pnl_usd": 102.9,
+      "event_count": 4,
+      "platforms": [
+        "Hyperliquid"
+      ],
+      "lines": [
+        {
+          "platform": "Hyperliquid",
+          "symbol": "VVV-PERP",
+          "side": "SELL",
+          "qty": 0.63,
+          "price": 21.957,
+          "notional_usd": 13.83,
+          "realized_pnl_usd": 2.36,
+          "ts": "2026-09-13T17:47:01.935000-04:00",
+          "note": "Close Long; fee $0.0062 USDC",
+          "source": "hyperliquid-raw-2026-09-19"
+        },
+        {
+          "platform": "Hyperliquid",
+          "symbol": "VVV-PERP",
+          "side": "SELL",
+          "qty": 6.83,
+          "price": 21.957,
+          "notional_usd": 149.97,
+          "realized_pnl_usd": 25.59,
+          "ts": "2026-09-13T17:47:01.935000-04:00",
+          "note": "Close Long; fee $0.0675 USDC",
+          "source": "hyperliquid-raw-2026-09-19"
+        },
+        {
+          "platform": "Hyperliquid",
+          "symbol": "VVV-PERP",
+          "side": "SELL",
+          "qty": 10.0,
+          "price": 21.957,
+          "notional_usd": 219.57,
+          "realized_pnl_usd": 37.47,
+          "ts": "2026-09-13T17:47:01.935000-04:00",
+          "note": "Close Long; fee $0.0988 USDC",
+          "source": "hyperliquid-raw-2026-09-19"
+        },
+        {
+          "platform": "Hyperliquid",
+          "symbol": "VVV-PERP",
+          "side": "SELL",
+          "qty": 10.0,
+          "price": 21.958,
+          "notional_usd": 219.58,
+          "realized_pnl_usd": 37.48,
+          "ts": "2026-09-13T17:47:01.935000-04:00",
+          "note": "Close Long; fee $0.0988 USDC",
+          "source": "hyperliquid-raw-2026-09-19"
+        }
+      ]
+    },
+    {
+      "day": "2026-09-14",
+      "buy_usd": 0.0,
+      "sell_usd": 0.0,
+      "net_flow_usd": 0.0,
+      "known_realized_pnl_usd": null,
+      "event_count": 1,
+      "platforms": [
+        "EVM wallets (EVM-2)"
+      ],
+      "lines": [
+        {
+          "platform": "EVM wallets (EVM-2)",
+          "symbol": "US OIL RESERVE OF VENEZUELA",
+          "side": "AIRDROP",
+          "qty": null,
+          "price": null,
+          "notional_usd": null,
+          "realized_pnl_usd": null,
+          "ts": "2026-09-14T00:05:11-04:00",
+          "note": "airdrop; EVM-2 (user paste)",
+          "source": "barometer-events_normalized"
+        }
+      ]
+    },
+    {
+      "day": "2026-09-15",
+      "buy_usd": 10999.98,
+      "sell_usd": 0.0,
+      "net_flow_usd": 10999.98,
+      "known_realized_pnl_usd": null,
+      "event_count": 15,
+      "platforms": [
+        "Coinbase"
+      ],
+      "lines": [
+        {
+          "platform": "Coinbase",
+          "symbol": "TAO",
+          "side": "BUY",
+          "qty": 4.297,
+          "price": 220.0,
+          "notional_usd": 945.34,
+          "realized_pnl_usd": null,
+          "ts": "2026-09-15T14:42:32.730204-04:00",
+          "note": "commission $3.7814; TAO-USDC",
+          "source": "coinbase-fills-2026-09-19"
+        },
+        {
+          "platform": "Coinbase",
+          "symbol": "TAO",
+          "side": "BUY",
+          "qty": 2.2706,
+          "price": 220.0,
+          "notional_usd": 499.53,
+          "realized_pnl_usd": null,
+          "ts": "2026-09-15T14:42:32.724382-04:00",
+          "note": "commission $1.9981; TAO-USDC",
+          "source": "coinbase-fills-2026-09-19"
+        },
+        {
+          "platform": "Coinbase",
+          "symbol": "TAO",
+          "side": "BUY",
+          "qty": 1.001,
+          "price": 220.0,
+          "notional_usd": 220.22,
+          "realized_pnl_usd": null,
+          "ts": "2026-09-15T14:42:32.724345-04:00",
+          "note": "commission $0.8809; TAO-USDC",
+          "source": "coinbase-fills-2026-09-19"
+        },
+        {
+          "platform": "Coinbase",
+          "symbol": "TAO",
+          "side": "BUY",
+          "qty": 0.5141,
+          "price": 220.0,
+          "notional_usd": 113.1,
+          "realized_pnl_usd": null,
+          "ts": "2026-09-15T14:42:32.724284-04:00",
+          "note": "commission $0.4524; TAO-USDC",
+          "source": "coinbase-fills-2026-09-19"
+        },
+        {
+          "platform": "Coinbase",
+          "symbol": "TAO",
+          "side": "BUY",
+          "qty": 1.9617,
+          "price": 220.0,
+          "notional_usd": 431.57,
+          "realized_pnl_usd": null,
+          "ts": "2026-09-15T14:42:32.724085-04:00",
+          "note": "commission $1.7263; TAO-USDC",
+          "source": "coinbase-fills-2026-09-19"
+        },
+        {
+          "platform": "Coinbase",
+          "symbol": "TAO",
+          "side": "BUY",
+          "qty": 1.9566,
+          "price": 220.0,
+          "notional_usd": 430.45,
+          "realized_pnl_usd": null,
+          "ts": "2026-09-15T14:42:32.723923-04:00",
+          "note": "commission $1.7218; TAO-USDC",
+          "source": "coinbase-fills-2026-09-19"
+        },
+        {
+          "platform": "Coinbase",
+          "symbol": "TAO",
+          "side": "BUY",
+          "qty": 3.0496,
+          "price": 220.0,
+          "notional_usd": 670.91,
+          "realized_pnl_usd": null,
+          "ts": "2026-09-15T14:42:32.723774-04:00",
+          "note": "commission $2.6836; TAO-USDC",
+          "source": "coinbase-fills-2026-09-19"
+        },
+        {
+          "platform": "Coinbase",
+          "symbol": "TAO",
+          "side": "BUY",
+          "qty": 0.5206,
+          "price": 220.0,
+          "notional_usd": 114.53,
+          "realized_pnl_usd": null,
+          "ts": "2026-09-15T14:42:32.723508-04:00",
+          "note": "commission $0.4581; TAO-USDC",
+          "source": "coinbase-fills-2026-09-19"
+        },
+        {
+          "platform": "Coinbase",
+          "symbol": "TAO",
+          "side": "BUY",
+          "qty": 0.2692,
+          "price": 220.0,
+          "notional_usd": 59.22,
+          "realized_pnl_usd": null,
+          "ts": "2026-09-15T14:42:32.723446-04:00",
+          "note": "commission $0.2369; TAO-USDC",
+          "source": "coinbase-fills-2026-09-19"
+        },
+        {
+          "platform": "Coinbase",
+          "symbol": "TAO",
+          "side": "BUY",
+          "qty": 1.1742,
+          "price": 220.0,
+          "notional_usd": 258.32,
+          "realized_pnl_usd": null,
+          "ts": "2026-09-15T14:42:32.723354-04:00",
+          "note": "commission $1.0333; TAO-USDC",
+          "source": "coinbase-fills-2026-09-19"
+        },
+        {
+          "platform": "Coinbase",
+          "symbol": "TAO",
+          "side": "BUY",
+          "qty": 1.2539,
+          "price": 220.0,
+          "notional_usd": 275.86,
+          "realized_pnl_usd": null,
+          "ts": "2026-09-15T14:42:32.723257-04:00",
+          "note": "commission $1.1034; TAO-USDC",
+          "source": "coinbase-fills-2026-09-19"
+        },
+        {
+          "platform": "Coinbase",
+          "symbol": "TAO",
+          "side": "BUY",
+          "qty": 1.95,
+          "price": 220.0,
+          "notional_usd": 429.0,
+          "realized_pnl_usd": null,
+          "ts": "2026-09-15T14:42:32.722112-04:00",
+          "note": "commission $1.7160; TAO-USDC",
+          "source": "coinbase-fills-2026-09-19"
+        },
+        {
+          "platform": "Coinbase",
+          "symbol": "TAO",
+          "side": "BUY",
+          "qty": 15.6,
+          "price": 220.0,
+          "notional_usd": 3432.0,
+          "realized_pnl_usd": null,
+          "ts": "2026-09-15T14:42:32.721898-04:00",
+          "note": "commission $13.7280; TAO-USDC",
+          "source": "coinbase-fills-2026-09-19"
+        },
+        {
+          "platform": "Coinbase",
+          "symbol": "TAO",
+          "side": "BUY",
+          "qty": 13.65,
+          "price": 220.0,
+          "notional_usd": 3003.0,
+          "realized_pnl_usd": null,
+          "ts": "2026-09-15T14:42:32.718596-04:00",
+          "note": "commission $12.0120; TAO-USDC",
+          "source": "coinbase-fills-2026-09-19"
+        },
+        {
+          "platform": "Coinbase",
+          "symbol": "TAO",
+          "side": "BUY",
+          "qty": 0.5315,
+          "price": 220.0,
+          "notional_usd": 116.93,
+          "realized_pnl_usd": null,
+          "ts": "2026-09-15T14:42:32.717325-04:00",
+          "note": "commission $0.4677; TAO-USDC",
+          "source": "coinbase-fills-2026-09-19"
+        }
+      ]
+    },
+    {
+      "day": "2026-09-16",
+      "buy_usd": 0.0,
+      "sell_usd": 0.0,
+      "net_flow_usd": 0.0,
+      "known_realized_pnl_usd": null,
+      "event_count": 1,
+      "platforms": [
+        "Journal/manual"
+      ],
+      "lines": [
+        {
+          "platform": "Journal/manual",
+          "symbol": "IONQ",
+          "side": "SELL",
+          "qty": 2.0,
+          "price": null,
+          "notional_usd": null,
+          "realized_pnl_usd": null,
+          "ts": "2026-09-16T19:00:00-04:00",
+          "note": "venue=options-broker; approximate; User disclosed 2 short IONQ Nov $40 CSPs still open; waiting for a pop to buy back / exit. Not a pie seat. Cover on bounce or roll to shrink \u2014 do not add, do no; USD notional unknown",
+          "source": "journal-fills.json"
+        }
+      ]
+    },
+    {
+      "day": "2026-09-17",
+      "buy_usd": 33904.91,
+      "sell_usd": 1429.86,
+      "net_flow_usd": 32475.05,
+      "known_realized_pnl_usd": null,
+      "event_count": 33,
+      "platforms": [
+        "Coinbase",
+        "Hyperliquid",
+        "Robinhood"
+      ],
+      "lines": [
+        {
+          "platform": "Hyperliquid",
+          "symbol": "SOL-PERP",
+          "side": "BUY",
+          "qty": 93.22,
+          "price": 104.05,
+          "notional_usd": 9699.54,
+          "realized_pnl_usd": null,
+          "ts": "2026-09-17T23:24:49.284000-04:00",
+          "note": "Open Long; fee $1.4549 USDC",
+          "source": "hyperliquid-raw-2026-09-19"
+        },
+        {
+          "platform": "Hyperliquid",
+          "symbol": "SOL-PERP",
+          "side": "BUY",
+          "qty": 0.15,
+          "price": 104.05,
+          "notional_usd": 15.61,
+          "realized_pnl_usd": null,
+          "ts": "2026-09-17T23:24:49.213000-04:00",
+          "note": "Open Long; fee $0.0023 USDC",
+          "source": "hyperliquid-raw-2026-09-19"
+        },
+        {
+          "platform": "Hyperliquid",
+          "symbol": "SOL-PERP",
+          "side": "BUY",
+          "qty": 9.61,
+          "price": 104.05,
+          "notional_usd": 999.92,
+          "realized_pnl_usd": null,
+          "ts": "2026-09-17T23:24:48.738000-04:00",
+          "note": "Open Long; fee $0.1500 USDC",
+          "source": "hyperliquid-raw-2026-09-19"
+        },
+        {
+          "platform": "Hyperliquid",
+          "symbol": "USELESS-PERP",
+          "side": "BUY",
+          "qty": 301.0,
+          "price": 0.26776,
+          "notional_usd": 80.6,
+          "realized_pnl_usd": null,
+          "ts": "2026-09-17T19:28:22.443000-04:00",
+          "note": "Open Long; fee $0.0121 USDC",
+          "source": "hyperliquid-raw-2026-09-19"
+        },
+        {
+          "platform": "Hyperliquid",
+          "symbol": "USELESS-PERP",
+          "side": "BUY",
+          "qty": 5822.0,
+          "price": 0.26776,
+          "notional_usd": 1558.9,
+          "realized_pnl_usd": null,
+          "ts": "2026-09-17T19:28:22.443000-04:00",
+          "note": "Open Long; fee $0.2338 USDC",
+          "source": "hyperliquid-raw-2026-09-19"
+        },
+        {
+          "platform": "Hyperliquid",
+          "symbol": "USELESS-PERP",
+          "side": "BUY",
+          "qty": 454.0,
+          "price": 0.26776,
+          "notional_usd": 121.56,
+          "realized_pnl_usd": null,
+          "ts": "2026-09-17T19:28:22.443000-04:00",
+          "note": "Open Long; fee $0.0182 USDC",
+          "source": "hyperliquid-raw-2026-09-19"
+        },
+        {
+          "platform": "Hyperliquid",
+          "symbol": "USELESS-PERP",
+          "side": "BUY",
+          "qty": 470.0,
+          "price": 0.26776,
+          "notional_usd": 125.85,
+          "realized_pnl_usd": null,
+          "ts": "2026-09-17T19:28:22.443000-04:00",
+          "note": "Open Long; fee $0.0189 USDC",
+          "source": "hyperliquid-raw-2026-09-19"
+        },
+        {
+          "platform": "Hyperliquid",
+          "symbol": "USELESS-PERP",
+          "side": "BUY",
+          "qty": 1077.0,
+          "price": 0.26776,
+          "notional_usd": 288.38,
+          "realized_pnl_usd": null,
+          "ts": "2026-09-17T19:28:22.443000-04:00",
+          "note": "Open Long; fee $0.0433 USDC",
+          "source": "hyperliquid-raw-2026-09-19"
+        },
+        {
+          "platform": "Hyperliquid",
+          "symbol": "USELESS-PERP",
+          "side": "BUY",
+          "qty": 4340.0,
+          "price": 0.26776,
+          "notional_usd": 1162.08,
+          "realized_pnl_usd": null,
+          "ts": "2026-09-17T19:28:22.443000-04:00",
+          "note": "Open Long; fee $0.1743 USDC",
+          "source": "hyperliquid-raw-2026-09-19"
+        },
+        {
+          "platform": "Hyperliquid",
+          "symbol": "USELESS-PERP",
+          "side": "BUY",
+          "qty": 282.0,
+          "price": 0.26776,
+          "notional_usd": 75.51,
+          "realized_pnl_usd": null,
+          "ts": "2026-09-17T19:28:22.443000-04:00",
+          "note": "Open Long; fee $0.0113 USDC",
+          "source": "hyperliquid-raw-2026-09-19"
+        },
+        {
+          "platform": "Hyperliquid",
+          "symbol": "USELESS-PERP",
+          "side": "BUY",
+          "qty": 292.0,
+          "price": 0.26776,
+          "notional_usd": 78.19,
+          "realized_pnl_usd": null,
+          "ts": "2026-09-17T19:28:22.443000-04:00",
+          "note": "Open Long; fee $0.0117 USDC",
+          "source": "hyperliquid-raw-2026-09-19"
+        },
+        {
+          "platform": "Hyperliquid",
+          "symbol": "USELESS-PERP",
+          "side": "BUY",
+          "qty": 721.0,
+          "price": 0.26776,
+          "notional_usd": 193.05,
+          "realized_pnl_usd": null,
+          "ts": "2026-09-17T19:28:22.443000-04:00",
+          "note": "Open Long; fee $0.0290 USDC",
+          "source": "hyperliquid-raw-2026-09-19"
+        },
+        {
+          "platform": "Hyperliquid",
+          "symbol": "USELESS-PERP",
+          "side": "BUY",
+          "qty": 289.0,
+          "price": 0.26776,
+          "notional_usd": 77.38,
+          "realized_pnl_usd": null,
+          "ts": "2026-09-17T19:28:22.443000-04:00",
+          "note": "Open Long; fee $0.0116 USDC",
+          "source": "hyperliquid-raw-2026-09-19"
+        },
+        {
+          "platform": "Hyperliquid",
+          "symbol": "USELESS-PERP",
+          "side": "BUY",
+          "qty": 137.0,
+          "price": 0.26776,
+          "notional_usd": 36.68,
+          "realized_pnl_usd": null,
+          "ts": "2026-09-17T19:28:22.443000-04:00",
+          "note": "Open Long; fee $0.0055 USDC",
+          "source": "hyperliquid-raw-2026-09-19"
+        },
+        {
+          "platform": "Hyperliquid",
+          "symbol": "USELESS-PERP",
+          "side": "BUY",
+          "qty": 3694.0,
+          "price": 0.26776,
+          "notional_usd": 989.11,
+          "realized_pnl_usd": null,
+          "ts": "2026-09-17T19:28:22.443000-04:00",
+          "note": "Open Long; fee $0.1484 USDC",
+          "source": "hyperliquid-raw-2026-09-19"
+        },
+        {
+          "platform": "Hyperliquid",
+          "symbol": "USELESS-PERP",
+          "side": "BUY",
+          "qty": 1272.0,
+          "price": 0.26776,
+          "notional_usd": 340.59,
+          "realized_pnl_usd": null,
+          "ts": "2026-09-17T19:28:22.443000-04:00",
+          "note": "Open Long; fee $0.0511 USDC",
+          "source": "hyperliquid-raw-2026-09-19"
+        },
+        {
+          "platform": "Hyperliquid",
+          "symbol": "USELESS-PERP",
+          "side": "BUY",
+          "qty": 270.0,
+          "price": 0.26776,
+          "notional_usd": 72.3,
+          "realized_pnl_usd": null,
+          "ts": "2026-09-17T19:28:22.443000-04:00",
+          "note": "Open Long; fee $0.0108 USDC",
+          "source": "hyperliquid-raw-2026-09-19"
+        },
+        {
+          "platform": "Hyperliquid",
+          "symbol": "USELESS-PERP",
+          "side": "BUY",
+          "qty": 476.0,
+          "price": 0.26776,
+          "notional_usd": 127.45,
+          "realized_pnl_usd": null,
+          "ts": "2026-09-17T19:28:22.443000-04:00",
+          "note": "Open Long; fee $0.0191 USDC",
+          "source": "hyperliquid-raw-2026-09-19"
+        },
+        {
+          "platform": "Hyperliquid",
+          "symbol": "USELESS-PERP",
+          "side": "BUY",
+          "qty": 245.0,
+          "price": 0.26776,
+          "notional_usd": 65.6,
+          "realized_pnl_usd": null,
+          "ts": "2026-09-17T19:28:22.443000-04:00",
+          "note": "Open Long; fee $0.0098 USDC",
+          "source": "hyperliquid-raw-2026-09-19"
+        },
+        {
+          "platform": "Hyperliquid",
+          "symbol": "USELESS-PERP",
+          "side": "BUY",
+          "qty": 543.0,
+          "price": 0.26776,
+          "notional_usd": 145.39,
+          "realized_pnl_usd": null,
+          "ts": "2026-09-17T19:28:22.443000-04:00",
+          "note": "Open Long; fee $0.0218 USDC",
+          "source": "hyperliquid-raw-2026-09-19"
+        },
+        {
+          "platform": "Hyperliquid",
+          "symbol": "USELESS-PERP",
+          "side": "BUY",
+          "qty": 181.0,
+          "price": 0.26776,
+          "notional_usd": 48.46,
+          "realized_pnl_usd": null,
+          "ts": "2026-09-17T19:28:22.443000-04:00",
+          "note": "Open Long; fee $0.0073 USDC",
+          "source": "hyperliquid-raw-2026-09-19"
+        },
+        {
+          "platform": "Hyperliquid",
+          "symbol": "USELESS-PERP",
+          "side": "BUY",
+          "qty": 1774.0,
+          "price": 0.26776,
+          "notional_usd": 475.01,
+          "realized_pnl_usd": null,
+          "ts": "2026-09-17T19:28:22.443000-04:00",
+          "note": "Open Long; fee $0.0712 USDC",
+          "source": "hyperliquid-raw-2026-09-19"
+        },
+        {
+          "platform": "Hyperliquid",
+          "symbol": "USELESS-PERP",
+          "side": "BUY",
+          "qty": 1382.0,
+          "price": 0.26776,
+          "notional_usd": 370.04,
+          "realized_pnl_usd": null,
+          "ts": "2026-09-17T19:28:22.443000-04:00",
+          "note": "Open Long; fee $0.0555 USDC",
+          "source": "hyperliquid-raw-2026-09-19"
+        },
+        {
+          "platform": "Hyperliquid",
+          "symbol": "USELESS-PERP",
+          "side": "BUY",
+          "qty": 2285.0,
+          "price": 0.26776,
+          "notional_usd": 611.83,
+          "realized_pnl_usd": null,
+          "ts": "2026-09-17T19:28:22.443000-04:00",
+          "note": "Open Long; fee $0.0918 USDC",
+          "source": "hyperliquid-raw-2026-09-19"
+        },
+        {
+          "platform": "Hyperliquid",
+          "symbol": "USELESS-PERP",
+          "side": "BUY",
+          "qty": 813.0,
+          "price": 0.26776,
+          "notional_usd": 217.69,
+          "realized_pnl_usd": null,
+          "ts": "2026-09-17T19:28:22.443000-04:00",
+          "note": "Open Long; fee $0.0327 USDC",
+          "source": "hyperliquid-raw-2026-09-19"
+        },
+        {
+          "platform": "Hyperliquid",
+          "symbol": "USELESS-PERP",
+          "side": "BUY",
+          "qty": 452.0,
+          "price": 0.26776,
+          "notional_usd": 121.03,
+          "realized_pnl_usd": null,
+          "ts": "2026-09-17T19:28:22.443000-04:00",
+          "note": "Open Long; fee $0.0182 USDC",
+          "source": "hyperliquid-raw-2026-09-19"
+        },
+        {
+          "platform": "Coinbase",
+          "symbol": "INFQ",
+          "side": "BUY",
+          "qty": 1000.0,
+          "price": 13.87,
+          "notional_usd": 13870.0,
+          "realized_pnl_usd": null,
+          "ts": "2026-09-17T12:09:10.867000-04:00",
+          "note": "10cd3a473353d19267b9f036d6d385b09ac45c7fe6c1d35883408b7280ee11bf",
+          "source": "coinbase-fills-2026-09-19"
+        },
+        {
+          "platform": "Robinhood",
+          "symbol": "TSLA 9/25/2026 Call $390.00",
+          "side": "STO",
+          "qty": 1.0,
+          "price": 2.04,
+          "notional_usd": 203.94,
+          "realized_pnl_usd": null,
+          "ts": "2026-09-17T12:00:00-04:00",
+          "note": "STO",
+          "source": "robinhood-activity-2026-09-19"
+        },
+        {
+          "platform": "Robinhood",
+          "symbol": "ALAB 9/25/2026 Put $290.00",
+          "side": "STO",
+          "qty": 1.0,
+          "price": 12.26,
+          "notional_usd": 1225.92,
+          "realized_pnl_usd": null,
+          "ts": "2026-09-17T12:00:00-04:00",
+          "note": "STO",
+          "source": "robinhood-activity-2026-09-19"
+        },
+        {
+          "platform": "Robinhood",
+          "symbol": "SPCX 11/20/2026 Put $140.00",
+          "side": "BTC",
+          "qty": 1.0,
+          "price": 7.05,
+          "notional_usd": 705.04,
+          "realized_pnl_usd": null,
+          "ts": "2026-09-17T12:00:00-04:00",
+          "note": "BTC",
+          "source": "robinhood-activity-2026-09-19"
+        },
+        {
+          "platform": "Robinhood",
+          "symbol": "SPCX 10/16/2026 Put $140.00",
+          "side": "BTC",
+          "qty": 1.0,
+          "price": 2.77,
+          "notional_usd": 277.04,
+          "realized_pnl_usd": null,
+          "ts": "2026-09-17T12:00:00-04:00",
+          "note": "BTC",
+          "source": "robinhood-activity-2026-09-19"
+        },
+        {
+          "platform": "Robinhood",
+          "symbol": "IONQ 11/20/2026 Put $40.00",
+          "side": "BTC",
+          "qty": 1.0,
+          "price": 4.75,
+          "notional_usd": 475.04,
+          "realized_pnl_usd": null,
+          "ts": "2026-09-17T12:00:00-04:00",
+          "note": "BTC",
+          "source": "robinhood-activity-2026-09-19"
+        },
+        {
+          "platform": "Robinhood",
+          "symbol": "IONQ 11/20/2026 Put $40.00",
+          "side": "BTC",
+          "qty": 1.0,
+          "price": 4.8,
+          "notional_usd": 480.04,
+          "realized_pnl_usd": null,
+          "ts": "2026-09-17T12:00:00-04:00",
+          "note": "BTC",
+          "source": "robinhood-activity-2026-09-19"
+        }
+      ]
+    },
+    {
+      "day": "2026-09-18",
+      "buy_usd": 23209.41,
+      "sell_usd": 13907.99,
+      "net_flow_usd": 9301.42,
+      "known_realized_pnl_usd": null,
+      "event_count": 23,
+      "platforms": [
+        "Coinbase",
+        "E*TRADE",
+        "Hyperliquid",
+        "Journal/manual",
+        "Robinhood"
+      ],
+      "lines": [
+        {
+          "platform": "E*TRADE",
+          "symbol": "MRVL 260925P00235000",
+          "side": "SELL",
+          "qty": 1.0,
+          "price": 5.85,
+          "notional_usd": 584.32,
+          "realized_pnl_usd": null,
+          "ts": "2026-09-18T12:00:00-04:00",
+          "note": "PUT MARVELL TECHNOLOGY GROUP AT 235.000 EXPIRES 09-25-2026; fees $1.33",
+          "source": "etrade-fills-2026-09-19"
+        },
+        {
+          "platform": "E*TRADE",
+          "symbol": "TSLA 260925C00390000",
+          "side": "SELL",
+          "qty": 1.0,
+          "price": 0.97,
+          "notional_usd": 96.33,
+          "realized_pnl_usd": null,
+          "ts": "2026-09-18T12:00:00-04:00",
+          "note": "CALL TESLA MOTORS INC AT 390.000 EXPIRES 09-25-2026; fees $1.32",
+          "source": "etrade-fills-2026-09-19"
+        },
+        {
+          "platform": "E*TRADE",
+          "symbol": "SPCX",
+          "side": "BUY",
+          "qty": 100.0,
+          "price": 152.5,
+          "notional_usd": 15250.0,
+          "realized_pnl_usd": null,
+          "ts": "2026-09-18T12:00:00-04:00",
+          "note": "SPACE EXPLORATION TECH (inferred) Put assignment from SPCX 260918P00152500",
+          "source": "etrade-fills-2026-09-19"
+        },
+        {
+          "platform": "E*TRADE",
+          "symbol": "SPCX 260918P00152500",
+          "side": "ASSIGN",
+          "qty": 1.0,
+          "price": 0.0,
+          "notional_usd": 0.0,
+          "realized_pnl_usd": null,
+          "ts": "2026-09-18T12:00:00-04:00",
+          "note": "Put assigned \u2014 stock purchased at strike; premium reduces stock basis",
+          "source": "etrade-fills-2026-09-19"
+        },
+        {
+          "platform": "E*TRADE",
+          "symbol": "TSLA 260918C00390000",
+          "side": "BUY",
+          "qty": 1.0,
+          "price": 0.01,
+          "notional_usd": 1.01,
+          "realized_pnl_usd": null,
+          "ts": "2026-09-18T12:00:00-04:00",
+          "note": "CALL TESLA MOTORS INC AT 390.000 EXPIRES 09-18-2026; fees $0.01",
+          "source": "etrade-fills-2026-09-19"
+        },
+        {
+          "platform": "Robinhood",
+          "symbol": "HOOD 9/25/2026 Put $120.00",
+          "side": "STO",
+          "qty": 1.0,
+          "price": 4.3,
+          "notional_usd": 429.94,
+          "realized_pnl_usd": null,
+          "ts": "2026-09-18T12:00:00-04:00",
+          "note": "STO",
+          "source": "robinhood-activity-2026-09-19"
+        },
+        {
+          "platform": "Journal/manual",
+          "symbol": "SOL",
+          "side": "BUY",
+          "qty": null,
+          "price": null,
+          "notional_usd": null,
+          "realized_pnl_usd": null,
+          "ts": "2026-09-18T12:00:00-04:00",
+          "note": "spot ~$10k before rip; Adriano gut fill; USD notional unknown",
+          "source": "journal-fills.json"
+        },
+        {
+          "platform": "Journal/manual",
+          "symbol": "BTC",
+          "side": "BUY",
+          "qty": 1.0,
+          "price": null,
+          "notional_usd": null,
+          "realized_pnl_usd": null,
+          "ts": "2026-09-18T12:00:00-04:00",
+          "note": "bought 1 whole BTC; fill price not stated; USD notional unknown",
+          "source": "journal-fills.json"
+        },
+        {
+          "platform": "Journal/manual",
+          "symbol": "SOL-PERP",
+          "side": "BUY",
+          "qty": null,
+          "price": null,
+          "notional_usd": null,
+          "realized_pnl_usd": null,
+          "ts": "2026-09-18T12:00:00-04:00",
+          "note": "added to 15x SOL-PERP; position uPnL ~+$2500 total as of report; USD notional unknown",
+          "source": "journal-fills.json"
+        },
+        {
+          "platform": "Journal/manual",
+          "symbol": "USELESS",
+          "side": "PERP_HOLD",
+          "qty": null,
+          "price": null,
+          "notional_usd": null,
+          "realized_pnl_usd": null,
+          "ts": "2026-09-18T12:00:00-04:00",
+          "note": "HL 'useless' perp up big; USELESS spot/token ~+10%; size not stated",
+          "source": "journal-fills.json"
+        },
+        {
+          "platform": "Journal/manual",
+          "symbol": "SPX",
+          "side": "BUY",
+          "qty": null,
+          "price": null,
+          "notional_usd": null,
+          "realized_pnl_usd": null,
+          "ts": "2026-09-18T12:00:00-04:00",
+          "note": "spot SPX6900 $5k; USD notional unknown",
+          "source": "journal-fills.json"
+        },
+        {
+          "platform": "Journal/manual",
+          "symbol": "ZCAT",
+          "side": "BUY",
+          "qty": null,
+          "price": null,
+          "notional_usd": null,
+          "realized_pnl_usd": null,
+          "ts": "2026-09-18T12:00:00-04:00",
+          "note": "ZEC-drip side; only down clip; Adriano likes ZEC dividends; USD notional unknown",
+          "source": "journal-fills.json"
+        },
+        {
+          "platform": "Journal/manual",
+          "symbol": "DRIFT",
+          "side": "BUY",
+          "qty": null,
+          "price": null,
+          "notional_usd": null,
+          "realized_pnl_usd": null,
+          "ts": "2026-09-18T12:00:00-04:00",
+          "note": "owner override \u2014 ring-fence; do not add/force sell as Adriano conviction; USD notional unknown",
+          "source": "journal-fills.json"
+        },
+        {
+          "platform": "Coinbase",
+          "symbol": "INFQ",
+          "side": "SELL",
+          "qty": 1000.0,
+          "price": 12.7974,
+          "notional_usd": 12797.4,
+          "realized_pnl_usd": null,
+          "ts": "2026-09-18T10:17:21.176000-04:00",
+          "note": "687dd786e196fe46b22dbda8a0b09e0b02786c8a7aad7c355646b144a1cd056a",
+          "source": "coinbase-fills-2026-09-19"
+        },
+        {
+          "platform": "Hyperliquid",
+          "symbol": "USELESS-PERP",
+          "side": "BUY",
+          "qty": 20957.0,
+          "price": 0.2787,
+          "notional_usd": 5840.72,
+          "realized_pnl_usd": null,
+          "ts": "2026-09-18T00:01:42.161000-04:00",
+          "note": "Open Long; fee $0.8761 USDC",
+          "source": "hyperliquid-raw-2026-09-19"
+        },
+        {
+          "platform": "Hyperliquid",
+          "symbol": "USELESS-PERP",
+          "side": "BUY",
+          "qty": 346.0,
+          "price": 0.27864,
+          "notional_usd": 96.41,
+          "realized_pnl_usd": null,
+          "ts": "2026-09-18T00:01:41.425000-04:00",
+          "note": "Open Long; fee $0.0434 USDC",
+          "source": "hyperliquid-raw-2026-09-19"
+        },
+        {
+          "platform": "Hyperliquid",
+          "symbol": "USELESS-PERP",
+          "side": "BUY",
+          "qty": 333.0,
+          "price": 0.27863,
+          "notional_usd": 92.78,
+          "realized_pnl_usd": null,
+          "ts": "2026-09-18T00:01:41.425000-04:00",
+          "note": "Open Long; fee $0.0418 USDC",
+          "source": "hyperliquid-raw-2026-09-19"
+        },
+        {
+          "platform": "Hyperliquid",
+          "symbol": "USELESS-PERP",
+          "side": "BUY",
+          "qty": 2206.0,
+          "price": 0.27863,
+          "notional_usd": 614.66,
+          "realized_pnl_usd": null,
+          "ts": "2026-09-18T00:01:41.425000-04:00",
+          "note": "Open Long; fee $0.2766 USDC",
+          "source": "hyperliquid-raw-2026-09-19"
+        },
+        {
+          "platform": "Hyperliquid",
+          "symbol": "USELESS-PERP",
+          "side": "BUY",
+          "qty": 1891.0,
+          "price": 0.27844,
+          "notional_usd": 526.53,
+          "realized_pnl_usd": null,
+          "ts": "2026-09-18T00:01:41.425000-04:00",
+          "note": "Open Long; fee $0.2369 USDC",
+          "source": "hyperliquid-raw-2026-09-19"
+        },
+        {
+          "platform": "Hyperliquid",
+          "symbol": "USELESS-PERP",
+          "side": "BUY",
+          "qty": 1439.0,
+          "price": 0.27833,
+          "notional_usd": 400.52,
+          "realized_pnl_usd": null,
+          "ts": "2026-09-18T00:01:41.425000-04:00",
+          "note": "Open Long; fee $0.1802 USDC",
+          "source": "hyperliquid-raw-2026-09-19"
+        },
+        {
+          "platform": "Hyperliquid",
+          "symbol": "USELESS-PERP",
+          "side": "BUY",
+          "qty": 910.0,
+          "price": 0.2783,
+          "notional_usd": 253.25,
+          "realized_pnl_usd": null,
+          "ts": "2026-09-18T00:01:41.425000-04:00",
+          "note": "Open Long; fee $0.1140 USDC",
+          "source": "hyperliquid-raw-2026-09-19"
+        },
+        {
+          "platform": "Hyperliquid",
+          "symbol": "USELESS-PERP",
+          "side": "BUY",
+          "qty": 121.0,
+          "price": 0.27825,
+          "notional_usd": 33.67,
+          "realized_pnl_usd": null,
+          "ts": "2026-09-18T00:01:41.425000-04:00",
+          "note": "Open Long; fee $0.0152 USDC",
+          "source": "hyperliquid-raw-2026-09-19"
+        },
+        {
+          "platform": "Hyperliquid",
+          "symbol": "USELESS-PERP",
+          "side": "BUY",
+          "qty": 359.0,
+          "price": 0.27816,
+          "notional_usd": 99.86,
+          "realized_pnl_usd": null,
+          "ts": "2026-09-18T00:01:41.425000-04:00",
+          "note": "Open Long; fee $0.0449 USDC",
+          "source": "hyperliquid-raw-2026-09-19"
+        }
+      ]
+    },
+    {
+      "day": "2026-09-19",
+      "buy_usd": 0.0,
+      "sell_usd": 0.0,
+      "net_flow_usd": 0.0,
+      "known_realized_pnl_usd": null,
+      "event_count": 0,
+      "platforms": [],
+      "lines": []
+    },
+    {
+      "day": "2026-09-20",
+      "buy_usd": 0.0,
+      "sell_usd": 0.0,
+      "net_flow_usd": 0.0,
+      "known_realized_pnl_usd": null,
+      "event_count": 0,
+      "platforms": [],
+      "lines": []
+    },
+    {
+      "day": "2026-09-21",
+      "buy_usd": 0.0,
+      "sell_usd": 0.0,
+      "net_flow_usd": 0.0,
+      "known_realized_pnl_usd": null,
+      "event_count": 0,
+      "platforms": [],
+      "lines": []
+    }
+  ]
+}
