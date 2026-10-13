@@ -401,7 +401,10 @@
     const hero = $("#hero");
     if (!hero) return;
     const t = book.totals || {};
-    const cashNote = t.cash_usd != null ? fmtUSD(t.cash_usd, { cents: false }) + " cash · " : "";
+    const _cn = t.cash_net != null ? t.cash_net : t.cash_usd;
+    const _bd = t.cash_breakdown || {};
+    const _bdTxt = Object.entries(_bd).map(([k,v]) => k.replace(/_/g," ") + " " + fmtUSD(v,{cents:false})).join(" · ");
+    const cashNote = _cn != null ? `<span title="${_bdTxt}">Cash ${fmtUSD(_cn,{cents:false})} net${t.cash_pct!=null?" ("+t.cash_pct.toFixed(1)+"%)":""}${t.cash_gross!=null?" · "+fmtUSD(t.cash_gross,{cents:false})+" gross":""}</span> · ` : "";
     hero.innerHTML = `
       <div class="hero-top">
         <div>
