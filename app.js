@@ -11,7 +11,7 @@
   const PAGE = document.body.dataset.page || "overview";
   const IS_OWNER = document.body.dataset.role === "owner";
 
-  const BUYER_TITLES = { A: "Owner", P: "Adriano", "++": "both" };
+  const BUYER_TITLES = { A: "Owner", P: "Manager", "++": "both" };
 
   function buyerBadge(tag) {
     if (!tag || (tag !== "A" && tag !== "P" && tag !== "++")) return "";
@@ -22,7 +22,7 @@
   function buyerLegendHtml(book) {
     const legend = (book && book.attribution_legend) || BUYER_TITLES;
     const a = legend.A || "Owner";
-    const p = legend.P || "Adriano";
+    const p = legend.P || "Manager";
     const both = legend["++"] || "both";
     return `<div class="buyer-legend" title="${escapeHtml((book && book.attribution_note) || "")}">
       <span class="buyer-legend-label">Buyer</span>

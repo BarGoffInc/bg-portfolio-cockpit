@@ -10,7 +10,7 @@ fetch('book.json?'+Date.now()).then(r=>r.json()).then(b=>{
  el.innerHTML=`<div class="card-head"><h3>${s.label||'Since start'}</h3><span class="sub">${s.days} days · start ${s.start_date}</span></div>
  <div style="padding:0 20px 16px">
  <div style="font-size:28px;font-weight:700;color:${col}" class="tabular">${f(s.pnl_usd)} <span style="font-size:16px">(${s.return_pct>=0?'+':''}${s.return_pct}%)</span></div>
- ${s.split?`<div class="muted small tabular" style="margin-top:2px">Adriano-directed ${f(s.split.adriano_directed_pnl_usd)} · Owner direct buys ${f(s.split.owner_direct_pnl_usd)}</div>`:''}
+ ${s.split?`<div class="muted small tabular" style="margin-top:2px">Manager ${f(s.split.adriano_directed_pnl_usd)} · Owner ${f(s.split.owner_direct_pnl_usd)}</div>`:''}
  <div class="muted small">Range ${f(s.pnl_range_usd[0])} to ${f(s.pnl_range_usd[1])} depending on the Aug 15 starting value</div>
  <div class="tabular" style="margin-top:8px;line-height:1.7">
  Book now <b>${m(s.book_usd)}</b> − start (est.) <b>${m(s.start_nav_usd)}</b> − net deposits <b>${m(s.net_flows_usd)}</b><br>
