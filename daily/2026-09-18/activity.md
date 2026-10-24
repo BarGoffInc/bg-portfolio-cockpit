@@ -12,13 +12,13 @@ As-of: 2026-09-21T17:32:32.352008-04:00 · tz America/New_York
 - E*TRADE · ASSIGN · SPCX 260918P00152500 · 1.0 @ 0.0 · $0.00 · Put assigned — stock purchased at strike; premium reduces stock basis
 - E*TRADE · BUY · TSLA 260918C00390000 · 1.0 @ 0.01 · $1.01 · CALL TESLA MOTORS INC AT 390.000 EXPIRES 09-18-2026; fees $0.01
 - Robinhood · STO · HOOD 9/25/2026 Put $120.00 · 1.0 @ 4.3 · $429.94 · STO
-- Journal/manual · BUY · SOL · ? @ ? · — · spot ~$10k before rip; Manager gut fill; USD notional unknown
+- Journal/manual · BUY · SOL · ? @ ? · — · spot ~$10k before rip; Adriano gut fill; USD notional unknown
 - Journal/manual · BUY · BTC · 1.0 @ ? · — · bought 1 whole BTC; fill price not stated; USD notional unknown
 - Journal/manual · BUY · SOL-PERP · ? @ ? · — · added to 15x SOL-PERP; position uPnL ~+$2500 total as of report; USD notional unknown
 - Journal/manual · PERP_HOLD · USELESS · ? @ ? · — · HL 'useless' perp up big; USELESS spot/token ~+10%; size not stated
 - Journal/manual · BUY · SPX · ? @ ? · — · spot SPX6900 $5k; USD notional unknown
-- Journal/manual · BUY · ZCAT · ? @ ? · — · ZEC-drip side; only down clip; Manager likes ZEC dividends; USD notional unknown
-- Journal/manual · BUY · DRIFT · ? @ ? · — · owner override — ring-fence; do not add/force sell as Manager conviction; USD notional unknown
+- Journal/manual · BUY · ZCAT · ? @ ? · — · ZEC-drip side; only down clip; Adriano likes ZEC dividends; USD notional unknown
+- Journal/manual · BUY · DRIFT · ? @ ? · — · owner override — ring-fence; do not add/force sell as Adriano conviction; USD notional unknown
 - Coinbase · SELL · INFQ · 1000.0 @ 12.7974 · $12,797.40 · 687dd786e196fe46b22dbda8a0b09e0b02786c8a7aad7c355646b144a1cd056a
 - Hyperliquid · BUY · USELESS-PERP · 20957.0 @ 0.2787 · $5,840.72 · Open Long; fee $0.8761 USDC
 - Hyperliquid · BUY · USELESS-PERP · 346.0 @ 0.27864 · $96.41 · Open Long; fee $0.0434 USDC
