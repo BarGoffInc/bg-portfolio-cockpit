@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-10-26T23:49:52.563547-04:00",
+  "generated_at": "2026-10-27T15:48:22.071435-04:00",
   "tz": "America/New_York",
-  "note": "Book NAV day series. Trusted full-book marks (method=trusted) override. Other days are reconstructed (constant-composition majors \u00d7 historical prices, bias-spliced to trusted anchors). Gaps mean insufficient coverage. Grows each EOD.",
+  "note": "Book NAV day series. 'verified' days (2026-10-07+) are complete marks; earlier days are partial or reconstructed (see quality_note) and are hidden from the default chart. external_flows lists all new money in (bank-funded buys, the Oct 6 $80k, in-kind PONS); internal moves between own accounts are excluded.",
   "points": [
     {
       "day": "2026-08-07",
@@ -1058,9 +1058,9 @@
     },
     {
       "day": "2026-10-13",
-      "buy_usd": 22096.64,
+      "buy_usd": 35680.02,
       "sell_usd": 0.0,
-      "net_flow_usd": 22096.64,
+      "net_flow_usd": 35680.02,
       "known_realized_pnl_usd": null
     },
     {
@@ -1082,7 +1082,7 @@
       "buy_usd": 36500.0,
       "sell_usd": 6667.05,
       "net_flow_usd": 29832.95,
-      "known_realized_pnl_usd": null
+      "known_realized_pnl_usd": -468.95
     },
     {
       "day": "2026-10-17",
@@ -1122,9 +1122,9 @@
     {
       "day": "2026-10-22",
       "buy_usd": 0.0,
-      "sell_usd": 17145.5,
-      "net_flow_usd": -17145.5,
-      "known_realized_pnl_usd": null
+      "sell_usd": 12940.0,
+      "net_flow_usd": -12940.0,
+      "known_realized_pnl_usd": -1332.0
     },
     {
       "day": "2026-10-23",
@@ -1157,7 +1157,11 @@
   ],
   "window": {
     "start": "2026-08-07",
-    "end": "2026-09-21"
+    "end": "2026-10-26",
+    "reconstructed_from": "2026-08-07",
+    "reconstructed_to": "2026-09-20",
+    "trusted_from": "2026-10-07",
+    "refreshed_at": "2026-10-27T15:48:22.071435-04:00"
   },
   "reconstruction": {
     "method": "const_composition_majors_bias_splice",
@@ -1181,13 +1185,145 @@
     "core_today_usd": 541353.86,
     "residual_usd": -26562.14,
     "nav_today_usd": 514791.72,
-    "caveat": "Reconstructed days estimate holdings\u00d7historical prices (today's liquid qtys) with bias splice to trusted prints \u2014 not broker EOD statements."
+    "caveat": "Reconstructed days estimate holdings\u00d7historical prices (today's liquid qtys) with bias splice to trusted prints \u2014 not broker EOD statements. Snapshot figures (core_today/nav_today) are as of the build on 2026-09-21, not today. Price cache is keyed one day early.",
+    "as_of": "2026-09-21"
   },
   "external_flows": [
     {
+      "day": "2026-08-15",
+      "amount_usd": 500.0,
+      "who": "owner",
+      "label": "Owner bank-funded Coinbase buy: BTC (09:28 ET)"
+    },
+    {
+      "day": "2026-08-21",
+      "amount_usd": 2500.0,
+      "who": "owner",
+      "label": "Owner bank-funded Coinbase buy: DRIFT (13:04 ET)"
+    },
+    {
+      "day": "2026-08-21",
+      "amount_usd": 500.0,
+      "who": "owner",
+      "label": "Owner bank-funded Coinbase buy: WIF (13:08 ET)"
+    },
+    {
+      "day": "2026-08-23",
+      "amount_usd": 5000.0,
+      "who": "owner",
+      "label": "Owner bank-funded Coinbase buy: SUI (19:33 ET)"
+    },
+    {
+      "day": "2026-09-01",
+      "amount_usd": 500.0,
+      "who": "owner",
+      "label": "Owner bank-funded Coinbase buy: BTC (09:27 ET)"
+    },
+    {
+      "day": "2026-09-15",
+      "amount_usd": 500.0,
+      "who": "owner",
+      "label": "Owner bank-funded Coinbase buy: BTC (09:27 ET)"
+    },
+    {
+      "day": "2026-09-17",
+      "amount_usd": 3000.0,
+      "who": "owner",
+      "label": "Owner bank-funded Coinbase buy: DRIFT (14:15 ET)"
+    },
+    {
+      "day": "2026-09-21",
+      "amount_usd": 2500.0,
+      "who": "owner",
+      "label": "Owner bank-funded Coinbase buy: DRIFT (08:09 ET)"
+    },
+    {
+      "day": "2026-09-22",
+      "amount_usd": 4500.0,
+      "who": "owner",
+      "label": "Owner bank-funded Coinbase buy: DRIFT (14:09 ET)"
+    },
+    {
+      "day": "2026-09-25",
+      "amount_usd": 10000.0,
+      "who": "owner",
+      "label": "Owner bank-funded Coinbase buy: UNI (08:04 ET)"
+    },
+    {
+      "day": "2026-09-28",
+      "amount_usd": 1000.0,
+      "who": "owner",
+      "label": "Owner bank-funded Coinbase buy: NEAR (05:57 ET)"
+    },
+    {
+      "day": "2026-09-30",
+      "amount_usd": 10000.0,
+      "who": "owner",
+      "label": "Owner bank-funded Coinbase buy: SUI (09:08 ET)"
+    },
+    {
+      "day": "2026-09-30",
+      "amount_usd": 6000.0,
+      "who": "owner",
+      "label": "Owner bank-funded Coinbase buy: UNI (09:09 ET)"
+    },
+    {
+      "day": "2026-10-01",
+      "amount_usd": 500.0,
+      "who": "owner",
+      "label": "Owner bank-funded Coinbase buy: BTC (09:27 ET)"
+    },
+    {
+      "day": "2026-10-05",
+      "amount_usd": 2500.0,
+      "who": "owner",
+      "label": "Owner bank-funded Coinbase buy: SUPER (05:28 ET)"
+    },
+    {
       "day": "2026-10-06",
-      "amount_usd": 80000,
-      "label": "Owner deposit to Coinbase (~$80k, approx.)"
+      "amount_usd": 80000.0,
+      "who": "owner_cash_deployed_by_manager",
+      "label": "New owner cash $80,000 to Coinbase (USDC) - deployed by the manager"
+    },
+    {
+      "day": "2026-10-12",
+      "amount_usd": 7182.57,
+      "who": "owner",
+      "label": "Owner in-kind transfer-in: 24,713 PONS at Oct-12 mark (not a gain)"
+    },
+    {
+      "day": "2026-10-15",
+      "amount_usd": 500.0,
+      "who": "owner",
+      "label": "Owner bank-funded Coinbase buy: BTC (09:28 ET)"
+    }
+  ],
+  "trusted_from": "2026-10-07",
+  "quality_note": "Day quality: 'verified' = first complete daily book onward (2026-10-07+). 'partial_book' 2026-09-21..2026-10-06: the daily book omitted staked Coinbase assets (~$22-23k, until Sep 29) and DEX-wallet holdings (~$2.7k, until Oct 6) and E*TRADE was stale to Oct 5, so day-to-day P/L there (incl. a spurious +$21k on 2026-09-30) is not real. 'reconstructed' = before 2026-09-21, estimated from today's majors x historical prices with a bias splice; the price cache behind it is keyed one day early, so those points are approximate and are excluded from the headline since-start figures.",
+  "internal_transfers": [
+    {
+      "day": "2026-09-03",
+      "amount_usd": 4920.67,
+      "asset": "UNI",
+      "label": "Owner position bought from the shared cash pool (internal manager->owner transfer, assumption)"
+    },
+    {
+      "day": "2026-09-22",
+      "amount_usd": 5000.0,
+      "asset": "DRIFT",
+      "label": "Owner position bought from the shared cash pool (internal manager->owner transfer, assumption)"
+    },
+    {
+      "day": "2026-09-28",
+      "amount_usd": 2500.0,
+      "asset": "SUPER",
+      "label": "Owner position bought from the shared cash pool (internal manager->owner transfer, assumption)"
+    },
+    {
+      "day": "2026-09-17",
+      "amount_usd": 2817.93,
+      "asset": "OIL",
+      "label": "Owner position bought from the shared cash pool (internal manager->owner transfer, assumption)"
     }
   ]
 }
