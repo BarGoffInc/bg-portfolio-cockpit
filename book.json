@@ -1,29 +1,29 @@
 {
-  "as_of": "2026-10-29T07:17:10.256972+00:00",
-  "as_of_et": "Oct 29, 3:17 AM ET",
+  "as_of": "2026-10-29T10:16:11.005526+00:00",
+  "as_of_et": "Oct 29, 6:16 AM ET",
   "timezone": "America/New_York",
   "book_name": "BG Portfolio Cockpit",
   "exclude_retirement": true,
   "interim": true,
   "version": "interim-2026.09.19-refresh",
   "totals": {
-    "book_usd": 612691.67,
-    "cash_usd": 119076.25,
-    "cash_gross": 151268.18,
-    "cash_net": 119076.25,
+    "book_usd": 614319.21,
+    "cash_usd": 119076.05,
+    "cash_gross": 151267.98,
+    "cash_net": 119076.05,
     "cash_breakdown": {
       "coinbase": 54889.91,
       "etrade": -5903.39,
       "robinhood": -26288.54,
-      "evm_acb6": 3997.6,
-      "evm_453e": 111.38,
+      "evm_acb6": 3997.41,
+      "evm_453e": 111.37,
       "hyperliquid_spot": 0.0,
       "hyperliquid_perps_margin": 92269.29
     },
-    "cash_pct": 19.44,
-    "cash_gross_pct": 24.69,
+    "cash_pct": 19.39,
+    "cash_gross_pct": 24.63,
     "cash_note": "cash = fiat + stablecoins (USDC/USDT/USDG/PYUSD/USDe/DAI...) across all venues and wallets; net subtracts negative margin cash. Already inside book_usd (not additive).",
-    "uPnL_usd": 39317.41,
+    "uPnL_usd": 40323.12,
     "note": "Book total includes Coinbase, E*TRADE, Robinhood, Hyperliquid perps (main + Conviction sub-account incl. its spot USDC), and all EVM/Solana wallet MVs from live Zerion/Helius. HL spot USDC not double-counted. Coinbase cost basis still incomplete for many transfer-ins.",
     "excluded": [
       "retirement"
@@ -35,11 +35,11 @@
       "name": "Coinbase",
       "kind": "broker",
       "status": "live",
-      "value": 282718.93,
+      "value": 283781.65,
       "cash": 54889.91,
       "cash_on_hold": 19597.5,
       "cash_free": 35292.41,
-      "uPnL": 16231.11,
+      "uPnL": 17124.6,
       "position_count": 20,
       "note": "Qty from Coinbase Advanced Trade available+hold, plus staked balances and DEX-wallet tokens (PLATFORM_WALLET, e.g. STONK) from the portfolio breakdown (not added again when already in liquid qty). cash_on_hold = USD/USDC reserved by open orders. Live marks. V2 bank buys are fills only. Cost basis preserved from prior where fills incomplete (transfer-ins).",
       "sol_basis_fixed": true
@@ -74,9 +74,9 @@
       "kind": "perp",
       "status": "live",
       "wallet": "0x8E4387b4Ddaf01F6B70B5A477d22b0F22f8D500f",
-      "value": 96827.67,
+      "value": 96939.54,
       "cash": null,
-      "uPnL": -1240.57,
+      "uPnL": -1128.35,
       "position_count": 2,
       "completeness": "computed",
       "note": "Perps equity from Hyperliquid clearinghouseState including HIP-3 builder dexes (xyz equity perps such as TSM). Spot USDC balance (spotClearinghouseState) added as cash; perps accountValue excludes it."
@@ -102,7 +102,7 @@
       "kind": "wallet",
       "status": "live",
       "wallet": "F5DSyXxc6i1de548wSYCzMuEhnCC8KPwqv4Qj71QtmUi",
-      "value": 68433.34,
+      "value": 68687.72,
       "cash": null,
       "uPnL": null,
       "position_count": 7,
@@ -115,7 +115,7 @@
       "kind": "wallet",
       "status": "live",
       "wallet": "9AT17mgyzesULv6D8CqiDqenFB7huACXJKSyuf5oNGNL",
-      "value": 1258.63,
+      "value": 1278.79,
       "cash": null,
       "uPnL": null,
       "position_count": 4,
@@ -142,20 +142,18 @@
       "kind": "wallet",
       "status": "live",
       "wallet": "0xACB6bE8D3E6A582e98dB6F4cDe91Ac6e705162aD",
-      "value": 13813.25,
+      "value": 13928.6,
       "cash": null,
       "uPnL": null,
       "position_count": 11,
       "completeness": "computed",
       "chains": {
-        "base": 1613.03,
-        "binance-smart-chain": 149.66,
-        "ethereum": 4376.16,
-        "optimism": 0.0,
-        "robinhood": 7674.39,
-        "xdai": 0.0
+        "robinhood": 7781.06,
+        "ethereum": 4384.09,
+        "base": 1613.44,
+        "binance-smart-chain": 150.02
       },
-      "note": "Zerion all-chains; base $1,613, binance-smart-chain $150, ethereum $4,376, optimism $0, robinhood $7,674"
+      "note": "Zerion all-chains; robinhood $7,781, ethereum $4,384, base $1,613, binance-smart-chain $150"
     },
     {
       "id": "evm_453e",
@@ -163,19 +161,19 @@
       "kind": "wallet",
       "status": "live",
       "wallet": "0x453e101591d317982AADebB66E8677500168E1DE",
-      "value": 2919.88,
+      "value": 2925.63,
       "cash": null,
       "uPnL": null,
       "position_count": 10,
       "completeness": "computed",
       "chains": {
-        "base": 105.53,
-        "binance-smart-chain": 105.75,
-        "ethereum": 1528.36,
-        "monad": 0.02,
-        "zksync-era": 1180.22
+        "ethereum": 1529.05,
+        "zksync-era": 1184.91,
+        "base": 105.95,
+        "binance-smart-chain": 105.69,
+        "monad": 0.02
       },
-      "note": "Zerion all-chains; base $106, binance-smart-chain $106, ethereum $1,528, monad $0, zksync-era $1,180"
+      "note": "Zerion all-chains; ethereum $1,529, zksync-era $1,185, base $106, binance-smart-chain $106, monad $0"
     },
     {
       "id": "evm_622f",
@@ -183,16 +181,17 @@
       "kind": "wallet",
       "status": "live",
       "wallet": "0x622Fad71b701A0249e69BD723415415A6D0bfdda",
-      "value": 13395.03,
+      "value": 13452.34,
       "cash": null,
       "uPnL": null,
       "position_count": 3,
       "completeness": "computed",
       "chains": {
-        "ethereum": 12937.79,
-        "robinhood": 457.24
+        "ethereum": 12992.79,
+        "robinhood": 459.55,
+        "xdai": 0.0
       },
-      "note": "Zerion all-chains; ethereum $12,938, robinhood $457"
+      "note": "Zerion all-chains; ethereum $12,993, robinhood $460, xdai $0"
     },
     {
       "id": "evm_hl_spot",
@@ -328,13 +327,13 @@
         "kind": "perp",
         "qty": 30.0,
         "entry": 109.6,
-        "mark": 89.261,
+        "mark": 89.775,
         "leverage": 3.0,
         "leverage_type": "isolated",
-        "uPnL": -610.17,
-        "margin": 472.97,
-        "liq": 77.3634199649,
-        "mv": 2677.83,
+        "uPnL": -594.75,
+        "margin": 488.3,
+        "liq": 77.3667410175,
+        "mv": 2693.25,
         "side": "long",
         "ticker": "HOOD",
         "venue": "Hyperliquid",
@@ -348,13 +347,13 @@
         "kind": "perp",
         "qty": 40.0,
         "entry": 356.8,
-        "mark": 341.04,
+        "mark": 343.46,
         "leverage": 3.0,
         "leverage_type": "isolated",
-        "uPnL": -630.4,
-        "margin": 4085.4,
-        "liq": 251.4788424474,
-        "mv": 13641.6,
+        "uPnL": -533.6,
+        "margin": 4181.95,
+        "liq": 251.4855964737,
+        "mv": 13738.4,
         "side": "long",
         "ticker": "AVGO",
         "venue": "Hyperliquid",
@@ -370,9 +369,9 @@
         "kind": "crypto",
         "qty": 1.61643733,
         "cost_basis": 69155.94,
-        "mark": 79795.66,
-        "mv": 128984.68,
-        "uPnL": 17198.44,
+        "mark": 80037.81,
+        "mv": 129376.1,
+        "uPnL": 17589.86,
         "basis_status": "incomplete_history_short",
         "buyer": "++"
       },
@@ -391,9 +390,9 @@
         "kind": "crypto",
         "qty": 100.13942663,
         "cost_basis": 220.0,
-        "mark": 246.89,
-        "mv": 24723.42,
-        "uPnL": 2692.75,
+        "mark": 248.22,
+        "mv": 24856.61,
+        "uPnL": 2825.93,
         "basis_status": "incomplete_history_short",
         "buyer": "P"
       },
@@ -402,9 +401,9 @@
         "kind": "crypto",
         "qty": 2446.61049438,
         "cost_basis": 6.228142462571955,
-        "mark": 6.9699,
-        "mv": 17052.63,
-        "uPnL": 1814.79,
+        "mark": 7.0278,
+        "mv": 17194.29,
+        "uPnL": 1956.45,
         "basis_status": "solid_fifo",
         "buyer": "A"
       },
@@ -413,9 +412,9 @@
         "kind": "crypto",
         "qty": 13999.524099605,
         "cost_basis": 1.0721890398325966,
-        "mark": 0.9028,
-        "mv": 12638.77,
-        "uPnL": -2371.37,
+        "mark": 0.9134,
+        "mv": 12787.17,
+        "uPnL": -2222.97,
         "basis_status": "coinbase_staked_avg_entry",
         "position_type": "staked",
         "name": "Staked SUI (Coinbase)",
@@ -426,9 +425,9 @@
         "kind": "crypto",
         "qty": 107.775446948,
         "cost_basis": 102.20645216327335,
-        "mark": 99.68,
-        "mv": 10743.06,
-        "uPnL": -272.29,
+        "mark": 100.06,
+        "mv": 10784.01,
+        "uPnL": -231.33,
         "basis_status": "coinbase_staked_avg_entry",
         "position_type": "staked",
         "name": "Staked SOL (Coinbase)",
@@ -439,8 +438,8 @@
         "kind": "crypto",
         "qty": 772833.113432,
         "cost_basis": null,
-        "mark": 0.01364,
-        "mv": 10541.44,
+        "mark": 0.01379,
+        "mv": 10657.37,
         "uPnL": null,
         "basis_status": "incomplete_no_fills",
         "buyer": "A"
@@ -460,8 +459,8 @@
         "kind": "crypto",
         "qty": 23231.75773406,
         "cost_basis": null,
-        "mark": 0.17444,
-        "mv": 4052.55,
+        "mark": 0.17437,
+        "mv": 4050.92,
         "uPnL": null,
         "basis_status": "incomplete_no_fills",
         "buyer": "A"
@@ -471,8 +470,8 @@
         "kind": "crypto",
         "qty": 10000.0,
         "cost_basis": null,
-        "mark": 0.3902,
-        "mv": 3902.0,
+        "mark": 0.3939,
+        "mv": 3939.0,
         "uPnL": null,
         "basis_status": "incomplete_no_fills",
         "buyer": "P"
@@ -500,14 +499,14 @@
         "kind": "crypto",
         "qty": 1.36149671,
         "cost_basis": 1300.0,
-        "mark": 2306.06,
-        "mv": 3139.69,
-        "uPnL": 1369.74,
+        "mark": 2315.71,
+        "mv": 3152.83,
+        "uPnL": 1382.88,
         "basis_status": "owner_estimate",
         "position_type": "staked",
         "name": "Staked ETH (Coinbase)",
         "cost_total": 1769.95,
-        "uPnL_pct": 77.39,
+        "uPnL_pct": 78.13,
         "basis_source": "Manager's estimate 2026-10-13: most/all ETH bought ~ $1,300 (not fill-verified)",
         "plan": "EXIT (target 0%)"
       },
@@ -516,9 +515,9 @@
         "kind": "crypto",
         "qty": 36.124,
         "cost_basis": 82.05,
-        "mark": 78.75,
-        "mv": 2844.77,
-        "uPnL": -119.21,
+        "mark": 79.23,
+        "mv": 2862.1,
+        "uPnL": -101.87,
         "basis_status": "solid_fifo"
       },
       {
@@ -526,8 +525,8 @@
         "kind": "crypto",
         "qty": 100.0,
         "cost_basis": null,
-        "mark": 23.4203,
-        "mv": 2342.03,
+        "mark": 23.5147,
+        "mv": 2351.47,
         "uPnL": null,
         "basis_status": "incomplete_no_fills"
       },
@@ -536,9 +535,9 @@
         "kind": "crypto",
         "qty": 8000.1367,
         "cost_basis": 0.2347167287652501,
-        "mark": 0.13867809283808863,
-        "mv": 1109.44,
-        "uPnL": -768.32,
+        "mark": 0.14264516255078494,
+        "mv": 1141.18,
+        "uPnL": -736.59,
         "basis_status": "coinbase_breakdown_avg_entry",
         "position_type": "coinbase_dex_wallet",
         "name": "STONK (Coinbase DEX wallet)",
@@ -550,8 +549,8 @@
         "kind": "crypto",
         "qty": 198.4987897702532,
         "cost_basis": null,
-        "mark": 4.3032,
-        "mv": 854.18,
+        "mark": 4.3521,
+        "mv": 863.89,
         "uPnL": null,
         "basis_status": "incomplete_no_fills",
         "buyer": "A"
@@ -561,8 +560,8 @@
         "kind": "crypto",
         "qty": 612.946597,
         "cost_basis": null,
-        "mark": 1.2893,
-        "mv": 790.27,
+        "mark": 1.2875,
+        "mv": 789.17,
         "uPnL": null,
         "basis_status": "incomplete_no_fills",
         "buyer": "A"
@@ -572,9 +571,9 @@
         "kind": "crypto",
         "qty": 15036.34,
         "cost_basis": 0.1662638677095928,
-        "mark": 0.04683840216435649,
-        "mv": 704.28,
-        "uPnL": -1795.72,
+        "mark": 0.0452197010708723,
+        "mv": 679.94,
+        "uPnL": -1820.06,
         "basis_status": "coinbase_breakdown_avg_entry",
         "position_type": "coinbase_dex_wallet",
         "name": "ZCAT (Coinbase DEX wallet)",
@@ -586,8 +585,8 @@
         "kind": "crypto",
         "qty": 153.0,
         "cost_basis": null,
-        "mark": 0.04332,
-        "mv": 6.63,
+        "mark": 0.04252,
+        "mv": 6.51,
         "uPnL": null,
         "basis_status": "incomplete_no_fills"
       },
@@ -596,7 +595,7 @@
         "kind": "crypto",
         "qty": 8.86344144e-05,
         "cost_basis": null,
-        "mark": 0.06426,
+        "mark": 0.06468,
         "mv": 0.0,
         "uPnL": null,
         "basis_status": "incomplete_no_fills"
@@ -607,8 +606,8 @@
         "symbol": "JupSOL \u00b7 LST",
         "kind": "defi",
         "qty": 505.051505809,
-        "mark": 121.5381,
-        "mv": 61382.99,
+        "mark": 121.9072,
+        "mv": 61569.39,
         "chain": "solana",
         "position_type": "staked",
         "protocol": "LST",
@@ -617,8 +616,8 @@
         "buyer": "P",
         "cost_basis": 149.2592,
         "cost_total": 75383.6,
-        "uPnL": -14000.61,
-        "uPnL_pct": -18.57,
+        "uPnL": -13814.21,
+        "uPnL_pct": -18.33,
         "basis_status": "fifo",
         "basis_source": "our FIFO over full on-chain history (Zerion + explorer cross-check)"
       },
@@ -626,8 +625,8 @@
         "symbol": "DJI6930",
         "kind": "crypto",
         "qty": 572227.695323,
-        "mark": 0.0058,
-        "mv": 3345.72,
+        "mark": 0.006,
+        "mv": 3415.98,
         "chain": "solana",
         "position_type": "wallet",
         "protocol": null,
@@ -642,8 +641,8 @@
         "symbol": "SOL",
         "kind": "crypto",
         "qty": 25.060786211,
-        "mark": 99.8795,
-        "mv": 2503.06,
+        "mark": 100.1822,
+        "mv": 2510.64,
         "chain": "solana",
         "position_type": "wallet",
         "protocol": null,
@@ -652,8 +651,8 @@
         "buyer": "P",
         "cost_basis": 178.8303,
         "cost_total": 4481.63,
-        "uPnL": -1978.57,
-        "uPnL_pct": -44.15,
+        "uPnL": -1970.99,
+        "uPnL_pct": -43.98,
         "basis_status": "fifo",
         "basis_source": "our FIFO over full on-chain history (Zerion + explorer cross-check)"
       },
@@ -661,8 +660,8 @@
         "symbol": "arc",
         "kind": "crypto",
         "qty": 8405.449514,
-        "mark": 0.0478,
-        "mv": 401.52,
+        "mark": 0.0466,
+        "mv": 392.09,
         "chain": "solana",
         "position_type": "wallet",
         "protocol": null,
@@ -677,8 +676,8 @@
         "symbol": "Fartcoin",
         "kind": "crypto",
         "qty": 2942.0,
-        "mark": 0.1279,
-        "mv": 376.42,
+        "mark": 0.1284,
+        "mv": 377.85,
         "chain": "solana",
         "position_type": "wallet",
         "protocol": null,
@@ -687,8 +686,8 @@
         "buyer": "P",
         "cost_basis": 1.0857,
         "cost_total": 3194.25,
-        "uPnL": -2817.83,
-        "uPnL_pct": -88.22,
+        "uPnL": -2816.4,
+        "uPnL_pct": -88.17,
         "basis_status": "fifo",
         "basis_source": "our FIFO over full on-chain history (Zerion + explorer cross-check)"
       },
@@ -696,8 +695,8 @@
         "symbol": "NOS",
         "kind": "crypto",
         "qty": 712.915805,
-        "mark": 0.4327,
-        "mv": 308.49,
+        "mark": 0.4297,
+        "mv": 306.32,
         "chain": "solana",
         "position_type": "wallet",
         "protocol": null,
@@ -712,8 +711,8 @@
         "symbol": "CLOUD",
         "kind": "crypto",
         "qty": 72.185832109,
-        "mark": 0.0488,
-        "mv": 3.52,
+        "mark": 0.0487,
+        "mv": 3.51,
         "chain": "solana",
         "position_type": "wallet",
         "protocol": null,
@@ -722,8 +721,8 @@
         "buyer": "P",
         "cost_basis": 0.07910139,
         "cost_total": 5.71,
-        "uPnL": -2.19,
-        "uPnL_pct": -38.35,
+        "uPnL": -2.2,
+        "uPnL_pct": -38.53,
         "basis_status": "fifo",
         "basis_source": "our FIFO over full on-chain history (Zerion + explorer cross-check)"
       },
@@ -744,8 +743,8 @@
         "symbol": "SOL (staked)",
         "kind": "crypto",
         "qty": 1.1162,
-        "mark": 99.8795,
-        "mv": 111.49,
+        "mark": 100.1822,
+        "mv": 111.82,
         "chain": "solana",
         "position_type": "staked",
         "protocol": "native stake",
@@ -760,8 +759,8 @@
         "symbol": "DJI6930",
         "kind": "crypto",
         "qty": 170773.888417,
-        "mark": 0.0058,
-        "mv": 998.49,
+        "mark": 0.006,
+        "mv": 1019.46,
         "chain": "solana",
         "position_type": "wallet",
         "protocol": null,
@@ -770,8 +769,8 @@
         "buyer": "P",
         "cost_basis": 0.01264684,
         "cost_total": 2159.75,
-        "uPnL": -1161.26,
-        "uPnL_pct": -53.77,
+        "uPnL": -1140.29,
+        "uPnL_pct": -52.8,
         "basis_status": "fifo",
         "basis_source": "our FIFO over full on-chain history (Zerion + explorer cross-check)"
       },
@@ -779,8 +778,8 @@
         "symbol": "SOL",
         "kind": "crypto",
         "qty": 1.433086167,
-        "mark": 99.8795,
-        "mv": 143.14,
+        "mark": 100.1822,
+        "mv": 143.57,
         "chain": "solana",
         "position_type": "wallet",
         "protocol": null,
@@ -795,8 +794,8 @@
         "symbol": "DFDVx",
         "kind": "crypto",
         "qty": 25.01463398,
-        "mark": 3.8961,
-        "mv": 97.46,
+        "mark": 3.8228,
+        "mv": 95.63,
         "chain": "solana",
         "position_type": "wallet",
         "protocol": null,
@@ -805,8 +804,8 @@
         "buyer": "P",
         "cost_basis": 15.1539,
         "cost_total": 379.07,
-        "uPnL": -281.61,
-        "uPnL_pct": -74.29,
+        "uPnL": -283.44,
+        "uPnL_pct": -74.77,
         "basis_status": "fifo",
         "basis_source": "our FIFO over full on-chain history (Zerion + explorer cross-check)"
       },
@@ -814,8 +813,8 @@
         "symbol": "NEON",
         "kind": "crypto",
         "qty": 4639.27598947,
-        "mark": 0.004,
-        "mv": 18.64,
+        "mark": 0.0041,
+        "mv": 19.24,
         "chain": "solana",
         "position_type": "wallet",
         "protocol": null,
@@ -846,8 +845,8 @@
         "symbol": "PONS",
         "kind": "crypto",
         "qty": 24713,
-        "mark": 0.2735420658,
-        "mv": 6760.05,
+        "mark": 0.277128114,
+        "mv": 6848.67,
         "chain": "robinhood",
         "position_type": "wallet",
         "name": "Asset",
@@ -855,8 +854,8 @@
         "buyer": "A",
         "cost_basis": 0.54,
         "cost_total": 13345.02,
-        "uPnL": -6584.97,
-        "uPnL_pct": -49.34,
+        "uPnL": -6496.35,
+        "uPnL_pct": -48.68,
         "basis_status": "verified",
         "basis_source": "owner-stated cost $0.54 x 24,713 PONS (owner sent tokens; per Manager 2026-10-13)"
       },
@@ -864,8 +863,8 @@
         "symbol": "USDC",
         "kind": "crypto",
         "qty": 2450.0001,
-        "mark": 0.999482,
-        "mv": 2448.73,
+        "mark": 0.999433,
+        "mv": 2448.61,
         "chain": "ethereum",
         "position_type": "wallet",
         "name": "Asset",
@@ -873,8 +872,8 @@
         "buyer": "P",
         "cost_basis": 1.0004,
         "cost_total": 2450.99,
-        "uPnL": -2.26,
-        "uPnL_pct": -0.09,
+        "uPnL": -2.38,
+        "uPnL_pct": -0.1,
         "basis_status": "fifo",
         "basis_source": "our FIFO over full on-chain history (Zerion + explorer cross-check)"
       },
@@ -882,8 +881,8 @@
         "symbol": "ETH",
         "kind": "crypto",
         "qty": 0.8312466659401325,
-        "mark": 2306.62,
-        "mv": 1917.37,
+        "mark": 2316.35,
+        "mv": 1925.46,
         "chain": "ethereum",
         "position_type": "wallet",
         "name": "Asset",
@@ -891,8 +890,8 @@
         "buyer": "P",
         "cost_basis": 1300.0,
         "cost_total": 1080.62,
-        "uPnL": 836.75,
-        "uPnL_pct": 77.43,
+        "uPnL": 844.84,
+        "uPnL_pct": 78.18,
         "basis_status": "owner_estimate",
         "basis_source": "Manager's estimate 2026-10-13: most/all ETH bought ~ $1,300 (not fill-verified)",
         "plan": "EXIT (target 0%)"
@@ -901,8 +900,8 @@
         "symbol": "USDC",
         "kind": "crypto",
         "qty": 1500.01,
-        "mark": 0.999482,
-        "mv": 1499.23,
+        "mark": 0.999433,
+        "mv": 1499.16,
         "chain": "base",
         "position_type": "wallet",
         "name": "Asset",
@@ -916,8 +915,8 @@
         "symbol": "WOOD",
         "kind": "crypto",
         "qty": 468898.09439323767,
-        "mark": 0.0019787710226400004,
-        "mv": 927.84,
+        "mark": 0.00198846834115,
+        "mv": 932.39,
         "chain": "robinhood",
         "position_type": "wallet",
         "name": "Asset",
@@ -925,8 +924,8 @@
         "buyer": "P",
         "cost_basis": 0.00528138,
         "cost_total": 2476.43,
-        "uPnL": -1548.59,
-        "uPnL_pct": -62.53,
+        "uPnL": -1544.04,
+        "uPnL_pct": -62.35,
         "basis_status": "verified",
         "basis_source": "Robinhood Chain tx 0xd978984d\u2026: 2,476.43 USDC bridged in and swapped to WOOD on 2026-09-12"
       },
@@ -934,8 +933,8 @@
         "symbol": "ETH",
         "kind": "crypto",
         "qty": 0.0493246930342467,
-        "mark": 2306.62,
-        "mv": 113.77,
+        "mark": 2316.35,
+        "mv": 114.25,
         "chain": "base",
         "position_type": "wallet",
         "name": "Asset",
@@ -945,16 +944,16 @@
         "basis_source": "Manager's estimate 2026-10-13: most/all ETH bought ~ $1,300 (not fill-verified)",
         "cost_basis": 1300.0,
         "cost_total": 64.12,
-        "uPnL": 49.65,
-        "uPnL_pct": 77.43,
+        "uPnL": 50.13,
+        "uPnL_pct": 78.18,
         "plan": "EXIT (target 0%)"
       },
       {
         "symbol": "BROWNIE",
         "kind": "crypto",
         "qty": 327330.9150560395,
-        "mark": 0.00029140815539007765,
-        "mv": 95.39,
+        "mark": 0.0002926196399876044,
+        "mv": 95.78,
         "chain": "binance-smart-chain",
         "position_type": "wallet",
         "name": "Asset",
@@ -962,8 +961,8 @@
         "buyer": "P",
         "cost_basis": 0.00152751,
         "cost_total": 500.0,
-        "uPnL": -404.61,
-        "uPnL_pct": -80.92,
+        "uPnL": -404.22,
+        "uPnL_pct": -80.84,
         "basis_status": "verified",
         "basis_source": "swap of 500 USDC on 2025-02-13"
       },
@@ -971,7 +970,7 @@
         "symbol": "USDC",
         "kind": "crypto",
         "qty": 49.669999,
-        "mark": 0.999482,
+        "mark": 0.999433,
         "mv": 49.64,
         "chain": "binance-smart-chain",
         "position_type": "wallet",
@@ -989,8 +988,8 @@
         "symbol": "CND",
         "kind": "crypto",
         "qty": 200000,
-        "mark": 4.169536692e-05,
-        "mv": 8.34,
+        "mark": 4.188606871999999e-05,
+        "mv": 8.38,
         "chain": "ethereum",
         "position_type": "wallet",
         "name": "Asset",
@@ -1004,8 +1003,8 @@
         "symbol": "BNB",
         "kind": "crypto",
         "qty": 0.0061002893742065,
-        "mark": 750.3360586836,
-        "mv": 4.58,
+        "mark": 744.2247694956001,
+        "mv": 4.54,
         "chain": "binance-smart-chain",
         "position_type": "wallet",
         "name": "Asset",
@@ -1019,8 +1018,8 @@
         "symbol": "RNDR",
         "kind": "crypto",
         "qty": 1,
-        "mark": 1.6188149652000001,
-        "mv": 1.62,
+        "mark": 1.6383992564000003,
+        "mv": 1.64,
         "chain": "ethereum",
         "position_type": "wallet",
         "name": "Asset",
@@ -1028,8 +1027,8 @@
         "buyer": "P",
         "cost_basis": 4.77,
         "cost_total": 4.77,
-        "uPnL": -3.15,
-        "uPnL_pct": -66.04,
+        "uPnL": -3.13,
+        "uPnL_pct": -65.62,
         "basis_status": "fifo",
         "basis_source": "our FIFO over full on-chain history (Zerion + explorer cross-check)"
       },
@@ -1050,16 +1049,16 @@
         "symbol": "ETH",
         "kind": "crypto",
         "qty": 0.5106808362979144,
-        "mark": 2306.76,
-        "mv": 1178.02,
+        "mark": 2315.94,
+        "mv": 1182.71,
         "chain": "zksync-era",
         "position_type": "wallet",
         "name": "Asset",
         "impl": "zksync-era:",
         "cost_basis": 1300.0,
         "cost_total": 663.89,
-        "uPnL": 514.13,
-        "uPnL_pct": 77.44,
+        "uPnL": 518.82,
+        "uPnL_pct": 78.15,
         "basis_status": "owner_estimate",
         "basis_source": "Manager's estimate 2026-10-13: most/all ETH bought ~ $1,300 (not fill-verified)",
         "plan": "EXIT (target 0%)"
@@ -1068,8 +1067,8 @@
         "symbol": "SUPER",
         "kind": "crypto",
         "qty": 5205.57939096,
-        "mark": 0.174847102,
-        "mv": 910.18,
+        "mark": 0.174282174,
+        "mv": 907.24,
         "chain": "ethereum",
         "position_type": "staked",
         "name": "SuperVerse DAO NFT Staked",
@@ -1083,8 +1082,8 @@
         "symbol": "ETH",
         "kind": "crypto",
         "qty": 0.2361207528031356,
-        "mark": 2306.76,
-        "mv": 544.67,
+        "mark": 2315.94,
+        "mv": 546.84,
         "chain": "ethereum",
         "position_type": "wallet",
         "name": "Asset",
@@ -1093,16 +1092,16 @@
         "basis_source": "Manager's estimate 2026-10-13: most/all ETH bought ~ $1,300 (not fill-verified)",
         "cost_basis": 1300.0,
         "cost_total": 306.96,
-        "uPnL": 237.71,
-        "uPnL_pct": 77.44,
+        "uPnL": 239.88,
+        "uPnL_pct": 78.15,
         "plan": "EXIT (target 0%)"
       },
       {
         "symbol": "ETH",
         "kind": "crypto",
         "qty": 0.0457489923251117,
-        "mark": 2306.76,
-        "mv": 105.53,
+        "mark": 2315.94,
+        "mv": 105.95,
         "chain": "base",
         "position_type": "wallet",
         "name": "Asset",
@@ -1111,24 +1110,24 @@
         "basis_source": "Manager's estimate 2026-10-13: most/all ETH bought ~ $1,300 (not fill-verified)",
         "cost_basis": 1300.0,
         "cost_total": 59.47,
-        "uPnL": 46.06,
-        "uPnL_pct": 77.44,
+        "uPnL": 46.48,
+        "uPnL_pct": 78.15,
         "plan": "EXIT (target 0%)"
       },
       {
         "symbol": "USDC",
         "kind": "crypto",
         "qty": 94.76679024,
-        "mark": 0.999482,
-        "mv": 94.72,
+        "mark": 0.999433,
+        "mv": 94.71,
         "chain": "binance-smart-chain",
         "position_type": "wallet",
         "name": "Asset",
         "impl": "binance-smart-chain:0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d",
         "cost_basis": 1.0,
         "cost_total": 94.77,
-        "uPnL": -0.05,
-        "uPnL_pct": -0.05,
+        "uPnL": -0.06,
+        "uPnL_pct": -0.06,
         "basis_status": "verified",
         "basis_source": "stablecoin at $1"
       },
@@ -1136,8 +1135,8 @@
         "symbol": "ETH",
         "kind": "crypto",
         "qty": 0.0251750571218057,
-        "mark": 2306.67,
-        "mv": 58.07,
+        "mark": 2315.94,
+        "mv": 58.3,
         "chain": "ethereum",
         "position_type": "reward",
         "name": "SuperVerse DAO NFT Staked",
@@ -1146,15 +1145,15 @@
         "basis_source": "Manager's estimate 2026-10-13: most/all ETH bought ~ $1,300 (not fill-verified)",
         "cost_basis": 1300.0,
         "cost_total": 32.73,
-        "uPnL": 25.34,
-        "uPnL_pct": 77.43,
+        "uPnL": 25.57,
+        "uPnL_pct": 78.14,
         "plan": "EXIT (target 0%)"
       },
       {
         "symbol": "USDC",
         "kind": "crypto",
         "qty": 16.669389,
-        "mark": 0.999482,
+        "mark": 0.999433,
         "mv": 16.66,
         "chain": "ethereum",
         "position_type": "wallet",
@@ -1171,8 +1170,8 @@
         "symbol": "BNB",
         "kind": "crypto",
         "qty": 0.007741792,
-        "mark": 750.3360586836,
-        "mv": 5.81,
+        "mark": 744.2247694956001,
+        "mv": 5.76,
         "chain": "binance-smart-chain",
         "position_type": "wallet",
         "name": "Asset",
@@ -1202,15 +1201,15 @@
         "symbol": "ZF",
         "kind": "crypto",
         "qty": 25003.167383218697,
-        "mark": 8.791220806e-05,
-        "mv": 2.2,
+        "mark": 8.830705874e-05,
+        "mv": 2.21,
         "chain": "zksync-era",
         "position_type": "wallet",
         "name": "Asset",
         "impl": "zksync-era:0x31c2c031fdc9d33e974f327ab0d9883eae06ca4a",
         "cost_basis": 0.06112146,
         "cost_total": 1528.23,
-        "uPnL": -1526.03,
+        "uPnL": -1526.02,
         "uPnL_pct": -99.86,
         "basis_status": "fifo",
         "basis_source": "our FIFO over full on-chain history (Zerion + explorer cross-check)"
@@ -1231,8 +1230,8 @@
         "symbol": "ETH",
         "kind": "crypto",
         "qty": 5.00877549094535,
-        "mark": 2306.76,
-        "mv": 11554.04,
+        "mark": 2315.94,
+        "mv": 11600.02,
         "chain": "ethereum",
         "position_type": "wallet",
         "name": "Asset",
@@ -1240,8 +1239,8 @@
         "buyer": "P",
         "cost_basis": 1300.0,
         "cost_total": 6511.41,
-        "uPnL": 5042.63,
-        "uPnL_pct": 77.44,
+        "uPnL": 5088.61,
+        "uPnL_pct": 78.15,
         "basis_status": "owner_estimate",
         "basis_source": "Manager's estimate 2026-10-13: most/all ETH bought ~ $1,300 (not fill-verified)",
         "plan": "EXIT (target 0%)"
@@ -1250,8 +1249,8 @@
         "symbol": "WETH",
         "kind": "crypto",
         "qty": 0.6,
-        "mark": 2306.2417897812,
-        "mv": 1383.75,
+        "mark": 2317.9548678,
+        "mv": 1390.77,
         "chain": "ethereum",
         "position_type": "wallet",
         "name": "Asset",
@@ -1259,8 +1258,8 @@
         "buyer": "P",
         "cost_basis": 1300.0,
         "cost_total": 780.0,
-        "uPnL": 603.75,
-        "uPnL_pct": 77.4,
+        "uPnL": 610.77,
+        "uPnL_pct": 78.3,
         "basis_status": "owner_estimate",
         "basis_source": "Manager's estimate 2026-10-13: most/all ETH bought ~ $1,300 (not fill-verified)",
         "plan": "EXIT (target 0%)"
@@ -1269,8 +1268,8 @@
         "symbol": "WETH",
         "kind": "crypto",
         "qty": 0.1982626316778961,
-        "mark": 2306.2417897812,
-        "mv": 457.24,
+        "mark": 2317.9548678,
+        "mv": 459.56,
         "chain": "robinhood",
         "position_type": "wallet",
         "name": "Asset",
@@ -1278,8 +1277,8 @@
         "buyer": "P",
         "cost_basis": 1300.0,
         "cost_total": 257.74,
-        "uPnL": 199.5,
-        "uPnL_pct": 77.4,
+        "uPnL": 201.82,
+        "uPnL_pct": 78.3,
         "basis_status": "owner_estimate",
         "basis_source": "Manager's estimate 2026-10-13: most/all ETH bought ~ $1,300 (not fill-verified)",
         "plan": "EXIT (target 0%)"
@@ -1288,7 +1287,7 @@
     "evm_hl_spot": [],
     "hl_conviction": []
   },
-  "hl_account_value": 96827.67,
+  "hl_account_value": 96939.54,
   "largest_holdings": [
     {
       "symbol": "BTC",
@@ -1297,7 +1296,7 @@
       "accounts": [
         "Coinbase"
       ],
-      "mv": 128984.68,
+      "mv": 129376.1,
       "qty": 1.62,
       "chain": null,
       "buyer": "++"
@@ -1323,7 +1322,7 @@
         "Solana 1 \u00b7 F5DS\u2026tmUi",
         "Solana 2 \u00b7 9AT1\u2026NGNL"
       ],
-      "mv": 64029.19,
+      "mv": 64223.6,
       "qty": 531.55,
       "chain": "solana",
       "buyer": "P"
@@ -1337,7 +1336,7 @@
         "EVM \u00b7 0xACB6\u202662aD",
         "EVM \u00b7 0x453e\u2026E1DE"
       ],
-      "mv": 48706.48,
+      "mv": 48706.28,
       "qty": 48708.62,
       "chain": "ethereum",
       "buyer": "P"
@@ -1361,7 +1360,7 @@
       "accounts": [
         "Coinbase"
       ],
-      "mv": 24723.42,
+      "mv": 24856.61,
       "qty": 100.14,
       "chain": null,
       "buyer": "P"
@@ -1375,7 +1374,7 @@
         "EVM \u00b7 0x453e\u2026E1DE",
         "EVM \u00b7 0x622F\u2026fdda"
       ],
-      "mv": 17312.46,
+      "mv": 17383.86,
       "qty": 7.51,
       "chain": "ethereum",
       "buyer": "P"
@@ -1387,7 +1386,7 @@
       "accounts": [
         "Coinbase"
       ],
-      "mv": 17052.63,
+      "mv": 17194.29,
       "qty": 2446.61,
       "chain": null,
       "buyer": "A"
@@ -1399,7 +1398,7 @@
       "accounts": [
         "Hyperliquid"
       ],
-      "mv": 13641.6,
+      "mv": 13738.4,
       "qty": 40.0,
       "chain": null,
       "buyer": "P"
@@ -1411,7 +1410,7 @@
       "accounts": [
         "Coinbase"
       ],
-      "mv": 12638.77,
+      "mv": 12787.17,
       "qty": 13999.52,
       "chain": null,
       "buyer": "A"
@@ -1423,7 +1422,7 @@
       "accounts": [
         "Coinbase"
       ],
-      "mv": 10743.06,
+      "mv": 10784.01,
       "qty": 107.78,
       "chain": null,
       "buyer": "P"
@@ -1435,7 +1434,7 @@
       "accounts": [
         "Coinbase"
       ],
-      "mv": 10541.44,
+      "mv": 10657.37,
       "qty": 772833.11,
       "chain": null,
       "buyer": "A"
@@ -1470,7 +1469,7 @@
       "accounts": [
         "EVM \u00b7 0xACB6\u202662aD"
       ],
-      "mv": 6760.05,
+      "mv": 6848.67,
       "qty": 24713.0,
       "chain": "robinhood",
       "buyer": "A"
@@ -1483,7 +1482,7 @@
         "Coinbase",
         "EVM \u00b7 0x453e\u2026E1DE"
       ],
-      "mv": 4962.73,
+      "mv": 4958.16,
       "qty": 28437.34,
       "chain": "ethereum",
       "buyer": "A"
@@ -1508,7 +1507,7 @@
         "Solana 1 \u00b7 F5DS\u2026tmUi",
         "Solana 2 \u00b7 9AT1\u2026NGNL"
       ],
-      "mv": 4344.21,
+      "mv": 4435.44,
       "qty": 743001.58,
       "chain": "solana",
       "buyer": "P"
@@ -1520,7 +1519,7 @@
       "accounts": [
         "Coinbase"
       ],
-      "mv": 3902.0,
+      "mv": 3939.0,
       "qty": 10000.0,
       "chain": null,
       "buyer": "P"
@@ -1544,7 +1543,7 @@
       "accounts": [
         "Coinbase"
       ],
-      "mv": 3139.69,
+      "mv": 3152.83,
       "qty": 1.36,
       "chain": null
     },
@@ -1555,7 +1554,7 @@
       "accounts": [
         "Coinbase"
       ],
-      "mv": 2844.77,
+      "mv": 2862.1,
       "qty": 36.12,
       "chain": null
     },
@@ -1566,7 +1565,7 @@
       "accounts": [
         "Hyperliquid"
       ],
-      "mv": 2677.83,
+      "mv": 2693.25,
       "qty": 30.0,
       "chain": null,
       "buyer": "P"
@@ -1578,7 +1577,7 @@
       "accounts": [
         "Coinbase"
       ],
-      "mv": 2342.03,
+      "mv": 2351.47,
       "qty": 100.0,
       "chain": null
     },
@@ -4502,23 +4501,23 @@
   },
   "attribution_note": "Buyer tags survive refresh. New unmatched fills stay blank until mapped. A=account Owner, P=Manager, ++=both bought that holding.",
   "wallet_pnl": {
-    "as_of": "2026-10-29T07:17:19+00:00",
+    "as_of": "2026-10-29T10:16:16+00:00",
     "method": "Headline = our own FIFO over the full cached Zerion tx history (all-time from first tx, every chain incl. Solana). Second opinion = Zerion wallet PnL. Cross-checked against Routescan/Blockscout tx hashes (EVM), Helius RPC signatures (Solana) and the Sep-19 on-chain FIFO.",
     "totals": {
       "zerion_realized_gain": 83874.2,
-      "zerion_unrealized_gain": -39154.03,
-      "zerion_total_gain": 44720.17,
+      "zerion_unrealized_gain": -38636.36,
+      "zerion_total_gain": 45237.84,
       "zerion_net_invested": 138544.03,
       "zerion_total_fee": 191.07,
       "fifo_realized_gain": 59510.49,
-      "fifo_unrealized_gain": -29189.98,
-      "value": 99722.12
+      "fifo_unrealized_gain": -28753.95,
+      "value": 100158.15
     },
     "zerion_quota": {
       "tier": "demo (300 req/day, 1 rps)",
-      "day_remaining": 214,
-      "reset_in_h": 16.7,
-      "calls_this_run": 9,
+      "day_remaining": 193,
+      "reset_in_h": 13.7,
+      "calls_this_run": 6,
       "exhausted": null
     },
     "wallets": [
@@ -4560,25 +4559,25 @@
         "address": "0xACB6bE8D3E6A582e98dB6F4cDe91Ac6e705162aD",
         "family": "evm",
         "status": "ok",
-        "value": 13826.56,
+        "value": 13928.52,
         "zerion": {
-          "total_gain": 2832.63,
+          "total_gain": 2946.84,
           "realized_gain": 3254.54,
-          "unrealized_gain": -421.91,
+          "unrealized_gain": -307.7,
           "net_invested": 14233.39,
           "total_invested": 77970.33,
           "realized_cost_basis": 63736.93,
           "total_fee": 19.39,
           "received_external": 76520.22,
           "sent_external": 65384.62,
-          "relative_total_gain_percentage": 3.63,
+          "relative_total_gain_percentage": 3.78,
           "relative_realized_gain_percentage": 5.11,
-          "relative_unrealized_gain_percentage": -2.96,
-          "as_of": "2026-10-29T07:17:11+00:00"
+          "relative_unrealized_gain_percentage": -2.16,
+          "as_of": "2026-10-29T10:16:11+00:00"
         },
         "fifo": {
           "realized_gain": 546.93,
-          "unrealized_gain": -1893.25,
+          "unrealized_gain": -1791.29,
           "basis": 15719.8
         },
         "history": {
@@ -4602,8 +4601,8 @@
         "by_chain": {
           "base": {
             "fifo_realized": 0.0,
-            "fifo_unrealized": -40.85,
-            "value": 1613.0,
+            "fifo_unrealized": -40.44,
+            "value": 1613.41,
             "txs": 36,
             "spam_txs": 26,
             "fees": 0.36,
@@ -4613,8 +4612,8 @@
           },
           "binance-smart-chain": {
             "fifo_realized": -0.01,
-            "fifo_unrealized": -396.84,
-            "value": 149.61,
+            "fifo_unrealized": -396.49,
+            "value": 149.96,
             "txs": 17,
             "spam_txs": 1,
             "fees": 1.99,
@@ -4624,8 +4623,8 @@
           },
           "ethereum": {
             "fifo_realized": 546.94,
-            "fifo_unrealized": 582.86,
-            "value": 4376.06,
+            "fifo_unrealized": 590.89,
+            "value": 4384.09,
             "txs": 54,
             "spam_txs": 17,
             "fees": 59.52,
@@ -4635,8 +4634,8 @@
           },
           "robinhood": {
             "fifo_realized": 0.0,
-            "fifo_unrealized": -2038.42,
-            "value": 7687.89,
+            "fifo_unrealized": -1945.25,
+            "value": 7781.06,
             "txs": 6,
             "spam_txs": 1,
             "fees": null,
@@ -4648,7 +4647,7 @@
         "by_chain_as_of": "2026-10-29T01:19:46+00:00",
         "reconcile": {
           "realized_diff": 2707.61,
-          "unrealized_diff": 1471.34
+          "unrealized_diff": 1483.59
         },
         "sep19_fifo_compare": [
           {
@@ -4679,7 +4678,7 @@
           {
             "sym": "PONS",
             "chain": "robinhood",
-            "value": 6760.05,
+            "value": 6848.67,
             "held_qty": 24713.0,
             "basis_status": "ok",
             "z_realized": 0.0,
@@ -4687,7 +4686,7 @@
             "z_net_invested": 7278.35,
             "z_avg_buy": 0.29451485,
             "f_realized": 0.0,
-            "f_unrealized": -518.3,
+            "f_unrealized": -429.68,
             "f_basis": 7278.35,
             "disagree": null,
             "unpriced": null
@@ -4695,7 +4694,7 @@
           {
             "sym": "ETH",
             "chain": "ethereum",
-            "value": 1917.37,
+            "value": 1925.46,
             "held_qty": 0.8312466659401325,
             "basis_status": "ok",
             "z_realized": 3086.97,
@@ -4703,7 +4702,7 @@
             "z_net_invested": 1345.6,
             "z_avg_buy": 1051.32825929,
             "f_realized": 546.94,
-            "f_unrealized": 579.93,
+            "f_unrealized": 588.02,
             "f_basis": 1337.44,
             "disagree": true,
             "unpriced": null
@@ -4711,7 +4710,7 @@
           {
             "sym": "USDC",
             "chain": "base",
-            "value": 1499.23,
+            "value": 1499.16,
             "held_qty": 1500.01,
             "basis_status": "missing",
             "z_realized": 1000.16,
@@ -4719,7 +4718,7 @@
             "z_net_invested": 0.0,
             "z_avg_buy": 0.0,
             "f_realized": 0.0,
-            "f_unrealized": -0.92,
+            "f_unrealized": -0.99,
             "f_basis": 1500.15,
             "disagree": true,
             "unpriced": null
@@ -4727,7 +4726,7 @@
           {
             "sym": "WOOD",
             "chain": "robinhood",
-            "value": 927.84,
+            "value": 932.39,
             "held_qty": 468898.09439323767,
             "basis_status": "ok",
             "z_realized": 0.0,
@@ -4735,7 +4734,7 @@
             "z_net_invested": 2447.96,
             "z_avg_buy": 0.00522066,
             "f_realized": 0.0,
-            "f_unrealized": -1520.12,
+            "f_unrealized": -1515.57,
             "f_basis": 2447.96,
             "disagree": null,
             "unpriced": null
@@ -4743,7 +4742,7 @@
           {
             "sym": "USDC",
             "chain": "ethereum",
-            "value": 2448.73,
+            "value": 2448.61,
             "held_qty": 2450.0001,
             "basis_status": "ok",
             "z_realized": -5.24,
@@ -4751,7 +4750,7 @@
             "z_net_invested": 2450.99,
             "z_avg_buy": 1.00091776,
             "f_realized": 0.0,
-            "f_unrealized": -2.26,
+            "f_unrealized": -2.38,
             "f_basis": 2450.99,
             "disagree": null,
             "unpriced": null
@@ -4759,7 +4758,7 @@
           {
             "sym": "BROWNIE",
             "chain": "binance-smart-chain",
-            "value": 95.39,
+            "value": 95.78,
             "held_qty": 327330.9150560395,
             "basis_status": "ok",
             "z_realized": 0.0,
@@ -4767,7 +4766,7 @@
             "z_net_invested": 499.89,
             "z_avg_buy": 0.00152717,
             "f_realized": 0.0,
-            "f_unrealized": -398.99,
+            "f_unrealized": -398.6,
             "f_basis": 494.38,
             "disagree": null,
             "unpriced": null
@@ -4775,7 +4774,7 @@
           {
             "sym": "ETH",
             "chain": "base",
-            "value": 113.77,
+            "value": 114.25,
             "held_qty": 0.0493246930342467,
             "basis_status": "ok",
             "z_realized": -0.4,
@@ -4783,7 +4782,7 @@
             "z_net_invested": 153.7,
             "z_avg_buy": 3116.12,
             "f_realized": 0.0,
-            "f_unrealized": -39.93,
+            "f_unrealized": -39.45,
             "f_basis": 153.7,
             "disagree": null,
             "unpriced": null
@@ -4791,7 +4790,7 @@
           {
             "sym": "BNB",
             "chain": "binance-smart-chain",
-            "value": 4.58,
+            "value": 4.54,
             "held_qty": 0.0061002893742065,
             "basis_status": null,
             "z_realized": 125.21,
@@ -4799,7 +4798,7 @@
             "z_net_invested": 2.41,
             "z_avg_buy": 408.13579624,
             "f_realized": 0.0,
-            "f_unrealized": 2.17,
+            "f_unrealized": 2.13,
             "f_basis": 2.41,
             "disagree": true,
             "unpriced": null
@@ -4823,7 +4822,7 @@
           {
             "sym": "CND",
             "chain": "ethereum",
-            "value": 8.34,
+            "value": 8.38,
             "held_qty": 200000.0,
             "basis_status": "missing",
             "z_realized": 0.0,
@@ -4831,7 +4830,7 @@
             "z_net_invested": 0.0,
             "z_avg_buy": 0.0,
             "f_realized": 0.0,
-            "f_unrealized": 8.34,
+            "f_unrealized": 8.38,
             "f_basis": 0.0,
             "disagree": null,
             "unpriced": null
@@ -4839,7 +4838,7 @@
           {
             "sym": "RNDR",
             "chain": "ethereum",
-            "value": 1.62,
+            "value": 1.64,
             "held_qty": 1.0,
             "basis_status": null,
             "z_realized": 0.0,
@@ -4847,7 +4846,7 @@
             "z_net_invested": 4.77,
             "z_avg_buy": 4.76811414,
             "f_realized": 0.0,
-            "f_unrealized": -3.15,
+            "f_unrealized": -3.13,
             "f_basis": 4.77,
             "disagree": null,
             "unpriced": null
@@ -4974,15 +4973,15 @@
         "flags": [
           {
             "kind": "missing_basis",
-            "asset": "CND",
-            "chain": "ethereum",
-            "msg": "CND on ethereum ($8) has no cost basis (received/airdropped/bridged-in without a priced buy)"
-          },
-          {
-            "kind": "missing_basis",
             "asset": "USDC",
             "chain": "base",
             "msg": "USDC on base ($1,499) has no cost basis (received/airdropped/bridged-in without a priced buy)"
+          },
+          {
+            "kind": "missing_basis",
+            "asset": "CND",
+            "chain": "ethereum",
+            "msg": "CND on ethereum ($8) has no cost basis (received/airdropped/bridged-in without a priced buy)"
           },
           {
             "kind": "fifo_disagree",
@@ -4992,7 +4991,7 @@
           {
             "kind": "fifo_disagree",
             "asset": "wallet",
-            "msg": "Unrealized: Zerion $-422 vs our FIFO $-1,893 (diff $1,471)."
+            "msg": "Unrealized: Zerion $-308 vs our FIFO $-1,791 (diff $1,484)."
           },
           {
             "kind": "fifo_disagree",
@@ -5076,25 +5075,25 @@
         "address": "0x453e101591d317982AADebB66E8677500168E1DE",
         "family": "evm",
         "status": "ok",
-        "value": 2921.08,
+        "value": 2925.6,
         "zerion": {
-          "total_gain": -4732.21,
+          "total_gain": -4724.07,
           "realized_gain": 1198.08,
-          "unrealized_gain": -5930.29,
+          "unrealized_gain": -5922.15,
           "net_invested": 7948.37,
           "total_invested": 68152.8,
           "realized_cost_basis": 60204.43,
           "total_fee": 145.66,
           "received_external": 44739.72,
           "sent_external": 47180.15,
-          "relative_total_gain_percentage": -6.94,
+          "relative_total_gain_percentage": -6.93,
           "relative_realized_gain_percentage": 1.99,
-          "relative_unrealized_gain_percentage": -74.61,
-          "as_of": "2026-10-29T07:17:13+00:00"
+          "relative_unrealized_gain_percentage": -74.51,
+          "as_of": "2026-10-29T10:16:12+00:00"
         },
         "fifo": {
           "realized_gain": 2659.27,
-          "unrealized_gain": -5148.09,
+          "unrealized_gain": -5143.57,
           "basis": 8069.18
         },
         "history": {
@@ -5117,8 +5116,8 @@
         "by_chain": {
           "base": {
             "fifo_realized": 0.0,
-            "fifo_unrealized": 30.55,
-            "value": 105.53,
+            "fifo_unrealized": 30.97,
+            "value": 105.95,
             "txs": 14,
             "spam_txs": 8,
             "fees": 0.0,
@@ -5128,8 +5127,8 @@
           },
           "binance-smart-chain": {
             "fifo_realized": -1.8,
-            "fifo_unrealized": -4078.39,
-            "value": 105.75,
+            "fifo_unrealized": -4078.45,
+            "value": 105.69,
             "txs": 12,
             "spam_txs": 6,
             "fees": 2.03,
@@ -5139,8 +5138,8 @@
           },
           "ethereum": {
             "fifo_realized": 2660.07,
-            "fifo_unrealized": 855.67,
-            "value": 1529.58,
+            "fifo_unrealized": 855.13,
+            "value": 1529.04,
             "txs": 67,
             "spam_txs": 17,
             "fees": 282.95,
@@ -5172,8 +5171,8 @@
           },
           "zksync-era": {
             "fifo_realized": 0.99,
-            "fifo_unrealized": -1955.92,
-            "value": 1180.22,
+            "fifo_unrealized": -1951.22,
+            "value": 1184.92,
             "txs": 3,
             "spam_txs": 1,
             "fees": 0.04,
@@ -5185,7 +5184,7 @@
         "by_chain_as_of": "2026-10-29T01:19:55+00:00",
         "reconcile": {
           "realized_diff": -1461.19,
-          "unrealized_diff": -782.2
+          "unrealized_diff": -778.58
         },
         "sep19_fifo_compare": [
           {
@@ -5225,7 +5224,7 @@
           {
             "sym": "SUPER",
             "chain": "ethereum",
-            "value": 910.18,
+            "value": 907.24,
             "held_qty": 5205.57939096,
             "basis_status": "missing",
             "z_realized": 3.43,
@@ -5233,7 +5232,7 @@
             "z_net_invested": 0.0,
             "z_avg_buy": 0.81713019,
             "f_realized": 0.0,
-            "f_unrealized": 910.18,
+            "f_unrealized": 907.24,
             "f_basis": 0.0,
             "disagree": null,
             "unpriced": null
@@ -5241,7 +5240,7 @@
           {
             "sym": "ETH",
             "chain": "zksync-era",
-            "value": 1178.02,
+            "value": 1182.71,
             "held_qty": 0.5106808362979144,
             "basis_status": "ok",
             "z_realized": 0.97,
@@ -5249,7 +5248,7 @@
             "z_net_invested": 1607.91,
             "z_avg_buy": 3148.57,
             "f_realized": 0.99,
-            "f_unrealized": -429.89,
+            "f_unrealized": -425.2,
             "f_basis": 1607.91,
             "disagree": null,
             "unpriced": null
@@ -5257,7 +5256,7 @@
           {
             "sym": "ZF",
             "chain": "zksync-era",
-            "value": 2.2,
+            "value": 2.21,
             "held_qty": 25003.167383218697,
             "basis_status": null,
             "z_realized": 0.0,
@@ -5265,7 +5264,7 @@
             "z_net_invested": 1540.01,
             "z_avg_buy": 0.06159273,
             "f_realized": 0.0,
-            "f_unrealized": -1526.03,
+            "f_unrealized": -1526.02,
             "f_basis": 1528.23,
             "disagree": null,
             "unpriced": null
@@ -5273,7 +5272,7 @@
           {
             "sym": "ETH",
             "chain": "ethereum",
-            "value": 602.74,
+            "value": 605.14,
             "held_qty": 0.2612958099249413,
             "basis_status": "ok",
             "z_realized": -836.38,
@@ -5281,7 +5280,7 @@
             "z_net_invested": 534.73,
             "z_avg_buy": 2822.52095911,
             "f_realized": -46.31,
-            "f_unrealized": -54.55,
+            "f_unrealized": -52.15,
             "f_basis": 657.29,
             "disagree": true,
             "unpriced": null
@@ -5289,7 +5288,7 @@
           {
             "sym": "ETH",
             "chain": "base",
-            "value": 105.53,
+            "value": 105.95,
             "held_qty": 0.0457489923251117,
             "basis_status": "ok",
             "z_realized": -0.0,
@@ -5297,7 +5296,7 @@
             "z_net_invested": 74.98,
             "z_avg_buy": 1638.92,
             "f_realized": 0.0,
-            "f_unrealized": 30.55,
+            "f_unrealized": 30.97,
             "f_basis": 74.98,
             "disagree": null,
             "unpriced": null
@@ -5305,7 +5304,7 @@
           {
             "sym": "USDC",
             "chain": "binance-smart-chain",
-            "value": 94.72,
+            "value": 94.71,
             "held_qty": 94.76679024,
             "basis_status": "ok",
             "z_realized": -1.8,
@@ -5313,7 +5312,7 @@
             "z_net_invested": 94.79,
             "z_avg_buy": 1.00028341,
             "f_realized": -1.8,
-            "f_unrealized": -0.07,
+            "f_unrealized": -0.08,
             "f_basis": 94.79,
             "disagree": null,
             "unpriced": null
@@ -5337,7 +5336,7 @@
           {
             "sym": "BNB",
             "chain": "binance-smart-chain",
-            "value": 5.81,
+            "value": 5.76,
             "held_qty": 0.007741792,
             "basis_status": "ok",
             "z_realized": -1.29,
@@ -5345,7 +5344,7 @@
             "z_net_invested": 4.3,
             "z_avg_buy": 559.53207171,
             "f_realized": 0.0,
-            "f_unrealized": 1.48,
+            "f_unrealized": 1.43,
             "f_basis": 4.33,
             "disagree": null,
             "unpriced": null
@@ -5530,7 +5529,7 @@
             "kind": "missing_basis",
             "asset": "SUPER",
             "chain": "ethereum",
-            "msg": "SUPER on ethereum ($910) has no cost basis (received/airdropped/bridged-in without a priced buy)"
+            "msg": "SUPER on ethereum ($907) has no cost basis (received/airdropped/bridged-in without a priced buy)"
           },
           {
             "kind": "fifo_disagree",
@@ -5607,25 +5606,25 @@
         "address": "0x622Fad71b701A0249e69BD723415415A6D0bfdda",
         "family": "evm",
         "status": "ok",
-        "value": 13395.03,
+        "value": 13450.35,
         "zerion": {
-          "total_gain": -1201.39,
+          "total_gain": -1146.75,
           "realized_gain": 504.56,
-          "unrealized_gain": -1705.95,
+          "unrealized_gain": -1651.31,
           "net_invested": 15101.4,
           "total_invested": 19108.37,
           "realized_cost_basis": 4006.97,
           "total_fee": 1.06,
           "received_external": 14971.31,
           "sent_external": 374.47,
-          "relative_total_gain_percentage": -6.29,
+          "relative_total_gain_percentage": -6.0,
           "relative_realized_gain_percentage": 12.59,
-          "relative_unrealized_gain_percentage": -11.3,
-          "as_of": "2026-10-29T07:17:15+00:00"
+          "relative_unrealized_gain_percentage": -10.93,
+          "as_of": "2026-10-29T10:16:13+00:00"
         },
         "fifo": {
           "realized_gain": 600.52,
-          "unrealized_gain": -530.37,
+          "unrealized_gain": -475.05,
           "basis": 13925.4
         },
         "history": {
@@ -5646,8 +5645,8 @@
         "by_chain": {
           "ethereum": {
             "fifo_realized": 600.52,
-            "fifo_unrealized": -616.22,
-            "value": 12937.79,
+            "fifo_unrealized": -563.22,
+            "value": 12990.79,
             "txs": 14,
             "spam_txs": 8,
             "fees": 6.16,
@@ -5657,8 +5656,8 @@
           },
           "robinhood": {
             "fifo_realized": 0.0,
-            "fifo_unrealized": 85.85,
-            "value": 457.24,
+            "fifo_unrealized": 88.17,
+            "value": 459.56,
             "txs": 1,
             "spam_txs": 0,
             "fees": null,
@@ -5670,7 +5669,7 @@
         "by_chain_as_of": "2026-10-29T01:19:59+00:00",
         "reconcile": {
           "realized_diff": -95.96,
-          "unrealized_diff": -1175.58
+          "unrealized_diff": -1176.26
         },
         "sep19_fifo_compare": [
           {
@@ -5690,7 +5689,7 @@
           {
             "sym": "ETH",
             "chain": "ethereum",
-            "value": 11554.04,
+            "value": 11600.02,
             "held_qty": 5.00877549094535,
             "basis_status": "ok",
             "z_realized": 507.41,
@@ -5698,7 +5697,7 @@
             "z_net_invested": 11775.78,
             "z_avg_buy": 2351.03357488,
             "f_realized": 606.03,
-            "f_unrealized": -221.74,
+            "f_unrealized": -175.76,
             "f_basis": 11775.78,
             "disagree": null,
             "unpriced": null
@@ -5706,7 +5705,7 @@
           {
             "sym": "WETH",
             "chain": "ethereum",
-            "value": 1383.75,
+            "value": 1390.77,
             "held_qty": 0.6,
             "basis_status": "ok",
             "z_realized": -2.85,
@@ -5714,7 +5713,7 @@
             "z_net_invested": 1774.25,
             "z_avg_buy": 2957.08,
             "f_realized": -5.51,
-            "f_unrealized": -394.48,
+            "f_unrealized": -387.46,
             "f_basis": 1778.23,
             "disagree": null,
             "unpriced": null
@@ -5722,7 +5721,7 @@
           {
             "sym": "WETH",
             "chain": "robinhood",
-            "value": 457.24,
+            "value": 459.56,
             "held_qty": 0.1982626316778961,
             "basis_status": "ok",
             "z_realized": 0.0,
@@ -5730,7 +5729,7 @@
             "z_net_invested": 371.39,
             "z_avg_buy": 1873.20906657,
             "f_realized": 0.0,
-            "f_unrealized": 85.85,
+            "f_unrealized": 88.17,
             "f_basis": 371.39,
             "disagree": null,
             "unpriced": null
@@ -5818,7 +5817,7 @@
           {
             "kind": "fifo_disagree",
             "asset": "wallet",
-            "msg": "Unrealized: Zerion $-1,706 vs our FIFO $-530 (diff $-1,176)."
+            "msg": "Unrealized: Zerion $-1,651 vs our FIFO $-475 (diff $-1,176)."
           },
           {
             "kind": "fifo_disagree",
@@ -5878,7 +5877,7 @@
           "relative_total_gain_percentage": 0.0,
           "relative_realized_gain_percentage": 0.0,
           "relative_unrealized_gain_percentage": 0.0,
-          "as_of": "2026-10-29T07:17:16+00:00"
+          "as_of": "2026-10-29T10:16:14+00:00"
         },
         "fifo": {},
         "history": {
@@ -5935,25 +5934,25 @@
         "address": "F5DSyXxc6i1de548wSYCzMuEhnCC8KPwqv4Qj71QtmUi",
         "family": "solana",
         "status": "ok",
-        "value": 68321.72,
+        "value": 68575.78,
         "zerion": {
-          "total_gain": 61535.65,
+          "total_gain": 61846.38,
           "realized_gain": 87346.7,
-          "unrealized_gain": -25811.05,
+          "unrealized_gain": -25500.32,
           "net_invested": 94661.05,
           "total_invested": 1810053.25,
           "realized_cost_basis": 1715392.21,
           "total_fee": 11.39,
           "received_external": 442135.56,
           "sent_external": 433827.64,
-          "relative_total_gain_percentage": 3.4,
+          "relative_total_gain_percentage": 3.42,
           "relative_realized_gain_percentage": 5.09,
-          "relative_unrealized_gain_percentage": -27.27,
-          "as_of": "2026-10-29T07:17:17+00:00"
+          "relative_unrealized_gain_percentage": -26.94,
+          "as_of": "2026-10-29T10:16:15+00:00"
         },
         "fifo": {
           "realized_gain": 52908.51,
-          "unrealized_gain": -19591.54,
+          "unrealized_gain": -19337.48,
           "basis": 87913.25
         },
         "history": {
@@ -5975,8 +5974,8 @@
         "by_chain": {
           "solana": {
             "fifo_realized": 52908.51,
-            "fifo_unrealized": -19591.54,
-            "value": 68321.72,
+            "fifo_unrealized": -19337.48,
+            "value": 68575.78,
             "txs": 1716,
             "spam_txs": 1183,
             "fees": 22.51,
@@ -5988,7 +5987,7 @@
         "by_chain_as_of": "2026-10-29T01:20:04+00:00",
         "reconcile": {
           "realized_diff": 34438.19,
-          "unrealized_diff": -6219.51
+          "unrealized_diff": -6162.84
         },
         "sep19_fifo_compare": [
           {
@@ -6017,7 +6016,7 @@
           {
             "sym": "JupSOL \u00b7 LST",
             "chain": "solana",
-            "value": 61382.99,
+            "value": 61569.39,
             "held_qty": 505.051505809,
             "basis_status": "ok",
             "z_realized": 97.73,
@@ -6025,7 +6024,7 @@
             "z_net_invested": 75447.49,
             "z_avg_buy": 148.78921254,
             "f_realized": 3.62,
-            "f_unrealized": -14142.28,
+            "f_unrealized": -13955.88,
             "f_basis": 75525.27,
             "disagree": null,
             "unpriced": null
@@ -6033,7 +6032,7 @@
           {
             "sym": "SOL",
             "chain": "solana",
-            "value": 2503.06,
+            "value": 2510.64,
             "held_qty": 25.060786211,
             "basis_status": "ok",
             "z_realized": -33979.32,
@@ -6041,31 +6040,15 @@
             "z_net_invested": 4987.93,
             "z_avg_buy": 121.07675605,
             "f_realized": -68010.75,
-            "f_unrealized": -2545.14,
+            "f_unrealized": -2537.56,
             "f_basis": 5048.2,
-            "disagree": true,
-            "unpriced": null
-          },
-          {
-            "sym": "Fartcoin",
-            "chain": "solana",
-            "value": 376.42,
-            "held_qty": 2942.0,
-            "basis_status": "ok",
-            "z_realized": -167.7,
-            "z_unrealized": -2838.9,
-            "z_net_invested": 3227.82,
-            "z_avg_buy": 1.09715134,
-            "f_realized": -477.67,
-            "f_unrealized": -2851.4,
-            "f_basis": 3227.82,
             "disagree": true,
             "unpriced": null
           },
           {
             "sym": "DJI6930",
             "chain": "solana",
-            "value": 3345.72,
+            "value": 3415.98,
             "held_qty": 572227.695323,
             "basis_status": "ok",
             "z_realized": 0.0,
@@ -6073,15 +6056,31 @@
             "z_net_invested": 3465.8,
             "z_avg_buy": 0.00605669,
             "f_realized": 0.0,
-            "f_unrealized": -111.97,
+            "f_unrealized": -41.71,
             "f_basis": 3457.69,
             "disagree": null,
             "unpriced": null
           },
           {
+            "sym": "Fartcoin",
+            "chain": "solana",
+            "value": 377.85,
+            "held_qty": 2942.0,
+            "basis_status": "ok",
+            "z_realized": -167.7,
+            "z_unrealized": -2838.9,
+            "z_net_invested": 3227.82,
+            "z_avg_buy": 1.09715134,
+            "f_realized": -477.67,
+            "f_unrealized": -2849.97,
+            "f_basis": 3227.82,
+            "disagree": true,
+            "unpriced": null
+          },
+          {
             "sym": "NOS",
             "chain": "solana",
-            "value": 308.49,
+            "value": 306.32,
             "held_qty": 712.915805,
             "basis_status": "ok",
             "z_realized": 0.0,
@@ -6089,7 +6088,7 @@
             "z_net_invested": 2889.49,
             "z_avg_buy": 4.05305512,
             "f_realized": 8.11,
-            "f_unrealized": 308.49,
+            "f_unrealized": 306.32,
             "f_basis": 0.0,
             "disagree": true,
             "unpriced": null
@@ -6097,7 +6096,7 @@
           {
             "sym": "arc",
             "chain": "solana",
-            "value": 401.52,
+            "value": 392.09,
             "held_qty": 8405.449514,
             "basis_status": "ok",
             "z_realized": 0.0,
@@ -6105,7 +6104,7 @@
             "z_net_invested": 281.97,
             "z_avg_buy": 0.18826038,
             "f_realized": 0.0,
-            "f_unrealized": -247.05,
+            "f_unrealized": -256.48,
             "f_basis": 648.57,
             "disagree": true,
             "unpriced": null
@@ -6113,7 +6112,7 @@
           {
             "sym": "CLOUD",
             "chain": "solana",
-            "value": 3.52,
+            "value": 3.51,
             "held_qty": 72.185832109,
             "basis_status": null,
             "z_realized": 0.0,
@@ -6121,7 +6120,7 @@
             "z_net_invested": 5.71,
             "z_avg_buy": 0.00054282,
             "f_realized": 0.0,
-            "f_unrealized": -2.19,
+            "f_unrealized": -2.2,
             "f_basis": 5.71,
             "disagree": null,
             "unpriced": null
@@ -6518,7 +6517,7 @@
           {
             "kind": "fifo_disagree",
             "asset": "wallet",
-            "msg": "Unrealized: Zerion $-25,811 vs our FIFO $-19,592 (diff $-6,220)."
+            "msg": "Unrealized: Zerion $-25,500 vs our FIFO $-19,337 (diff $-6,163)."
           },
           {
             "kind": "fifo_disagree",
@@ -6586,11 +6585,11 @@
         "address": "9AT17mgyzesULv6D8CqiDqenFB7huACXJKSyuf5oNGNL",
         "family": "solana",
         "status": "ok",
-        "value": 1257.73,
+        "value": 1277.9,
         "zerion": {
-          "total_gain": -13714.51,
+          "total_gain": -13684.56,
           "realized_gain": -8429.68,
-          "unrealized_gain": -5284.83,
+          "unrealized_gain": -5254.88,
           "net_invested": 6599.82,
           "total_invested": 795973.06,
           "realized_cost_basis": 789373.24,
@@ -6599,12 +6598,12 @@
           "sent_external": 131885.57,
           "relative_total_gain_percentage": -1.72,
           "relative_realized_gain_percentage": -1.07,
-          "relative_unrealized_gain_percentage": -80.08,
-          "as_of": "2026-10-29T07:17:18+00:00"
+          "relative_unrealized_gain_percentage": -79.62,
+          "as_of": "2026-10-29T10:16:16+00:00"
         },
         "fifo": {
           "realized_gain": 2795.26,
-          "unrealized_gain": -2026.73,
+          "unrealized_gain": -2006.56,
           "basis": 3284.46
         },
         "history": {
@@ -6626,8 +6625,8 @@
         "by_chain": {
           "solana": {
             "fifo_realized": 2795.26,
-            "fifo_unrealized": -2026.73,
-            "value": 1257.73,
+            "fifo_unrealized": -2006.56,
+            "value": 1277.9,
             "txs": 22956,
             "spam_txs": 5743,
             "fees": 487.12,
@@ -6639,7 +6638,7 @@
         "by_chain_as_of": "2026-10-29T01:20:07+00:00",
         "reconcile": {
           "realized_diff": -11224.94,
-          "unrealized_diff": -3258.1
+          "unrealized_diff": -3248.32
         },
         "sep19_fifo_compare": [
           {
@@ -6659,7 +6658,7 @@
           {
             "sym": "SOL",
             "chain": "solana",
-            "value": 143.14,
+            "value": 143.57,
             "held_qty": 1.433086167,
             "basis_status": "fifo_only",
             "z_realized": null,
@@ -6667,7 +6666,7 @@
             "z_net_invested": null,
             "z_avg_buy": null,
             "f_realized": 5580.88,
-            "f_unrealized": -78.64,
+            "f_unrealized": -78.21,
             "f_basis": 221.78,
             "disagree": null,
             "unpriced": null
@@ -6675,7 +6674,7 @@
           {
             "sym": "DJI6930",
             "chain": "solana",
-            "value": 998.49,
+            "value": 1019.46,
             "held_qty": 170773.888417,
             "basis_status": "ok",
             "z_realized": -2550.01,
@@ -6683,7 +6682,7 @@
             "z_net_invested": 2224.7,
             "z_avg_buy": 0.01917066,
             "f_realized": -2396.45,
-            "f_unrealized": -1161.26,
+            "f_unrealized": -1140.29,
             "f_basis": 2159.75,
             "disagree": null,
             "unpriced": null
@@ -6691,7 +6690,7 @@
           {
             "sym": "NEON",
             "chain": "solana",
-            "value": 18.64,
+            "value": 19.24,
             "held_qty": 4639.27598947,
             "basis_status": "fifo_only",
             "z_realized": null,
@@ -6699,7 +6698,7 @@
             "z_net_invested": null,
             "z_avg_buy": null,
             "f_realized": 0.0,
-            "f_unrealized": -505.22,
+            "f_unrealized": -504.62,
             "f_basis": 523.86,
             "disagree": null,
             "unpriced": null
@@ -6707,7 +6706,7 @@
           {
             "sym": "DFDVx",
             "chain": "solana",
-            "value": 97.46,
+            "value": 95.63,
             "held_qty": 25.01463398,
             "basis_status": "ok",
             "z_realized": 0.0,
@@ -6715,7 +6714,7 @@
             "z_net_invested": 399.87,
             "z_avg_buy": 15.98536063,
             "f_realized": 0.0,
-            "f_unrealized": -281.61,
+            "f_unrealized": -283.44,
             "f_basis": 379.07,
             "disagree": null,
             "unpriced": null
@@ -7160,7 +7159,7 @@
           {
             "kind": "fifo_disagree",
             "asset": "wallet",
-            "msg": "Unrealized: Zerion $-5,285 vs our FIFO $-2,027 (diff $-3,258)."
+            "msg": "Unrealized: Zerion $-5,255 vs our FIFO $-2,007 (diff $-3,248)."
           },
           {
             "kind": "fifo_disagree",
@@ -7220,7 +7219,7 @@
     ]
   },
   "venue_pnl": {
-    "as_of": "2026-10-29T07:17:45+00:00",
+    "as_of": "2026-10-29T10:16:42+00:00",
     "venues": [
       {
         "venue": "Hyperliquid",
@@ -7228,23 +7227,23 @@
         "account": "0x8E4387b4Ddaf01F6B70B5A477d22b0F22f8D500f",
         "status": "ok",
         "totals": {
-          "realized_gain": 1231.92,
-          "unrealized_gain": -1240.57,
-          "total_gain": -8.65,
+          "realized_gain": 1231.56,
+          "unrealized_gain": -1128.35,
+          "total_gain": 103.21,
           "closed_pnl": 2319.0,
           "fees": 132.91,
-          "funding": -954.17
+          "funding": -954.53
         },
         "history": {
           "fills": 260,
-          "funding_rows": 2022,
+          "funding_rows": 2028,
           "ledger_rows": 7,
           "first_ts": "2026-08-27T15:31:56+00:00",
           "last_ts": "2026-10-23T16:33:31+00:00"
         },
         "crosscheck": {
-          "hl_portfolio_alltime_pnl": -8.49,
-          "diff": 0.17
+          "hl_portfolio_alltime_pnl": 104.21,
+          "diff": 1.0
         },
         "ledger_flows": {
           "spotTransfer": 18830.57,
@@ -7258,9 +7257,9 @@
             "sym": "xyz:AVGO",
             "closed_pnl": -1800.95,
             "fees": 2.06,
-            "funding": -71.29,
-            "realized_gain": -1874.3,
-            "unrealized_gain": -630.4,
+            "funding": -71.55,
+            "realized_gain": -1874.56,
+            "unrealized_gain": -533.6,
             "fills": 36,
             "volume": 55287.05
           },
@@ -7288,9 +7287,9 @@
             "sym": "xyz:HOOD",
             "closed_pnl": 0.0,
             "fees": 0.1,
-            "funding": -12.77,
-            "realized_gain": -12.86,
-            "unrealized_gain": -610.17,
+            "funding": -12.86,
+            "realized_gain": -12.96,
+            "unrealized_gain": -594.75,
             "fills": 7,
             "volume": 3288.0
           },
@@ -7420,10 +7419,10 @@
         "totals": {
           "realized_gain": -54560.81,
           "income": 3549.85,
-          "unrealized_gain": -13557.48,
-          "total_gain": -64568.44,
+          "unrealized_gain": -12502.17,
+          "total_gain": -63513.13,
           "fees_lost": 345.32,
-          "value_priced": 222616.12
+          "value_priced": 223671.44
         },
         "history": {
           "txs": 1350,
@@ -7474,10 +7473,10 @@
             "transfer_in_fmv": 353638.65,
             "transfer_out_cost": 161815.48,
             "held_qty": 1.61643733,
-            "mark": 79795.66,
-            "value": 128984.68,
+            "mark": 80037.81,
+            "value": 129376.1,
             "basis": 118684.63,
-            "unrealized_gain": 10300.05,
+            "unrealized_gain": 10691.47,
             "basis_status": "transfer_in_fmv"
           },
           {
@@ -7491,12 +7490,12 @@
             "transfer_in_fmv": 0.0,
             "transfer_out_cost": 198551.2,
             "held_qty": 107.775446948,
-            "mark": 99.68,
+            "mark": 100.06,
             "prehistory_qty_sold": 6.87853506,
             "prehistory_proceeds": 0.0,
-            "value": 10743.06,
+            "value": 10784.01,
             "basis": 10953.02,
-            "unrealized_gain": -209.96,
+            "unrealized_gain": -169.0,
             "basis_status": "over"
           },
           {
@@ -7510,10 +7509,10 @@
             "transfer_in_fmv": 0.0,
             "transfer_out_cost": 0.0,
             "held_qty": 100.13942663,
-            "mark": 246.89,
-            "value": 24723.42,
+            "mark": 248.22,
+            "value": 24856.61,
             "basis": 36507.88,
-            "unrealized_gain": -11784.46,
+            "unrealized_gain": -11651.27,
             "basis_status": "ok"
           },
           {
@@ -7527,10 +7526,10 @@
             "transfer_in_fmv": 0.0,
             "transfer_out_cost": 0.0,
             "held_qty": 13999.524099605,
-            "mark": 0.9028,
-            "value": 12638.77,
+            "mark": 0.9134,
+            "value": 12787.17,
             "basis": 15010.15,
-            "unrealized_gain": -2371.38,
+            "unrealized_gain": -2222.98,
             "basis_status": "ok"
           },
           {
@@ -7544,10 +7543,10 @@
             "transfer_in_fmv": 0.0,
             "transfer_out_cost": 18455.68,
             "held_qty": 772833.113432,
-            "mark": 0.01364,
-            "value": 10541.44,
+            "mark": 0.01379,
+            "value": 10657.37,
             "basis": 15000.0,
-            "unrealized_gain": -4458.56,
+            "unrealized_gain": -4342.63,
             "basis_status": "ok"
           },
           {
@@ -7574,10 +7573,10 @@
             "transfer_in_fmv": 0.0,
             "transfer_out_cost": 0.0,
             "held_qty": 2446.61049438,
-            "mark": 6.9699,
-            "value": 17052.63,
+            "mark": 7.0278,
+            "value": 17194.29,
             "basis": 18941.4,
-            "unrealized_gain": -1888.77,
+            "unrealized_gain": -1747.11,
             "basis_status": "ok"
           },
           {
@@ -7591,10 +7590,10 @@
             "transfer_in_fmv": 10672.84,
             "transfer_out_cost": 902.49,
             "held_qty": 1.36149671,
-            "mark": 2306.06,
-            "value": 3139.69,
+            "mark": 2315.71,
+            "value": 3152.83,
             "basis": 3573.24,
-            "unrealized_gain": -433.55,
+            "unrealized_gain": -420.41,
             "basis_status": "transfer_in_fmv"
           },
           {
@@ -7608,10 +7607,10 @@
             "transfer_in_fmv": 0.0,
             "transfer_out_cost": 0.0,
             "held_qty": 36.124,
-            "mark": 78.75,
-            "value": 2844.77,
+            "mark": 79.23,
+            "value": 2862.1,
             "basis": 2007.1,
-            "unrealized_gain": 837.67,
+            "unrealized_gain": 855.0,
             "basis_status": "ok"
           },
           {
@@ -7625,10 +7624,10 @@
             "transfer_in_fmv": 4528.36,
             "transfer_out_cost": 5028.36,
             "held_qty": 23231.75773406,
-            "mark": 0.17444,
-            "value": 4052.55,
+            "mark": 0.17437,
+            "value": 4050.92,
             "basis": 5305.14,
-            "unrealized_gain": -1252.59,
+            "unrealized_gain": -1254.22,
             "basis_status": "transfer_in_fmv"
           },
           {
@@ -7645,23 +7644,6 @@
             "mark": null
           },
           {
-            "sym": "SPX",
-            "realized_gain": 0.0,
-            "proceeds": 0.0,
-            "cost_sold": 0.0,
-            "income": 0.0,
-            "fifo_qty": 10000.0,
-            "fifo_cost": 4814.67,
-            "transfer_in_fmv": 0.0,
-            "transfer_out_cost": 0.0,
-            "held_qty": 10000.0,
-            "mark": 0.3902,
-            "value": 3902.0,
-            "basis": 4814.67,
-            "unrealized_gain": -912.67,
-            "basis_status": "ok"
-          },
-          {
             "sym": "INJ",
             "realized_gain": 895.65,
             "proceeds": 2202.35,
@@ -7675,6 +7657,23 @@
             "mark": null
           },
           {
+            "sym": "SPX",
+            "realized_gain": 0.0,
+            "proceeds": 0.0,
+            "cost_sold": 0.0,
+            "income": 0.0,
+            "fifo_qty": 10000.0,
+            "fifo_cost": 4814.67,
+            "transfer_in_fmv": 0.0,
+            "transfer_out_cost": 0.0,
+            "held_qty": 10000.0,
+            "mark": 0.3939,
+            "value": 3939.0,
+            "basis": 4814.67,
+            "unrealized_gain": -875.67,
+            "basis_status": "ok"
+          },
+          {
             "sym": "PYR",
             "realized_gain": 0.0,
             "proceeds": 0.0,
@@ -7685,10 +7684,10 @@
             "transfer_in_fmv": 708.77,
             "transfer_out_cost": 0.0,
             "held_qty": 153.0,
-            "mark": 0.04332,
-            "value": 6.63,
+            "mark": 0.04252,
+            "value": 6.51,
             "basis": 708.77,
-            "unrealized_gain": -702.14,
+            "unrealized_gain": -702.26,
             "basis_status": "transfer_in_fmv"
           },
           {
@@ -7715,10 +7714,10 @@
             "transfer_in_fmv": 0.0,
             "transfer_out_cost": 0.0,
             "held_qty": 612.946597,
-            "mark": 1.2893,
-            "value": 790.27,
+            "mark": 1.2875,
+            "value": 789.17,
             "basis": 1200.0,
-            "unrealized_gain": -409.73,
+            "unrealized_gain": -410.83,
             "basis_status": "ok"
           },
           {
@@ -7771,10 +7770,10 @@
             "transfer_in_fmv": 0.0,
             "transfer_out_cost": 0.0,
             "held_qty": 198.4987897702532,
-            "mark": 4.3032,
-            "value": 854.18,
+            "mark": 4.3521,
+            "value": 863.89,
             "basis": 1000.0,
-            "unrealized_gain": -145.82,
+            "unrealized_gain": -136.11,
             "basis_status": "ok"
           },
           {
@@ -7788,10 +7787,10 @@
             "transfer_in_fmv": 0.0,
             "transfer_out_cost": 0.0,
             "held_qty": 100.0,
-            "mark": 23.4203,
-            "value": 2342.03,
+            "mark": 23.5147,
+            "value": 2351.47,
             "basis": 2467.61,
-            "unrealized_gain": -125.58,
+            "unrealized_gain": -116.14,
             "basis_status": "ok"
           },
           {
@@ -7831,7 +7830,7 @@
             "transfer_in_fmv": 0.0,
             "transfer_out_cost": 0.0,
             "held_qty": 8.86344144e-05,
-            "mark": 0.06426,
+            "mark": 0.06468,
             "value": 0.0,
             "basis": 0.0,
             "unrealized_gain": 0.0,
@@ -8023,7 +8022,7 @@
     ]
   },
   "alltime_pnl": {
-    "as_of": "2026-10-29T07:17:45.133221+00:00",
+    "as_of": "2026-10-29T10:16:42.609180+00:00",
     "rows": [
       {
         "id": "evm_ac40",
@@ -8038,7 +8037,7 @@
         "alt_source": null,
         "value": null,
         "source": "our FIFO",
-        "as_of": "2026-10-29T07:17:19+00:00",
+        "as_of": "2026-10-29T10:16:16+00:00",
         "since": null,
         "status": "untrackable",
         "flags": 1
@@ -8048,15 +8047,15 @@
         "name": "EVM 0xACB6\u202662aD (WOOD wallet)",
         "kind": "wallet",
         "realized": 546.93,
-        "unrealized": -1893.25,
+        "unrealized": -1791.29,
         "income": null,
-        "total": -1346.32,
+        "total": -1244.36,
         "alt_realized": 3254.54,
-        "alt_unrealized": -421.91,
+        "alt_unrealized": -307.7,
         "alt_source": "Zerion (second opinion)",
-        "value": 13826.56,
+        "value": 13928.52,
         "source": "our FIFO",
-        "as_of": "2026-10-29T07:17:11+00:00",
+        "as_of": "2026-10-29T10:16:11+00:00",
         "since": "2018-06-03T16:11:28Z",
         "status": "ok",
         "flags": 18
@@ -8066,15 +8065,15 @@
         "name": "EVM 0x453e\u2026E1DE",
         "kind": "wallet",
         "realized": 2659.27,
-        "unrealized": -5148.09,
+        "unrealized": -5143.57,
         "income": null,
-        "total": -2488.82,
+        "total": -2484.3,
         "alt_realized": 1198.08,
-        "alt_unrealized": -5930.29,
+        "alt_unrealized": -5922.15,
         "alt_source": "Zerion (second opinion)",
-        "value": 2921.08,
+        "value": 2925.6,
         "source": "our FIFO",
-        "as_of": "2026-10-29T07:17:13+00:00",
+        "as_of": "2026-10-29T10:16:12+00:00",
         "since": "2023-12-11T23:23:35Z",
         "status": "ok",
         "flags": 14
@@ -8084,15 +8083,15 @@
         "name": "EVM 0x622F\u2026fdda",
         "kind": "wallet",
         "realized": 600.52,
-        "unrealized": -530.37,
+        "unrealized": -475.05,
         "income": null,
-        "total": 70.15,
+        "total": 125.47,
         "alt_realized": 504.56,
-        "alt_unrealized": -1705.95,
+        "alt_unrealized": -1651.31,
         "alt_source": "Zerion (second opinion)",
-        "value": 13395.03,
+        "value": 13450.35,
         "source": "our FIFO",
-        "as_of": "2026-10-29T07:17:15+00:00",
+        "as_of": "2026-10-29T10:16:13+00:00",
         "since": "2023-12-27T21:14:47Z",
         "status": "ok",
         "flags": 8
@@ -8110,7 +8109,7 @@
         "alt_source": null,
         "value": 0.0,
         "source": "Zerion",
-        "as_of": "2026-10-29T07:17:16+00:00",
+        "as_of": "2026-10-29T10:16:14+00:00",
         "since": "2026-10-07T14:14:30Z",
         "status": "ok",
         "flags": 1
@@ -8120,15 +8119,15 @@
         "name": "Solana 1 F5DS\u2026tmUi",
         "kind": "wallet",
         "realized": 52908.51,
-        "unrealized": -19591.54,
+        "unrealized": -19337.48,
         "income": null,
-        "total": 33316.97,
+        "total": 33571.03,
         "alt_realized": 87346.7,
-        "alt_unrealized": -25811.05,
+        "alt_unrealized": -25500.32,
         "alt_source": "Zerion (second opinion)",
-        "value": 68321.72,
+        "value": 68575.78,
         "source": "our FIFO",
-        "as_of": "2026-10-29T07:17:17+00:00",
+        "as_of": "2026-10-29T10:16:15+00:00",
         "since": "2023-08-19T20:54:34Z",
         "status": "ok",
         "flags": 12
@@ -8138,15 +8137,15 @@
         "name": "Solana 2 9AT1\u2026NGNL",
         "kind": "wallet",
         "realized": 2795.26,
-        "unrealized": -2026.73,
+        "unrealized": -2006.56,
         "income": null,
-        "total": 768.53,
+        "total": 788.7,
         "alt_realized": -8429.68,
-        "alt_unrealized": -5284.83,
+        "alt_unrealized": -5254.88,
         "alt_source": "Zerion (second opinion)",
-        "value": 1257.73,
+        "value": 1277.9,
         "source": "our FIFO",
-        "as_of": "2026-10-29T07:17:18+00:00",
+        "as_of": "2026-10-29T10:16:16+00:00",
         "since": "2023-11-21T04:56:39Z",
         "status": "ok",
         "flags": 11
@@ -8155,13 +8154,13 @@
         "id": "hyperliquid",
         "name": "Hyperliquid \u00b7 0x8E43\u2026",
         "kind": "venue",
-        "realized": 1231.92,
-        "unrealized": -1240.57,
-        "value": 96827.67,
+        "realized": 1231.56,
+        "unrealized": -1128.35,
+        "value": 96939.54,
         "income": null,
-        "total": -8.65,
+        "total": 103.21,
         "source": "HL fills+funding",
-        "as_of": "2026-10-29T07:17:45+00:00",
+        "as_of": "2026-10-29T10:16:42+00:00",
         "since": "2026-08-27T15:31:56+00:00",
         "status": "ok",
         "flags": 0
@@ -8176,7 +8175,7 @@
         "income": null,
         "total": 0.0,
         "source": "HL fills+funding",
-        "as_of": "2026-10-29T07:17:45+00:00",
+        "as_of": "2026-10-29T10:16:42+00:00",
         "since": null,
         "status": "empty",
         "flags": 0
@@ -8191,7 +8190,7 @@
         "income": null,
         "total": 0.0,
         "source": "HL fills+funding",
-        "as_of": "2026-10-29T07:17:45+00:00",
+        "as_of": "2026-10-29T10:16:42+00:00",
         "since": null,
         "status": "empty",
         "flags": 0
@@ -8201,12 +8200,12 @@
         "name": "Coinbase",
         "kind": "venue",
         "realized": -54560.81,
-        "unrealized": -13557.48,
-        "value": 282718.93,
+        "unrealized": -12502.17,
+        "value": 283781.65,
         "income": 3549.85,
-        "total": -64568.44,
+        "total": -63513.13,
         "source": "Coinbase v2 txns FIFO",
-        "as_of": "2026-10-29T07:17:45+00:00",
+        "as_of": "2026-10-29T10:16:42+00:00",
         "since": "2024-04-18T14:36:00Z",
         "status": "ok",
         "flags": 4
@@ -8221,7 +8220,7 @@
         "income": null,
         "total": 6025.66,
         "source": "SnapTrade activities FIFO",
-        "as_of": "2026-10-29T07:17:45+00:00",
+        "as_of": "2026-10-29T10:16:42+00:00",
         "since": "2025-03-09T16:33:51Z",
         "status": "ok",
         "flags": 3
@@ -8236,17 +8235,17 @@
         "income": -3242.51,
         "total": 43314.98,
         "source": "confirm ledger + SnapTrade",
-        "as_of": "2026-10-29T07:17:45+00:00",
+        "as_of": "2026-10-29T10:16:42+00:00",
         "since": "2023-10-05",
         "status": "ok",
         "flags": 5
       }
     ],
     "totals": {
-      "realized": 31205.98,
-      "unrealized": -16429.26,
+      "realized": 31205.62,
+      "unrealized": -14825.7,
       "income": 307.34,
-      "total": 15084.06
+      "total": 16687.26
     },
     "note": "Wallets: our own FIFO over full on-chain history (Zerion all-time as second opinion). Venues: own FIFO over full API history. Barometer-grade, not tax-grade. See flags for gaps."
   },
@@ -8254,24 +8253,24 @@
     "with_basis": 21,
     "unknown": 15,
     "cost": 127000.43,
-    "mv": 92254.43,
-    "upnl": -34746.0,
-    "unknown_mv": 7579.18
+    "mv": 92630.53,
+    "upnl": -34369.9,
+    "unknown_mv": 7639.44
   },
-  "hl_perps_account_value": 96827.67,
+  "hl_perps_account_value": 96939.54,
   "hl_perps_withdrawable": 92269.29,
   "hl_spot_usdc": 0.0,
   "since_start": {
     "label": "Since Aug 15",
     "start_date": "2026-08-15",
-    "as_of": "2026-10-29T07:17:10.256972+00:00",
+    "as_of": "2026-10-29T10:16:11.005526+00:00",
     "start_nav_usd": 445000.0,
     "start_nav_range_usd": [
       414000,
       455000
     ],
     "start_nav_method": "ESTIMATE, not a statement. Default $445k anchored on Aug 24/27 cockpit marks rolled back to Aug 15; range $414k-$455k; an independent bottom-up roll-back gives ~$451k +/- $10k. Every since-Aug-15 figure moves ~1:1 with this input: use the sensitivity row. Needs the statement-based Aug 14/15 NAV from the owner.",
-    "book_usd": 612691.67,
+    "book_usd": 614319.21,
     "net_flows_usd": 137182.57,
     "flows_by_source": {
       "Coinbase bank buy": 130000.0,
@@ -8388,12 +8387,12 @@
         "memo": "BTC via Navy Federal Credit Un... ****4704"
       }
     ],
-    "pnl_usd": 30509.1,
+    "pnl_usd": 32136.64,
     "pnl_range_usd": [
-      20509.1,
-      61509.1
+      22136.64,
+      63136.64
     ],
-    "return_pct": 6.15,
+    "return_pct": 6.47,
     "days": 75,
     "realized_known_usd": 6399.13,
     "realized_detail": {
@@ -8405,7 +8404,7 @@
       "wallets": null,
       "note": "HL closedPnl-fees+funding (all since Aug 27). E*TRADE closed option premium $3,679 less $254 margin interest (AVGO put chain still open). Robinhood SPCX puts +$1,663, TSLA call +$204, IONQ roll -$1,235 (ALAB/HOOD credits sit in share basis). Coinbase: stock round-trip -$1,078, WIF +$141, income +$999. Solana/EVM wallet realized since Aug 15 not separated."
     },
-    "unrealized_residual_usd": 24109.97,
+    "unrealized_residual_usd": 25737.51,
     "notes": "Trades before Aug 15, 2026 (e.g. June 2026 Coinbase de-risk, -$55k booked) are the prior manager's and excluded.",
     "method": "Combined P&L = book - start (estimate) - external flows. Flows = bank-funded buys + in-kind transfers in (PONS); moves between own accounts are internal. Per-person % = TWR (headline) and Modified Dietz (MWR); see people.method.",
     "people": {
@@ -8425,83 +8424,83 @@
         "cash_owner|oil_marked": {
           "414000": {
             "owner": {
-              "pnl": -10204.758832479856,
-              "mwr": -0.25536876244588,
-              "twr": -0.11845870293567173
+              "pnl": -9684.687622657075,
+              "mwr": -0.2419878688965266,
+              "twr": -0.11155259210408419
             },
             "manager": {
-              "pnl": 71713.85883247989,
-              "mwr": 0.16859125575149328,
-              "twr": 0.18691779900188532
+              "pnl": 72821.32762265703,
+              "mwr": 0.17116207626610822,
+              "twr": 0.18932391120263614
             },
             "total": {
-              "pnl": 61509.100000000035,
-              "mwr": 0.1321832475050755,
-              "twr": 0.16126239139509546
+              "pnl": 63136.639999999956,
+              "mwr": 0.135639501251733,
+              "twr": 0.16434714198831157
             },
             "flows": {
               "owner": 72421.17,
               "manager": 64761.4
             },
             "end_value": {
-              "owner": 66385.30137339314,
-              "manager": 546306.3686266069,
-              "total": 612691.67
+              "owner": 66905.37258321593,
+              "manager": 547413.837416784,
+              "total": 614319.21
             },
             "start_value": {
               "owner": 4168.890205873,
               "manager": 409831.109794127,
               "total": 414000
             },
-            "days": 75.13692427050925
+            "days": 75.26123848988425
           },
           "445000": {
             "owner": {
-              "pnl": -10204.758832479856,
-              "mwr": -0.25536876244588,
-              "twr": -0.11845870293567173
+              "pnl": -9684.687622657075,
+              "mwr": -0.2419878688965266,
+              "twr": -0.11155259210408419
             },
             "manager": {
-              "pnl": 40713.858832479884,
-              "mwr": 0.08921216319874971,
-              "twr": 0.102735050547055
+              "pnl": 41821.32762265702,
+              "mwr": 0.09162252509593297,
+              "twr": 0.10497050801643337
             },
             "total": {
-              "pnl": 30509.100000000028,
-              "mwr": 0.061469132841292275,
-              "twr": 0.0835695772395122
+              "pnl": 32136.63999999995,
+              "mwr": 0.06472977461003587,
+              "twr": 0.0864479464357839
             },
             "flows": {
               "owner": 72421.17,
               "manager": 64761.4
             },
             "end_value": {
-              "owner": 66385.30137339314,
-              "manager": 546306.3686266069,
-              "total": 612691.67
+              "owner": 66905.37258321593,
+              "manager": 547413.837416784,
+              "total": 614319.21
             },
             "start_value": {
               "owner": 4168.890205873,
               "manager": 440831.109794127,
               "total": 445000
             },
-            "days": 75.13692427050925
+            "days": 75.26123848988425
           },
           "verified": {
             "owner": {
-              "pnl": -11149.394548761185,
-              "mwr": -0.14704166066665272,
-              "twr": -0.1490531472960438
+              "pnl": -10629.323338938404,
+              "mwr": -0.1401643370683632,
+              "twr": -0.1423867173782004
             },
             "manager": {
-              "pnl": -35580.30545123888,
-              "mwr": -0.061146451768508595,
-              "twr": -0.061146451768508525
+              "pnl": -34472.83666106174,
+              "mwr": -0.05924321383659992,
+              "twr": -0.059243213836599806
             },
             "total": {
-              "pnl": -46729.70000000006,
-              "mwr": -0.07104894266822809,
-              "twr": -0.07124916429721695
+              "pnl": -45102.16000000014,
+              "mwr": -0.06857335091318734,
+              "twr": -0.06878205202990051
             },
             "start_value": {
               "owner": 69852.12592215433,
@@ -8509,157 +8508,157 @@
               "total": 651738.8
             },
             "end_value": {
-              "owner": 66385.30137339314,
-              "manager": 546306.3686266069,
-              "total": 612691.67
+              "owner": 66905.37258321593,
+              "manager": 547413.837416784,
+              "total": 614319.21
             },
-            "days": 21.157757603842594
+            "days": 21.282071823217592
           },
           "451000": {
             "owner": {
-              "pnl": -10204.758832479856,
-              "mwr": -0.25536876244588,
-              "twr": -0.11845870293567173
+              "pnl": -9684.687622657075,
+              "mwr": -0.2419878688965266,
+              "twr": -0.11155259210408419
             },
             "manager": {
-              "pnl": 34713.858832479884,
-              "mwr": 0.07507790596807704,
-              "twr": 0.08780222615047495
+              "pnl": 35821.32762265702,
+              "mwr": 0.07745947999090354,
+              "twr": 0.0900074118933678
             },
             "total": {
-              "pnl": 24509.100000000028,
-              "mwr": 0.04879063672604469,
-              "twr": 0.06971768124112776
+              "pnl": 26136.63999999995,
+              "mwr": 0.05201592148465542,
+              "twr": 0.0725592545808258
             },
             "flows": {
               "owner": 72421.17,
               "manager": 64761.4
             },
             "end_value": {
-              "owner": 66385.30137339314,
-              "manager": 546306.3686266069,
-              "total": 612691.67
+              "owner": 66905.37258321593,
+              "manager": 547413.837416784,
+              "total": 614319.21
             },
             "start_value": {
               "owner": 4168.890205873,
               "manager": 446831.109794127,
               "total": 451000
             },
-            "days": 75.13692427050925
+            "days": 75.26123848988425
           },
           "455000": {
             "owner": {
-              "pnl": -10204.758832479856,
-              "mwr": -0.25536876244588,
-              "twr": -0.11845870293567173
+              "pnl": -9684.687622657075,
+              "mwr": -0.2419878688965266,
+              "twr": -0.11155259210408419
             },
             "manager": {
-              "pnl": 30713.858832479884,
-              "mwr": 0.0658571137138958,
-              "twr": 0.07806968265906677
+              "pnl": 31821.327622657023,
+              "mwr": 0.06821987204823529,
+              "twr": 0.08025513865179579
             },
             "total": {
-              "pnl": 20509.100000000028,
-              "mwr": 0.04050523855056423,
-              "twr": 0.06067817327134173
+              "pnl": 22136.63999999995,
+              "mwr": 0.043707370631337485,
+              "twr": 0.06349573427086685
             },
             "flows": {
               "owner": 72421.17,
               "manager": 64761.4
             },
             "end_value": {
-              "owner": 66385.30137339314,
-              "manager": 546306.3686266069,
-              "total": 612691.67
+              "owner": 66905.37258321593,
+              "manager": 547413.837416784,
+              "total": 614319.21
             },
             "start_value": {
               "owner": 4168.890205873,
               "manager": 450831.109794127,
               "total": 455000
             },
-            "days": 75.13692427050925
+            "days": 75.26123848988425
           }
         },
         "cash_owner|oil_zero": {
           "414000": {
             "owner": {
-              "pnl": -13603.936532479856,
-              "mwr": -0.3404314098667882,
-              "twr": -0.18154890628699538
+              "pnl": -13083.865322657082,
+              "mwr": -0.32692192146206744,
+              "twr": -0.1747910233492349
             },
             "manager": {
-              "pnl": 71713.85653247984,
-              "mwr": 0.16859125034445058,
-              "twr": 0.18691779502842443
+              "pnl": 72821.32532265698,
+              "mwr": 0.17116207086009877,
+              "twr": 0.18932390723125025
             },
             "total": {
-              "pnl": 58109.919999999984,
-              "mwr": 0.12487839909639599,
-              "twr": 0.15448845333976857
+              "pnl": 59737.4599999999,
+              "mwr": 0.12833687824447643,
+              "twr": 0.15757231891859513
             },
             "flows": {
               "owner": 72421.17,
               "manager": 64761.4
             },
             "end_value": {
-              "owner": 62986.123673393144,
-              "manager": 546306.3663266068,
-              "total": 609292.49
+              "owner": 63506.19488321592,
+              "manager": 547413.835116784,
+              "total": 610920.0299999999
             },
             "start_value": {
               "owner": 4168.890205873,
               "manager": 409831.109794127,
               "total": 414000
             },
-            "days": 75.13692427050925
+            "days": 75.26123848988425
           },
           "445000": {
             "owner": {
-              "pnl": -13603.936532479856,
-              "mwr": -0.3404314098667882,
-              "twr": -0.18154890628699538
+              "pnl": -13083.865322657082,
+              "mwr": -0.32692192146206744,
+              "twr": -0.1747910233492349
             },
             "manager": {
-              "pnl": 40713.85653247983,
-              "mwr": 0.0892121581589921,
-              "twr": 0.10273504685541379
+              "pnl": 41821.32532265697,
+              "mwr": 0.09162252005707304,
+              "twr": 0.10497050432671995
             },
             "total": {
-              "pnl": 27109.919999999976,
-              "mwr": 0.05462053203132191,
-              "twr": 0.07724884107407148
+              "pnl": 28737.45999999989,
+              "mwr": 0.05788312993097341,
+              "twr": 0.08012638446673925
             },
             "flows": {
               "owner": 72421.17,
               "manager": 64761.4
             },
             "end_value": {
-              "owner": 62986.123673393144,
-              "manager": 546306.3663266068,
-              "total": 609292.49
+              "owner": 63506.19488321592,
+              "manager": 547413.835116784,
+              "total": 610920.0299999999
             },
             "start_value": {
               "owner": 4168.890205873,
               "manager": 440831.109794127,
               "total": 445000
             },
-            "days": 75.13692427050925
+            "days": 75.26123848988425
           },
           "verified": {
             "owner": {
-              "pnl": -13847.40848876119,
-              "mwr": -0.18432841740886588,
-              "twr": -0.18906360390400778
+              "pnl": -13327.337278938416,
+              "mwr": -0.1773819560843794,
+              "twr": -0.182367769202481
             },
             "manager": {
-              "pnl": -35580.311511238804,
-              "mwr": -0.061146461787794995,
-              "twr": -0.06114646178779459
+              "pnl": -34472.842721061665,
+              "mwr": -0.05924322386818454,
+              "twr": -0.059243223868184036
             },
             "total": {
-              "pnl": -49427.719999999994,
-              "mwr": -0.07523127725436961,
-              "twr": -0.0754676619292095
+              "pnl": -47800.18000000008,
+              "mwr": -0.07275298001105575,
+              "twr": -0.07299805433318673
             },
             "start_value": {
               "owner": 69150.96216215433,
@@ -8667,157 +8666,157 @@
               "total": 651037.64
             },
             "end_value": {
-              "owner": 62986.123673393144,
-              "manager": 546306.3663266068,
-              "total": 609292.49
+              "owner": 63506.19488321592,
+              "manager": 547413.835116784,
+              "total": 610920.0299999999
             },
-            "days": 21.157757603842594
+            "days": 21.282071823217592
           },
           "451000": {
             "owner": {
-              "pnl": -13603.936532479856,
-              "mwr": -0.3404314098667882,
-              "twr": -0.18154890628699538
+              "pnl": -13083.865322657082,
+              "mwr": -0.32692192146206744,
+              "twr": -0.1747910233492349
             },
             "manager": {
-              "pnl": 34713.85653247983,
-              "mwr": 0.07507790099371828,
-              "twr": 0.08780222250882463
+              "pnl": 35821.32532265697,
+              "mwr": 0.07745947501741932,
+              "twr": 0.09000740825361908
             },
             "total": {
-              "pnl": 21109.919999999976,
-              "mwr": 0.04202383759647898,
-              "twr": 0.06347774669824591
+              "pnl": 22737.45999999989,
+              "mwr": 0.045251032042392975,
+              "twr": 0.0663185047910646
             },
             "flows": {
               "owner": 72421.17,
               "manager": 64761.4
             },
             "end_value": {
-              "owner": 62986.123673393144,
-              "manager": 546306.3663266068,
-              "total": 609292.49
+              "owner": 63506.19488321592,
+              "manager": 547413.835116784,
+              "total": 610920.0299999999
             },
             "start_value": {
               "owner": 4168.890205873,
               "manager": 446831.109794127,
               "total": 451000
             },
-            "days": 75.13692427050925
+            "days": 75.26123848988425
           },
           "455000": {
             "owner": {
-              "pnl": -13603.936532479856,
-              "mwr": -0.3404314098667882,
-              "twr": -0.18154890628699538
+              "pnl": -13083.865322657082,
+              "mwr": -0.32692192146206744,
+              "twr": -0.1747910233492349
             },
             "manager": {
-              "pnl": 30713.856532479833,
-              "mwr": 0.06585710878220143,
-              "twr": 0.07806967904999795
+              "pnl": 31821.325322656972,
+              "mwr": 0.06821986711740051,
+              "twr": 0.0802551350446119
             },
             "total": {
-              "pnl": 17109.919999999976,
-              "mwr": 0.03379189682536377,
-              "twr": 0.05449096847110213
+              "pnl": 18737.45999999989,
+              "mwr": 0.03699590854392799,
+              "twr": 0.05730772111288385
             },
             "flows": {
               "owner": 72421.17,
               "manager": 64761.4
             },
             "end_value": {
-              "owner": 62986.123673393144,
-              "manager": 546306.3663266068,
-              "total": 609292.49
+              "owner": 63506.19488321592,
+              "manager": 547413.835116784,
+              "total": 610920.0299999999
             },
             "start_value": {
               "owner": 4168.890205873,
               "manager": 450831.109794127,
               "total": 455000
             },
-            "days": 75.13692427050925
+            "days": 75.26123848988425
           }
         },
         "cash_manager|oil_marked": {
           "414000": {
             "owner": {
-              "pnl": -9123.143105740295,
-              "mwr": -0.2915325577309278,
-              "twr": -0.11203484398651342
+              "pnl": -8680.642875430669,
+              "mwr": -0.2769529466793628,
+              "twr": -0.10451163037636457
             },
             "manager": {
-              "pnl": 70632.24310574034,
-              "mwr": 0.16273274233274404,
-              "twr": 0.18270182386195422
+              "pnl": 71817.2828754306,
+              "mwr": 0.16542788340900652,
+              "twr": 0.1852025202762868
             },
             "total": {
-              "pnl": 61509.10000000005,
-              "mwr": 0.1321832475050755,
-              "twr": 0.16126239139509546
+              "pnl": 63136.63999999993,
+              "mwr": 0.1356395012517329,
+              "twr": 0.16434714198831157
             },
             "flows": {
               "owner": 57182.57,
               "manager": 80000.0
             },
             "end_value": {
-              "owner": 52228.31710013271,
-              "manager": 560463.3528998673,
-              "total": 612691.67
+              "owner": 52670.81733044233,
+              "manager": 561648.3926695576,
+              "total": 614319.21
             },
             "start_value": {
               "owner": 4168.890205873,
               "manager": 409831.109794127,
               "total": 414000
             },
-            "days": 75.13692427050925
+            "days": 75.26123848988425
           },
           "445000": {
             "owner": {
-              "pnl": -9123.143105740295,
-              "mwr": -0.2915325577309278,
-              "twr": -0.11203484398651342
+              "pnl": -8680.642875430669,
+              "mwr": -0.2769529466793628,
+              "twr": -0.10451163037636457
             },
             "manager": {
-              "pnl": 39632.243105740345,
-              "mwr": 0.08522361053854738,
-              "twr": 0.09997107912744685
+              "pnl": 40817.282875430596,
+              "mwr": 0.08775448291602392,
+              "twr": 0.102296850237245
             },
             "total": {
-              "pnl": 30509.10000000005,
-              "mwr": 0.06146913284129231,
-              "twr": 0.0835695772395122
+              "pnl": 32136.639999999927,
+              "mwr": 0.06472977461003583,
+              "twr": 0.0864479464357839
             },
             "flows": {
               "owner": 57182.57,
               "manager": 80000.0
             },
             "end_value": {
-              "owner": 52228.31710013271,
-              "manager": 560463.3528998673,
-              "total": 612691.67
+              "owner": 52670.81733044233,
+              "manager": 561648.3926695576,
+              "total": 614319.21
             },
             "start_value": {
               "owner": 4168.890205873,
               "manager": 440831.109794127,
               "total": 445000
             },
-            "days": 75.13692427050925
+            "days": 75.26123848988425
           },
           "verified": {
             "owner": {
-              "pnl": -10855.6200350808,
-              "mwr": -0.17687660458674828,
-              "twr": -0.18223244462673305
+              "pnl": -10413.119804771173,
+              "mwr": -0.16963909624082713,
+              "twr": -0.1753039745613728
             },
             "manager": {
-              "pnl": -35874.07996491925,
-              "mwr": -0.060157350499668076,
-              "twr": -0.060157350499668305
+              "pnl": -34689.040195229,
+              "mwr": -0.05817015381473526,
+              "twr": -0.05817015381473556
             },
             "total": {
-              "pnl": -46729.70000000005,
-              "mwr": -0.07104894266822806,
-              "twr": -0.07124916429721695
+              "pnl": -45102.16000000017,
+              "mwr": -0.06857335091318738,
+              "twr": -0.06878205202990051
             },
             "start_value": {
               "owner": 55401.367135213506,
@@ -8825,157 +8824,157 @@
               "total": 651738.8
             },
             "end_value": {
-              "owner": 52228.31710013271,
-              "manager": 560463.3528998673,
-              "total": 612691.67
+              "owner": 52670.81733044233,
+              "manager": 561648.3926695576,
+              "total": 614319.21
             },
-            "days": 21.157757603842594
+            "days": 21.282071823217592
           },
           "451000": {
             "owner": {
-              "pnl": -9123.143105740295,
-              "mwr": -0.2915325577309278,
-              "twr": -0.11203484398651342
+              "pnl": -8680.642875430669,
+              "mwr": -0.2769529466793628,
+              "twr": -0.10451163037636457
             },
             "manager": {
-              "pnl": 33632.243105740345,
-              "mwr": 0.07140023006108794,
-              "twr": 0.08527768603035457
+              "pnl": 34817.282875430596,
+              "mwr": 0.07390157491666631,
+              "twr": 0.0875723895331777
             },
             "total": {
-              "pnl": 24509.10000000005,
-              "mwr": 0.04879063672604472,
-              "twr": 0.06971768124112776
+              "pnl": 26136.639999999927,
+              "mwr": 0.05201592148465538,
+              "twr": 0.0725592545808258
             },
             "flows": {
               "owner": 57182.57,
               "manager": 80000.0
             },
             "end_value": {
-              "owner": 52228.31710013271,
-              "manager": 560463.3528998673,
-              "total": 612691.67
+              "owner": 52670.81733044233,
+              "manager": 561648.3926695576,
+              "total": 614319.21
             },
             "start_value": {
               "owner": 4168.890205873,
               "manager": 446831.109794127,
               "total": 451000
             },
-            "days": 75.13692427050925
+            "days": 75.26123848988425
           },
           "455000": {
             "owner": {
-              "pnl": -9123.143105740295,
-              "mwr": -0.2915325577309278,
-              "twr": -0.11203484398651342
+              "pnl": -8680.642875430669,
+              "mwr": -0.2769529466793628,
+              "twr": -0.10451163037636457
             },
             "manager": {
-              "pnl": 29632.243105740345,
-              "mwr": 0.062378639790756085,
-              "twr": 0.07569824798186287
+              "pnl": 30817.282875430596,
+              "mwr": 0.06486067631147654,
+              "twr": 0.07797269678828167
             },
             "total": {
-              "pnl": 20509.10000000005,
-              "mwr": 0.040505238550564274,
-              "twr": 0.06067817327134173
+              "pnl": 22136.639999999927,
+              "mwr": 0.04370737063133744,
+              "twr": 0.06349573427086685
             },
             "flows": {
               "owner": 57182.57,
               "manager": 80000.0
             },
             "end_value": {
-              "owner": 52228.31710013271,
-              "manager": 560463.3528998673,
-              "total": 612691.67
+              "owner": 52670.81733044233,
+              "manager": 561648.3926695576,
+              "total": 614319.21
             },
             "start_value": {
               "owner": 4168.890205873,
               "manager": 450831.109794127,
               "total": 455000
             },
-            "days": 75.13692427050925
+            "days": 75.26123848988425
           }
         },
         "cash_manager|oil_zero": {
           "414000": {
             "owner": {
-              "pnl": -9123.143105740295,
-              "mwr": -0.2915325577309278,
-              "twr": -0.11203484398651342
+              "pnl": -8680.642875430669,
+              "mwr": -0.2769529466793628,
+              "twr": -0.10451163037636457
             },
             "manager": {
-              "pnl": 67233.0631057403,
-              "mwr": 0.1549012215037295,
-              "twr": 0.17532160643154215
+              "pnl": 68418.10287543054,
+              "mwr": 0.15759802504884554,
+              "twr": 0.17782186208170758
             },
             "total": {
-              "pnl": 58109.92,
-              "mwr": 0.124878399096396,
-              "twr": 0.1544884533397688
+              "pnl": 59737.459999999875,
+              "mwr": 0.1283368782444764,
+              "twr": 0.15757231891859536
             },
             "flows": {
               "owner": 57182.57,
               "manager": 80000.0
             },
             "end_value": {
-              "owner": 52228.31710013271,
-              "manager": 557064.1728998673,
-              "total": 609292.49
+              "owner": 52670.81733044233,
+              "manager": 558249.2126695575,
+              "total": 610920.0299999999
             },
             "start_value": {
               "owner": 4168.890205873,
               "manager": 409831.109794127,
               "total": 414000
             },
-            "days": 75.13692427050925
+            "days": 75.26123848988425
           },
           "445000": {
             "owner": {
-              "pnl": -9123.143105740295,
-              "mwr": -0.2915325577309278,
-              "twr": -0.11203484398651342
+              "pnl": -8680.642875430669,
+              "mwr": -0.2769529466793628,
+              "twr": -0.10451163037636457
             },
             "manager": {
-              "pnl": 36233.06310574029,
-              "mwr": 0.07791414809662808,
-              "twr": 0.09310711259984217
+              "pnl": 37418.102875430544,
+              "mwr": 0.08044646870672807,
+              "twr": 0.09543247377720698
             },
             "total": {
-              "pnl": 27109.92,
-              "mwr": 0.05462053203132195,
-              "twr": 0.0772488410740717
+              "pnl": 28737.459999999875,
+              "mwr": 0.05788312993097338,
+              "twr": 0.08012638446673948
             },
             "flows": {
               "owner": 57182.57,
               "manager": 80000.0
             },
             "end_value": {
-              "owner": 52228.31710013271,
-              "manager": 557064.1728998673,
-              "total": 609292.49
+              "owner": 52670.81733044233,
+              "manager": 558249.2126695575,
+              "total": 610920.0299999999
             },
             "start_value": {
               "owner": 4168.890205873,
               "manager": 440831.109794127,
               "total": 445000
             },
-            "days": 75.13692427050925
+            "days": 75.26123848988425
           },
           "verified": {
             "owner": {
-              "pnl": -10855.6200350808,
-              "mwr": -0.17687660458674828,
-              "twr": -0.18223244462673305
+              "pnl": -10413.119804771173,
+              "mwr": -0.16963909624082713,
+              "twr": -0.1753039745613728
             },
             "manager": {
-              "pnl": -38572.09996491927,
-              "mwr": -0.06475780895512284,
-              "twr": -0.06475780895512262
+              "pnl": -37387.060195229016,
+              "mwr": -0.06276827301905459,
+              "twr": -0.0627682730190543
             },
             "total": {
-              "pnl": -49427.72000000007,
-              "mwr": -0.07523127725436972,
-              "twr": -0.0754676619292095
+              "pnl": -47800.18000000019,
+              "mwr": -0.07275298001105591,
+              "twr": -0.07299805433318673
             },
             "start_value": {
               "owner": 55401.367135213506,
@@ -8983,75 +8982,75 @@
               "total": 651037.64
             },
             "end_value": {
-              "owner": 52228.31710013271,
-              "manager": 557064.1728998673,
-              "total": 609292.49
+              "owner": 52670.81733044233,
+              "manager": 558249.2126695575,
+              "total": 610920.0299999999
             },
-            "days": 21.157757603842594
+            "days": 21.282071823217592
           },
           "451000": {
             "owner": {
-              "pnl": -9123.143105740295,
-              "mwr": -0.2915325577309278,
-              "twr": -0.11203484398651342
+              "pnl": -8680.642875430669,
+              "mwr": -0.2769529466793628,
+              "twr": -0.10451163037636457
             },
             "manager": {
-              "pnl": 30233.063105740293,
-              "mwr": 0.06418387421898747,
-              "twr": 0.0785054082392167
+              "pnl": 31418.102875430544,
+              "mwr": 0.06668663065108422,
+              "twr": 0.08079970728547625
             },
             "total": {
-              "pnl": 21109.92,
-              "mwr": 0.04202383759647902,
-              "twr": 0.06347774669824613
+              "pnl": 22737.459999999875,
+              "mwr": 0.04525103204239295,
+              "twr": 0.06631850479106483
             },
             "flows": {
               "owner": 57182.57,
               "manager": 80000.0
             },
             "end_value": {
-              "owner": 52228.31710013271,
-              "manager": 557064.1728998673,
-              "total": 609292.49
+              "owner": 52670.81733044233,
+              "manager": 558249.2126695575,
+              "total": 610920.0299999999
             },
             "start_value": {
               "owner": 4168.890205873,
               "manager": 446831.109794127,
               "total": 451000
             },
-            "days": 75.13692427050925
+            "days": 75.26123848988425
           },
           "455000": {
             "owner": {
-              "pnl": -9123.143105740295,
-              "mwr": -0.2915325577309278,
-              "twr": -0.11203484398651342
+              "pnl": -8680.642875430669,
+              "mwr": -0.2769529466793628,
+              "twr": -0.10451163037636457
             },
             "manager": {
-              "pnl": 26233.063105740293,
-              "mwr": 0.05522304836126792,
-              "twr": 0.06898574716428918
+              "pnl": 27418.102875430544,
+              "mwr": 0.057706472788873885,
+              "twr": 0.07125979508416758
             },
             "total": {
-              "pnl": 17109.92,
-              "mwr": 0.033791896825363814,
-              "twr": 0.05449096847110235
+              "pnl": 18737.459999999875,
+              "mwr": 0.03699590854392796,
+              "twr": 0.05730772111288407
             },
             "flows": {
               "owner": 57182.57,
               "manager": 80000.0
             },
             "end_value": {
-              "owner": 52228.31710013271,
-              "manager": 557064.1728998673,
-              "total": 609292.49
+              "owner": 52670.81733044233,
+              "manager": 558249.2126695575,
+              "total": 610920.0299999999
             },
             "start_value": {
               "owner": 4168.890205873,
               "manager": 450831.109794127,
               "total": 455000
             },
-            "days": 75.13692427050925
+            "days": 75.26123848988425
           }
         }
       },
@@ -9217,19 +9216,19 @@
         "Pre-Oct-7 daily books omitted staked assets and DEX-wallet holdings, so day-by-day NAV before Oct 7 is not trusted; since-Aug-15 uses the estimated start value."
       ]
     },
-    "return_twr_pct": 8.36,
+    "return_twr_pct": 8.64,
     "split": {
-      "manager_pnl_usd": 40713.86,
-      "owner_pnl_usd": -10204.76,
-      "manager_twr_pct": 10.27,
-      "owner_twr_pct": -11.85,
-      "manager_mwr_pct": 8.92,
-      "owner_mwr_pct": -25.54,
+      "manager_pnl_usd": 41821.33,
+      "owner_pnl_usd": -9684.69,
+      "manager_twr_pct": 10.5,
+      "owner_twr_pct": -11.16,
+      "manager_mwr_pct": 9.16,
+      "owner_mwr_pct": -24.2,
       "verified_since": "2026-10-07",
-      "verified_manager_pnl_usd": -35580.31,
-      "verified_owner_pnl_usd": -11149.39,
-      "adriano_directed_pnl_usd": 40713.86,
-      "owner_direct_pnl_usd": -10204.76,
+      "verified_manager_pnl_usd": -34472.84,
+      "verified_owner_pnl_usd": -10629.32,
+      "adriano_directed_pnl_usd": 41821.33,
+      "owner_direct_pnl_usd": -9684.69,
       "note": "Manager and Owner sleeves; see people{} for TWR/MWR, start-NAV sensitivity and toggles."
     }
   }
