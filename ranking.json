@@ -1000,7 +1000,7 @@
    "held": "Held",
    "px": 221.83,
    "score": 64,
-   "action": "Trim",
+   "action": "Hold/Ride",
    "rr": "1.1",
    "pillars": {
     "business": 4,
@@ -1028,7 +1028,7 @@
    "mcap": "$38.8B",
    "vol": "$1.2B",
    "why": "$1.56B revenue growing 115%; chart is aligned bear, 54% off its high.",
-   "note": "Weekly WMA40 rule broken and aligned bear. Shrink into strength. Weekly Gemini Max Buy Nov 2: under v3 rules, wait for the weekly Money Line to turn up before adding; the trim into $240–250 stands.",
+   "note": "Nov 15 decision: KEEP, don't trim. Add via short puts $190–200 when Level 3/cash allows; spot adds on a Gemini Buy near $182–200. Stop: weekly close under $182.",
    "vc": {
     "verdict": "Watch",
     "line": "great growth, but sells to a handful of hyperscalers; wait for the trend.",
@@ -1037,18 +1037,18 @@
    "gate": "",
    "themes": [],
    "ladder": {
-    "entry": null,
-    "entryLabel": "Trim into",
-    "exit": [
-     240,
-     250
+    "entry": [
+     182,
+     200
     ],
+    "entryLabel": "Add zone",
+    "exit": null,
     "stop": 182,
     "t1": 245,
     "t2": 285,
     "stretch": null,
     "why": {
-     "entry": "Trim into the $245 Sep 2025 high.",
+     "entry": "Add near $182–200 on a Gemini Buy, or via $190–200 short puts.",
      "stop": "Weekly close under the $182 Jan 2026 shelf.",
      "t1": "Sep 2025 high ($245).",
      "t2": "Jul–Aug 2026 levels ($285–292), at the $282 daily flip."
@@ -1929,7 +1929,7 @@
    "mcap": "$223B",
    "vol": "$15.8B",
    "why": "Large and liquid but no 5–10x path from here; exit already signed off.",
-   "note": "Settled exit; needs placing. Score agrees (45).",
+   "note": "Settled exit: sell virtually all into $1,875–1,950; keep ~2 ETH for nostalgia.",
    "vc": {
     "verdict": "Pass",
     "line": "dominant, but losing fee share; no 5× path from $223B.",
@@ -2372,6 +2372,10 @@
   {
    "date": "2026-11-15",
    "entry": "v3 evidence: real weekly Gemini prints (39 names) and daily (18 names) backtested. Stocks: weekly Max Buy plus weekly Money Line up is the primary entry trigger (85% win, 13 trades); weekly Buy is second tier. Crypto unchanged (Gemini edge did not hold). Rescored: TSLA 74→79 (Buy 2026-08-24); AVGO 62→65 (Buy 2026-08-31); LEU 60→66 (Max Buy 2026-10-12); ALAB 58→64 (Max Buy 2026-11-02); NVDA 57→60 (Buy 2026-10-19); ASTS 56→62 (Max Buy 2026-10-05)"
+  },
+  {
+   "date": "2026-11-15",
+   "entry": "Decisions: ALAB keep (no trim; add $182–200 / short puts $190–200). ETH sell all but ~2. BNKR 3% seat on hold (revenue collapse). WOOD lottery hold. KNTQ broken. NVDA watch."
   }
  ],
  "evidence": {
@@ -2689,7 +2693,7 @@
   "SPCX": 8.67,
   "SKHY": 8.67,
   "ALAB": 8.67,
-  "BNKR": 7,
+  "BNKR": 3,
   "SN51+SN4": 3,
   "RENDER": 2
  },
@@ -2737,7 +2741,14 @@
   "v2",
   "add_baba",
   "add_hunt",
-  "v3_gemini"
+  "v3_gemini",
+  "v2_decisions_20261115"
  ],
- "source_note": "Canonical ranking source. Every patch (v2 RENDER/AI names, BABA, above-86 hunt APP/TLN/ADI/TEM/U/CBRS, v3 Gemini evidence) is folded in here. Edit this file or add a new patch script that records itself in \"applied\", then run publish.py. The old patch scripts refuse to re-run (each would undo later patches), and build_json.py refuses to rebuild from board.json."
+ "source_note": "Canonical ranking source. Every patch (v2 RENDER/AI names, BABA, above-86 hunt APP/TLN/ADI/TEM/U/CBRS, v3 Gemini evidence) is folded in here. Edit this file or add a new patch script that records itself in \"applied\", then run publish.py. The old patch scripts refuse to re-run (each would undo later patches), and build_json.py refuses to rebuild from board.json.",
+ "seat_flags": {
+  "BNKR": {
+   "on_hold": true,
+   "note": "3% seat on hold: Bankr revenue collapsed (DefiLlama Feb $4.5M → Oct $443k → Nov MTD $56k). Back only when monthly revenue stabilizes + Gemini Buy."
+  }
+ }
 }
