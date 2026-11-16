@@ -32,10 +32,10 @@ function render(){
     return `<tr><td class="tabular">${m(n)}${n===P.default_start_nav?' (default)':''}</td><td class="tabular" style="text-align:right;color:${col(x.total.pnl)}">${f(x.total.pnl)}</td><td class="tabular" style="text-align:right;color:${col(x.manager.pnl)}">${f(x.manager.pnl)} · ${p(x.manager.twr)}</td><td class="tabular" style="text-align:right;color:${col(x.owner.pnl)}">${f(x.owner.pnl)} · ${p(x.owner.twr)}</td></tr>`}).join('');
   const fl=s.flows_by_source||{};
   const flTxt=Object.keys(fl).map(k=>`${esc(k)} ${m(fl[k])}`).join(' · ');
-  el.innerHTML=`<div class="card-head"><h3>Manager vs Owner</h3><span class="sub">${s.days} days \u00b7 start ${esc(s.start_date)} (LOCKED $414k) \u00b7 as of ${esc(b.as_of_et||'')}</span></div>
+  el.innerHTML=`<div class="card-head"><h3>Manager vs Owner</h3><span class="sub">${s.days} days \u00b7 start ${esc(s.start_date)} (start $451k · bottom-up rebuild estimate ±$10k) \u00b7 as of ${esc(b.as_of_et||'')}</span></div>
   <div style="padding:0 20px 16px">
   <div style="font-size:26px;font-weight:700;color:${col(S.total.pnl)}" class="tabular">${f(S.total.pnl)} <span style="font-size:15px">combined \u00b7 ${p(S.total.twr)} TWR \u00b7 ${p(S.total.mwr)} money-wtd</span></div>
-  <div class="muted small">New money in (${m(s.net_flows_usd)}) is excluded from P/L. Includes all realized + unrealized P/L. Start value locked at $414,000 (confirmed Oct 31).</div>
+  <div class="muted small">New money in (${m(s.net_flows_usd)}) is excluded from P/L. Includes all realized + unrealized P/L. Start value $451,000 — bottom-up rebuild estimate ±$10k.</div>
   ${tbl('Since '+esc(s.start_date)+' \u2014 locked start value','Start value '+m(S.start_value.total)+' locked (confirmed by Pablo, Oct 31 2026). Owner % uses a very small early base: read $ and money-weighted % together.',S,L)}
   ${tbl('Verified window since '+esc((s.split&&s.split.verified_since)||'Oct 7')+' (first complete daily book)','Both sleeves start from a complete end-of-day book; no start-value estimate. This is the most reliable view.',V,L)}
   <div style="margin-top:10px" class="small">

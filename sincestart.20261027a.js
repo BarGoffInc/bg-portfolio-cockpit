@@ -36,7 +36,7 @@ function render(){
   <div style="padding:0 20px 16px">
   <div style="font-size:26px;font-weight:700;color:${col(S.total.pnl)}" class="tabular">${f(S.total.pnl)} <span style="font-size:15px">combined \u00b7 ${p(S.total.twr)} TWR \u00b7 ${p(S.total.mwr)} money-wtd</span></div>
   <div class="muted small">New money in (${m(s.net_flows_usd)}) is excluded from P/L. Includes all realized + unrealized P/L. Not statement-based \u2014 see start value below.</div>
-  ${tbl('Since '+esc(s.start_date)+' \u2014 estimated start value','Start value '+m(S.start_value.total)+' is an estimate; range $414k\u2013$455k (table below). Owner % uses a very small early base: read $ and money-weighted % together.',S,L)}
+  ${tbl('Since '+esc(s.start_date)+' \u2014 estimated start value','Start value '+m(S.start_value.total)+' is an estimate; bottom-up rebuild estimate ±$10k (table below). Owner % uses a very small early base: read $ and money-weighted % together.',S,L)}
   ${tbl('Verified window since '+esc((s.split&&s.split.verified_since)||'Oct 7')+' (first complete daily book)','Both sleeves start from a complete end-of-day book; no start-value estimate. This is the most reliable view.',V,L)}
   <div style="margin-top:12px;font-weight:600">If the Aug 15 start value is different</div>
   <table style="width:100%;border-collapse:collapse" class="small"><thead><tr class="muted"><th style="text-align:left">Start value</th><th style="text-align:right">Combined</th><th style="text-align:right">${esc(L.manager)}</th><th style="text-align:right">${esc(L.owner)}</th></tr></thead><tbody>${sens}</tbody></table>
