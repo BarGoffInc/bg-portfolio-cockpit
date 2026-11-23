@@ -37,3 +37,18 @@ python3 plans.py list --ticker VVV --active
 ```
 
 Kinds: `buy_rung`, `rebuy_rung`, `strength_add`, `sell_target`, `runner`, `kill_line`, `option`.
+
+## Watchlist adds (from the Score a ticker page)
+
+The official watchlist the cockpit shows is `watchlist.json`, published from the box file `journal/cockpit-watchlist.json` by `journal/scripts/build_watchlist.py`. The old Overview page renders it. The weekly rescore should also read it: after each publish, `ranking/watchlist-to-score.json` lists watchlist names that are not yet on the ranking board.
+
+The site is static GitHub Pages, so a click on **Add to watchlist** cannot write the repo.
+
+What we do instead:
+
+1. **Instant UI (this device).** Adds and removes are saved in `localStorage` under `bg-wl-queue` and show up immediately as "On watchlist" (with a Remove control) on the Score a ticker board, on a hand-scored ticker report, and on the Overview watchlist.
+2. **Pending queue on the box.** The same add/remove shape lives in `journal/watchlist-pending.json` (copied to `watchlist-pending.json` in this repo so the page can also show items already queued). There is no public webhook, so a browser click does not write this file by itself. Conviction (or anyone with box access) copies the device queue into `journal/watchlist-pending.json`.
+3. **Refresh merge.** The 3-hourly book refresh runs `build_v2_data.py`, which calls `build_watchlist.py`. That script merges pending adds/removes into `journal/cockpit-watchlist.json`, republishes `watchlist.json`, clears the pending file, writes `ranking/watchlist-to-score.json`, and (when `--push` is used) commits `watchlist.json` and `watchlist-pending.json`.
+
+Until a name is merged into `watchlist.json`, the weekly rescore will not see it automatically. After the merge, include every ticker in `ranking/watchlist-to-score.json` → `on_watchlist_not_on_board` on the next Sunday rescore.
+
