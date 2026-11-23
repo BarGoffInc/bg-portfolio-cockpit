@@ -4,32 +4,39 @@ const f$=x=>x==null||isNaN(x)?'—':Math.abs(x)>=1000?'$'+Math.round(x).toLocale
 const pct=x=>x==null?'—':(100*x).toFixed(1)+'%';
 const esc=s=>String(s==null?'':s).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
 const md=s=>esc(s).replace(/`([^`]+)`/g,'<code>$1</code>');
-const LBL={kill:['Holding stop hit','stop'],scale:['Scale out','go'],fill:['Fill a rung','go'],ladder:['Rest the ladder','rest'],wait:['Wait',''],'no data':['No data',''],'short history':['Too new','']};
+const LBL={kill:['Protective sell line hit','stop'],scale:['Sell target reached','go'],fill:['Buy level reached','go'],placed:['Orders working (from API)','go'],setbuy:['OK to set buys · nothing placed','rest'],wait:['Wait',''],'no data':['No data',''],'short history':['Too new','']};
 const TR={'-2':'strong downtrend','-1':'downtrend','0':'sideways','1':'uptrend','2':'strong uptrend'};
 let D=null,cur=null,H=180;
 function scoreLine(n){
   if(n.score){const s=n.score;return `<span class="eg-sc"><b>Score ${s.score}</b>/100 · company ${s.fund}/60 · chart-only ${s.chart}/30 · mood ${s.mood}/10</span>`}
   return `<span class="eg-mut">${esc(n.flag||'No score')}</span>`}
 function cta(){
-  const act=D.names.filter(n=>['kill','scale','fill','ladder'].includes(n.act));
+  const act=D.names.filter(n=>['kill','scale','fill','placed','setbuy'].includes(n.act));
   const held=D.names.filter(n=>n.act==='wait'&&n.held>1000);
-  let h=`<h2 class="eg-h">Do this now</h2><p class="eg-sub">As of ${esc(D.as_of_et)} · book ${f$(D.book)} · scores from ${esc(D.score_as_of)}. Tap a name for its chart and projection.</p>`;
-  const now=act.filter(n=>n.act!=='ladder');
-  if(!now.length) h+=`<p><b>No fills, trims or stops today.</b> Nothing has touched a rung with a washout, no sell target is hit, and no holding stop broke on a weekly close.</p>`;
+  let h=`<h2 class="eg-h">Do this now</h2><p class="eg-sub">As of ${esc(D.as_of_et)} · book ${f$(D.book)} · scores from ${esc(D.score_as_of)}. Tap a name for its chart and projection.</p>${feeds()}`;
+  const now=act.filter(n=>n.act!=='setbuy');
+  if(!now.length) h+=`<p><b>No fills, trims or stops today.</b> No price touched a planned buy level with a sign that selling is exhausted, no sell target is reached, and no protective sell line broke on a weekly close.</p>`;
   for(const n of now) h+=card(n,true);
-  h+=`<h2 class="eg-h" style="margin-top:18px">Resting ladders (place once, then wait)</h2><p class="eg-sub">These limit orders only fill on weakness. Funding note: both stock accounts are on margin, so move cash in before placing stock limits.</p>`;
-  for(const n of act.filter(n=>n.act==='ladder')) h+=card(n,true);
+  h+=`<h2 class="eg-h" style="margin-top:18px">Buy limits you could set now (none are placed)</h2><p class="eg-sub">These are plans, not orders. None of them exist at E*TRADE, Robinhood, Coinbase or Hyperliquid unless the line says PLACED (that comes only from the venue's own open-orders list). Set them only if you want them. Both stock accounts are on margin, so move cash in first.</p>`;
+  for(const n of act.filter(n=>n.act==='setbuy')) h+=card(n,true);
   h+=`<details class="eg-more"><summary>Held names on wait (${held.length})</summary>${held.map(n=>card(n,false)).join('')}</details>`;
   $('#cta').innerHTML=h;
   document.querySelectorAll('[data-t]').forEach(e=>e.onclick=()=>open(e.dataset.t));
 }
+function feeds(){const o=D.orders;if(!o)return '<p class="eg-mut"><b>Order status unknown (no feed ran).</b> Nothing is assumed placed.</p>';
+  const it=Object.entries(o.feeds).map(([k,v])=>v.ok?`${esc(k)}: ${v.count} open order${v.count===1?'':'s'}${v.broker_sync?' (broker last synced '+new Date(v.broker_sync).toLocaleTimeString('en-US',{timeZone:'America/New_York',hour:'numeric',minute:'2-digit'})+' ET)':''}`:`<b>${esc(k)}: order status unknown (feed ${esc(k)})</b>`);
+  return `<p class="eg-sub"><b>What is actually placed, from the venue APIs (read-only, pulled ${esc((o.as_of||'').slice(11))} ET):</b> ${it.join(' · ')}. ${o.count?'':'No open orders anywhere, so every level below is a plan only.'}</p>`}
+function lv(n){if(!n.levels||!n.levels.length)return '';
+  const L=n.levels.map(x=>`<li><b>${f$(x.price)}</b>${x.usd?' · '+f$(x.usd):''} · <span class="${x.todo==='placed'?'eg-ok':'eg-pl'}">${esc(x.status)}</span>${x.todo==='set'?' · OK to set now (steps below)':x.todo==='wait'?' · '+esc(x.why||"Wait, don't set yet."):''}</li>`).join('');
+  const S=(n.slevels||[]).map(x=>`<li>Sell ${f$(x.price)} · <span class="${x.status.startsWith('PLACED')?'eg-ok':'eg-pl'}">${esc(x.status)}</span></li>`).join('');
+  return `<ul class="eg-lv">${L}${S}</ul>`}
 function card(n,steps){
   const [l,c]=LBL[n.act]||[n.act,''];
   return `<div class="eg-cta"><div class="eg-row"><span class="eg-t" data-t="${n.t}">${n.t}</span><span class="eg-pill ${c}">${l}</span>${scoreLine(n)}<span class="eg-mut">${f$(n.px)}${n.held>1?' · held '+f$(n.held):''}</span></div>
-  <div class="eg-mut" style="margin-top:4px">Why: ${esc(n.why)}</div>${steps&&n.steps.length?`<ol class="eg-steps">${n.steps.map(s=>`<li>${md(s)}</li>`).join('')}</ol>`:''}</div>`}
+  <div class="eg-mut" style="margin-top:4px">Why: ${esc(n.why)}</div>${lv(n)}${steps&&n.steps.length?`<ol class="eg-steps">${n.steps.map(s=>`<li>${md(s)}</li>`).join('')}</ol>`:''}</div>`}
 function board(){
   const rows=D.names.map(n=>`<tr><td><span class="eg-t" data-t2="${n.t}">${n.t}</span></td><td>${n.score?n.score.score:'<span class="eg-mut">none</span>'}</td><td>${(LBL[n.act]||[n.act])[0]}</td><td>${f$(n.px)}</td><td>${n.trend==null?'—':TR[n.trend]}</td><td>${n.ex==null?'—':n.ex+'/6'}</td><td>${n.rsi==null?'—':n.rsi}</td><td>${n.rungs&&n.rungs.length?f$(n.rungs[0]):'—'}</td><td>${n.held>1?f$(n.held):''}</td><td style="text-align:left" class="eg-mut">${esc((n.src||'').slice(0,46))}</td></tr>`).join('');
-  $('#board').innerHTML=`<h2 class="eg-h">Every tracked name (${D.names.length})</h2><p class="eg-sub">Held positions (incl. dust and option underlyings) plus every watchlist, plan and Scoring-tab name. Score = the Scoring tab's full company score; names without one are flagged, never filled in.</p><div class="eg-wrap"><table class="eg-tbl"><tr><th>Name</th><th>Score</th><th>Verdict</th><th>Price</th><th>Trend</th><th>Washout</th><th>RSI18</th><th>Rung 1</th><th>Held</th><th style="text-align:left">Data</th></tr>${rows}</table></div>`;
+  $('#board').innerHTML=`<h2 class="eg-h">Every tracked name (${D.names.length})</h2><p class="eg-sub">Held positions (incl. dust and option underlyings) plus every watchlist, plan and Scoring-tab name. Score = the Scoring tab's full company score; names without one are flagged, never filled in.</p><div class="eg-wrap"><table class="eg-tbl"><tr><th>Name</th><th>Score</th><th>Verdict</th><th>Price</th><th>Trend</th><th>Exhaustion signs</th><th>RSI18</th><th>First planned buy</th><th>Held</th><th style="text-align:left">Data</th></tr>${rows}</table></div>`;
   document.querySelectorAll('[data-t2]').forEach(e=>e.onclick=()=>open(e.dataset.t2));
 }
 function bt(){
@@ -66,9 +73,9 @@ function chart(){
   const line=(arr,col,dash)=>{let d='';arr.forEach((v,i)=>{if(v!=null)d+=(d?'L':'M')+X(i)+','+Y(v)});return `<path d="${d}" fill="none" stroke="${col}" stroke-width="1.5" ${dash?'stroke-dasharray="4 3"':''}/>`};
   s+=line(c.mld,'#b7791f')+line(c.mlw,'#6b4fa0',1);
   const hl=(v,col,lab,dash)=>v==null?'':`<line x1="${pl}" x2="${W-pr}" y1="${Y(v)}" y2="${Y(v)}" stroke="${col}" stroke-width="1.2" ${dash?'stroke-dasharray="6 4"':''}/><text x="${W-pr-4}" y="${Y(v)-3}" font-size="11" text-anchor="end" fill="${col}">${lab} ${f$(v)}</text>`;
-  (n.rungs||[]).forEach((r,k)=>s+=hl(r,'#1e8a4c',`Buy ${k+1}${n.sizes[k]?' · '+f$(n.sizes[k]):''}`));
+  (n.rungs||[]).forEach((r,k)=>s+=hl(r,'#1e8a4c',`Planned buy ${k+1}${n.sizes[k]?' · '+f$(n.sizes[k]):''}${(n.levels[k]||{}).todo==='placed'?' · PLACED':' · not placed'}`));
   (n.sells||[]).slice(0,3).forEach((r,k)=>s+=hl(r,'#d9822b',`Sell T${k+1}`));
-  s+=hl(n.kill,'#c0392b','Ladder kill (weekly close)',1);if(n.hs)s+=hl(n.hs,'#c0392b','Holding stop (weekly close)',1);
+  s+=hl(n.kill,'#c0392b','Exit line (weekly close)',1);if(n.hs)s+=hl(n.hs,'#c0392b','Protective sell line (weekly close)',1);
   // past decisions: plan creation dots and real fills
   const di=d=>{const k=c.d.indexOf(d);return k};
   (n.plans||[]).forEach(p=>{const k=di(p.created);if(k>=0&&p.price)s+=`<circle cx="${X(k)}" cy="${Y(p.price)}" r="3.5" fill="none" stroke="${p.perp?'#999':'#14232b'}"/>`});
@@ -79,8 +86,8 @@ function chart(){
   s+=`<line x1="${X(x0)}" x2="${X(x0)}" y1="${pt}" y2="${Hh-pb}" stroke="#ccd5d9"/><text x="${X(x0)+4}" y="${Hh-8}" font-size="11" fill="#6b7c85">today → next ${ph} days</text><text x="${pl}" y="${Hh-8}" font-size="11" fill="#6b7c85">${c.d[0]}</text></svg>`;
   const tr=n.trend==null?'':TR[n.trend];
   $('#chartcard').innerHTML=`<h2 class="eg-h">${n.t} · ${(LBL[n.act]||[n.act])[0]}</h2><div class="eg-row">${scoreLine(n)}</div>
-  <p class="eg-mut" style="margin:6px 0">Price ${f$(n.px)} · ${tr} (sets size only) · washout ${n.ex}/6${n.tells.length?': '+esc(n.tells.join(', ')):''} · RSI18 ${n.rsi} (weekly ${n.wrsi??'—'}) · daily ATR ${f$(n.datr)}, weekly ATR ${f$(n.watr)} · rungs from ${esc(n.rsrc||'—')}${n.rule?' · Rule: '+esc(n.rule):''}</p>
-  ${s}<div class="eg-leg"><span><i style="background:#1e8a4c"></i>buy rungs</span><span><i style="background:#d9822b"></i>sell targets</span><span><i style="background:#c0392b"></i>kill / holding stop</span><span><i style="background:#b7791f"></i>daily Money Line proxy</span><span><i style="background:#6b4fa0"></i>weekly Money Line proxy</span><span>● washout day (2+ tells)</span><span>G Gemini Buy proxy</span><span>○ plan made</span><span>▲▼ real fills</span><span>dashed fan: conservative / base / bull (next 120 days max)</span></div>
+  <p class="eg-mut" style="margin:6px 0">Price ${f$(n.px)} · ${tr} (sets size only) · selling-exhaustion signs ${n.ex}/6${n.tells.length?': '+esc(n.tells.join(', ')):''} · RSI18 ${n.rsi} (weekly ${n.wrsi??'—'}) · daily ATR ${f$(n.datr)}, weekly ATR ${f$(n.watr)} · buy levels from ${esc(n.rsrc||'—')}${n.rule?' · Rule: '+esc(n.rule):''}</p>
+  ${s}<div class="eg-leg"><span><i style="background:#1e8a4c"></i>planned buy levels (not orders unless PLACED)</span><span><i style="background:#d9822b"></i>sell targets</span><span><i style="background:#c0392b"></i>exit line / protective sell line</span><span><i style="background:#b7791f"></i>daily Money Line proxy</span><span><i style="background:#6b4fa0"></i>weekly Money Line proxy</span><span>● day with 2+ selling-exhaustion signs</span><span>G Gemini Buy proxy</span><span>○ plan made</span><span>▲▼ real fills</span><span>dashed fan: conservative / base / bull (next 120 days max)</span></div>
   ${n.gate.length?`<p class="eg-mut">Gates: ${esc(n.gate.join(' · '))}</p>`:''}${n.perp.length?`<p class="eg-mut">Perp Desk rows (theirs, kept separate): ${n.perp.map(p=>esc(p.kind+' '+f$(p.price))).join(', ')}</p>`:''}`;
 }
 function proj(){
@@ -95,9 +102,9 @@ function proj(){
   for(const k of ['cons','dip','bull'])S[k].ev.forEach(([d,kind,p])=>s+=`<circle cx="${X(d)}" cy="${Y(S[k].vals[d])}" r="4" fill="${kind==='buy'?'#1e8a4c':kind==='sell'?'#d9822b':'#c0392b'}"/>`);
   [0,Math.round(H/2),H].forEach(d=>s+=`<text x="${X(d)-(d===H?40:0)}" y="${Hh-6}" font-size="11" fill="#6b7c85">day ${d}</text>`);s+='</svg>';
   const r=k=>`<tr><td>${k==='ex'?'Weighted 25/25/30/20 (judgment, conservative tilt)':{cons:'Conservative: steady slide (−1σ)',dip:'Dip then recover (−1.5σ, back to +0.5σ)',base:'Base: flat',bull:'Bull: steady climb (+1σ)'}[k]}</td><td>${f$(k==='ex'?ex[H]:S[k].vals[H])}</td><td>${pct((k==='ex'?ex[H]:S[k].vals[H])/start-1)}</td><td style="text-align:left">${k==='ex'?'':S[k].ev.map(e=>e[1]+' '+f$(e[2])+' (day '+e[0]+')').join(', ')||'no orders trigger'}</td></tr>`;
-  $('#projcard').innerHTML=`<h2 class="eg-h">${n.t}: project the position day by day</h2><p class="eg-sub">Starts from what is held (${f$(n.held)}) plus the cash set aside for this ladder (${f$((n.sizes||[]).reduce((a,b)=>a+b,0))}). Each path applies the planned buys, the 25% scale-outs and the ladder kill as price crosses them. Volatility comes from the daily ATR. These are what-if paths, not a forecast.</p>
+  $('#projcard').innerHTML=`<h2 class="eg-h">${n.t}: project the position day by day</h2><p class="eg-sub">Starts from what is held (${f$(n.held)}) plus the cash set aside for these planned buys (${f$((n.sizes||[]).reduce((a,b)=>a+b,0))}). Each path assumes you have set the planned buys and quarter-position sells, and applies them and the weekly-close exit line as price crosses them (nothing is placed today). Volatility comes from the daily ATR. These are what-if paths, not a forecast.</p>
   <div class="eg-ctrl"><label>Horizon <input type="range" min="30" max="365" step="5" value="${H}" id="hz"/> <b id="hzv">${H} days</b></label></div>${s}
-  <div class="eg-wrap"><table class="eg-tbl"><tr><th>Path</th><th>Value on day ${H}</th><th>Change</th><th style="text-align:left">Orders that trigger</th></tr>${r('cons')}${r('dip')}${r('base')}${r('bull')}${r('ex')}</table></div>`;
+  <div class="eg-wrap"><table class="eg-tbl"><tr><th>Path</th><th>Value on day ${H}</th><th>Change</th><th style="text-align:left">Planned orders that would trigger (if set)</th></tr>${r('cons')}${r('dip')}${r('base')}${r('bull')}${r('ex')}</table></div>`;
   $('#hz').oninput=e=>{H=+e.target.value;proj();chart()};
 }
 fetch('engine.json?'+Date.now()).then(r=>r.json()).then(j=>{D=j;document.querySelector('[data-asof]').textContent='Engine run '+j.as_of_et;cta();board();bt()}).catch(e=>{$('#cta').textContent='Could not load engine.json: '+e});
