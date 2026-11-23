@@ -52,3 +52,11 @@ What we do instead:
 
 Until a name is merged into `watchlist.json`, the weekly rescore will not see it automatically. After the merge, include every ticker in `ranking/watchlist-to-score.json` → `on_watchlist_not_on_board` on the next Sunday rescore.
 
+## Perps page
+
+`perps.html` is a discreet tab at the end of the nav (not on Home, not in headline totals). It leads with a single call-to-action list — Place now / Waiting on trigger / Stand down — then separate Actual (Hyperliquid fills) and Paper (provisional, simulated) performance panels.
+
+- **`perps.json`** is written by `perps.py`. The script reads only Perp Desk's hourly feed at `/workspace/perp-desk/dashboard/data.json` (never raw ledgers, never typed-in trades), and cross-checks each idea against `plans.json` (active cash plans) and `book.json` (spot holdings). Tags are ALIGNED, STACKED, or CONFLICT.
+- The 3-hourly book refresh (`build_v2_data.py`) runs `perps.py` and, with `--push`, commits `perps.json`.
+- The page Refresh button reloads `perps.json`. It does not place trades.
+

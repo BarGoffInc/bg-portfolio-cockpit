@@ -1,0 +1,3329 @@
+{
+  "generated_at_et": "2026-11-23 10:01:00 ET",
+  "exported_at_et": "2026-11-23 11:00:38 ET",
+  "timezone": "America/New_York",
+  "source": "/workspace/perp-desk/dashboard/data.json",
+  "read_only": true,
+  "no_orders_placed": true,
+  "book_as_of_et": "Nov 23, 8:53 AM ET",
+  "plans_updated_at": "2026-11-23T10:58:37-05:00",
+  "refresh_note": "Perp Desk feed is rebuilt hourly at :50, 6:50 AM–10:50 PM ET.",
+  "week": {
+    "label": "Mon Nov 23, 2026, 12:00 AM ET – Sun Nov 29, 2026, 11:59 PM ET",
+    "start_et": "Mon Nov 23, 2026, 12:00 AM ET",
+    "end_et": "Sun Nov 29, 2026, 11:59 PM ET",
+    "target_usd": 10000.0,
+    "target_usd_display": "$10,000.00"
+  },
+  "account": {
+    "snapshot_et": "Mon Nov 23, 2026, 9:29 AM ET",
+    "perps_main_usd": 0.0,
+    "perps_xyz_usd": 0.0,
+    "spot_usdc_usd": 96024.147012,
+    "combined_usd": 96024.147012,
+    "open_positions": 0,
+    "open_orders": 0,
+    "flat": true,
+    "note": "Perps clearinghouse is $0 on main and on xyz. The $96,024.15 pool is in spot USDC (hold $0). Same state as the 8:59 AM ET actual ledger. Isolated perp orders need USDC transferred into the perps clearinghouse before they can be margined.",
+    "place_now": "VVV + TAO only (unchanged ladders), after USDC is in the perps account",
+    "skip": "BTC long (ready ticket, recommend skip this morning), HYPE (standby), SOL long, ZEC, every xyz equity (Thanksgiving week + gate)",
+    "combined_if_default": {
+      "risk_usd": 4000,
+      "margin_usd": 11585,
+      "risk_pct": 4.16,
+      "margin_pct": 12.1,
+      "cluster_usd": 4000
+    }
+  },
+  "cta_counts": {
+    "place_now": 2,
+    "waiting": 7,
+    "stand_down": 4,
+    "ideas": 13
+  },
+  "cta": {
+    "place_now": [
+      {
+        "id": "VVV",
+        "coin": "VVV",
+        "display": "VVV",
+        "side": "long",
+        "role": "core",
+        "grade": "A-",
+        "status": "armed",
+        "status_now": "Levels unchanged vs Nov 22 9:28 PM ET. Overnight UTC-day low 25.25 (4h 11 PM ET Nov 22) did not tag rung 1 at 25.00. Mark 26.4865 is +3.8% vs 25.52 prior close, 5.6% above rung 1. Do not chase; leave the resting 25.00/24.35/23.70 ladder working. Add-on still needs a UTC close above 28.40.",
+        "recommend": null,
+        "bucket": "place_now",
+        "kind": "ticket",
+        "lev": 3,
+        "rungs": [
+          25.0,
+          24.35,
+          23.7
+        ],
+        "coins": [
+          213.94,
+          249.59,
+          249.59
+        ],
+        "avg": 24.317505,
+        "stop": 21.7,
+        "targets": [
+          30.8,
+          34.5,
+          34.7
+        ],
+        "tp": [
+          {
+            "name": "TP1",
+            "price": 30.8,
+            "frac": "0.3",
+            "coins": 213.93,
+            "pnl_usd": 1386.0,
+            "R": 2.48
+          },
+          {
+            "name": "TP2",
+            "price": 34.5,
+            "frac": "0.4",
+            "coins": 285.26,
+            "pnl_usd": 2903.0,
+            "R": 3.89
+          },
+          {
+            "name": "runner",
+            "price": 34.7,
+            "frac": "0.3",
+            "coins": 213.93,
+            "pnl_usd": 2220.0,
+            "R": 3.97
+          }
+        ],
+        "liq": 19.454,
+        "risk_usd": 2000.0,
+        "margin": 5780.0,
+        "notional": 17341.0,
+        "blended_R": 3.49,
+        "mark": 26.4865,
+        "trigger": null,
+        "waiting_label": null,
+        "reason": "Pablo approved ('Go') Sun Nov 22, 9:24 PM ET: Conviction-matched VVV ladder, replacing the 1:55 PM tickets. Skip the book's $25.85 cash starter (too close to the mark). Stop under the $22.25 weekly kill and the $22.06-22.09 breakout base, not in the $19.10 Friday wick.",
+        "flags": "Conviction name (full $2k). Overlaps the book's 100 VVV plus its cash ladder. Crypto cluster with TAO (and BTC if also armed). Thin book: part of the $2k is fee + 0.8% stop-slippage buffer.",
+        "valid": "Cancel unfilled rungs Wed Dec 2, 7:00 PM ET (UTC close) and re-review; cancel all unfilled early if 30.80 trades before rung 1 fills (re-ladder higher).",
+        "updated_et": "2026-11-23 09:29",
+        "line": "VVV long · rungs $25 / $24.35 / $23.7 · stop $21.7 · targets $30.8 / $34.5 / $34.7 · 3x · risk $2,000.00",
+        "book": {
+          "tag": "STACKED",
+          "tag_reason": "Adds a perp long on top of a spot holding of $2,557.76.",
+          "plan_line": "Book: VVV holds 100 ($2,557.76), buy ladder $23.7 / $19.1, sells $30.8 / $34.5, holding stop $22.25.",
+          "spot_ticker": "VVV",
+          "spot_qty": 100.0,
+          "spot_mv": 2557.76,
+          "perp_notional": 17341.0,
+          "combined_if_filled_usd": 19898.76,
+          "combined_note": "Spot $2,557.76 + this ticket $17,341.00 notional if filled = $19,898.76"
+        }
+      },
+      {
+        "id": "TAO",
+        "coin": "TAO",
+        "display": "TAO",
+        "side": "long",
+        "role": "core",
+        "grade": "B+",
+        "status": "armed",
+        "status_now": "Levels unchanged. Mark 203.595 is through the 201 add-on trigger INTRADAY (+6.9% vs 190.43) and 5.6% under TP1 215. Do not place the 198 add-on until a UTC daily close (7 PM ET) above 201 AND the core 178/172.50/166 ladder has filled (there is no position yet). Do not chase 203. Cancel unfilled core rungs early if 215 trades before rung 1 — that print is now close. Rung 1 at 178 is 12.6% below the mark.",
+        "recommend": null,
+        "bucket": "place_now",
+        "kind": "ticket",
+        "lev": 4,
+        "rungs": [
+          178.0,
+          172.5,
+          166.0
+        ],
+        "coins": [
+          40.532,
+          47.287,
+          47.287
+        ],
+        "avg": 171.875013,
+        "stop": 157.8,
+        "targets": [
+          215.0,
+          240.0,
+          260.0
+        ],
+        "tp": [
+          {
+            "name": "TP1",
+            "price": 215.0,
+            "frac": "0.3",
+            "coins": 40.531,
+            "pnl_usd": 1747.0,
+            "R": 3.06
+          },
+          {
+            "name": "TP2",
+            "price": 240.0,
+            "frac": "0.4",
+            "coins": 54.044,
+            "pnl_usd": 3680.0,
+            "R": 4.84
+          },
+          {
+            "name": "runner",
+            "price": 260.0,
+            "frac": "0.3",
+            "coins": 40.531,
+            "pnl_usd": 3570.0,
+            "R": 6.26
+          }
+        ],
+        "liq": 143.2292,
+        "risk_usd": 2000.0,
+        "margin": 5805.0,
+        "notional": 23221.0,
+        "blended_R": 4.73,
+        "mark": 203.595,
+        "trigger": null,
+        "waiting_label": null,
+        "reason": "Pablo approved ('Go') Sun Nov 22, 9:24 PM ET: Conviction-matched TAO ladder (exact book rungs), 4x not 5x so liquidation stays 9%+ under the stop. Stop just beyond the $160 weekly kill and the $165.47 Saturday wick.",
+        "flags": "Conviction name (full $2k). Overlaps the book's 200.14 TAO; stacked book-plus-perp loss if both go to the kill is well above $6,000 and stays flagged. Crypto cluster with VVV (and BTC if also armed).",
+        "valid": "Cancel unfilled rungs Wed Dec 2, 7:00 PM ET and re-review; cancel unfilled early if 215 trades before rung 1 fills.",
+        "updated_et": "2026-11-23 09:29",
+        "line": "TAO long · rungs $178 / $172.5 / $166 · stop $157.8 · targets $215 / $240 / $260 · 4x · risk $2,000.00",
+        "book": {
+          "tag": "STACKED",
+          "tag_reason": "Adds a perp long on top of a spot holding of $38,064.52.",
+          "plan_line": "Book: TAO holds 200.1394 ($38,064.52), buy ladder $166 / $140 / $100, sells $215 / $240 / $260, holding stop $160.",
+          "spot_ticker": "TAO",
+          "spot_qty": 200.13942663,
+          "spot_mv": 38064.52,
+          "perp_notional": 23221.0,
+          "combined_if_filled_usd": 61285.52,
+          "combined_note": "Spot $38,064.52 + this ticket $23,221.00 notional if filled = $61,285.52"
+        }
+      }
+    ],
+    "waiting": [
+      {
+        "id": "AMZN",
+        "coin": "xyz:AMZN",
+        "display": "AMZN",
+        "side": "long",
+        "role": "conditional",
+        "grade": "B+",
+        "status": "conditional",
+        "status_now": "Mark 260.155 (+2.4%). Still above the 248-245 range-low ladder. Thanksgiving week: no entry. Gate not met. Status unchanged (conditional).",
+        "recommend": null,
+        "bucket": "waiting",
+        "kind": "conditional",
+        "lev": 5,
+        "rungs": [
+          248.0,
+          246.0,
+          245.0
+        ],
+        "coins": [
+          73.969,
+          86.297,
+          86.297
+        ],
+        "avg": 246.250001,
+        "stop": 239.0,
+        "targets": [
+          270.0,
+          275.0,
+          290.0
+        ],
+        "tp": [
+          {
+            "name": "TP1",
+            "price": 270.0,
+            "frac": "0.3",
+            "coins": 73.968,
+            "pnl_usd": 1754.0,
+            "R": 3.28
+          },
+          {
+            "name": "TP2",
+            "price": 275.0,
+            "frac": "0.4",
+            "coins": 98.627,
+            "pnl_usd": 2831.0,
+            "R": 3.97
+          },
+          {
+            "name": "runner",
+            "price": 290.0,
+            "frac": "0.3",
+            "coins": 73.968,
+            "pnl_usd": 3233.0,
+            "R": 6.03
+          }
+        ],
+        "liq": 202.0513,
+        "risk_usd": 2000.0,
+        "margin": 12143.0,
+        "notional": 60716.0,
+        "blended_R": 4.38,
+        "mark": 260.155,
+        "trigger": "After Mon Nov 30 AND the equity regime gate (xyz:SP500 daily close > 7,430 OR a higher low held above 6,888 after Nov 30). Then a red-day tag of the 248-245 range low. No equity entries during Thanksgiving week.",
+        "waiting_label": "Not placeable until trigger",
+        "reason": "Best clean range long in the book’s watch set. Range-low buy, stop under 240, targets 270-275 then 290. Blended 3R+.",
+        "flags": "Conditional equity. Regime gate + holiday rule. One of the first names that can join once $2k of risk is free. Not a Conviction cash ladder (no buy rungs in plans.json).",
+        "valid": "Cancel unfilled if the 245-275 range breaks down (daily close under 240) or if 270 trades before rung 1 fills. Flat or re-review into mid-December event week (FOMC Dec 9, CPI Dec 10).",
+        "updated_et": "2026-11-23 09:29",
+        "line": "AMZN long · rungs $248 / $246 / $245 · stop $239 · targets $270 / $275 / $290 · 5x · risk $2,000.00",
+        "book": {
+          "tag": null,
+          "tag_reason": "No cash holding and no cash plan to compare.",
+          "plan_line": "Book: no holding and no cash plan.",
+          "spot_ticker": "AMZN",
+          "spot_qty": 0,
+          "spot_mv": 0.0,
+          "perp_notional": 60716.0,
+          "combined_if_filled_usd": 60716.0,
+          "combined_note": "Spot $0.00 + this ticket $60,716.00 notional if filled = $60,716.00"
+        }
+      },
+      {
+        "id": "AAPL",
+        "coin": "xyz:AAPL",
+        "display": "AAPL",
+        "side": "long",
+        "role": "conditional",
+        "grade": "B+",
+        "status": "conditional",
+        "status_now": "Mark 347.965 (−0.3%), the only soft equity in the set. 340.4 Friday low still holds (session 4h low 344.15). Thanksgiving week: no entry. Gate not met. Tight-stop ladder unchanged.",
+        "recommend": null,
+        "bucket": "waiting",
+        "kind": "conditional",
+        "lev": 5,
+        "rungs": [
+          342.0,
+          340.0,
+          338.0
+        ],
+        "coins": [
+          125.675,
+          146.621,
+          146.621
+        ],
+        "avg": 339.899999,
+        "stop": 336.0,
+        "targets": [
+          357.5,
+          366.5,
+          380.0
+        ],
+        "tp": [
+          {
+            "name": "TP1",
+            "price": 357.5,
+            "frac": "0.3",
+            "coins": 125.675,
+            "pnl_usd": 2205.0,
+            "R": 4.51
+          },
+          {
+            "name": "TP2",
+            "price": 366.5,
+            "frac": "0.4",
+            "coins": 167.567,
+            "pnl_usd": 4448.0,
+            "R": 6.82
+          },
+          {
+            "name": "runner",
+            "price": 380.0,
+            "frac": "0.3",
+            "coins": 125.675,
+            "pnl_usd": 5032.0,
+            "R": 10.28
+          }
+        ],
+        "liq": 278.8923,
+        "risk_usd": 2000.0,
+        "margin": 28478.0,
+        "notional": 142390.0,
+        "blended_R": 7.17,
+        "mark": 347.965,
+        "trigger": "After Mon Nov 30 AND the equity regime gate. Ladder only if the 340.4 Friday low has held; or a separate breakout plan after a daily close above 356 (re-size then, do not use this 342-338 ladder after a 356 breakout).",
+        "waiting_label": "Not placeable until trigger",
+        "reason": "Best remaining equity structure (held up better than the tape). Tight stop under 336 / the Friday low. Old Nov 19 ticket is superseded and is not this plan.",
+        "flags": "Conditional equity. Tight 1-2% stop: cancel unfilled before a weekend. Overlaps no large AAPL holding (book does not hold AAPL cash).",
+        "valid": "Cancel unfilled if 340.4 is lost on a daily close, or if 357.50 trades before rung 1 fills. Weekday-only xyz session rules apply.",
+        "updated_et": "2026-11-23 09:29",
+        "line": "AAPL long · rungs $342 / $340 / $338 · stop $336 · targets $357.5 / $366.5 / $380 · 5x · risk $2,000.00",
+        "book": {
+          "tag": null,
+          "tag_reason": "No cash holding and no cash plan to compare.",
+          "plan_line": "Book: no holding and no cash plan.",
+          "spot_ticker": "AAPL",
+          "spot_qty": 0,
+          "spot_mv": 0.0,
+          "perp_notional": 142390.0,
+          "combined_if_filled_usd": 142390.0,
+          "combined_note": "Spot $0.00 + this ticket $142,390.00 notional if filled = $142,390.00"
+        }
+      },
+      {
+        "id": "MU",
+        "coin": "xyz:MU",
+        "display": "MU",
+        "side": "long",
+        "role": "conditional",
+        "grade": "B",
+        "status": "conditional",
+        "status_now": "STATUS CHANGE: mark 698.49 (+13.2%) is through the 684 reclaim INTRADAY (prev 617.02). 586 double low has held. Still need a daily CLOSE above 684, after Nov 30, AND the SP500 gate. Thanksgiving week: no entry. Do not chase 698. Then rest the 668/648/628 pullback ladder; do not use it at the market.",
+        "recommend": null,
+        "bucket": "waiting",
+        "kind": "conditional",
+        "lev": 4,
+        "rungs": [
+          668.0,
+          648.0,
+          628.0
+        ],
+        "coins": [
+          8.371,
+          9.767,
+          9.767
+        ],
+        "avg": 646.999462,
+        "stop": 578.0,
+        "targets": [
+          720.0,
+          900.0,
+          1036.0
+        ],
+        "tp": [
+          {
+            "name": "TP1",
+            "price": 720.0,
+            "frac": "0.3",
+            "coins": 8.371,
+            "pnl_usd": 610.0,
+            "R": 1.06
+          },
+          {
+            "name": "TP2",
+            "price": 900.0,
+            "frac": "0.4",
+            "coins": 11.163,
+            "pnl_usd": 2823.0,
+            "R": 3.67
+          },
+          {
+            "name": "runner",
+            "price": 1036.0,
+            "frac": "0.3",
+            "coins": 8.371,
+            "pnl_usd": 3255.0,
+            "R": 5.64
+          }
+        ],
+        "liq": 510.789,
+        "risk_usd": 2000.0,
+        "margin": 4514.0,
+        "notional": 18055.0,
+        "blended_R": 3.48,
+        "mark": 698.49,
+        "trigger": "After Mon Nov 30 AND the equity regime gate, AND 586 (double low) has held, AND a daily close above 684. Then rest this pullback ladder under 684; do not chase the breakout print. Flat or half before the Thu Dec 17 close (MU earnings after the close).",
+        "waiting_label": "Not placeable until trigger",
+        "reason": "Conviction T1/T2/T3 are 720/900/1036. Pre-earnings run only. 4x (not 5x) so liquidation stays ~11% under the 578 stop (beyond the 586 double low). A separate deep crash ladder at Conviction 505/365, stop ~290, would need ~2x and is watch-only until those rungs are tagged in a washed-out tape.",
+        "flags": "Conditional equity. Earnings Dec 17. Semi/AI cluster with NVDA/AVGO/TSM/SKHY. Book has no MU shares (watch only on the Conviction side until the ATR rungs).",
+        "valid": "Cancel unfilled if 586 breaks, if 720 trades before rung 1, or by the open of Dec 17. No hold through earnings.",
+        "updated_et": "2026-11-23 09:29",
+        "line": "MU long · rungs $668 / $648 / $628 · stop $578 · targets $720 / $900 / $1,036 · 4x · risk $2,000.00",
+        "book": {
+          "tag": "CONFLICT",
+          "tag_reason": "Perp long sits near the book's sell target $720, and the rungs do not match the cash buy ladder.",
+          "plan_line": "Book: MU, buy ladder $505 / $365, sells $720 / $900 / $1,036, weekly kill $300.",
+          "spot_ticker": "MU",
+          "spot_qty": 0,
+          "spot_mv": 0.0,
+          "perp_notional": 18055.0,
+          "combined_if_filled_usd": 18055.0,
+          "combined_note": "Spot $0.00 + this ticket $18,055.00 notional if filled = $18,055.00"
+        }
+      },
+      {
+        "id": "SPCX",
+        "coin": "xyz:SPCX",
+        "display": "SPCX",
+        "side": "long",
+        "role": "conditional",
+        "grade": "B",
+        "status": "conditional",
+        "status_now": "Mark 140.06 (+7.5%), above 127.5. Still wait for the Mon Dec 7 lock-up and a held 127.5 retest, plus the gate. No entry this week.",
+        "recommend": null,
+        "bucket": "waiting",
+        "kind": "conditional",
+        "lev": 5,
+        "rungs": [
+          127.5,
+          123.5,
+          119.0
+        ],
+        "coins": [
+          61.44,
+          71.68,
+          71.68
+        ],
+        "avg": 123.125,
+        "stop": 114.0,
+        "targets": [
+          148.0,
+          166.0,
+          225.0
+        ],
+        "tp": [
+          {
+            "name": "TP1",
+            "price": 148.0,
+            "frac": "0.3",
+            "coins": 61.44,
+            "pnl_usd": 1527.0,
+            "R": 2.73
+          },
+          {
+            "name": "TP2",
+            "price": 166.0,
+            "frac": "0.4",
+            "coins": 81.92,
+            "pnl_usd": 3510.0,
+            "R": 4.7
+          },
+          {
+            "name": "runner",
+            "price": 225.0,
+            "frac": "0.3",
+            "coins": 61.44,
+            "pnl_usd": 6257.0,
+            "R": 11.16
+          }
+        ],
+        "liq": 101.0256,
+        "risk_usd": 2000.0,
+        "margin": 5043.0,
+        "notional": 25216.0,
+        "blended_R": 6.05,
+        "mark": 140.06,
+        "trigger": "After the Mon Dec 7 lock-up, a held retest of 127.5 (does not lose it), AND the equity regime gate. Then this red-day ladder 127.50/123.50/119.00. No entry this Thanksgiving week and none into the lock-up.",
+        "waiting_label": "Not placeable until trigger",
+        "reason": "Conviction T1/T2/T3 147.6-150 / 166-172 / 225. Stop 114 sits beyond 119 (R1) and the Nov-5 low, with 5x liquidation further below (HL max 20x; desk cap 5x).",
+        "flags": "Conditional equity. Lock-up Dec 7. High beta; do not pair with a full MU/NVDA/AVGO stack.",
+        "valid": "Cancel unfilled if 127.5 fails (daily close under 119 / the Nov 5 $120.39 low area) or if 148 trades before rung 1. Deeper Conviction rungs 104/85, kill 75, are crash contingency only.",
+        "updated_et": "2026-11-23 09:29",
+        "line": "SPCX long · rungs $127.5 / $123.5 / $119 · stop $114 · targets $148 / $166 / $225 · 5x · risk $2,000.00",
+        "book": {
+          "tag": "ALIGNED",
+          "tag_reason": "Perp long sits near the book's cash buy ladder.",
+          "plan_line": "Book: SPCX, buy ladder $119 / $104 / $85, sells $147.6 / $166 / $225, weekly kill $75.",
+          "spot_ticker": "SPCX",
+          "spot_qty": 0,
+          "spot_mv": 0.0,
+          "perp_notional": 25216.0,
+          "combined_if_filled_usd": 25216.0,
+          "combined_note": "Spot $0.00 + this ticket $25,216.00 notional if filled = $25,216.00"
+        }
+      },
+      {
+        "id": "NVDA",
+        "coin": "xyz:NVDA",
+        "display": "NVDA",
+        "side": "long",
+        "role": "conditional",
+        "grade": "B",
+        "status": "conditional",
+        "status_now": "STATUS CHANGE: mark 168.045 (+26.6% vs 132.79) is through the 158 close trigger INTRADAY. Still need a daily CLOSE above 158, after Nov 30, AND the gate. Thanksgiving week: no entry. Do not chase 168. Then rest the 154/150/146 pullback ladder.",
+        "recommend": null,
+        "bucket": "waiting",
+        "kind": "conditional",
+        "lev": 5,
+        "rungs": [
+          154.0,
+          150.0,
+          146.0
+        ],
+        "coins": [
+          58.221,
+          67.925,
+          67.925
+        ],
+        "avg": 149.799991,
+        "stop": 140.0,
+        "targets": [
+          180.0,
+          203.0,
+          230.0
+        ],
+        "tp": [
+          {
+            "name": "TP1",
+            "price": 180.0,
+            "frac": "0.3",
+            "coins": 58.221,
+            "pnl_usd": 1757.0,
+            "R": 3.08
+          },
+          {
+            "name": "TP2",
+            "price": 203.0,
+            "frac": "0.4",
+            "coins": 77.629,
+            "pnl_usd": 4127.0,
+            "R": 5.43
+          },
+          {
+            "name": "runner",
+            "price": 230.0,
+            "frac": "0.3",
+            "coins": 58.221,
+            "pnl_usd": 4667.0,
+            "R": 8.18
+          }
+        ],
+        "liq": 126.1474,
+        "risk_usd": 2000.0,
+        "margin": 5814.0,
+        "notional": 29072.0,
+        "blended_R": 5.55,
+        "mark": 168.045,
+        "trigger": "Equity regime gate, after Nov 30, AND a daily close above 158. Then this pullback ladder 154/150/146; do not chase the 158 close. Deep Conviction ATR ladder 95/77, kill 66, is a 2x crash contingency only — do not use this 154-146 ticket for that.",
+        "waiting_label": "Not placeable until trigger",
+        "reason": "Desk December watch: no long until a close above 158. TPs aligned to Conviction T2 180 / T3 203, runner 230. 5x keeps liq ~10% under the 140 stop.",
+        "flags": "Conditional equity. Semi/AI cluster. No NVDA shares in the book (watch). Overlaps the paused NVDA watch routine — this ticket replaces those older rungs once the 158 close happens.",
+        "valid": "Cancel unfilled if 158 is lost (daily close back under 146) or if 180 trades before rung 1.",
+        "updated_et": "2026-11-23 09:29",
+        "line": "NVDA long · rungs $154 / $150 / $146 · stop $140 · targets $180 / $203 / $230 · 5x · risk $2,000.00",
+        "book": {
+          "tag": "ALIGNED",
+          "tag_reason": "Perp long sits near the book's cash buy ladder.",
+          "plan_line": "Book: NVDA, buy ladder $146 / $127, sells $143 / $180 / $203, weekly kill $118.",
+          "spot_ticker": "NVDA",
+          "spot_qty": 0,
+          "spot_mv": 0.0,
+          "perp_notional": 29072.0,
+          "combined_if_filled_usd": 29072.0,
+          "combined_note": "Spot $0.00 + this ticket $29,072.00 notional if filled = $29,072.00"
+        }
+      },
+      {
+        "id": "TSM",
+        "coin": "xyz:TSM",
+        "display": "TSM",
+        "side": "long",
+        "role": "conditional",
+        "grade": "B-",
+        "status": "conditional",
+        "status_now": "STATUS CHANGE: mark 384.76 (+16.6% vs 330.08) is through the 375 close trigger INTRADAY. Still need a daily CLOSE above 375, after Nov 30, AND the gate. Thanksgiving week: no entry. Do not chase 384. Then rest the 372/364/356 pullback ladder.",
+        "recommend": null,
+        "bucket": "waiting",
+        "kind": "conditional",
+        "lev": 5,
+        "rungs": [
+          372.0,
+          364.0,
+          356.0
+        ],
+        "coins": [
+          28.321,
+          33.041,
+          33.041
+        ],
+        "avg": 363.600013,
+        "stop": 344.0,
+        "targets": [
+          400.0,
+          430.0,
+          470.0
+        ],
+        "tp": [
+          {
+            "name": "TP1",
+            "price": 400.0,
+            "frac": "0.3",
+            "coins": 28.32,
+            "pnl_usd": 1029.0,
+            "R": 1.86
+          },
+          {
+            "name": "TP2",
+            "price": 430.0,
+            "frac": "0.4",
+            "coins": 37.763,
+            "pnl_usd": 2505.0,
+            "R": 3.39
+          },
+          {
+            "name": "runner",
+            "price": 470.0,
+            "frac": "0.3",
+            "coins": 28.32,
+            "pnl_usd": 3011.0,
+            "R": 5.43
+          }
+        ],
+        "liq": 306.1895,
+        "risk_usd": 2000.0,
+        "margin": 6865.0,
+        "notional": 34325.0,
+        "blended_R": 3.54,
+        "mark": 384.76,
+        "trigger": "Equity regime gate, after Nov 30, AND a daily close above 375. Then this pullback ladder 372/364/356; do not chase the close. No Conviction cash buy rungs (watch only until the close).",
+        "waiting_label": "Not placeable until trigger",
+        "reason": "December watch: no long until a close above 375 (mark tonight ~334). 5x, stop 344 beyond a failed-breakout giveback. TPs are structure estimates (not Conviction targets — none listed).",
+        "flags": "Conditional equity. Semi/AI cluster. Isolated-only on xyz. Thin-to-ok book (~$5.6M 24h).",
+        "valid": "Cancel unfilled if 375 is lost (daily close back under 356) or if 400 trades before rung 1.",
+        "updated_et": "2026-11-23 09:29",
+        "line": "TSM long · rungs $372 / $364 / $356 · stop $344 · targets $400 / $430 / $470 · 5x · risk $2,000.00",
+        "book": {
+          "tag": null,
+          "tag_reason": "No cash holding and no cash plan to compare.",
+          "plan_line": "Book: no holding and no cash plan.",
+          "spot_ticker": "TSM",
+          "spot_qty": 0,
+          "spot_mv": 0.0,
+          "perp_notional": 34325.0,
+          "combined_if_filled_usd": 34325.0,
+          "combined_note": "Spot $0.00 + this ticket $34,325.00 notional if filled = $34,325.00"
+        }
+      },
+      {
+        "id": "BTC-hedge",
+        "coin": "BTC",
+        "display": "BTC",
+        "side": "short",
+        "role": "hedge-watch",
+        "grade": "B",
+        "status": "watch",
+        "status_now": "Not in the 65-66.9k zone yet (mark 64,299.5). Watch only.",
+        "recommend": "watch_only_until_zone",
+        "bucket": "waiting",
+        "kind": "hedge",
+        "lev": 5,
+        "rungs": [
+          66000
+        ],
+        "coins": [
+          0.76651
+        ],
+        "avg": 66000.0,
+        "stop": 68500,
+        "targets": [
+          64000,
+          62000,
+          60000
+        ],
+        "tp": [
+          {
+            "name": "TP1",
+            "price": 64000,
+            "frac": "0.3",
+            "coins": 0.22995,
+            "pnl_usd": 458.0,
+            "R": 0.8
+          },
+          {
+            "name": "TP2",
+            "price": 62000,
+            "frac": "0.4",
+            "coins": 0.30661,
+            "pnl_usd": 1224.0,
+            "R": 1.6
+          },
+          {
+            "name": "runner",
+            "price": 60000,
+            "frac": "0.3",
+            "coins": 0.22995,
+            "pnl_usd": 1378.0,
+            "R": 2.4
+          }
+        ],
+        "liq": 78222.2222,
+        "risk_usd": 2000,
+        "margin": 10118,
+        "notional": 50590,
+        "blended_R": 1.6,
+        "mark": 64299.5,
+        "trigger": "Price is already in the $65-66.9k T1 sell zone on a green day, and there is no open BTC long perp (scale a long out first). Size never more than the 1.71 BTC the book holds; this 0.76651 ticket is under that cap.",
+        "waiting_label": "Not placeable until trigger",
+        "reason": "Conviction sell-zone inventory hedge, not a 3R swing (blended 1.6R — TP1 is tight by design). Same worked example as Nov 22, still valid at these sizes. Mark 64,300 is 1.1% under the zone. Watch, do not arm yet.",
+        "flags": "Hedge only. Charged to the same $2k / 8% / 60% caps. Cannot sit on top of a BTC long perp. If VVV+TAO are already $4k at risk, this $2k hedge would put total open risk at $6k (6.25%), still under the 8% cap, and would be a crypto-cluster $6k line item with the longs if used as a directional short — treat it strictly as a trim hedge.",
+        "valid": "Do not pre-place. If armed, cancel if price leaves the zone without filling, or after the trim is actually sold. Hard stop above the zone.",
+        "updated_et": "2026-11-23 09:29",
+        "line": "BTC short (hedge) · rungs $66,000 · stop $68,500 · targets $64,000 / $62,000 / $60,000 · 5x · risk $2,000.00",
+        "book": {
+          "tag": "ALIGNED",
+          "tag_reason": "Perp short supports a book trim / sell-zone plan.",
+          "plan_line": "Book: BTC holds 1.7126 ($104,608.58), sells $65,000 / $72,000, weekly kill $54,000.",
+          "spot_ticker": "BTC",
+          "spot_qty": 1.71255048,
+          "spot_mv": 104608.58,
+          "perp_notional": 50590.0,
+          "combined_if_filled_usd": 155198.58,
+          "combined_note": "Spot $104,608.58 + this ticket $50,590.00 notional if filled = $155,198.58"
+        }
+      }
+    ],
+    "stand_down": [
+      {
+        "id": "BTC",
+        "coin": "BTC",
+        "display": "BTC",
+        "side": "long",
+        "role": "optional",
+        "grade": "B+",
+        "status": "available",
+        "status_now": "Reworked and ready to place as resting bids, but the desk recommendation is SKIP this morning. A hedge short into 65-66.9k (worked example: 0.76651 BTC @ 66,000, 5x, stop 68,500, risk $2,000, liq ~78,222, never more than the 1.71 BTC held) is the closer watch — not yet in the zone, do not pre-place the short.",
+        "recommend": "skip_this_morning",
+        "bucket": "stand_down",
+        "kind": "ticket",
+        "lev": 7,
+        "rungs": [
+          61300,
+          59800,
+          58800
+        ],
+        "coins": [
+          0.2149,
+          0.25072,
+          0.25072
+        ],
+        "avg": 59899.994416,
+        "stop": 57200,
+        "targets": [
+          65000,
+          68300,
+          72500
+        ],
+        "tp": [
+          {
+            "name": "TP1",
+            "price": 65000,
+            "frac": "0.3",
+            "coins": 0.2149,
+            "pnl_usd": 1094.0,
+            "R": 1.89
+          },
+          {
+            "name": "TP2",
+            "price": 68300,
+            "frac": "0.4",
+            "coins": 0.28654,
+            "pnl_usd": 2404.0,
+            "R": 3.11
+          },
+          {
+            "name": "runner",
+            "price": 72500,
+            "frac": "0.3",
+            "coins": 0.2149,
+            "pnl_usd": 2705.0,
+            "R": 4.67
+          }
+        ],
+        "liq": 51992.7619,
+        "risk_usd": 2000.0,
+        "margin": 6130.0,
+        "notional": 42909.0,
+        "blended_R": 3.21,
+        "mark": 64299.5,
+        "trigger": null,
+        "waiting_label": null,
+        "reason": "Reworked Mon Nov 23, 9:29 AM ET from the 59,000/57,800/56,600 stop 54,300 bounce ticket. Mark jumped from 60,711 last night to 64,299.5 (+6.1% vs 60,602 prior close), 1.1% under the book's 65-66.9k T1 sell zone. This is still a desk bounce, not a Conviction buy (the book is in trim mode at 65-66.9k / 72-76k, weekly-close kill under 54k). Stop 57,200 sits just beyond the Nov 19 daily low 57,735 and the 57,768 July low, above the 55,170 Friday wick. The old 54,300 kill-line stop would make 3R sit above $80k, past both trim zones, so it is not used on this higher ladder. 7x (desk max is 10x; HL max 40x): 10x would put liquidation only 4.6% under the stop (near 54.6k). 7x keeps liq 9.1% below. RECOMMEND SKIP this morning: green day, price already racing into the trim, and VVV+TAO+BTC = $6,000 at the crypto-cluster line. If placed later, only as resting bids on a pullback, never a market buy at 64.3k.",
+        "flags": "Optional. Overlaps Conviction's 1.71 BTC. If armed with the matched VVV+TAO set, crypto-cluster risk is $6,000 — at the $6k flag (rule flags clusters that would lose more than $6k together). Then HYPE cannot join, and only $1,682 of the 8% cap remains (not enough for another $2k name). No pyramid: do not add into the book's trim zone.",
+        "valid": "Cancel unfilled rungs Wed Dec 2, 7:00 PM ET and re-review; cancel all unfilled early if 65,000 trades before rung 1 (price would already be in the book's T1 trim zone without a pullback).",
+        "updated_et": "2026-11-23 09:29",
+        "line": "BTC long · rungs $61,300 / $59,800 / $58,800 · stop $57,200 · targets $65,000 / $68,300 / $72,500 · 7x · risk $2,000.00",
+        "book": {
+          "tag": "CONFLICT",
+          "tag_reason": "Perp long while the book's plan is to trim near $65,000.",
+          "plan_line": "Book: BTC holds 1.7126 ($104,608.58), sells $65,000 / $72,000, weekly kill $54,000.",
+          "spot_ticker": "BTC",
+          "spot_qty": 1.71255048,
+          "spot_mv": 104608.58,
+          "perp_notional": 42909.0,
+          "combined_if_filled_usd": 147517.58,
+          "combined_note": "Spot $104,608.58 + this ticket $42,909.00 notional if filled = $147,517.58"
+        }
+      },
+      {
+        "id": "HYPE",
+        "coin": "HYPE",
+        "display": "HYPE",
+        "side": "long",
+        "role": "standby",
+        "grade": "B",
+        "status": "standby",
+        "status_now": "Standby, levels unchanged. Mark 69.0375 is +10.7% and 13.1% above rung 1 at 60, and 5.7% under the book's 73-77 sell zone. Do not lift the ladder or arm it while VVV+TAO are the live set. On this green day, wait for a red-day tag of 60.",
+        "recommend": null,
+        "bucket": "stand_down",
+        "kind": "ticket",
+        "lev": 3,
+        "rungs": [
+          60.0,
+          55.0,
+          51.5
+        ],
+        "coins": [
+          48.4,
+          72.6,
+          121.01
+        ],
+        "avg": 54.249886,
+        "stop": 46.2,
+        "targets": [
+          73.0,
+          82.0,
+          97.0
+        ],
+        "tp": [
+          {
+            "name": "TP1",
+            "price": 73.0,
+            "frac": "0.3",
+            "coins": 72.6,
+            "pnl_usd": 1360.0,
+            "R": 2.33
+          },
+          {
+            "name": "TP2",
+            "price": 82.0,
+            "frac": "0.4",
+            "coins": 96.81,
+            "pnl_usd": 2685.0,
+            "R": 3.45
+          },
+          {
+            "name": "runner",
+            "price": 97.0,
+            "frac": "0.3",
+            "coins": 72.6,
+            "pnl_usd": 3103.0,
+            "R": 5.31
+          }
+        ],
+        "liq": 38.0701,
+        "risk_usd": 1989.0,
+        "margin": 4376.0,
+        "notional": 13129.0,
+        "blended_R": 3.67,
+        "mark": 69.0375,
+        "trigger": null,
+        "waiting_label": null,
+        "reason": "Standby Conviction-matched ladder at 3x (5x would put liquidation on the $46.20 stop). Swap in only if the BTC bounce is skipped and $2k of crypto risk has been freed (TP1 or a cancelled name), so the crypto cluster stays under $6k.",
+        "flags": "Standby. Overlaps the book's 36.12 HYPE. Do not arm with VVV+TAO+BTC. 3x chosen so liq sits ~18% below the stop.",
+        "valid": "Do not place tonight while VVV and TAO are armed. If swapped in later: cancel unfilled Wed Dec 2, 7:00 PM ET; cancel early if 73 trades before rung 1 fills.",
+        "updated_et": "2026-11-23 09:29",
+        "line": "HYPE long · rungs $60 / $55 / $51.5 · stop $46.2 · targets $73 / $82 / $97 · 3x · risk $1,989.00",
+        "book": {
+          "tag": "STACKED",
+          "tag_reason": "Adds a perp long on top of a spot holding of $3,790.09.",
+          "plan_line": "Book: HYPE holds 59.443 ($3,790.09), buy ladder $52 / $39 / $29, sells $73 / $82 / $97, holding stop $47.",
+          "spot_ticker": "HYPE",
+          "spot_qty": 59.44299052,
+          "spot_mv": 3790.09,
+          "perp_notional": 13129.0,
+          "combined_if_filled_usd": 16919.09,
+          "combined_note": "Spot $3,790.09 + this ticket $13,129.00 notional if filled = $16,919.09"
+        }
+      },
+      {
+        "id": "SOL",
+        "coin": "SOL",
+        "display": "SOL",
+        "side": "short",
+        "role": "hedge-watch",
+        "grade": null,
+        "status": "watch-hedge",
+        "status_now": "Mark 78.169 is +11.6% and sits inside Conviction's first sell zone $78-84. No SOL long (book already heavy, no buy rungs, would be a third crypto in the cluster). A hedge short of only the planned trim quantity is now eligible on this green day; never more than the would-be trim, never against an open SOL long. Do not invent a full-size $2k short without the exact trim size from the book.",
+        "recommend": "no_long",
+        "bucket": "stand_down",
+        "kind": "hedge",
+        "lev": null,
+        "rungs": [],
+        "coins": null,
+        "avg": null,
+        "stop": null,
+        "targets": [],
+        "tp": [],
+        "liq": null,
+        "risk_usd": null,
+        "margin": null,
+        "notional": null,
+        "blended_R": null,
+        "mark": 78.169,
+        "trigger": null,
+        "waiting_label": null,
+        "reason": "Mark 78.169 is +11.6% and sits inside Conviction's first sell zone $78-84. No SOL long (book already heavy, no buy rungs, would be a third crypto in the cluster). A hedge short of only the planned trim quantity is now eligible on this green day; never more than the would-be trim, never against an open SOL long. Do not invent a full-size $2k short without the exact trim size from the book.",
+        "flags": null,
+        "valid": null,
+        "updated_et": null,
+        "line": "SOL short (hedge) · mark $78.17",
+        "book": {
+          "tag": "CONFLICT",
+          "tag_reason": "Perp short against a core hold with a no-sell rule.",
+          "plan_line": "Book: SOL core, holds 729.3255 ($60,825.86), no sells until $97 / $110 or new all-time highs; weekly kill $58.",
+          "spot_ticker": "SOL",
+          "spot_qty": 729.32547062,
+          "spot_mv": 60825.86,
+          "perp_notional": null,
+          "combined_if_filled_usd": null,
+          "combined_note": "Spot $60,825.86. No open perp on this name (book is flat on Hyperliquid)."
+        }
+      },
+      {
+        "id": "ZEC",
+        "coin": "ZEC",
+        "display": "ZEC",
+        "side": "long",
+        "role": "hedge-watch",
+        "grade": null,
+        "status": "watch-only",
+        "status_now": "Mark 898.86 is +13.8%. Daily ATR still too wide for a 3R $2k ladder; no held higher-low structure. No ticket.",
+        "recommend": "no_ticket",
+        "bucket": "stand_down",
+        "kind": "hedge",
+        "lev": null,
+        "rungs": [],
+        "coins": null,
+        "avg": null,
+        "stop": null,
+        "targets": [],
+        "tp": [],
+        "liq": null,
+        "risk_usd": null,
+        "margin": null,
+        "notional": null,
+        "blended_R": null,
+        "mark": 898.86,
+        "trigger": null,
+        "waiting_label": null,
+        "reason": "Mark 898.86 is +13.8%. Daily ATR still too wide for a 3R $2k ladder; no held higher-low structure. No ticket.",
+        "flags": null,
+        "valid": null,
+        "updated_et": null,
+        "line": "ZEC long · mark $898.86",
+        "book": {
+          "tag": null,
+          "tag_reason": "No cash holding and no cash plan to compare.",
+          "plan_line": "Book: no holding and no cash plan.",
+          "spot_ticker": "ZEC",
+          "spot_qty": 0,
+          "spot_mv": 0.0,
+          "perp_notional": null,
+          "combined_if_filled_usd": null,
+          "combined_note": null
+        }
+      }
+    ]
+  },
+  "paper": {
+    "label": "PAPER",
+    "provisional": true,
+    "updated_at_et": "2026-11-23 09:59:08 EST",
+    "updated_at_et_pretty": "Mon Nov 23, 2026, 9:59 AM ET",
+    "source": "tracker/SUMMARY.md and tracker/ledger.json",
+    "week_pnl_usd": 124.314,
+    "week_pnl_display": "+$124.31",
+    "week_progress_pct": 1.24,
+    "week_progress_display": "1.2%",
+    "remaining_to_target_usd": 9875.69,
+    "total_usd": -10230.8877,
+    "total_display": "-$10,230.89",
+    "realized_usd": -11629.7473,
+    "realized_display": "-$11,629.75",
+    "unrealized_usd": 1443.2267,
+    "unrealized_display": "+$1,443.23",
+    "funding_usd": -44.3671,
+    "funding_display": "-$44.37",
+    "hit_rate": 0.0,
+    "hit_rate_display": "0.0%",
+    "avg_R_closed": -1.0019,
+    "max_drawdown_usd": 12327.5424,
+    "max_drawdown_display": "$12,327.54",
+    "max_drawdown_trough_et": "Fri Nov 20, 2026, 10:47 PM ET",
+    "counts": {
+      "pending": 4,
+      "partially filled": 1,
+      "open": 1,
+      "closed-win": 0,
+      "closed-loss": 8,
+      "expired": 22
+    },
+    "week_pnl_note": "Week P&L is the paper equity change from Monday 00:00 ET to now (mark-to-market, including tickets sent in prior weeks). It is not cumulative all-time equity and not the sum of tickets sent this week.",
+    "honest_note": "Paper week P&L is +124.31 (1.2% of the $10,000 target). All-time paper P&L is -10230.89 (realized -11629.75, unrealized +1443.23, funding -44.37). Paper totals can swing on re-runs when candle fetches 429 and the replay flips fills; treat them as provisional.",
+    "recommendations": [
+      {
+        "id": "20261116-2348-xyz-AAPL-long",
+        "asset": "xyz:AAPL",
+        "direction": "long",
+        "status": "partially filled",
+        "sent_at_et": "Mon Nov 16, 2026, 11:48 PM ET",
+        "lev": 5.0,
+        "avg_entry": 345.670774,
+        "stop": 332.0,
+        "mark": 348.28,
+        "open_coins": 47.248,
+        "realized_usd": 0.0,
+        "unrealized_usd": 123.2807,
+        "funding_usd": -2.5537,
+        "total_usd": 120.727,
+        "total_R": 0.1589,
+        "n_rungs_filled": 3,
+        "n_rungs_total": 4,
+        "take_profits": [
+          {
+            "name": "TP1",
+            "price": 361.0,
+            "frac": "1/3",
+            "coins": null,
+            "pnl_usd": null,
+            "R": 1.59
+          },
+          {
+            "name": "TP2",
+            "price": 375.0,
+            "frac": "1/3",
+            "coins": null,
+            "pnl_usd": null,
+            "R": 2.85
+          },
+          {
+            "name": "runner",
+            "price": 390.0,
+            "frac": "1/3",
+            "coins": null,
+            "pnl_usd": null,
+            "R": 4.19
+          }
+        ]
+      },
+      {
+        "id": "20261116-2348-xyz-AMD-long",
+        "asset": "xyz:AMD",
+        "direction": "long",
+        "status": "closed-loss",
+        "sent_at_et": "Mon Nov 16, 2026, 11:48 PM ET",
+        "lev": 5.0,
+        "avg_entry": 486.282157,
+        "stop": 456.0,
+        "mark": 450.5,
+        "open_coins": 0.0,
+        "realized_usd": -759.961,
+        "unrealized_usd": 0.0,
+        "funding_usd": -0.8397,
+        "total_usd": -760.8007,
+        "total_R": -1.0011,
+        "n_rungs_filled": 4,
+        "n_rungs_total": 4,
+        "take_profits": [
+          {
+            "name": "TP1",
+            "price": 526.8,
+            "frac": "1/3",
+            "coins": null,
+            "pnl_usd": null,
+            "R": 1.34
+          },
+          {
+            "name": "TP2",
+            "price": 581.0,
+            "frac": "1/3",
+            "coins": null,
+            "pnl_usd": null,
+            "R": 3.13
+          },
+          {
+            "name": "runner",
+            "price": 593.8,
+            "frac": "1/3",
+            "coins": null,
+            "pnl_usd": null,
+            "R": 3.55
+          }
+        ]
+      },
+      {
+        "id": "20261116-2348-xyz-MSFT-long",
+        "asset": "xyz:MSFT",
+        "direction": "long",
+        "status": "closed-loss",
+        "sent_at_et": "Mon Nov 16, 2026, 11:48 PM ET",
+        "lev": 5.0,
+        "avg_entry": 504.51578,
+        "stop": 485.0,
+        "mark": 504.27,
+        "open_coins": 0.0,
+        "realized_usd": -759.964,
+        "unrealized_usd": 0.0,
+        "funding_usd": -1.1011,
+        "total_usd": -761.0651,
+        "total_R": -1.0014,
+        "n_rungs_filled": 4,
+        "n_rungs_total": 4,
+        "take_profits": [
+          {
+            "name": "TP1",
+            "price": 529.5,
+            "frac": "1/3",
+            "coins": null,
+            "pnl_usd": null,
+            "R": 1.28
+          },
+          {
+            "name": "TP2",
+            "price": 550.9,
+            "frac": "1/3",
+            "coins": null,
+            "pnl_usd": null,
+            "R": 2.38
+          },
+          {
+            "name": "runner",
+            "price": 567.5,
+            "frac": "1/3",
+            "coins": null,
+            "pnl_usd": null,
+            "R": 3.23
+          }
+        ]
+      },
+      {
+        "id": "20261117-0203-xyz-AMZN-long",
+        "asset": "xyz:AMZN",
+        "direction": "long",
+        "status": "closed-loss",
+        "sent_at_et": "Tue Nov 17, 2026, 2:03 AM ET",
+        "lev": 3.0,
+        "avg_entry": 254.723165,
+        "stop": 249.0,
+        "mark": 255.2,
+        "open_coins": 0.0,
+        "realized_usd": -760.002,
+        "unrealized_usd": 0.0,
+        "funding_usd": -2.8763,
+        "total_usd": -762.8783,
+        "total_R": -1.0038,
+        "n_rungs_filled": 3,
+        "n_rungs_total": 3,
+        "take_profits": [
+          {
+            "name": "TP1",
+            "price": 271.89,
+            "frac": "1/3",
+            "coins": null,
+            "pnl_usd": null,
+            "R": 3.0
+          },
+          {
+            "name": "TP2",
+            "price": 275.0,
+            "frac": "1/3",
+            "coins": null,
+            "pnl_usd": null,
+            "R": null
+          },
+          {
+            "name": "runner",
+            "price": 283.34,
+            "frac": "1/3",
+            "coins": null,
+            "pnl_usd": null,
+            "R": 5.0
+          }
+        ]
+      },
+      {
+        "id": "20261117-0935-xyz-NVDA-long",
+        "asset": "xyz:NVDA",
+        "direction": "long",
+        "status": "expired",
+        "sent_at_et": "Tue Nov 17, 2026, 9:35 AM ET",
+        "lev": 3.0,
+        "avg_entry": null,
+        "stop": 137.4,
+        "mark": 167.13,
+        "open_coins": 0.0,
+        "realized_usd": 0.0,
+        "unrealized_usd": 0.0,
+        "funding_usd": 0.0,
+        "total_usd": 0.0,
+        "total_R": 0.0,
+        "n_rungs_filled": 0,
+        "n_rungs_total": 3,
+        "take_profits": [
+          {
+            "name": "TP1",
+            "price": 169.11,
+            "frac": "1/3",
+            "coins": null,
+            "pnl_usd": null,
+            "R": 3.0
+          },
+          {
+            "name": "TP2",
+            "price": 171.5,
+            "frac": "1/3",
+            "coins": null,
+            "pnl_usd": null,
+            "R": 3.3
+          },
+          {
+            "name": "runner",
+            "price": 184.97,
+            "frac": "1/3",
+            "coins": null,
+            "pnl_usd": null,
+            "R": 5.0
+          }
+        ]
+      },
+      {
+        "id": "20261117-0942-xyz-SPCX-long",
+        "asset": "xyz:SPCX",
+        "direction": "long",
+        "status": "expired",
+        "sent_at_et": "Tue Nov 17, 2026, 9:42 AM ET",
+        "lev": 3.0,
+        "avg_entry": null,
+        "stop": 130.5,
+        "mark": 139.96,
+        "open_coins": 0.0,
+        "realized_usd": 0.0,
+        "unrealized_usd": 0.0,
+        "funding_usd": 0.0,
+        "total_usd": 0.0,
+        "total_R": 0.0,
+        "n_rungs_filled": 0,
+        "n_rungs_total": 3,
+        "take_profits": [
+          {
+            "name": "TP1",
+            "price": 147.58,
+            "frac": "1/3",
+            "coins": null,
+            "pnl_usd": null,
+            "R": 3.0
+          },
+          {
+            "name": "TP2",
+            "price": 154.75,
+            "frac": "1/3",
+            "coins": null,
+            "pnl_usd": null,
+            "R": 4.68
+          },
+          {
+            "name": "runner",
+            "price": 156.13,
+            "frac": "1/3",
+            "coins": null,
+            "pnl_usd": null,
+            "R": 5.0
+          }
+        ]
+      },
+      {
+        "id": "20261118-1120-xyz-AAPL-long",
+        "asset": "xyz:AAPL",
+        "direction": "long",
+        "status": "expired",
+        "sent_at_et": "Wed Nov 18, 2026, 11:20 AM ET",
+        "lev": 5.0,
+        "avg_entry": null,
+        "stop": 340.5,
+        "mark": 348.28,
+        "open_coins": 0.0,
+        "realized_usd": 0.0,
+        "unrealized_usd": 0.0,
+        "funding_usd": 0.0,
+        "total_usd": 0.0,
+        "total_R": 0.0,
+        "n_rungs_filled": 0,
+        "n_rungs_total": 3,
+        "take_profits": [
+          {
+            "name": "TP1",
+            "price": 361.0,
+            "frac": "1/3",
+            "coins": null,
+            "pnl_usd": null,
+            "R": 2.15
+          },
+          {
+            "name": "TP2",
+            "price": 366.5,
+            "frac": "1/3",
+            "coins": null,
+            "pnl_usd": null,
+            "R": 3.0
+          },
+          {
+            "name": "runner",
+            "price": 375.0,
+            "frac": "1/3",
+            "coins": null,
+            "pnl_usd": null,
+            "R": 4.31
+          }
+        ]
+      },
+      {
+        "id": "20261118-1145-ETH-long",
+        "asset": "ETH",
+        "direction": "long",
+        "status": "expired",
+        "sent_at_et": "Wed Nov 18, 2026, 11:45 AM ET",
+        "lev": 5.0,
+        "avg_entry": null,
+        "stop": 1635.0,
+        "mark": 1779.5,
+        "open_coins": 0.0,
+        "realized_usd": 0.0,
+        "unrealized_usd": 0.0,
+        "funding_usd": 0.0,
+        "total_usd": 0.0,
+        "total_R": 0.0,
+        "n_rungs_filled": 0,
+        "n_rungs_total": 3,
+        "take_profits": [
+          {
+            "name": "TP1",
+            "price": 1875.0,
+            "frac": "1/3",
+            "coins": null,
+            "pnl_usd": null,
+            "R": 3.0
+          },
+          {
+            "name": "TP2",
+            "price": 1930.0,
+            "frac": "1/3",
+            "coins": null,
+            "pnl_usd": null,
+            "R": 3.92
+          },
+          {
+            "name": "runner",
+            "price": 2005.0,
+            "frac": "1/3",
+            "coins": null,
+            "pnl_usd": null,
+            "R": 5.17
+          }
+        ]
+      },
+      {
+        "id": "20261118-1807-xyz-MSFT-long",
+        "asset": "xyz:MSFT",
+        "direction": "long",
+        "status": "expired",
+        "sent_at_et": "Wed Nov 18, 2026, 6:07 PM ET",
+        "lev": 5.0,
+        "avg_entry": null,
+        "stop": 485.0,
+        "mark": 504.27,
+        "open_coins": 0.0,
+        "realized_usd": 0.0,
+        "unrealized_usd": 0.0,
+        "funding_usd": 0.0,
+        "total_usd": 0.0,
+        "total_R": 0.0,
+        "n_rungs_filled": 0,
+        "n_rungs_total": 2,
+        "take_profits": [
+          {
+            "name": "TP1",
+            "price": 529.5,
+            "frac": "1/3",
+            "coins": null,
+            "pnl_usd": null,
+            "R": 2.3
+          },
+          {
+            "name": "TP2",
+            "price": 550.9,
+            "frac": "1/3",
+            "coins": null,
+            "pnl_usd": null,
+            "R": 3.88
+          },
+          {
+            "name": "runner",
+            "price": 567.5,
+            "frac": "1/3",
+            "coins": null,
+            "pnl_usd": null,
+            "R": 5.11
+          }
+        ]
+      },
+      {
+        "id": "20261118-1807-xyz-NVDA-long",
+        "asset": "xyz:NVDA",
+        "direction": "long",
+        "status": "expired",
+        "sent_at_et": "Wed Nov 18, 2026, 6:07 PM ET",
+        "lev": 7.0,
+        "avg_entry": null,
+        "stop": 137.4,
+        "mark": 167.13,
+        "open_coins": 0.0,
+        "realized_usd": 0.0,
+        "unrealized_usd": 0.0,
+        "funding_usd": 0.0,
+        "total_usd": 0.0,
+        "total_R": 0.0,
+        "n_rungs_filled": 0,
+        "n_rungs_total": 3,
+        "take_profits": [
+          {
+            "name": "TP1",
+            "price": 169.11,
+            "frac": "1/3",
+            "coins": null,
+            "pnl_usd": null,
+            "R": 3.0
+          },
+          {
+            "name": "TP2",
+            "price": 171.5,
+            "frac": "1/3",
+            "coins": null,
+            "pnl_usd": null,
+            "R": 3.3
+          },
+          {
+            "name": "runner",
+            "price": 184.97,
+            "frac": "1/3",
+            "coins": null,
+            "pnl_usd": null,
+            "R": 5.0
+          }
+        ]
+      },
+      {
+        "id": "20261118-1807-xyz-SPCX-long",
+        "asset": "xyz:SPCX",
+        "direction": "long",
+        "status": "expired",
+        "sent_at_et": "Wed Nov 18, 2026, 6:07 PM ET",
+        "lev": 5.0,
+        "avg_entry": null,
+        "stop": 130.5,
+        "mark": 139.96,
+        "open_coins": 0.0,
+        "realized_usd": 0.0,
+        "unrealized_usd": 0.0,
+        "funding_usd": 0.0,
+        "total_usd": 0.0,
+        "total_R": 0.0,
+        "n_rungs_filled": 0,
+        "n_rungs_total": 3,
+        "take_profits": [
+          {
+            "name": "TP1",
+            "price": 147.58,
+            "frac": "1/3",
+            "coins": null,
+            "pnl_usd": null,
+            "R": 3.0
+          },
+          {
+            "name": "TP2",
+            "price": 154.75,
+            "frac": "1/3",
+            "coins": null,
+            "pnl_usd": null,
+            "R": 4.68
+          },
+          {
+            "name": "runner",
+            "price": 156.13,
+            "frac": "1/3",
+            "coins": null,
+            "pnl_usd": null,
+            "R": 5.0
+          }
+        ]
+      },
+      {
+        "id": "20261118-1844-BTC-long",
+        "asset": "BTC",
+        "direction": "long",
+        "status": "expired",
+        "sent_at_et": "Wed Nov 18, 2026, 6:44 PM ET",
+        "lev": 10.0,
+        "avg_entry": null,
+        "stop": 57900.0,
+        "mark": 62901.0,
+        "open_coins": 0.0,
+        "realized_usd": 0.0,
+        "unrealized_usd": 0.0,
+        "funding_usd": 0.0,
+        "total_usd": 0.0,
+        "total_R": 0.0,
+        "n_rungs_filled": 0,
+        "n_rungs_total": 3,
+        "take_profits": [
+          {
+            "name": "TP1",
+            "price": 69500.0,
+            "frac": "0.3",
+            "coins": null,
+            "pnl_usd": null,
+            "R": null
+          },
+          {
+            "name": "TP2",
+            "price": 72400.0,
+            "frac": "0.4",
+            "coins": null,
+            "pnl_usd": null,
+            "R": null
+          },
+          {
+            "name": "runner",
+            "price": 75300.0,
+            "frac": "0.3",
+            "coins": null,
+            "pnl_usd": null,
+            "R": null
+          }
+        ]
+      },
+      {
+        "id": "20261119-0856-VVV-long",
+        "asset": "VVV",
+        "direction": "long",
+        "status": "expired",
+        "sent_at_et": "Thu Nov 19, 2026, 8:56 AM ET",
+        "lev": 3.0,
+        "avg_entry": null,
+        "stop": 19.9,
+        "mark": 25.813,
+        "open_coins": 0.0,
+        "realized_usd": 0.0,
+        "unrealized_usd": 0.0,
+        "funding_usd": 0.0,
+        "total_usd": 0.0,
+        "total_R": 0.0,
+        "n_rungs_filled": 0,
+        "n_rungs_total": 2,
+        "take_profits": [
+          {
+            "name": "TP1",
+            "price": 24.7,
+            "frac": "0.3",
+            "coins": null,
+            "pnl_usd": null,
+            "R": null
+          },
+          {
+            "name": "TP2",
+            "price": 27.1,
+            "frac": "0.4",
+            "coins": null,
+            "pnl_usd": null,
+            "R": null
+          },
+          {
+            "name": "runner",
+            "price": 30.7,
+            "frac": "0.3",
+            "coins": null,
+            "pnl_usd": null,
+            "R": null
+          }
+        ]
+      },
+      {
+        "id": "20261119-0856-xyz-AAPL-long",
+        "asset": "xyz:AAPL",
+        "direction": "long",
+        "status": "expired",
+        "sent_at_et": "Thu Nov 19, 2026, 8:56 AM ET",
+        "lev": 5.0,
+        "avg_entry": null,
+        "stop": 340.5,
+        "mark": 348.28,
+        "open_coins": 0.0,
+        "realized_usd": 0.0,
+        "unrealized_usd": 0.0,
+        "funding_usd": 0.0,
+        "total_usd": 0.0,
+        "total_R": 0.0,
+        "n_rungs_filled": 0,
+        "n_rungs_total": 3,
+        "take_profits": [
+          {
+            "name": "TP1",
+            "price": 357.5,
+            "frac": "0.3",
+            "coins": null,
+            "pnl_usd": null,
+            "R": null
+          },
+          {
+            "name": "TP2",
+            "price": 366.5,
+            "frac": "0.4",
+            "coins": null,
+            "pnl_usd": null,
+            "R": null
+          },
+          {
+            "name": "runner",
+            "price": 380.0,
+            "frac": "0.3",
+            "coins": null,
+            "pnl_usd": null,
+            "R": null
+          }
+        ]
+      },
+      {
+        "id": "20261119-0856-xyz-AMZN-long",
+        "asset": "xyz:AMZN",
+        "direction": "long",
+        "status": "closed-loss",
+        "sent_at_et": "Thu Nov 19, 2026, 8:56 AM ET",
+        "lev": 5.0,
+        "avg_entry": 265.905008,
+        "stop": 257.4,
+        "mark": 255.2,
+        "open_coins": 0.0,
+        "realized_usd": -1949.9858,
+        "unrealized_usd": 0.0,
+        "funding_usd": 0.0,
+        "total_usd": -1949.9858,
+        "total_R": -1.0,
+        "n_rungs_filled": 3,
+        "n_rungs_total": 3,
+        "take_profits": [
+          {
+            "name": "TP1",
+            "price": 279.5,
+            "frac": "0.3",
+            "coins": null,
+            "pnl_usd": null,
+            "R": null
+          },
+          {
+            "name": "TP2",
+            "price": 292.0,
+            "frac": "0.4",
+            "coins": null,
+            "pnl_usd": null,
+            "R": null
+          },
+          {
+            "name": "runner",
+            "price": 309.0,
+            "frac": "0.3",
+            "coins": null,
+            "pnl_usd": null,
+            "R": null
+          }
+        ]
+      },
+      {
+        "id": "20261119-0856-xyz-MSFT-long",
+        "asset": "xyz:MSFT",
+        "direction": "long",
+        "status": "expired",
+        "sent_at_et": "Thu Nov 19, 2026, 8:56 AM ET",
+        "lev": 5.0,
+        "avg_entry": null,
+        "stop": 485.0,
+        "mark": 504.27,
+        "open_coins": 0.0,
+        "realized_usd": 0.0,
+        "unrealized_usd": 0.0,
+        "funding_usd": 0.0,
+        "total_usd": 0.0,
+        "total_R": 0.0,
+        "n_rungs_filled": 0,
+        "n_rungs_total": 2,
+        "take_profits": [
+          {
+            "name": "TP1",
+            "price": 515.0,
+            "frac": "0.3",
+            "coins": null,
+            "pnl_usd": null,
+            "R": null
+          },
+          {
+            "name": "TP2",
+            "price": 553.0,
+            "frac": "0.4",
+            "coins": null,
+            "pnl_usd": null,
+            "R": null
+          },
+          {
+            "name": "runner",
+            "price": 567.5,
+            "frac": "0.3",
+            "coins": null,
+            "pnl_usd": null,
+            "R": null
+          }
+        ]
+      },
+      {
+        "id": "20261119-0856-xyz-NVDA-long",
+        "asset": "xyz:NVDA",
+        "direction": "long",
+        "status": "expired",
+        "sent_at_et": "Thu Nov 19, 2026, 8:56 AM ET",
+        "lev": 5.0,
+        "avg_entry": null,
+        "stop": 137.4,
+        "mark": 167.13,
+        "open_coins": 0.0,
+        "realized_usd": 0.0,
+        "unrealized_usd": 0.0,
+        "funding_usd": 0.0,
+        "total_usd": 0.0,
+        "total_R": 0.0,
+        "n_rungs_filled": 0,
+        "n_rungs_total": 3,
+        "take_profits": [
+          {
+            "name": "TP1",
+            "price": 161.0,
+            "frac": "0.3",
+            "coins": null,
+            "pnl_usd": null,
+            "R": null
+          },
+          {
+            "name": "TP2",
+            "price": 171.5,
+            "frac": "0.4",
+            "coins": null,
+            "pnl_usd": null,
+            "R": null
+          },
+          {
+            "name": "runner",
+            "price": 185.0,
+            "frac": "0.3",
+            "coins": null,
+            "pnl_usd": null,
+            "R": null
+          }
+        ]
+      },
+      {
+        "id": "20261119-0856-xyz-SPCX-long",
+        "asset": "xyz:SPCX",
+        "direction": "long",
+        "status": "closed-loss",
+        "sent_at_et": "Thu Nov 19, 2026, 8:56 AM ET",
+        "lev": 5.0,
+        "avg_entry": 140.900018,
+        "stop": 135.2,
+        "mark": 139.96,
+        "open_coins": 0.0,
+        "realized_usd": -1949.919,
+        "unrealized_usd": 0.0,
+        "funding_usd": -2.632,
+        "total_usd": -1952.551,
+        "total_R": -1.0013,
+        "n_rungs_filled": 3,
+        "n_rungs_total": 3,
+        "take_profits": [
+          {
+            "name": "TP1",
+            "price": 148.3,
+            "frac": "0.3",
+            "coins": null,
+            "pnl_usd": null,
+            "R": null
+          },
+          {
+            "name": "TP2",
+            "price": 158.0,
+            "frac": "0.4",
+            "coins": null,
+            "pnl_usd": null,
+            "R": null
+          },
+          {
+            "name": "runner",
+            "price": 166.0,
+            "frac": "0.3",
+            "coins": null,
+            "pnl_usd": null,
+            "R": null
+          }
+        ]
+      },
+      {
+        "id": "20261119-1005-TAO-long",
+        "asset": "TAO",
+        "direction": "long",
+        "status": "expired",
+        "sent_at_et": "Thu Nov 19, 2026, 10:05 AM ET",
+        "lev": 4.0,
+        "avg_entry": null,
+        "stop": 176.4,
+        "mark": 198.62,
+        "open_coins": 0.0,
+        "realized_usd": 0.0,
+        "unrealized_usd": 0.0,
+        "funding_usd": 0.0,
+        "total_usd": 0.0,
+        "total_R": 0.0,
+        "n_rungs_filled": 0,
+        "n_rungs_total": 3,
+        "take_profits": [
+          {
+            "name": "TP1",
+            "price": 211.0,
+            "frac": "0.3",
+            "coins": null,
+            "pnl_usd": null,
+            "R": 1.83
+          },
+          {
+            "name": "TP2",
+            "price": 226.0,
+            "frac": "0.4",
+            "coins": null,
+            "pnl_usd": null,
+            "R": 3.06
+          },
+          {
+            "name": "runner",
+            "price": 245.0,
+            "frac": "0.3",
+            "coins": null,
+            "pnl_usd": null,
+            "R": 4.62
+          }
+        ]
+      },
+      {
+        "id": "20261119-1005-VVV-long",
+        "asset": "VVV",
+        "direction": "long",
+        "status": "expired",
+        "sent_at_et": "Thu Nov 19, 2026, 10:05 AM ET",
+        "lev": 3.0,
+        "avg_entry": null,
+        "stop": 20.05,
+        "mark": 25.813,
+        "open_coins": 0.0,
+        "realized_usd": 0.0,
+        "unrealized_usd": 0.0,
+        "funding_usd": 0.0,
+        "total_usd": 0.0,
+        "total_R": 0.0,
+        "n_rungs_filled": 0,
+        "n_rungs_total": 3,
+        "take_profits": [
+          {
+            "name": "TP1",
+            "price": 24.6,
+            "frac": "0.3",
+            "coins": null,
+            "pnl_usd": null,
+            "R": 1.52
+          },
+          {
+            "name": "TP2",
+            "price": 28.2,
+            "frac": "0.4",
+            "coins": null,
+            "pnl_usd": null,
+            "R": 3.51
+          },
+          {
+            "name": "runner",
+            "price": 30.7,
+            "frac": "0.3",
+            "coins": null,
+            "pnl_usd": null,
+            "R": 4.89
+          }
+        ]
+      },
+      {
+        "id": "20261119-1215-xyz-SPCX-long",
+        "asset": "xyz:SPCX",
+        "direction": "long",
+        "status": "expired",
+        "sent_at_et": "Thu Nov 19, 2026, 12:15 PM ET",
+        "lev": 5.0,
+        "avg_entry": null,
+        "stop": 128.5,
+        "mark": 139.96,
+        "open_coins": 0.0,
+        "realized_usd": 0.0,
+        "unrealized_usd": 0.0,
+        "funding_usd": 0.0,
+        "total_usd": 0.0,
+        "total_R": 0.0,
+        "n_rungs_filled": 0,
+        "n_rungs_total": 3,
+        "take_profits": [
+          {
+            "name": "TP1",
+            "price": 141.0,
+            "frac": "0.3",
+            "coins": null,
+            "pnl_usd": null,
+            "R": 1.5
+          },
+          {
+            "name": "TP2",
+            "price": 148.4,
+            "frac": "0.4",
+            "coins": null,
+            "pnl_usd": null,
+            "R": 2.98
+          },
+          {
+            "name": "runner",
+            "price": 166.0,
+            "frac": "0.3",
+            "coins": null,
+            "pnl_usd": null,
+            "R": 6.5
+          }
+        ]
+      },
+      {
+        "id": "20261119-1530-TAO-long",
+        "asset": "TAO",
+        "direction": "long",
+        "status": "expired",
+        "sent_at_et": "Thu Nov 19, 2026, 3:30 PM ET",
+        "lev": 4.0,
+        "avg_entry": null,
+        "stop": 176.4,
+        "mark": 198.62,
+        "open_coins": 0.0,
+        "realized_usd": 0.0,
+        "unrealized_usd": 0.0,
+        "funding_usd": 0.0,
+        "total_usd": 0.0,
+        "total_R": 0.0,
+        "n_rungs_filled": 0,
+        "n_rungs_total": 3,
+        "take_profits": [
+          {
+            "name": "TP1",
+            "price": 211.0,
+            "frac": "0.3",
+            "coins": null,
+            "pnl_usd": null,
+            "R": null
+          },
+          {
+            "name": "TP2",
+            "price": 226.0,
+            "frac": "0.4",
+            "coins": null,
+            "pnl_usd": null,
+            "R": null
+          },
+          {
+            "name": "runner",
+            "price": 245.0,
+            "frac": "0.3",
+            "coins": null,
+            "pnl_usd": null,
+            "R": null
+          }
+        ]
+      },
+      {
+        "id": "20261119-1530-VVV-long",
+        "asset": "VVV",
+        "direction": "long",
+        "status": "expired",
+        "sent_at_et": "Thu Nov 19, 2026, 3:30 PM ET",
+        "lev": 3.0,
+        "avg_entry": null,
+        "stop": 20.05,
+        "mark": 25.813,
+        "open_coins": 0.0,
+        "realized_usd": 0.0,
+        "unrealized_usd": 0.0,
+        "funding_usd": 0.0,
+        "total_usd": 0.0,
+        "total_R": 0.0,
+        "n_rungs_filled": 0,
+        "n_rungs_total": 3,
+        "take_profits": [
+          {
+            "name": "TP1",
+            "price": 24.6,
+            "frac": "0.3",
+            "coins": null,
+            "pnl_usd": null,
+            "R": null
+          },
+          {
+            "name": "TP2",
+            "price": 28.2,
+            "frac": "0.4",
+            "coins": null,
+            "pnl_usd": null,
+            "R": null
+          },
+          {
+            "name": "runner",
+            "price": 30.7,
+            "frac": "0.3",
+            "coins": null,
+            "pnl_usd": null,
+            "R": null
+          }
+        ]
+      },
+      {
+        "id": "20261119-1530-xyz-AAPL-long",
+        "asset": "xyz:AAPL",
+        "direction": "long",
+        "status": "open",
+        "sent_at_et": "Thu Nov 19, 2026, 3:30 PM ET",
+        "lev": 5.0,
+        "avg_entry": 344.090001,
+        "stop": 337.9,
+        "mark": 348.28,
+        "open_coins": 315.023,
+        "realized_usd": 0.0,
+        "unrealized_usd": 1319.946,
+        "funding_usd": -20.2681,
+        "total_usd": 1299.6779,
+        "total_R": 0.6665,
+        "n_rungs_filled": 3,
+        "n_rungs_total": 3,
+        "take_profits": [
+          {
+            "name": "TP1",
+            "price": 357.5,
+            "frac": "0.3",
+            "coins": null,
+            "pnl_usd": null,
+            "R": null
+          },
+          {
+            "name": "TP2",
+            "price": 366.5,
+            "frac": "0.4",
+            "coins": null,
+            "pnl_usd": null,
+            "R": null
+          },
+          {
+            "name": "runner",
+            "price": 380.0,
+            "frac": "0.3",
+            "coins": null,
+            "pnl_usd": null,
+            "R": null
+          }
+        ]
+      },
+      {
+        "id": "20261119-1530-xyz-MSFT-long",
+        "asset": "xyz:MSFT",
+        "direction": "long",
+        "status": "expired",
+        "sent_at_et": "Thu Nov 19, 2026, 3:30 PM ET",
+        "lev": 5.0,
+        "avg_entry": null,
+        "stop": 483.0,
+        "mark": 504.27,
+        "open_coins": 0.0,
+        "realized_usd": 0.0,
+        "unrealized_usd": 0.0,
+        "funding_usd": 0.0,
+        "total_usd": 0.0,
+        "total_R": 0.0,
+        "n_rungs_filled": 0,
+        "n_rungs_total": 2,
+        "take_profits": [
+          {
+            "name": "TP1",
+            "price": 515.0,
+            "frac": "0.3",
+            "coins": null,
+            "pnl_usd": null,
+            "R": null
+          },
+          {
+            "name": "TP2",
+            "price": 553.0,
+            "frac": "0.4",
+            "coins": null,
+            "pnl_usd": null,
+            "R": null
+          },
+          {
+            "name": "runner",
+            "price": 567.5,
+            "frac": "0.3",
+            "coins": null,
+            "pnl_usd": null,
+            "R": null
+          }
+        ]
+      },
+      {
+        "id": "20261119-1530-xyz-NVDA-long",
+        "asset": "xyz:NVDA",
+        "direction": "long",
+        "status": "expired",
+        "sent_at_et": "Thu Nov 19, 2026, 3:30 PM ET",
+        "lev": 5.0,
+        "avg_entry": null,
+        "stop": 137.4,
+        "mark": 167.13,
+        "open_coins": 0.0,
+        "realized_usd": 0.0,
+        "unrealized_usd": 0.0,
+        "funding_usd": 0.0,
+        "total_usd": 0.0,
+        "total_R": 0.0,
+        "n_rungs_filled": 0,
+        "n_rungs_total": 3,
+        "take_profits": [
+          {
+            "name": "TP1",
+            "price": 161.0,
+            "frac": "0.3",
+            "coins": null,
+            "pnl_usd": null,
+            "R": null
+          },
+          {
+            "name": "TP2",
+            "price": 171.5,
+            "frac": "0.4",
+            "coins": null,
+            "pnl_usd": null,
+            "R": null
+          },
+          {
+            "name": "runner",
+            "price": 185.0,
+            "frac": "0.3",
+            "coins": null,
+            "pnl_usd": null,
+            "R": null
+          }
+        ]
+      },
+      {
+        "id": "20261119-1530-xyz-SPCX-long",
+        "asset": "xyz:SPCX",
+        "direction": "long",
+        "status": "expired",
+        "sent_at_et": "Thu Nov 19, 2026, 3:30 PM ET",
+        "lev": 5.0,
+        "avg_entry": null,
+        "stop": 128.5,
+        "mark": 139.96,
+        "open_coins": 0.0,
+        "realized_usd": 0.0,
+        "unrealized_usd": 0.0,
+        "funding_usd": 0.0,
+        "total_usd": 0.0,
+        "total_R": 0.0,
+        "n_rungs_filled": 0,
+        "n_rungs_total": 3,
+        "take_profits": [
+          {
+            "name": "TP1",
+            "price": 141.0,
+            "frac": "0.3",
+            "coins": null,
+            "pnl_usd": null,
+            "R": null
+          },
+          {
+            "name": "TP2",
+            "price": 148.4,
+            "frac": "0.4",
+            "coins": null,
+            "pnl_usd": null,
+            "R": null
+          },
+          {
+            "name": "runner",
+            "price": 166.0,
+            "frac": "0.3",
+            "coins": null,
+            "pnl_usd": null,
+            "R": null
+          }
+        ]
+      },
+      {
+        "id": "20261119-1720-BTC-long",
+        "asset": "BTC",
+        "direction": "long",
+        "status": "closed-loss",
+        "sent_at_et": "Thu Nov 19, 2026, 5:20 PM ET",
+        "lev": 10.0,
+        "avg_entry": 59333.333333,
+        "stop": 56700.0,
+        "mark": 62901.0,
+        "open_coins": 0.0,
+        "realized_usd": -1949.957,
+        "unrealized_usd": 0.0,
+        "funding_usd": -2.63,
+        "total_usd": -1952.587,
+        "total_R": -1.0013,
+        "n_rungs_filled": 3,
+        "n_rungs_total": 3,
+        "take_profits": [
+          {
+            "name": "TP1",
+            "price": 65500.0,
+            "frac": "0.3",
+            "coins": null,
+            "pnl_usd": null,
+            "R": null
+          },
+          {
+            "name": "TP2",
+            "price": 69500.0,
+            "frac": "0.4",
+            "coins": null,
+            "pnl_usd": null,
+            "R": null
+          },
+          {
+            "name": "runner",
+            "price": 72400.0,
+            "frac": "0.3",
+            "coins": null,
+            "pnl_usd": null,
+            "R": null
+          }
+        ]
+      },
+      {
+        "id": "20261119-1720-TAO-long",
+        "asset": "TAO",
+        "direction": "long",
+        "status": "closed-loss",
+        "sent_at_et": "Thu Nov 19, 2026, 5:20 PM ET",
+        "lev": 4.0,
+        "avg_entry": 184.374993,
+        "stop": 174.5,
+        "mark": 198.62,
+        "open_coins": 0.0,
+        "realized_usd": -1699.99,
+        "unrealized_usd": 0.0,
+        "funding_usd": 1.2562,
+        "total_usd": -1698.7338,
+        "total_R": -0.9993,
+        "n_rungs_filled": 3,
+        "n_rungs_total": 3,
+        "take_profits": [
+          {
+            "name": "TP1",
+            "price": 205.0,
+            "frac": "0.3",
+            "coins": null,
+            "pnl_usd": null,
+            "R": null
+          },
+          {
+            "name": "TP2",
+            "price": 221.0,
+            "frac": "0.4",
+            "coins": null,
+            "pnl_usd": null,
+            "R": null
+          },
+          {
+            "name": "runner",
+            "price": 240.0,
+            "frac": "0.3",
+            "coins": null,
+            "pnl_usd": null,
+            "R": null
+          }
+        ]
+      },
+      {
+        "id": "20261119-1720-VVV-long",
+        "asset": "VVV",
+        "direction": "long",
+        "status": "closed-loss",
+        "sent_at_et": "Thu Nov 19, 2026, 5:20 PM ET",
+        "lev": 3.0,
+        "avg_entry": 20.727499,
+        "stop": 19.4,
+        "mark": 25.813,
+        "open_coins": 0.0,
+        "realized_usd": -1799.9685,
+        "unrealized_usd": 0.0,
+        "funding_usd": -12.7224,
+        "total_usd": -1812.6909,
+        "total_R": -1.0071,
+        "n_rungs_filled": 3,
+        "n_rungs_total": 3,
+        "take_profits": [
+          {
+            "name": "TP1",
+            "price": 23.6,
+            "frac": "0.3",
+            "coins": null,
+            "pnl_usd": null,
+            "R": null
+          },
+          {
+            "name": "TP2",
+            "price": 26.2,
+            "frac": "0.4",
+            "coins": null,
+            "pnl_usd": null,
+            "R": null
+          },
+          {
+            "name": "runner",
+            "price": 28.2,
+            "frac": "0.3",
+            "coins": null,
+            "pnl_usd": null,
+            "R": null
+          }
+        ]
+      },
+      {
+        "id": "20261122-1355-BTC-long",
+        "asset": "BTC",
+        "direction": "long",
+        "status": "expired",
+        "sent_at_et": "Sun Nov 22, 2026, 1:55 PM ET",
+        "lev": 5.0,
+        "avg_entry": null,
+        "stop": 54300.0,
+        "mark": 62901.0,
+        "open_coins": 0.0,
+        "realized_usd": 0.0,
+        "unrealized_usd": 0.0,
+        "funding_usd": 0.0,
+        "total_usd": 0.0,
+        "total_R": 0.0,
+        "n_rungs_filled": 0,
+        "n_rungs_total": 3,
+        "take_profits": [
+          {
+            "name": "TP1",
+            "price": 64000.0,
+            "frac": "0.3",
+            "coins": null,
+            "pnl_usd": null,
+            "R": null
+          },
+          {
+            "name": "TP2",
+            "price": 68300.0,
+            "frac": "0.4",
+            "coins": null,
+            "pnl_usd": null,
+            "R": null
+          },
+          {
+            "name": "runner",
+            "price": 72500.0,
+            "frac": "0.3",
+            "coins": null,
+            "pnl_usd": null,
+            "R": null
+          }
+        ]
+      },
+      {
+        "id": "20261122-1355-TAO-long",
+        "asset": "TAO",
+        "direction": "long",
+        "status": "expired",
+        "sent_at_et": "Sun Nov 22, 2026, 1:55 PM ET",
+        "lev": 4.0,
+        "avg_entry": null,
+        "stop": 161.8,
+        "mark": 198.62,
+        "open_coins": 0.0,
+        "realized_usd": 0.0,
+        "unrealized_usd": 0.0,
+        "funding_usd": 0.0,
+        "total_usd": 0.0,
+        "total_R": 0.0,
+        "n_rungs_filled": 0,
+        "n_rungs_total": 3,
+        "take_profits": [
+          {
+            "name": "TP1",
+            "price": 199.5,
+            "frac": "0.3",
+            "coins": null,
+            "pnl_usd": null,
+            "R": null
+          },
+          {
+            "name": "TP2",
+            "price": 222.0,
+            "frac": "0.4",
+            "coins": null,
+            "pnl_usd": null,
+            "R": null
+          },
+          {
+            "name": "runner",
+            "price": 248.0,
+            "frac": "0.3",
+            "coins": null,
+            "pnl_usd": null,
+            "R": null
+          }
+        ]
+      },
+      {
+        "id": "20261122-1355-VVV-long",
+        "asset": "VVV",
+        "direction": "long",
+        "status": "pending",
+        "sent_at_et": "Sun Nov 22, 2026, 1:55 PM ET",
+        "lev": 3.0,
+        "avg_entry": null,
+        "stop": 21.7,
+        "mark": 25.813,
+        "open_coins": 0.0,
+        "realized_usd": 0.0,
+        "unrealized_usd": 0.0,
+        "funding_usd": 0.0,
+        "total_usd": 0.0,
+        "total_R": 0.0,
+        "n_rungs_filled": 0,
+        "n_rungs_total": 3,
+        "take_profits": [
+          {
+            "name": "TP1",
+            "price": 28.0,
+            "frac": "0.3",
+            "coins": null,
+            "pnl_usd": null,
+            "R": null
+          },
+          {
+            "name": "TP2",
+            "price": 31.0,
+            "frac": "0.4",
+            "coins": null,
+            "pnl_usd": null,
+            "R": null
+          },
+          {
+            "name": "runner",
+            "price": 34.4,
+            "frac": "0.3",
+            "coins": null,
+            "pnl_usd": null,
+            "R": null
+          }
+        ]
+      },
+      {
+        "id": "20261122-2128-TAO-long",
+        "asset": "TAO",
+        "direction": "long",
+        "status": "pending",
+        "sent_at_et": "Sun Nov 22, 2026, 9:28 PM ET",
+        "lev": 4.0,
+        "avg_entry": null,
+        "stop": 157.8,
+        "mark": 198.62,
+        "open_coins": 0.0,
+        "realized_usd": 0.0,
+        "unrealized_usd": 0.0,
+        "funding_usd": 0.0,
+        "total_usd": 0.0,
+        "total_R": 0.0,
+        "n_rungs_filled": 0,
+        "n_rungs_total": 3,
+        "take_profits": [
+          {
+            "name": "TP1",
+            "price": 215.0,
+            "frac": "0.3",
+            "coins": null,
+            "pnl_usd": null,
+            "R": null
+          },
+          {
+            "name": "TP2",
+            "price": 240.0,
+            "frac": "0.4",
+            "coins": null,
+            "pnl_usd": null,
+            "R": null
+          },
+          {
+            "name": "runner",
+            "price": 260.0,
+            "frac": "0.3",
+            "coins": null,
+            "pnl_usd": null,
+            "R": null
+          }
+        ]
+      },
+      {
+        "id": "20261122-2128-VVV-long",
+        "asset": "VVV",
+        "direction": "long",
+        "status": "pending",
+        "sent_at_et": "Sun Nov 22, 2026, 9:28 PM ET",
+        "lev": 3.0,
+        "avg_entry": null,
+        "stop": 21.7,
+        "mark": 25.813,
+        "open_coins": 0.0,
+        "realized_usd": 0.0,
+        "unrealized_usd": 0.0,
+        "funding_usd": 0.0,
+        "total_usd": 0.0,
+        "total_R": 0.0,
+        "n_rungs_filled": 0,
+        "n_rungs_total": 3,
+        "take_profits": [
+          {
+            "name": "TP1",
+            "price": 30.8,
+            "frac": "0.3",
+            "coins": null,
+            "pnl_usd": null,
+            "R": null
+          },
+          {
+            "name": "TP2",
+            "price": 34.5,
+            "frac": "0.4",
+            "coins": null,
+            "pnl_usd": null,
+            "R": null
+          },
+          {
+            "name": "runner",
+            "price": 34.7,
+            "frac": "0.3",
+            "coins": null,
+            "pnl_usd": null,
+            "R": null
+          }
+        ]
+      },
+      {
+        "id": "20261123-0929-BTC-long",
+        "asset": "BTC",
+        "direction": "long",
+        "status": "pending",
+        "sent_at_et": "Mon Nov 23, 2026, 9:29 AM ET",
+        "lev": 7.0,
+        "avg_entry": null,
+        "stop": 57200.0,
+        "mark": 62901.0,
+        "open_coins": 0.0,
+        "realized_usd": 0.0,
+        "unrealized_usd": 0.0,
+        "funding_usd": 0.0,
+        "total_usd": 0.0,
+        "total_R": 0.0,
+        "n_rungs_filled": 0,
+        "n_rungs_total": 3,
+        "take_profits": [
+          {
+            "name": "TP1",
+            "price": 65000.0,
+            "frac": "0.3",
+            "coins": null,
+            "pnl_usd": null,
+            "R": null
+          },
+          {
+            "name": "TP2",
+            "price": 68300.0,
+            "frac": "0.4",
+            "coins": null,
+            "pnl_usd": null,
+            "R": null
+          },
+          {
+            "name": "runner",
+            "price": 72500.0,
+            "frac": "0.3",
+            "coins": null,
+            "pnl_usd": null,
+            "R": null
+          }
+        ]
+      }
+    ],
+    "closed_trades": [
+      {
+        "id": "20261116-2348-xyz-AMD-long",
+        "asset": "xyz:AMD",
+        "direction": "long",
+        "status": "closed-loss",
+        "sent_at_et": "Mon Nov 16, 2026, 11:48 PM ET",
+        "lev": 5.0,
+        "avg_entry": 486.282157,
+        "stop": 456.0,
+        "mark": 450.5,
+        "open_coins": 0.0,
+        "realized_usd": -759.961,
+        "unrealized_usd": 0.0,
+        "funding_usd": -0.8397,
+        "total_usd": -760.8007,
+        "total_R": -1.0011,
+        "n_rungs_filled": 4,
+        "n_rungs_total": 4,
+        "take_profits": [
+          {
+            "name": "TP1",
+            "price": 526.8,
+            "frac": "1/3",
+            "coins": null,
+            "pnl_usd": null,
+            "R": 1.34
+          },
+          {
+            "name": "TP2",
+            "price": 581.0,
+            "frac": "1/3",
+            "coins": null,
+            "pnl_usd": null,
+            "R": 3.13
+          },
+          {
+            "name": "runner",
+            "price": 593.8,
+            "frac": "1/3",
+            "coins": null,
+            "pnl_usd": null,
+            "R": 3.55
+          }
+        ]
+      },
+      {
+        "id": "20261116-2348-xyz-MSFT-long",
+        "asset": "xyz:MSFT",
+        "direction": "long",
+        "status": "closed-loss",
+        "sent_at_et": "Mon Nov 16, 2026, 11:48 PM ET",
+        "lev": 5.0,
+        "avg_entry": 504.51578,
+        "stop": 485.0,
+        "mark": 504.27,
+        "open_coins": 0.0,
+        "realized_usd": -759.964,
+        "unrealized_usd": 0.0,
+        "funding_usd": -1.1011,
+        "total_usd": -761.0651,
+        "total_R": -1.0014,
+        "n_rungs_filled": 4,
+        "n_rungs_total": 4,
+        "take_profits": [
+          {
+            "name": "TP1",
+            "price": 529.5,
+            "frac": "1/3",
+            "coins": null,
+            "pnl_usd": null,
+            "R": 1.28
+          },
+          {
+            "name": "TP2",
+            "price": 550.9,
+            "frac": "1/3",
+            "coins": null,
+            "pnl_usd": null,
+            "R": 2.38
+          },
+          {
+            "name": "runner",
+            "price": 567.5,
+            "frac": "1/3",
+            "coins": null,
+            "pnl_usd": null,
+            "R": 3.23
+          }
+        ]
+      },
+      {
+        "id": "20261117-0203-xyz-AMZN-long",
+        "asset": "xyz:AMZN",
+        "direction": "long",
+        "status": "closed-loss",
+        "sent_at_et": "Tue Nov 17, 2026, 2:03 AM ET",
+        "lev": 3.0,
+        "avg_entry": 254.723165,
+        "stop": 249.0,
+        "mark": 255.2,
+        "open_coins": 0.0,
+        "realized_usd": -760.002,
+        "unrealized_usd": 0.0,
+        "funding_usd": -2.8763,
+        "total_usd": -762.8783,
+        "total_R": -1.0038,
+        "n_rungs_filled": 3,
+        "n_rungs_total": 3,
+        "take_profits": [
+          {
+            "name": "TP1",
+            "price": 271.89,
+            "frac": "1/3",
+            "coins": null,
+            "pnl_usd": null,
+            "R": 3.0
+          },
+          {
+            "name": "TP2",
+            "price": 275.0,
+            "frac": "1/3",
+            "coins": null,
+            "pnl_usd": null,
+            "R": null
+          },
+          {
+            "name": "runner",
+            "price": 283.34,
+            "frac": "1/3",
+            "coins": null,
+            "pnl_usd": null,
+            "R": 5.0
+          }
+        ]
+      },
+      {
+        "id": "20261119-0856-xyz-AMZN-long",
+        "asset": "xyz:AMZN",
+        "direction": "long",
+        "status": "closed-loss",
+        "sent_at_et": "Thu Nov 19, 2026, 8:56 AM ET",
+        "lev": 5.0,
+        "avg_entry": 265.905008,
+        "stop": 257.4,
+        "mark": 255.2,
+        "open_coins": 0.0,
+        "realized_usd": -1949.9858,
+        "unrealized_usd": 0.0,
+        "funding_usd": 0.0,
+        "total_usd": -1949.9858,
+        "total_R": -1.0,
+        "n_rungs_filled": 3,
+        "n_rungs_total": 3,
+        "take_profits": [
+          {
+            "name": "TP1",
+            "price": 279.5,
+            "frac": "0.3",
+            "coins": null,
+            "pnl_usd": null,
+            "R": null
+          },
+          {
+            "name": "TP2",
+            "price": 292.0,
+            "frac": "0.4",
+            "coins": null,
+            "pnl_usd": null,
+            "R": null
+          },
+          {
+            "name": "runner",
+            "price": 309.0,
+            "frac": "0.3",
+            "coins": null,
+            "pnl_usd": null,
+            "R": null
+          }
+        ]
+      },
+      {
+        "id": "20261119-0856-xyz-SPCX-long",
+        "asset": "xyz:SPCX",
+        "direction": "long",
+        "status": "closed-loss",
+        "sent_at_et": "Thu Nov 19, 2026, 8:56 AM ET",
+        "lev": 5.0,
+        "avg_entry": 140.900018,
+        "stop": 135.2,
+        "mark": 139.96,
+        "open_coins": 0.0,
+        "realized_usd": -1949.919,
+        "unrealized_usd": 0.0,
+        "funding_usd": -2.632,
+        "total_usd": -1952.551,
+        "total_R": -1.0013,
+        "n_rungs_filled": 3,
+        "n_rungs_total": 3,
+        "take_profits": [
+          {
+            "name": "TP1",
+            "price": 148.3,
+            "frac": "0.3",
+            "coins": null,
+            "pnl_usd": null,
+            "R": null
+          },
+          {
+            "name": "TP2",
+            "price": 158.0,
+            "frac": "0.4",
+            "coins": null,
+            "pnl_usd": null,
+            "R": null
+          },
+          {
+            "name": "runner",
+            "price": 166.0,
+            "frac": "0.3",
+            "coins": null,
+            "pnl_usd": null,
+            "R": null
+          }
+        ]
+      },
+      {
+        "id": "20261119-1720-BTC-long",
+        "asset": "BTC",
+        "direction": "long",
+        "status": "closed-loss",
+        "sent_at_et": "Thu Nov 19, 2026, 5:20 PM ET",
+        "lev": 10.0,
+        "avg_entry": 59333.333333,
+        "stop": 56700.0,
+        "mark": 62901.0,
+        "open_coins": 0.0,
+        "realized_usd": -1949.957,
+        "unrealized_usd": 0.0,
+        "funding_usd": -2.63,
+        "total_usd": -1952.587,
+        "total_R": -1.0013,
+        "n_rungs_filled": 3,
+        "n_rungs_total": 3,
+        "take_profits": [
+          {
+            "name": "TP1",
+            "price": 65500.0,
+            "frac": "0.3",
+            "coins": null,
+            "pnl_usd": null,
+            "R": null
+          },
+          {
+            "name": "TP2",
+            "price": 69500.0,
+            "frac": "0.4",
+            "coins": null,
+            "pnl_usd": null,
+            "R": null
+          },
+          {
+            "name": "runner",
+            "price": 72400.0,
+            "frac": "0.3",
+            "coins": null,
+            "pnl_usd": null,
+            "R": null
+          }
+        ]
+      },
+      {
+        "id": "20261119-1720-TAO-long",
+        "asset": "TAO",
+        "direction": "long",
+        "status": "closed-loss",
+        "sent_at_et": "Thu Nov 19, 2026, 5:20 PM ET",
+        "lev": 4.0,
+        "avg_entry": 184.374993,
+        "stop": 174.5,
+        "mark": 198.62,
+        "open_coins": 0.0,
+        "realized_usd": -1699.99,
+        "unrealized_usd": 0.0,
+        "funding_usd": 1.2562,
+        "total_usd": -1698.7338,
+        "total_R": -0.9993,
+        "n_rungs_filled": 3,
+        "n_rungs_total": 3,
+        "take_profits": [
+          {
+            "name": "TP1",
+            "price": 205.0,
+            "frac": "0.3",
+            "coins": null,
+            "pnl_usd": null,
+            "R": null
+          },
+          {
+            "name": "TP2",
+            "price": 221.0,
+            "frac": "0.4",
+            "coins": null,
+            "pnl_usd": null,
+            "R": null
+          },
+          {
+            "name": "runner",
+            "price": 240.0,
+            "frac": "0.3",
+            "coins": null,
+            "pnl_usd": null,
+            "R": null
+          }
+        ]
+      },
+      {
+        "id": "20261119-1720-VVV-long",
+        "asset": "VVV",
+        "direction": "long",
+        "status": "closed-loss",
+        "sent_at_et": "Thu Nov 19, 2026, 5:20 PM ET",
+        "lev": 3.0,
+        "avg_entry": 20.727499,
+        "stop": 19.4,
+        "mark": 25.813,
+        "open_coins": 0.0,
+        "realized_usd": -1799.9685,
+        "unrealized_usd": 0.0,
+        "funding_usd": -12.7224,
+        "total_usd": -1812.6909,
+        "total_R": -1.0071,
+        "n_rungs_filled": 3,
+        "n_rungs_total": 3,
+        "take_profits": [
+          {
+            "name": "TP1",
+            "price": 23.6,
+            "frac": "0.3",
+            "coins": null,
+            "pnl_usd": null,
+            "R": null
+          },
+          {
+            "name": "TP2",
+            "price": 26.2,
+            "frac": "0.4",
+            "coins": null,
+            "pnl_usd": null,
+            "R": null
+          },
+          {
+            "name": "runner",
+            "price": 28.2,
+            "frac": "0.3",
+            "coins": null,
+            "pnl_usd": null,
+            "R": null
+          }
+        ]
+      }
+    ]
+  },
+  "actual": {
+    "label": "ACTUAL",
+    "provisional": false,
+    "updated_at_et": "2026-11-23 09:57:00 EST",
+    "updated_at_et_pretty": "Mon Nov 23, 2026, 9:57 AM ET",
+    "source": "actual/ACTUAL_SUMMARY.md and actual/actual_ledger.json",
+    "wallet": "0x8E43…500f (main + xyz). Conviction sub-account 0x43aa…2c08 is excluded.",
+    "equity": {
+      "main_usd": 0.0,
+      "xyz_usd": 0.0,
+      "spot_usdc_usd": 96024.147,
+      "combined_usd": 96024.147
+    },
+    "open_positions": [],
+    "week_pnl_usd": 0.0,
+    "week_pnl_display": "$0.00",
+    "week_progress_pct": 0.0,
+    "week_progress_display": "0.0%",
+    "week_realized_usd": 0.0,
+    "week_funding_usd": 0.0,
+    "week_fees_usd": 0.0,
+    "week_vs_target": "$0.00 of $10,000.00 this week",
+    "total_usd": -812.1796,
+    "total_display": "-$812.18",
+    "realized_usd": 281.1682,
+    "realized_display": "+$281.17",
+    "unrealized_usd": 0.0,
+    "unrealized_display": "$0.00",
+    "funding_usd": -959.0402,
+    "funding_display": "-$959.04",
+    "funding_paid_usd": 972.4781,
+    "funding_received_usd": 13.4379,
+    "fees_usd": 134.3077,
+    "fees_display": "$134.31",
+    "hit_rate": 0.6,
+    "hit_rate_closed": "6/10 (60.0%)",
+    "hit_rate_display": "6/10 (60.0%)",
+    "avg_R_closed": null,
+    "avg_R_note": "R is only computed when a stop / planned dollar risk is known (usually after compare.py matches the trade to a paper recommendation).",
+    "max_drawdown_usd": 3600.2826,
+    "max_drawdown_display": "$3,600.28",
+    "max_drawdown_trough_et": "Fri Oct 30, 2026, 12:30 PM ET",
+    "counts": {
+      "trades": 10,
+      "open": 0,
+      "closed": 10,
+      "closed_win": 6,
+      "closed_loss": 4,
+      "fills": 267,
+      "funding_prints": 569
+    },
+    "history_span_note": "Closed-trade history on the live book is from August–October 2026. No actual trades have opened or closed this week.",
+    "honest_note": "Live book is flat this week (+$0.00, 0% of the $10,000 target). No open positions on main or xyz. All-time actual P&L is −$812.18, of which net funding is −$959.04 (paid $972.48, received $13.44) and fees are $134.31.",
+    "trades": [
+      {
+        "id": "20261003-1817-main-TAO-long",
+        "date": "Wed Oct 7, 2026, 12:43 AM ET",
+        "opened_at_et": "Sat Oct 3, 2026, 6:17 PM ET",
+        "closed_at_et": "Wed Oct 7, 2026, 12:43 AM ET",
+        "asset": "TAO",
+        "side": "long",
+        "size": 50.0,
+        "entry": 302.1049124,
+        "exit": 292.5158494,
+        "realized_pnl_usd": -479.40753,
+        "net_pnl_usd": -509.297733,
+        "fees_usd": 13.378953,
+        "funding_usd": -16.51125,
+        "R": null,
+        "result": "loss",
+        "status": "closed",
+        "account": "main",
+        "stop": null
+      },
+      {
+        "id": "20260929-1157-xyz-TSM-long",
+        "date": "Wed Oct 7, 2026, 10:01 AM ET",
+        "opened_at_et": "Tue Sep 29, 2026, 11:57 AM ET",
+        "closed_at_et": "Wed Oct 7, 2026, 10:01 AM ET",
+        "asset": "xyz:TSM",
+        "side": "long",
+        "size": 28.462,
+        "entry": 457.48480852,
+        "exit": 475.48796747,
+        "realized_pnl_usd": 512.428922,
+        "net_pnl_usd": 494.848988,
+        "fees_usd": 1.74272,
+        "funding_usd": -15.837214,
+        "R": null,
+        "result": "win",
+        "status": "closed",
+        "account": "xyz",
+        "stop": null
+      },
+      {
+        "id": "20260903-1110-main-BTC-long",
+        "date": "Wed Oct 7, 2026, 10:01 AM ET",
+        "opened_at_et": "Thu Sep 3, 2026, 11:10 AM ET",
+        "closed_at_et": "Wed Oct 7, 2026, 10:01 AM ET",
+        "asset": "BTC",
+        "side": "long",
+        "size": 0.70769,
+        "entry": 82725.47537764,
+        "exit": 83287.10062315,
+        "realized_pnl_usd": 397.509914,
+        "net_pnl_usd": 98.060406,
+        "fees_usd": 38.71661,
+        "funding_usd": -260.732898,
+        "R": null,
+        "result": "win",
+        "status": "closed",
+        "account": "main",
+        "stop": null
+      },
+      {
+        "id": "20260827-1131-main-SOL-long",
+        "date": "Wed Oct 7, 2026, 10:01 AM ET",
+        "opened_at_et": "Thu Aug 27, 2026, 11:31 AM ET",
+        "closed_at_et": "Wed Oct 7, 2026, 10:01 AM ET",
+        "asset": "SOL",
+        "side": "long",
+        "size": 699.96,
+        "entry": 106.74586305,
+        "exit": 110.65246824,
+        "realized_pnl_usd": 2734.500926,
+        "net_pnl_usd": 2373.222333,
+        "fees_usd": 57.345791,
+        "funding_usd": -303.932802,
+        "R": null,
+        "result": "win",
+        "status": "closed",
+        "account": "main",
+        "stop": null
+      },
+      {
+        "id": "20260827-1455-main-VVV-long",
+        "date": "Tue Sep 29, 2026, 2:33 PM ET",
+        "opened_at_et": "Thu Aug 27, 2026, 2:55 PM ET",
+        "closed_at_et": "Tue Sep 29, 2026, 2:33 PM ET",
+        "asset": "VVV",
+        "side": "long",
+        "size": 54.93,
+        "entry": 18.21007027,
+        "exit": 24.47102476,
+        "realized_pnl_usd": 343.91809,
+        "net_pnl_usd": 319.680793,
+        "fees_usd": 1.055004,
+        "funding_usd": -23.182293,
+        "R": null,
+        "result": "win",
+        "status": "closed",
+        "account": "main",
+        "stop": null
+      },
+      {
+        "id": "20260917-1928-main-USELESS-long",
+        "date": "Thu Sep 24, 2026, 11:07 PM ET",
+        "opened_at_et": "Thu Sep 17, 2026, 7:28 PM ET",
+        "closed_at_et": "Thu Sep 24, 2026, 11:07 PM ET",
+        "asset": "USELESS",
+        "side": "long",
+        "size": 56134.0,
+        "entry": 0.27329378,
+        "exit": 0.2788773,
+        "realized_pnl_usd": 313.468958,
+        "net_pnl_usd": 93.976248,
+        "fees_usd": 9.980954,
+        "funding_usd": -209.511756,
+        "R": null,
+        "result": "win",
+        "status": "closed",
+        "account": "main",
+        "stop": null
+      },
+      {
+        "id": "20260827-1406-main-HYPE-long",
+        "date": "Fri Sep 11, 2026, 3:03 PM ET",
+        "opened_at_et": "Thu Aug 27, 2026, 2:06 PM ET",
+        "closed_at_et": "Fri Sep 11, 2026, 3:03 PM ET",
+        "asset": "HYPE",
+        "side": "long",
+        "size": 11.65,
+        "entry": 85.79,
+        "exit": 79.817,
+        "realized_pnl_usd": -69.58545,
+        "net_pnl_usd": -73.419441,
+        "fees_usd": 0.868194,
+        "funding_usd": -2.965797,
+        "R": null,
+        "result": "loss",
+        "status": "closed",
+        "account": "main",
+        "stop": null
+      },
+      {
+        "id": "20261013-1813-xyz-AVGO-long",
+        "date": "Fri Oct 30, 2026, 12:30 PM ET",
+        "opened_at_et": "Tue Oct 13, 2026, 6:13 PM ET",
+        "closed_at_et": "Fri Oct 30, 2026, 12:30 PM ET",
+        "asset": "xyz:AVGO",
+        "side": "long",
+        "size": 100.0,
+        "entry": 356.8,
+        "exit": 326.170216,
+        "realized_pnl_usd": -3062.9784,
+        "net_pnl_usd": -3141.34109,
+        "fees_usd": 3.229511,
+        "funding_usd": -75.133179,
+        "R": null,
+        "result": "loss",
+        "status": "closed",
+        "account": "xyz",
+        "stop": null
+      },
+      {
+        "id": "20261007-1640-xyz-HOOD-long",
+        "date": "Fri Oct 30, 2026, 12:30 PM ET",
+        "opened_at_et": "Wed Oct 7, 2026, 4:40 PM ET",
+        "closed_at_et": "Fri Oct 30, 2026, 12:30 PM ET",
+        "asset": "xyz:HOOD",
+        "side": "long",
+        "size": 30.0,
+        "entry": 109.6,
+        "exit": 83.74,
+        "realized_pnl_usd": -775.8,
+        "net_pnl_usd": -789.753133,
+        "fees_usd": 0.324734,
+        "funding_usd": -13.628399,
+        "R": null,
+        "result": "loss",
+        "status": "closed",
+        "account": "xyz",
+        "stop": null
+      },
+      {
+        "id": "20261015-2242-main-VVV-long",
+        "date": "Fri Oct 23, 2026, 12:33 PM ET",
+        "opened_at_et": "Thu Oct 15, 2026, 10:42 PM ET",
+        "closed_at_et": "Fri Oct 23, 2026, 12:33 PM ET",
+        "asset": "VVV",
+        "side": "long",
+        "size": 500.0,
+        "entry": 25.0,
+        "exit": 25.73422556,
+        "realized_pnl_usd": 367.11278,
+        "net_pnl_usd": 333.953733,
+        "fees_usd": 7.665183,
+        "funding_usd": -25.493864,
+        "R": null,
+        "result": "win",
+        "status": "closed",
+        "account": "main",
+        "stop": null
+      }
+    ],
+    "trades_this_week": 0
+  },
+  "comparison": {
+    "updated_at_et": "2026-11-23 09:57:00 EST",
+    "updated_at_et_pretty": "Mon Nov 23, 2026, 9:57 AM ET",
+    "paper_week_pnl_usd": 124.314,
+    "actual_week_pnl_usd": 0.0,
+    "gap_week_usd": -124.314,
+    "paper_total_usd": -10230.8877,
+    "actual_total_usd": -812.1796,
+    "recommendations_sent": 36,
+    "recommendations_taken": 0,
+    "recommendations_not_taken": 36,
+    "actual_trades": 10,
+    "actual_matched": 0,
+    "actual_unmatched": 10,
+    "note": "No actual trade fell inside a recommendation's coin, direction, and time window. The paper book has not been taken on Hyperliquid yet.",
+    "source": "/workspace/perp-desk/actual/COMPARE.md"
+  },
+  "gaps": [
+    "No actual Hyperliquid trade has matched a Perp Desk recommendation yet (0 taken of 36 sent; 0 of 10 actual trades matched).",
+    "R is only computed when a stop / planned dollar risk is known (usually after compare.py matches the trade to a paper recommendation).",
+    "Paper week P&L is provisional (replay can flip fills when candles 429).",
+    "Closed-trade history on the live book is from August–October 2026. No actual trades have opened or closed this week.",
+    "Hyperliquid perps clearinghouse is $0; the pool sits in spot USDC and must be transferred before isolated orders can be margined.",
+    "Perp Desk rebuilds this feed hourly at :50, 6:50 AM–10:50 PM ET. Figures are as of the timestamps below, not live."
+  ]
+}
