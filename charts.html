@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Charts · BG Portfolio</title><meta name="theme-color" content="#102832"/>
+<link rel="icon" href="favicon.svg" type="image/svg+xml"/><link rel="apple-touch-icon" href="favicon.svg"/>
+<link rel="stylesheet" href="v2.20261115b.css"/><link rel="stylesheet" href="v2.20261118b.css"/><link rel="stylesheet" href="charts.20261122a.css"/></head>
+<body data-page="charts">
+<header class="top"><a class="brand" href="index.html" style="color:#fff;text-decoration:none"><span class="mk">BG</span> Portfolio</a><nav><a href="index.html">Home</a><a href="holdings.html">What I own</a><a href="plan.html">The plan</a><a href="charts.html" class="on">Charts</a><a href="returns.html">Returns</a><a href="ticker.html" class="score">Score a ticker</a></nav>
+<form class="tks" role="search" autocomplete="off"><input name="q" placeholder="Look up a symbol…" aria-label="Look up a symbol" autocapitalize="characters" spellcheck="false" enterkeyhint="search"/><button type="submit">Go</button><ul id="tksug" class="sug" hidden></ul></form>
+<div class="asof"><span class="dot"></span><span data-asof>…</span> <button class="rf" type="button" data-refresh>Refresh</button></div></header>
+<main>
+<div class="chhead"><div><h1>Charts</h1><p>Every level we've recommended, drawn on the chart: what's live, what we replaced, and what actually filled.</p></div></div>
+<div class="tkpick" id="tkpick"></div>
+<div class="chgrid">
+ <section class="card" style="min-width:0">
+  <div class="chbar"><span class="seg" id="tf"><button data-tf="D" class="on">Daily</button><button data-tf="W">Weekly</button></span>
+   <label><input type="checkbox" id="showold" checked/> Show replaced plans</label><span class="px" id="pxnow"></span></div>
+  <div id="chart"></div>
+  <div class="key"><span><i style="border-color:#1e8a4c"></i>Buy rung</span><span><i style="border-color:#e07b24"></i>Sell target</span><span><i class="d" style="border-color:#c0392b"></i>Kill line (weekly close)</span><span><i style="border-color:#2b6cb0"></i>Option strike</span><span><i class="o" style="border-color:#7c8b92"></i>Replaced / cancelled</span><span>● plan made · ▲▼ actual fill</span></div>
+  <p class="note" id="src"></p>
+ </section>
+ <div class="side">
+  <section class="card"><h2>Levels</h2><table class="lv" id="levels"></table></section>
+  <section class="card"><h2>How the plan changed</h2><ul class="tl" id="timeline"></ul></section>
+  <section class="card"><h2>Actual fills</h2><ul class="fl" id="fills"></ul><p class="note">From the account APIs (book.json). Never typed in.</p></section>
+ </div>
+</div>
+</main>
+<footer>Plans come from plans.json (append-only, written by Conviction). Fills and prices come from the account and market APIs. Nothing on this site places trades.</footer>
+<script src="https://unpkg.com/lightweight-charts@4.2.3/dist/lightweight-charts.standalone.production.js"></script>
+<script src="charts.20261122a.js"></script>
+</body></html>
