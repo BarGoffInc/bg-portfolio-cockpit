@@ -1,7 +1,7 @@
 {
  "version": 1,
  "about": "Append-only plan log for charts.html. Edit only via plans.py.",
- "updated_at": "2026-11-22T21:30:51-05:00",
+ "updated_at": "2026-11-23T09:32:51-05:00",
  "entries": [
   {
    "id": "TAO-20261115-001",
@@ -7740,6 +7740,166 @@
    "status_history": [
     {
      "at": "2026-11-22T21:28:00-05:00",
+     "status": "planned",
+     "note": "created"
+    }
+   ]
+  },
+  {
+   "id": "UMAC-20261123-001",
+   "ticker": "UMAC",
+   "asset_type": "stock",
+   "set": "UMAC-r1",
+   "set_label": "Revision 1 · watch only",
+   "created_at": "2026-11-23T09:32:50-05:00",
+   "created_et": "Nov 23, 2026 9:32 AM ET",
+   "kind": "buy_rung",
+   "price": 7.9,
+   "price_hi": null,
+   "size_usd": 2000.0,
+   "size_units": null,
+   "unit_label": null,
+   "size_note": "",
+   "ladder_pct": 40.0,
+   "close_basis": null,
+   "trigger": "daily close + washed RSI18 cross-up/divergence; only if score ≥60 & ADV ≥0M",
+   "notes": "52-wk closing low .88 / Nov-2025 shelf",
+   "source": "",
+   "chart": true,
+   "supersedes": [],
+   "fills": [],
+   "status": "planned",
+   "status_history": [
+    {
+     "at": "2026-11-23T09:32:50-05:00",
+     "status": "planned",
+     "note": "created"
+    }
+   ]
+  },
+  {
+   "id": "UMAC-20261123-002",
+   "ticker": "UMAC",
+   "asset_type": "stock",
+   "set": "UMAC-r1",
+   "set_label": "Revision 1 · watch only",
+   "created_at": "2026-11-23T09:32:50-05:00",
+   "created_et": "Nov 23, 2026 9:32 AM ET",
+   "kind": "buy_rung",
+   "price": 5.25,
+   "price_hi": null,
+   "size_usd": 3000.0,
+   "size_units": null,
+   "unit_label": null,
+   "size_note": "",
+   "ladder_pct": 60.0,
+   "close_basis": null,
+   "trigger": "same gate",
+   "notes": "Mar-2025 low .21 ≈ cash+investments/share",
+   "source": "",
+   "chart": true,
+   "supersedes": [],
+   "fills": [],
+   "status": "planned",
+   "status_history": [
+    {
+     "at": "2026-11-23T09:32:50-05:00",
+     "status": "planned",
+     "note": "created"
+    }
+   ]
+  },
+  {
+   "id": "UMAC-20261123-003",
+   "ticker": "UMAC",
+   "asset_type": "stock",
+   "set": "UMAC-r1",
+   "set_label": "Revision 1 · watch only",
+   "created_at": "2026-11-23T09:32:50-05:00",
+   "created_et": "Nov 23, 2026 9:32 AM ET",
+   "kind": "kill_line",
+   "price": 4.4,
+   "price_hi": null,
+   "size_usd": null,
+   "size_units": null,
+   "unit_label": null,
+   "size_note": "",
+   "ladder_pct": null,
+   "close_basis": "weekly",
+   "trigger": "weekly close below",
+   "notes": "under Apr-2025 low .45",
+   "source": "",
+   "chart": true,
+   "supersedes": [],
+   "fills": [],
+   "status": "planned",
+   "status_history": [
+    {
+     "at": "2026-11-23T09:32:50-05:00",
+     "status": "planned",
+     "note": "created"
+    }
+   ]
+  },
+  {
+   "id": "UMAC-20261123-004",
+   "ticker": "UMAC",
+   "asset_type": "stock",
+   "set": "UMAC-r1",
+   "set_label": "Revision 1 · watch only",
+   "created_at": "2026-11-23T09:32:50-05:00",
+   "created_et": "Nov 23, 2026 9:32 AM ET",
+   "kind": "sell_target",
+   "price": 12.0,
+   "price_hi": null,
+   "size_usd": null,
+   "size_units": null,
+   "unit_label": null,
+   "size_note": "",
+   "ladder_pct": 50.0,
+   "close_basis": null,
+   "trigger": "T1",
+   "notes": "daily Supertrend ~cd /workspace/conviction && cat > journal/watchlist-pending.json <<'E'\n{\"updated_et\":\"Nov 23, 2026, 9:45 AM ET\",\"adds\":[{\"ticker\":\"UMAC\",\"name\":\"Unusual Machines (NYSE American)\",\"score\":58,\"levels\":\"Watch only: $2k @ $7.90 · $3k @ $5.25\",\"stop\":\"Weekly close < $4.40\",\"funding\":\"Stock cash (sleeve) — only once score ≥60, price ≤ FV, ADV ≥ $50M\",\"status\":\"Watch · fails sleeve gate\",\"notes\":\"Scored 58 on Nov 23 (B2 T4 C5 X1.5 R3). FV $6–10/sh (cash ~$5/sh). T1 $12, T2 $15.50.\",\"source\":\"conviction\"}],\"removes\":[]}\nE\npython3 journal/scripts/build_watchlist.py && grep -c UMAC cockpit-deploy/watchlist.json && cat ranking/watchlist-to-score.json | head -5\ncd cockpit-deploy && S=\"UMAC-r1\"; L=\"Revision 1 · watch only\"\npython3 plans.py add --ticker UMAC --kind buy_rung --price 7.90 --usd 2000 --pct 40 --trigger \"daily close + washed RSI18 cross-up/divergence; only if score ≥60 & ADV ≥$50M\" --notes \"52-wk closing low $7.88 / Nov-2025 shelf\" --set $S --set-label \"$L\" && \\\npython3 plans.py add --ticker UMAC --kind buy_rung --price 5.25 --usd 3000 --pct 60 --trigger \"same gate\" --notes \"Mar-2025 low $5.21 ≈ cash+investments/share\" --set $S --set-label \"$L\" && \\\npython3 plans.py add --ticker UMAC --kind kill_line --price 4.40 --trigger \"weekly close below\" --notes \"under Apr-2025 low $4.45\" --set $S --set-label \"$L\" && \\\npython3 plans.py add --ticker UMAC --kind sell_target --price 12.00 --pct 50 --trigger \"T1\" --notes \"daily Supertrend ~$12.03 / Nov 12 breakdown\" --set $S --set-label \"$L\" && \\\npython3 plans.py add --ticker UMAC --kind sell_target --price 15.50 --pct 50 --trigger \"T2\" --notes \"Oct 30 weekly close shelf; 13-week time stop\" --set $S --set-label \"$L\" && python3 plans.py list --ticker UMAC2.03 / Nov 12 breakdown",
+   "source": "",
+   "chart": true,
+   "supersedes": [],
+   "fills": [],
+   "status": "planned",
+   "status_history": [
+    {
+     "at": "2026-11-23T09:32:50-05:00",
+     "status": "planned",
+     "note": "created"
+    }
+   ]
+  },
+  {
+   "id": "UMAC-20261123-005",
+   "ticker": "UMAC",
+   "asset_type": "stock",
+   "set": "UMAC-r1",
+   "set_label": "Revision 1 · watch only",
+   "created_at": "2026-11-23T09:32:51-05:00",
+   "created_et": "Nov 23, 2026 9:32 AM ET",
+   "kind": "sell_target",
+   "price": 15.5,
+   "price_hi": null,
+   "size_usd": null,
+   "size_units": null,
+   "unit_label": null,
+   "size_note": "",
+   "ladder_pct": 50.0,
+   "close_basis": null,
+   "trigger": "T2",
+   "notes": "Oct 30 weekly close shelf; 13-week time stop",
+   "source": "",
+   "chart": true,
+   "supersedes": [],
+   "fills": [],
+   "status": "planned",
+   "status_history": [
+    {
+     "at": "2026-11-23T09:32:51-05:00",
      "status": "planned",
      "note": "created"
     }
