@@ -1,0 +1,39 @@
+/* Score history + quick score (2026-11-17). Loaded after ranking.20261115a.css */
+.rk-row > summary, .rk-head { grid-template-columns: minmax(120px,1.1fr) 96px 118px minmax(0,3fr) 16px; }
+.rk-row > summary .rk-score { display:flex; flex-direction:column; gap:2px; line-height:1.15; }
+.sc-mini { display:inline-flex; align-items:center; gap:6px; font-size:11px; font-weight:600; white-space:nowrap; }
+.sc-mini.lg { font-size:13px; }
+.sc-spark { display:block; overflow:visible; }
+.sc-spark polyline, .sc-spark line { fill:none; stroke:var(--teal); stroke-width:1.6; stroke-linejoin:round; stroke-linecap:round; }
+.sc-spark line.base { stroke:#c9d4d9; stroke-dasharray:2 2; }
+.sc-spark circle { fill:var(--teal); }
+.sc-delta { font-variant-numeric:tabular-nums; } .sc-delta.up { color:var(--teal); } .sc-delta.dn { color:var(--loss); } .sc-delta.n { color:var(--muted); font-weight:500; }
+.sc-headline { margin:0 0 6px; font-size:14px; display:flex; gap:8px; align-items:baseline; flex-wrap:wrap; }
+.sc-chart { width:100%; max-width:720px; height:auto; display:block; background:#fafcfc; border:1px solid var(--line); border-radius:8px; }
+.sc-chart .ln { fill:none; stroke:var(--teal); stroke-width:2; vector-effect:non-scaling-stroke; }
+.sc-chart .tier { stroke-dasharray:3 4; stroke-width:1; vector-effect:non-scaling-stroke; } .sc-chart .tier.g { stroke:var(--teal); opacity:.45; } .sc-chart .tier.a { stroke:var(--warn); opacity:.45; } .sc-chart .tier.n { stroke:#9aa8b0; opacity:.6; }
+.sc-chart .pt { stroke:#fff; stroke-width:1.5; fill:#b8c4ca; } .sc-chart .pt.g { fill:var(--teal); } .sc-chart .pt.a { fill:var(--warn); } .sc-chart .pt.n { fill:#9aa8b0; } .sc-chart .pt.r { fill:var(--loss); }
+.sc-chart .ax { font-size:11px; fill:var(--muted); } .sc-chart .lbl { font-size:12px; font-weight:800; fill:var(--ink); }
+.sc-tbl-wrap { overflow-x:auto; margin-top:8px; }
+.sc-tbl { width:100%; border-collapse:collapse; font-size:12px; font-variant-numeric:tabular-nums; }
+.sc-tbl th { text-align:left; font-size:10px; letter-spacing:.06em; text-transform:uppercase; color:var(--muted); padding:4px 6px; border-bottom:1px solid var(--line); }
+.sc-tbl td { padding:5px 6px; border-bottom:1px dashed #e3e9ec; white-space:nowrap; }
+.sc-tbl td.up { color:var(--teal); font-weight:700; } .sc-tbl td.dn { color:var(--loss); font-weight:700; }
+.sc-of { font-size:14px; color:var(--muted); font-weight:600; margin-left:2px; }
+.sc-checks { list-style:none; margin:12px 0 0; padding:0; }
+.sc-checks li { display:grid; grid-template-columns:22px 1fr auto; gap:8px; align-items:start; padding:6px 0; border-bottom:1px dashed #e3e9ec; font-size:13px; }
+.sc-checks li small { display:block; color:var(--muted); font-size:12px; }
+.sc-mark { font-weight:800; text-align:center; } .sc-checks li.ok .sc-mark { color:var(--teal); } .sc-checks li.no .sc-mark { color:var(--loss); } .sc-checks li.na { color:var(--muted); }
+.sc-pts { font-variant-numeric:tabular-nums; color:var(--muted); font-size:12px; }
+.sc-warn { margin:12px 0 4px; font-size:13px; background:#fdf5ea; border:1px solid #f1dcbc; border-radius:8px; padding:9px 12px; }
+@media (max-width:720px){ .rk-row > summary, .rk-head { grid-template-columns: 1fr 90px 100px 16px; } }
+.rk-row > summary .rk-score { min-width:0; overflow:hidden; } .rk-row > summary .rk-lad { min-width:0; }
+
+/* 2026-11-22a: board search leads with Conviction score + pillars; off-board card is not a score. */
+.rk-pillars{margin:10px 0 0;font-size:13px;color:var(--muted,#6b7c85)}
+.sc-quick .rk-chip{background:#f2f6f7;color:#5a6b72}
+.sc-quick .big{display:none}
+
+.rk-open{display:inline-block;font-size:12px;font-weight:600;color:#0f6e6e;text-decoration:none;white-space:nowrap}
+.rk-open:hover{text-decoration:underline}
+.rk-profile-link{margin:0 0 8px}

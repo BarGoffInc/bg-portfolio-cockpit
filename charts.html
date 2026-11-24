@@ -2,17 +2,17 @@
 <html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>Charts · BG Portfolio</title><meta name="theme-color" content="#102832"/>
 <link rel="icon" href="favicon.svg" type="image/svg+xml"/><link rel="apple-touch-icon" href="favicon.svg"/>
-<link rel="stylesheet" href="v2.20261115b.css"/><link rel="stylesheet" href="v2.20261118b.css"/><link rel="stylesheet" href="charts.20261123a.css"/><style>nav a.quiet{color:#8aa3a9;font-weight:400;font-size:13px;padding:7px 10px;opacity:.8}nav a.quiet.on{background:#1a3842;color:#d5e4e8;opacity:1}</style>
+<link rel="stylesheet" href="v2.20261115b.css"/><link rel="stylesheet" href="v2.20261118b.css"/><link rel="stylesheet" href="charts.20261123b.css"/><style>nav a.quiet{color:#8aa3a9;font-weight:400;font-size:13px;padding:7px 10px;opacity:.8}nav a.quiet.on{background:#1a3842;color:#d5e4e8;opacity:1}</style>
 </head>
 <body data-page="charts">
 <header class="top"><a class="brand" href="index.html" style="color:#fff;text-decoration:none"><span class="mk">BG</span> Portfolio</a><nav><a href="index.html">Home</a><a href="holdings.html">What I own</a><a href="plan.html">The plan</a><a href="charts.html" class="on">Charts</a><a href="returns.html">Returns</a><a href="ticker.html" class="score">Score a ticker</a><a href="perps.html" class="quiet">Perps</a><a href="engine.html" class="quiet">Engine</a><a href="pnl-plans.html" class="quiet">Levels P&amp;L</a></nav>
 <form class="tks" role="search" autocomplete="off"><input name="q" placeholder="Look up a symbol…" aria-label="Look up a symbol" autocapitalize="characters" spellcheck="false" enterkeyhint="search"/><button type="submit">Go</button><ul id="tksug" class="sug" hidden></ul></form>
 <div class="asof"><span class="dot"></span><span data-asof>…</span> <button class="rf" type="button" data-refresh>Refresh</button></div></header>
 <main>
-<div class="chhead"><div><h1>Charts</h1><p>Each plan is marked at the price and time we expect it to play out. Green is a buy, orange is a sell, and red is an exit — darker means a deeper buy, a later target, or a harder stop. Prices sit on the right. What to do is in the list.</p></div></div>
 <div class="tkpick" id="tkpick"></div>
-<div class="chgrid">
- <section class="card" style="min-width:0">
+<div id="profile" class="profile"></div>
+<section class="card blurb-card" id="blurbwrap" hidden></section>
+<section class="card" style="min-width:0">
   <div class="chbar"><span class="seg" id="tf"><button data-tf="D" class="on">Daily</button><button data-tf="W">Weekly</button></span>
    <label><input type="checkbox" id="showperp"/> Show Perp Desk levels</label>
    <label><input type="checkbox" id="showold"/> Show old plans</label>
@@ -27,15 +27,19 @@
    <span>● plan made · ▲▼ actual fill</span>
   </div>
   <p class="note" id="src"></p>
- </section>
- <div class="side">
-  <section class="card"><h2>The plan</h2><div id="lvlead" class="lvlead"></div><table class="lv" id="levels"></table></section>
-  <section class="card"><h2>How the plan changed</h2><ul class="tl" id="timeline"></ul></section>
-  <section class="card"><h2>Actual fills</h2><ul class="fl" id="fills"></ul><p class="note">From the account APIs (book.json). Never typed in.</p></section>
- </div>
-</div>
+</section>
+<section class="card"><h2>The plan</h2><div id="lvlead" class="lvlead"></div><table class="lv" id="levels"></table></section>
+<section class="card" id="poscard"><h2>Position and tracking</h2><div id="position"></div>
+  <h3 class="subh">Actual fills</h3>
+  <ul class="fl" id="fills"></ul>
+  <p class="note">From the account APIs (book.json). Never typed in.</p>
+  <h3 class="subh">Levels P&amp;L</h3>
+  <div id="namepnl"></div>
+  <p class="note">Projected versus actual for this name’s logged levels. See the <a href="pnl-plans.html">Levels P&amp;L</a> page for the whole book.</p>
+</section>
+<section class="card"><h2>How the plan changed</h2><ul class="tl" id="timeline"></ul></section>
 </main>
-<footer>Plans come from plans.json (append-only, written by Conviction). Fills and prices come from the account and market APIs. Nothing on this site places trades.</footer>
+<footer>Plans come from plans.json (append-only, written by Conviction). Scores come from ranking.json. Fills, prices and open orders come from the account and market APIs. Nothing on this site places trades.</footer>
 <script src="https://unpkg.com/lightweight-charts@4.2.3/dist/lightweight-charts.standalone.production.js"></script>
-<script src="charts.20261123a.js"></script>
+<script src="charts.20261123b.js"></script>
 </body></html>
