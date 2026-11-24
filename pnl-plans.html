@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Levels P&amp;L · BG Portfolio</title><meta name="theme-color" content="#102832"/>
+<link rel="icon" href="favicon.svg" type="image/svg+xml"/><link rel="apple-touch-icon" href="favicon.svg"/>
+<link rel="stylesheet" href="v2.20261115b.css"/><link rel="stylesheet" href="v2.20261118b.css"/><link rel="stylesheet" href="plans-pnl.20261123a.css"/>
+<style>nav a.quiet{color:#8aa3a9;font-weight:400;font-size:13px;padding:7px 10px;opacity:.8}nav a.quiet.on{background:#1a3842;color:#d5e4e8;opacity:1}</style>
+</head>
+<body data-page="pnl-plans">
+<header class="top"><a class="brand" href="index.html" style="color:#fff;text-decoration:none"><span class="mk">BG</span> Portfolio</a><nav><a href="index.html">Home</a><a href="holdings.html">What I own</a><a href="plan.html">The plan</a><a href="charts.html">Charts</a><a href="returns.html">Returns</a><a href="ticker.html" class="score">Score a ticker</a><a href="perps.html" class="quiet">Perps</a><a href="engine.html" class="quiet">Engine</a><a href="pnl-plans.html" class="quiet on">Levels P&amp;L</a></nav>
+<div class="asof"><span class="dot"></span><span data-asof>…</span></div></header>
+<main>
+<div class="pagehead"><h1>Levels P&amp;L</h1><p>Every buy level, sell target and protective line we log gets a projected P&amp;L when it is set, a version history as it changes, and a running record of what actually happened from the broker and exchange APIs. <b>Planned, not placed</b> means no venue shows the order. <b>Placed (API)</b> and <b>Filled (API)</b> come only from E*TRADE, Robinhood, Coinbase and Hyperliquid. Anything marked hypothetical is a what-if, not money made or lost.</p></div>
+<section class="card wide" id="top">Loading…</section>
+<section class="card wide"><h2 class="pp-h">Projected vs actual, day by day</h2><p class="pp-sub">Backfilled from the first logged plan (Nov 15). Saved daily to engine/history/plan_pnl.</p><div id="serieschart"></div><p class="pp-sub" id="seriesnote"></p></section>
+<section class="card wide"><h2 class="pp-h">Whole folio to the Nov 7, 2028 election</h2><p class="pp-sub">Bear / base / bull paths for every name (crypto 4-year cycle, AI capex cycle), with our live levels filling, selling and stopping out along each path. Actual book value is plotted at each checkpoint as the dates arrive.</p><div id="gamechart"></div><div class="pp-wrap" id="gametbl"></div><p class="pp-sub" id="gamenote"></p></section>
+<section class="card wide"><h2 class="pp-h">By name</h2><p class="pp-sub">Tap a name for its plan versions, every live level and its quarter-by-quarter 2028 paths.</p><div class="pp-wrap" id="names"></div><h3>By bucket</h3><div class="pp-wrap" id="sleeves"></div></section>
+<section class="card wide"><h2 class="pp-h">Scoreboard: levels price actually reached</h2><div class="pp-wrap" id="board"></div></section>
+<section class="card wide"><h2 class="pp-h">Plan changes and what they cost</h2><p class="pp-sub">Each retired version vs the one that replaced it, both as if placed, from the moment of the change to today. Same-day changes show zero until a new daily bar prints.</p><div class="pp-wrap" id="changes"></div><h3>Protective sell lines</h3><div id="kills"></div></section>
+<section class="card wide"><details class="pp-more"><summary>How the numbers are made</summary><div id="method"></div></details></section>
+</main>
+<footer>Levels P&amp;L v1. Read-only: built from plans.json, book.json API fills and the venue open-orders pull. Nothing here places, edits or cancels an order.</footer>
+<script src="plans-pnl.20261123a.js"></script>
+</body></html>
