@@ -1,0 +1,65 @@
+/* 2026-11-23a: Charts page — plan marks on the price × time grid, no text over candles. */
+.chhead{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:12px}
+.chhead h1{margin:0;font-size:26px}.chhead p{margin:2px 0 0;color:#33464f;max-width:52rem}
+.tkpick{display:flex;gap:6px;flex-wrap:wrap;margin:0 0 14px}
+.tkpick button{border:1px solid #cfdadd;background:#fff;border-radius:999px;padding:5px 12px;font:600 13px inherit;cursor:pointer;color:var(--ink)}
+.tkpick button.on{background:#102832;color:#fff;border-color:#102832}
+.tkpick button small{font-weight:400;color:var(--mut);margin-left:4px}.tkpick button.on small{color:#9fc3c9}
+.tkpick button small.perp{font-style:italic;font-weight:400}
+.chgrid{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:18px;align-items:start}
+@media(max-width:980px){.chgrid{grid-template-columns:1fr}}
+.chbar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:4px}
+.chbar .seg{display:inline-flex;border:1px solid #cfdadd;border-radius:8px;overflow:hidden}
+.chbar .seg button{border:0;background:#fff;padding:5px 12px;font:600 13px inherit;cursor:pointer;color:var(--ink)}
+.chbar .seg button.on{background:#0f6e6e;color:#fff}
+.chbar label{font-size:13px;color:var(--mut);display:flex;gap:5px;align-items:center;cursor:pointer;user-select:none}
+.chbar .px{margin-left:auto;font-size:14px}.chbar .px b{font-size:18px}
+.chhint{margin:0 0 8px;font-size:13px;color:var(--mut);min-height:1.2em}
+#chart{position:relative;height:520px;width:100%}@media(max-width:700px){#chart{height:400px}}
+#chplot{position:absolute;top:0;left:0;overflow:hidden;pointer-events:none;z-index:2}
+#chplot svg{display:block;width:100%;height:100%}
+#chplot .mark{pointer-events:auto;cursor:pointer}
+#chplot .mark .hit{fill:transparent;stroke:none}
+#chplot .mark.on .tick,#chplot .mark:hover .tick{stroke-width:3}
+#chplot .mark.on .pt,#chplot .mark:hover .pt{stroke-width:2.5;stroke:#102832}
+#chplot .mark.faint{opacity:.5}
+#chplot .mark.old{opacity:.28}
+#chaxis{position:absolute;top:0;overflow:hidden;pointer-events:none;z-index:3}
+#chaxis span{position:absolute;left:2px;transform:translateY(-50%);font:600 10px/1.1 -apple-system,Segoe UI,Inter,sans-serif;background:#fff;color:#1a2c33;border:1px solid #d3dee2;border-left:3px solid;padding:1px 4px;border-radius:2px;white-space:nowrap;max-width:calc(100% - 4px);overflow:hidden;text-overflow:ellipsis;box-shadow:0 1px 2px rgba(16,40,50,.08)}
+#chaxis span.on{background:#102832;color:#fff;border-color:#102832}
+.chhover{margin:8px 0 0;min-height:2.6em;font-size:13px;line-height:1.4;color:#1a2c33;background:#f6f8f9;border-radius:8px;padding:8px 10px}
+.chhover .muted{color:var(--mut)}
+.key{display:flex;gap:16px;flex-wrap:wrap;align-items:center;font-size:12px;color:var(--mut);margin-top:8px}
+.key .scale{display:inline-flex;align-items:center;gap:2px}
+.key .scale i{display:inline-block;width:10px;height:10px;border-radius:50%;margin:0}
+.key .scale i+i{margin-left:1px}
+.key .scale i:last-of-type{margin-right:6px}
+.lvlead{font-size:13px;color:#33464f;margin:0 0 8px;line-height:1.4}
+.lvlead .callout{background:#f6f8f9;border-radius:10px;padding:10px 12px}
+.lvlead .boxsum{background:#f6f8f9;border-radius:10px;padding:8px 10px;margin:0 0 8px}
+.lvlead .boxsum b{display:block;margin:0 0 2px}
+.lvlead .rr{font-weight:700;color:#0f6e6e}
+.lv{width:100%;border-collapse:collapse;font-size:13px}.lv td{padding:8px 4px;border-top:1px solid var(--line);vertical-align:top}
+.lv td.p{font-weight:700;white-space:nowrap;padding-top:10px}.lv .k{display:inline-block;width:8px;height:8px;border-radius:2px;margin-right:6px}
+.lv .cta{margin:2px 0 0;line-height:1.4;color:#1a2c33}
+.lv .tr{color:var(--mut);font-size:12px}
+.lv tr.old td{color:#9aa8ae}.lv tr.old td.p{text-decoration:line-through;font-weight:500}.lv tr.old .cta{color:#6b7c83}
+.lv tr.on td{background:#eef6f6}
+.lv tr[data-id]{cursor:pointer}
+.lv details.det{margin-top:4px;font-size:12px;color:#5b6e76}
+.lv details.det summary{cursor:pointer;color:#5b6e76;font-weight:500;list-style:none;display:inline}
+.lv details.det summary::-webkit-details-marker{display:none}
+.lv details.det summary:before{content:"Details";}
+.lv details.det[open] summary:before{content:"Hide details";}
+.lv details.det .box{margin:6px 0 0;padding:8px 10px;background:#f6f8f9;border-radius:8px;line-height:1.45;color:#33464f;overflow-wrap:anywhere}
+.pill{font-size:11px;border-radius:999px;padding:1px 8px;background:#eef3f4;color:#33464f;white-space:nowrap}
+.pill.planned,.pill.armed{background:#eef3f4;color:#33464f}
+.pill.filled{background:#e1f4e8;color:var(--pos)}.pill.partially{background:#fdf3e1;color:var(--warn)}
+.pill.superseded,.pill.cancelled,.pill.missed{background:#f1f1f1;color:#8a979d}
+.tl{list-style:none;margin:0;padding:0;font-size:13px}.tl li{position:relative;padding:0 0 12px 16px;border-left:2px solid var(--line);margin-left:4px}
+.tl li:before{content:"";position:absolute;left:-6px;top:5px;width:10px;height:10px;border-radius:50%;background:#9bb7bd}
+.tl li.revision:before{background:var(--warn)}.tl li.fill:before{background:var(--pos)}.tl li.signal:before{background:#6b4fa0}.tl li.plan:before{background:var(--acc)}
+.tl time{display:block;font-size:11px;color:var(--mut);text-transform:uppercase;letter-spacing:.04em}
+.side .card{margin-bottom:18px}.side h2{font-size:16px}
+.fl{font-size:13px;margin:0;padding-left:18px}.fl li{margin:3px 0}
+nav a{white-space:nowrap}
