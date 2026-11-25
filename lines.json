@@ -1,9 +1,9 @@
 {
  "as_of": "2026-11-24T21:45-05:00",
  "as_of_et": "Nov 24, 2026 11:05 PM ET (rungs squeezed); prices as of Nov 24 ~9:30 PM ET",
- "rule": "Every name: 3 buys (20% at the next open after a CLOSED-week Gemini weekly Max Buy; 40% GTC at \u22121 weekly ATR; 40% GTC at \u22122 weekly ATR, re-anchored to the actual rung-1 fill) + a weekly-close cut line + a buy trigger. Exits (scale-outs, stop, trail) only for positions the broker/exchange APIs show held. Everything PLANNED, NOT PLACED unless an API shows the order open.",
+ "rule": "Every name: 3 buys (20% at the next open after a CLOSED-week Gemini weekly Max Buy; 40% GTC at −1 weekly ATR; 40% GTC at −2 weekly ATR, re-anchored to the actual rung-1 fill) + a weekly-close cut line + a buy trigger. Exits (scale-outs, stop, trail) only for positions the broker/exchange APIs show held. Everything PLANNED, NOT PLACED unless an API shows the order open.",
  "watr_method": "SMA of the last 14 closed weekly true ranges (stocks: Yahoo-cached daily + CNBC Nov 24 bar; crypto: Coinbase daily UTC; LIT: Hyperliquid 1d; HYPE: Hyperliquid spot). Wilder value kept as watr_wilder.",
- "cut_method": "Nearest weekly-close support: the higher of the 52-wk lowest weekly close and the most recent unbroken weekly swing-low close, \u22650.25 wATR under price, rounded down; TAO = $160 agreed.",
+ "cut_method": "Nearest weekly-close support: the higher of the 52-wk lowest weekly close and the most recent unbroken weekly swing-low close, ≥0.25 wATR under price, rounded down; TAO = $160 agreed.",
  "names": {
   "TSLA": {
    "t": "TSLA",
@@ -37,13 +37,13 @@
      "rung": 2,
      "pct": 40,
      "price": 349.88,
-     "how": "GTC limit at \u22121 weekly ATR below the rung-1 fill (provisional anchor = today's price)"
+     "how": "GTC limit at −1 weekly ATR below the rung-1 fill (provisional anchor = today's price)"
     },
     {
      "rung": 3,
      "pct": 40,
      "price": 315.07,
-     "how": "GTC limit at \u22122 weekly ATR below the rung-1 fill (provisional anchor)"
+     "how": "GTC limit at −2 weekly ATR below the rung-1 fill (provisional anchor)"
     }
    ],
    "exits": {
@@ -66,7 +66,7 @@
     ],
     "stop": {
      "price": 310.0,
-     "rule": "PROTECTIVE only: weekly close below \u2192 sell 1/3; keep at least 2/3 as core to Nov 2028"
+     "rule": "PROTECTIVE only: weekly close below → sell 1/3; keep at least 2/3 as core to Nov 2028"
     },
     "trail_pct": null,
     "trail_rule": "no trailing stop on core shares (held to Nov 2028); trims are bands"
@@ -104,14 +104,14 @@
      "rung": 2,
      "pct": 40,
      "price": 57562.0,
-     "how": "GTC limit at \u22121 weekly ATR below the rung-1 fill (provisional anchor = today's price) (squeezed Nov 24 11 PM: the \u22121 wATR level $51627.0 sat at/below the $55000.0 cut; floor = cut + ~1.5% of price, rounded)",
+     "how": "GTC limit at −1 weekly ATR below the rung-1 fill (provisional anchor = today's price) (squeezed Nov 24 11 PM: the −1 wATR level $51627.0 sat at/below the $55000.0 cut; floor = cut + ~1.5% of price, rounded)",
      "orig_price": 51627.0
     },
     {
      "rung": 3,
      "pct": 40,
      "price": 56000.0,
-     "how": "GTC limit at \u22122 weekly ATR below the rung-1 fill (provisional anchor) (squeezed Nov 24 11 PM: the \u22122 wATR level $44129.0 sat at/below the $55000.0 cut; floor = cut + ~1.5% of price, rounded)",
+     "how": "GTC limit at −2 weekly ATR below the rung-1 fill (provisional anchor) (squeezed Nov 24 11 PM: the −2 wATR level $44129.0 sat at/below the $55000.0 cut; floor = cut + ~1.5% of price, rounded)",
      "orig_price": 44129.0
     }
    ],
@@ -135,7 +135,7 @@
     ],
     "stop": {
      "price": 55000.0,
-     "rule": "PROTECTIVE only: weekly close below \u2192 sell 1/3; keep at least 2/3 as core to Nov 2028"
+     "rule": "PROTECTIVE only: weekly close below → sell 1/3; keep at least 2/3 as core to Nov 2028"
     },
     "trail_pct": null,
     "trail_rule": "no trailing stop on core shares (held to Nov 2028); trims are bands"
@@ -173,14 +173,14 @@
      "rung": 2,
      "pct": 40,
      "price": 68.05,
-     "how": "GTC limit at \u22121 weekly ATR below the rung-1 fill (provisional anchor = today's price) (squeezed Nov 24 11 PM: the \u22121 wATR level $54.17 sat at/below the $66.0 cut; floor = cut + ~1.5% of price, rounded)",
+     "how": "GTC limit at −1 weekly ATR below the rung-1 fill (provisional anchor = today's price) (squeezed Nov 24 11 PM: the −1 wATR level $54.17 sat at/below the $66.0 cut; floor = cut + ~1.5% of price, rounded)",
      "orig_price": 54.17
     },
     {
      "rung": 3,
      "pct": 40,
      "price": 67.5,
-     "how": "GTC limit at \u22122 weekly ATR below the rung-1 fill (provisional anchor) (squeezed Nov 24 11 PM: the \u22122 wATR level $39.73 sat at/below the $66.0 cut; floor = cut + ~1.5% of price, rounded)",
+     "how": "GTC limit at −2 weekly ATR below the rung-1 fill (provisional anchor) (squeezed Nov 24 11 PM: the −2 wATR level $39.73 sat at/below the $66.0 cut; floor = cut + ~1.5% of price, rounded)",
      "orig_price": 39.73
     }
    ],
@@ -241,14 +241,14 @@
      "rung": 2,
      "pct": 40,
      "price": 171.37,
-     "how": "GTC limit at \u22121 weekly ATR below the rung-1 fill (provisional anchor = today's price) (squeezed Nov 24 11 PM: the \u22121 wATR level $129.01 sat at/below the $160 cut; floor = cut + ~1.5% of price, rounded)",
+     "how": "GTC limit at −1 weekly ATR below the rung-1 fill (provisional anchor = today's price) (squeezed Nov 24 11 PM: the −1 wATR level $129.01 sat at/below the $160 cut; floor = cut + ~1.5% of price, rounded)",
      "orig_price": 129.01
     },
     {
      "rung": 3,
      "pct": 40,
      "price": 165.0,
-     "how": "GTC limit at \u22122 weekly ATR below the rung-1 fill (provisional anchor) (squeezed Nov 24 11 PM: the \u22122 wATR level $80.28 sat at/below the $160 cut; floor = cut + ~1.5% of price, rounded)",
+     "how": "GTC limit at −2 weekly ATR below the rung-1 fill (provisional anchor) (squeezed Nov 24 11 PM: the −2 wATR level $80.28 sat at/below the $160 cut; floor = cut + ~1.5% of price, rounded)",
      "orig_price": 80.28
     }
    ],
@@ -273,10 +273,10 @@
     ],
     "stop": {
      "price": 160,
-     "rule": "weekly close below $160 \u2192 cut ALL next day (agreed Nov 24)"
+     "rule": "weekly close below $160 → cut ALL next day (agreed Nov 24)"
     },
     "trail_pct": 28,
-    "trail_rule": "after the first scale-out fills, trail the rest 28% (\u22481 weekly ATR) under the highest weekly close"
+    "trail_rule": "after the first scale-out fills, trail the rest 28% (≈1 weekly ATR) under the highest weekly close"
    }
   },
   "ALAB": {
@@ -311,13 +311,13 @@
      "rung": 2,
      "pct": 40,
      "price": 134.82,
-     "how": "GTC limit at \u22121 weekly ATR below the rung-1 fill (provisional anchor = today's price)"
+     "how": "GTC limit at −1 weekly ATR below the rung-1 fill (provisional anchor = today's price)"
     },
     {
      "rung": 3,
      "pct": 40,
      "price": 115.0,
-     "how": "GTC limit at \u22122 weekly ATR below the rung-1 fill (provisional anchor) (squeezed Nov 24 11 PM: the \u22122 wATR level $78.33 sat at/below the $110.0 cut; floor = cut + ~1.5% of price, rounded)",
+     "how": "GTC limit at −2 weekly ATR below the rung-1 fill (provisional anchor) (squeezed Nov 24 11 PM: the −2 wATR level $78.33 sat at/below the $110.0 cut; floor = cut + ~1.5% of price, rounded)",
      "orig_price": 78.33
     }
    ],
@@ -344,7 +344,7 @@
     "stop_rule": "none: no ALAB close at a loss (basis $325.68); the $110.0 cut line is buy-side only",
     "trail_pct": 30,
     "trail_rule": "after S1, trail 30% under the highest weekly close but never below $330.0 (basis + fees)",
-    "covered_calls": "only strikes \u2265 $330.0; the Dec 18 $360 short call: buy to close at $0.05 limit (already recommended)"
+    "covered_calls": "only strikes ≥ $330.0; the Dec 18 $360 short call: buy to close at $0.05 limit (already recommended)"
    }
   },
   "ETH": {
@@ -379,14 +379,14 @@
      "rung": 2,
      "pct": 40,
      "price": 1628.0,
-     "how": "GTC limit at \u22121 weekly ATR below the rung-1 fill (provisional anchor = today's price) (squeezed Nov 24 11 PM: the \u22121 wATR level $1360.0 sat at/below the $1550.0 cut; floor = cut + ~1.5% of price, rounded)",
+     "how": "GTC limit at −1 weekly ATR below the rung-1 fill (provisional anchor = today's price) (squeezed Nov 24 11 PM: the −1 wATR level $1360.0 sat at/below the $1550.0 cut; floor = cut + ~1.5% of price, rounded)",
      "orig_price": 1360.0
     },
     {
      "rung": 3,
      "pct": 40,
      "price": 1600.0,
-     "how": "GTC limit at \u22122 weekly ATR below the rung-1 fill (provisional anchor) (squeezed Nov 24 11 PM: the \u22122 wATR level $1064.0 sat at/below the $1550.0 cut; floor = cut + ~1.5% of price, rounded)",
+     "how": "GTC limit at −2 weekly ATR below the rung-1 fill (provisional anchor) (squeezed Nov 24 11 PM: the −2 wATR level $1064.0 sat at/below the $1550.0 cut; floor = cut + ~1.5% of price, rounded)",
      "orig_price": 1064.0
     }
    ],
@@ -403,10 +403,10 @@
       "units": 4.4345
      }
     ],
-    "scale_note": "standing EXIT (target 0): carried Nov 23 sell levels $1,830 / $1,940 (\u2248 +0.6 / +1.0 wATR)",
+    "scale_note": "standing EXIT (target 0): carried Nov 23 sell levels $1,830 / $1,940 (≈ +0.6 / +1.0 wATR)",
     "stop": {
      "price": 1550.0,
-     "rule": "weekly close below \u2192 sell everything left"
+     "rule": "weekly close below → sell everything left"
     },
     "trail_pct": null,
     "trail_rule": "n/a (full exit planned)"
@@ -444,14 +444,14 @@
      "rung": 2,
      "pct": 40,
      "price": 3.98,
-     "how": "GTC limit at \u22121 weekly ATR below the rung-1 fill (provisional anchor = today's price) (squeezed Nov 24 11 PM: the \u22121 wATR level $2.83 sat at/below the $3.25 cut; floor = cut + ~1.5% of price, rounded)",
+     "how": "GTC limit at −1 weekly ATR below the rung-1 fill (provisional anchor = today's price) (squeezed Nov 24 11 PM: the −1 wATR level $2.83 sat at/below the $3.25 cut; floor = cut + ~1.5% of price, rounded)",
      "orig_price": 2.83
     },
     {
      "rung": 3,
      "pct": 40,
      "price": 3.35,
-     "how": "GTC limit at \u22122 weekly ATR below the rung-1 fill (provisional anchor) (squeezed Nov 24 11 PM: the \u22122 wATR level $1.04 sat at/below the $3.25 cut; floor = cut + ~1.5% of price, rounded)",
+     "how": "GTC limit at −2 weekly ATR below the rung-1 fill (provisional anchor) (squeezed Nov 24 11 PM: the −2 wATR level $1.04 sat at/below the $3.25 cut; floor = cut + ~1.5% of price, rounded)",
      "orig_price": 1.04
     }
    ],
@@ -476,10 +476,10 @@
     ],
     "stop": {
      "price": 3.25,
-     "rule": "weekly close below \u2192 sell everything left"
+     "rule": "weekly close below → sell everything left"
     },
     "trail_pct": 35,
-    "trail_rule": "after the first scale-out fills, trail the rest 35% (\u22481 weekly ATR) under the highest weekly close"
+    "trail_rule": "after the first scale-out fills, trail the rest 35% (≈1 weekly ATR) under the highest weekly close"
    }
   },
   "SUI": {
@@ -514,14 +514,14 @@
      "rung": 2,
      "pct": 40,
      "price": 0.6177,
-     "how": "GTC limit at \u22121 weekly ATR below the rung-1 fill (provisional anchor = today's price) (squeezed Nov 24 11 PM: the \u22121 wATR level $0.4389 sat at/below the $0.585 cut; floor = cut + ~1.5% of price, rounded)",
+     "how": "GTC limit at −1 weekly ATR below the rung-1 fill (provisional anchor = today's price) (squeezed Nov 24 11 PM: the −1 wATR level $0.4389 sat at/below the $0.585 cut; floor = cut + ~1.5% of price, rounded)",
      "orig_price": 0.4389
     },
     {
      "rung": 3,
      "pct": 40,
      "price": 0.595,
-     "how": "GTC limit at \u22122 weekly ATR below the rung-1 fill (provisional anchor) (squeezed Nov 24 11 PM: the \u22122 wATR level $0.2374 sat at/below the $0.585 cut; floor = cut + ~1.5% of price, rounded)",
+     "how": "GTC limit at −2 weekly ATR below the rung-1 fill (provisional anchor) (squeezed Nov 24 11 PM: the −2 wATR level $0.2374 sat at/below the $0.585 cut; floor = cut + ~1.5% of price, rounded)",
      "orig_price": 0.2374
     }
    ],
@@ -546,10 +546,10 @@
     ],
     "stop": {
      "price": 0.585,
-     "rule": "weekly close below \u2192 sell everything left"
+     "rule": "weekly close below → sell everything left"
     },
     "trail_pct": 32,
-    "trail_rule": "after the first scale-out fills, trail the rest 32% (\u22481 weekly ATR) under the highest weekly close"
+    "trail_rule": "after the first scale-out fills, trail the rest 32% (≈1 weekly ATR) under the highest weekly close"
    }
   },
   "DRIFT": {
@@ -584,14 +584,14 @@
      "rung": 2,
      "pct": 40,
      "price": 0.008765,
-     "how": "GTC limit at \u22121 weekly ATR below the rung-1 fill (provisional anchor = today's price) (squeezed Nov 24 11 PM: the \u22121 wATR level $0.005449 sat at/below the $0.0083 cut; floor = cut + ~1.5% of price, rounded)",
+     "how": "GTC limit at −1 weekly ATR below the rung-1 fill (provisional anchor = today's price) (squeezed Nov 24 11 PM: the −1 wATR level $0.005449 sat at/below the $0.0083 cut; floor = cut + ~1.5% of price, rounded)",
      "orig_price": 0.005449
     },
     {
      "rung": 3,
      "pct": 40,
      "price": 0.00845,
-     "how": "GTC limit at \u22122 weekly ATR below the rung-1 fill (provisional anchor) (squeezed Nov 24 11 PM: the \u22122 wATR level $0.001817 sat at/below the $0.0083 cut; floor = cut + ~1.5% of price, rounded)",
+     "how": "GTC limit at −2 weekly ATR below the rung-1 fill (provisional anchor) (squeezed Nov 24 11 PM: the −2 wATR level $0.001817 sat at/below the $0.0083 cut; floor = cut + ~1.5% of price, rounded)",
      "orig_price": 0.001817
     }
    ],
@@ -616,10 +616,10 @@
     ],
     "stop": {
      "price": 0.0083,
-     "rule": "weekly close below \u2192 sell everything left"
+     "rule": "weekly close below → sell everything left"
     },
     "trail_pct": 35,
-    "trail_rule": "after the first scale-out fills, trail the rest 35% (\u22481 weekly ATR) under the highest weekly close"
+    "trail_rule": "after the first scale-out fills, trail the rest 35% (≈1 weekly ATR) under the highest weekly close"
    }
   },
   "HOOD": {
@@ -654,14 +654,14 @@
      "rung": 2,
      "pct": 40,
      "price": 64.33,
-     "how": "GTC limit at \u22121 weekly ATR below the rung-1 fill (provisional anchor = today's price) (squeezed Nov 24 11 PM: the \u22121 wATR level $51.52 sat at/below the $62.0 cut; floor = cut + ~1.5% of price, rounded)",
+     "how": "GTC limit at −1 weekly ATR below the rung-1 fill (provisional anchor = today's price) (squeezed Nov 24 11 PM: the −1 wATR level $51.52 sat at/below the $62.0 cut; floor = cut + ~1.5% of price, rounded)",
      "orig_price": 51.52
     },
     {
      "rung": 3,
      "pct": 40,
      "price": 63.0,
-     "how": "GTC limit at \u22122 weekly ATR below the rung-1 fill (provisional anchor) (squeezed Nov 24 11 PM: the \u22122 wATR level $37.38 sat at/below the $62.0 cut; floor = cut + ~1.5% of price, rounded)",
+     "how": "GTC limit at −2 weekly ATR below the rung-1 fill (provisional anchor) (squeezed Nov 24 11 PM: the −2 wATR level $37.38 sat at/below the $62.0 cut; floor = cut + ~1.5% of price, rounded)",
      "orig_price": 37.38
     }
    ],
@@ -688,7 +688,7 @@
     ],
     "stop": {
      "price": 62.0,
-     "rule": "weekly close below \u2192 sell the shares and both calls"
+     "rule": "weekly close below → sell the shares and both calls"
     },
     "trail_pct": 22,
     "trail_rule": "after S1, trail 22% under the highest weekly close"
@@ -706,7 +706,7 @@
    "watr": 0.1929,
    "watr_pct": 226.2,
    "watr_wilder": 0.1454,
-   "data": "GeckoTerminal robinhood pool 0x10CC\u2026 (uniswap)",
+   "data": "GeckoTerminal robinhood pool 0x10CC… (uniswap)",
    "last_closed_week": "2026-11-22",
    "cut": 0.029,
    "cut_why": "most recent unbroken weekly swing-low close $0.02939 (wk ending 2026-08-16)",
@@ -722,9 +722,9 @@
      "how": "market/limit at right after the Sunday 8 PM ET weekly close that prints the Max Buy"
     }
    ],
-   "buys_error": "weekly ATR $0.1929 is 226% of price (launch/crash distortion): \u22121/\u22122 wATR rungs would be at or below zero; not computed",
+   "buys_error": "weekly ATR $0.1929 is 226% of price (launch/crash distortion): −1/−2 wATR rungs would be at or below zero; not computed",
    "exits": {
-    "error": "weekly ATR $0.1929 is 226% of price (launch/crash distortion): \u22121/\u22122 wATR rungs would be at or below zero; not computed"
+    "error": "weekly ATR $0.1929 is 226% of price (launch/crash distortion): −1/−2 wATR rungs would be at or below zero; not computed"
    }
   },
   "HYPE": {
@@ -759,14 +759,14 @@
      "rung": 2,
      "pct": 40,
      "price": 56.16,
-     "how": "GTC limit at \u22121 weekly ATR below the rung-1 fill (provisional anchor = today's price) (squeezed Nov 24 11 PM: the \u22121 wATR level $44.9 sat at/below the $52.5 cut; floor = cut + ~1.5% of price, rounded)",
+     "how": "GTC limit at −1 weekly ATR below the rung-1 fill (provisional anchor = today's price) (squeezed Nov 24 11 PM: the −1 wATR level $44.9 sat at/below the $52.5 cut; floor = cut + ~1.5% of price, rounded)",
      "orig_price": 44.9
     },
     {
      "rung": 3,
      "pct": 40,
      "price": 53.5,
-     "how": "GTC limit at \u22122 weekly ATR below the rung-1 fill (provisional anchor) (squeezed Nov 24 11 PM: the \u22122 wATR level $30.97 sat at/below the $52.5 cut; floor = cut + ~1.5% of price, rounded)",
+     "how": "GTC limit at −2 weekly ATR below the rung-1 fill (provisional anchor) (squeezed Nov 24 11 PM: the −2 wATR level $30.97 sat at/below the $52.5 cut; floor = cut + ~1.5% of price, rounded)",
      "orig_price": 30.97
     }
    ],
@@ -791,10 +791,10 @@
     ],
     "stop": {
      "price": 52.5,
-     "rule": "weekly close below \u2192 sell everything left"
+     "rule": "weekly close below → sell everything left"
     },
     "trail_pct": 24,
-    "trail_rule": "after the first scale-out fills, trail the rest 24% (\u22481 weekly ATR) under the highest weekly close"
+    "trail_rule": "after the first scale-out fills, trail the rest 24% (≈1 weekly ATR) under the highest weekly close"
    }
   },
   "SUPER": {
@@ -829,14 +829,14 @@
      "rung": 2,
      "pct": 40,
      "price": 0.09585,
-     "how": "GTC limit at \u22121 weekly ATR below the rung-1 fill (provisional anchor = today's price) (squeezed Nov 24 11 PM: the \u22121 wATR level $0.06407 sat at/below the $0.082 cut; floor = cut + ~1.5% of price, rounded)",
+     "how": "GTC limit at −1 weekly ATR below the rung-1 fill (provisional anchor = today's price) (squeezed Nov 24 11 PM: the −1 wATR level $0.06407 sat at/below the $0.082 cut; floor = cut + ~1.5% of price, rounded)",
      "orig_price": 0.06407
     },
     {
      "rung": 3,
      "pct": 40,
      "price": 0.084,
-     "how": "GTC limit at \u22122 weekly ATR below the rung-1 fill (provisional anchor) (squeezed Nov 24 11 PM: the \u22122 wATR level $0.02044 sat at/below the $0.082 cut; floor = cut + ~1.5% of price, rounded)",
+     "how": "GTC limit at −2 weekly ATR below the rung-1 fill (provisional anchor) (squeezed Nov 24 11 PM: the −2 wATR level $0.02044 sat at/below the $0.082 cut; floor = cut + ~1.5% of price, rounded)",
      "orig_price": 0.02044
     }
    ],
@@ -861,10 +861,10 @@
     ],
     "stop": {
      "price": 0.082,
-     "rule": "weekly close below \u2192 sell everything left"
+     "rule": "weekly close below → sell everything left"
     },
     "trail_pct": 35,
-    "trail_rule": "after the first scale-out fills, trail the rest 35% (\u22481 weekly ATR) under the highest weekly close"
+    "trail_rule": "after the first scale-out fills, trail the rest 35% (≈1 weekly ATR) under the highest weekly close"
    }
   },
   "SPX6900": {
@@ -899,14 +899,14 @@
      "rung": 2,
      "pct": 40,
      "price": 0.247,
-     "how": "GTC limit at \u22121 weekly ATR below the rung-1 fill (provisional anchor = today's price) (squeezed Nov 24 11 PM: the \u22121 wATR level $0.1616 sat at/below the $0.22 cut; floor = cut + ~1.5% of price, rounded)",
+     "how": "GTC limit at −1 weekly ATR below the rung-1 fill (provisional anchor = today's price) (squeezed Nov 24 11 PM: the −1 wATR level $0.1616 sat at/below the $0.22 cut; floor = cut + ~1.5% of price, rounded)",
      "orig_price": 0.1616
     },
     {
      "rung": 3,
      "pct": 40,
      "price": 0.225,
-     "how": "GTC limit at \u22122 weekly ATR below the rung-1 fill (provisional anchor) (squeezed Nov 24 11 PM: the \u22122 wATR level $0.0544 sat at/below the $0.22 cut; floor = cut + ~1.5% of price, rounded)",
+     "how": "GTC limit at −2 weekly ATR below the rung-1 fill (provisional anchor) (squeezed Nov 24 11 PM: the −2 wATR level $0.0544 sat at/below the $0.22 cut; floor = cut + ~1.5% of price, rounded)",
      "orig_price": 0.0544
     }
    ],
@@ -931,10 +931,10 @@
     ],
     "stop": {
      "price": 0.22,
-     "rule": "weekly close below \u2192 sell everything left"
+     "rule": "weekly close below → sell everything left"
     },
     "trail_pct": 35,
-    "trail_rule": "after the first scale-out fills, trail the rest 35% (\u22481 weekly ATR) under the highest weekly close"
+    "trail_rule": "after the first scale-out fills, trail the rest 35% (≈1 weekly ATR) under the highest weekly close"
    }
   },
   "VVV": {
@@ -969,14 +969,14 @@
      "rung": 2,
      "pct": 40,
      "price": 22.51,
-     "how": "GTC limit at \u22121 weekly ATR below the rung-1 fill (provisional anchor = today's price) (squeezed Nov 24 11 PM: the \u22121 wATR level $18.3 sat at/below the $20.0 cut; floor = cut + ~1.5% of price, rounded)",
+     "how": "GTC limit at −1 weekly ATR below the rung-1 fill (provisional anchor = today's price) (squeezed Nov 24 11 PM: the −1 wATR level $18.3 sat at/below the $20.0 cut; floor = cut + ~1.5% of price, rounded)",
      "orig_price": 18.3
     },
     {
      "rung": 3,
      "pct": 40,
      "price": 20.5,
-     "how": "GTC limit at \u22122 weekly ATR below the rung-1 fill (provisional anchor) (squeezed Nov 24 11 PM: the \u22122 wATR level $12.1 sat at/below the $20.0 cut; floor = cut + ~1.5% of price, rounded)",
+     "how": "GTC limit at −2 weekly ATR below the rung-1 fill (provisional anchor) (squeezed Nov 24 11 PM: the −2 wATR level $12.1 sat at/below the $20.0 cut; floor = cut + ~1.5% of price, rounded)",
      "orig_price": 12.1
     }
    ],
@@ -1001,10 +1001,10 @@
     ],
     "stop": {
      "price": 20.0,
-     "rule": "weekly close below \u2192 sell everything left"
+     "rule": "weekly close below → sell everything left"
     },
     "trail_pct": 26,
-    "trail_rule": "after the first scale-out fills, trail the rest 26% (\u22481 weekly ATR) under the highest weekly close"
+    "trail_rule": "after the first scale-out fills, trail the rest 26% (≈1 weekly ATR) under the highest weekly close"
    }
   },
   "DJI6930": {
@@ -1019,7 +1019,7 @@
    "watr": 0.001458,
    "watr_pct": 50.9,
    "watr_wilder": 0.001108,
-   "data": "GeckoTerminal solana pool 6M7Jf1\u2026 (pumpswap)",
+   "data": "GeckoTerminal solana pool 6M7Jf1… (pumpswap)",
    "last_closed_week": "2026-11-22",
    "cut": 0.00185,
    "cut_why": "most recent unbroken weekly swing-low close $0.00187 (wk ending 2026-08-16)",
@@ -1035,9 +1035,9 @@
      "how": "market/limit at right after the Sunday 8 PM ET weekly close that prints the Max Buy"
     }
    ],
-   "buys_error": "weekly ATR $0.001458 is 51% of price (launch/crash distortion): \u22121/\u22122 wATR rungs would be at or below zero; not computed",
+   "buys_error": "weekly ATR $0.001458 is 51% of price (launch/crash distortion): −1/−2 wATR rungs would be at or below zero; not computed",
    "exits": {
-    "error": "weekly ATR $0.001458 is 51% of price (launch/crash distortion): \u22121/\u22122 wATR rungs would be at or below zero; not computed"
+    "error": "weekly ATR $0.001458 is 51% of price (launch/crash distortion): −1/−2 wATR rungs would be at or below zero; not computed"
    }
   },
   "NEAR": {
@@ -1072,13 +1072,13 @@
      "rung": 2,
      "pct": 40,
      "price": 1.77,
-     "how": "GTC limit at \u22121 weekly ATR below the rung-1 fill (provisional anchor = today's price)"
+     "how": "GTC limit at −1 weekly ATR below the rung-1 fill (provisional anchor = today's price)"
     },
     {
      "rung": 3,
      "pct": 40,
      "price": 1.6,
-     "how": "GTC limit at \u22122 weekly ATR below the rung-1 fill (provisional anchor) (squeezed Nov 24 11 PM: the \u22122 wATR level $0.7123 sat at/below the $1.55 cut; floor = cut + ~1.5% of price, rounded)",
+     "how": "GTC limit at −2 weekly ATR below the rung-1 fill (provisional anchor) (squeezed Nov 24 11 PM: the −2 wATR level $0.7123 sat at/below the $1.55 cut; floor = cut + ~1.5% of price, rounded)",
      "orig_price": 0.7123
     }
    ],
@@ -1103,10 +1103,10 @@
     ],
     "stop": {
      "price": 1.55,
-     "rule": "weekly close below \u2192 sell everything left"
+     "rule": "weekly close below → sell everything left"
     },
     "trail_pct": 35,
-    "trail_rule": "after the first scale-out fills, trail the rest 35% (\u22481 weekly ATR) under the highest weekly close"
+    "trail_rule": "after the first scale-out fills, trail the rest 35% (≈1 weekly ATR) under the highest weekly close"
    }
   },
   "XRP": {
@@ -1141,14 +1141,14 @@
      "rung": 2,
      "pct": 40,
      "price": 0.8927,
-     "how": "GTC limit at \u22121 weekly ATR below the rung-1 fill (provisional anchor = today's price) (squeezed Nov 24 11 PM: the \u22121 wATR level $0.6909 sat at/below the $0.855 cut; floor = cut + ~1.5% of price, rounded)",
+     "how": "GTC limit at −1 weekly ATR below the rung-1 fill (provisional anchor = today's price) (squeezed Nov 24 11 PM: the −1 wATR level $0.6909 sat at/below the $0.855 cut; floor = cut + ~1.5% of price, rounded)",
      "orig_price": 0.6909
     },
     {
      "rung": 3,
      "pct": 40,
      "price": 0.87,
-     "how": "GTC limit at \u22122 weekly ATR below the rung-1 fill (provisional anchor) (squeezed Nov 24 11 PM: the \u22122 wATR level $0.4663 sat at/below the $0.855 cut; floor = cut + ~1.5% of price, rounded)",
+     "how": "GTC limit at −2 weekly ATR below the rung-1 fill (provisional anchor) (squeezed Nov 24 11 PM: the −2 wATR level $0.4663 sat at/below the $0.855 cut; floor = cut + ~1.5% of price, rounded)",
      "orig_price": 0.4663
     }
    ],
@@ -1173,10 +1173,10 @@
     ],
     "stop": {
      "price": 0.855,
-     "rule": "weekly close below \u2192 sell everything left"
+     "rule": "weekly close below → sell everything left"
     },
     "trail_pct": 25,
-    "trail_rule": "after the first scale-out fills, trail the rest 25% (\u22481 weekly ATR) under the highest weekly close"
+    "trail_rule": "after the first scale-out fills, trail the rest 25% (≈1 weekly ATR) under the highest weekly close"
    }
   },
   "WOOD": {
@@ -1191,7 +1191,7 @@
    "watr": 0.002164,
    "watr_pct": 6082.4,
    "watr_wilder": 0.004479,
-   "data": "GeckoTerminal robinhood pool 0xBF3B\u2026 (uniswap)",
+   "data": "GeckoTerminal robinhood pool 0xBF3B… (uniswap)",
    "last_closed_week": "2026-11-22",
    "cut": 8.25e-06,
    "cut_why": "52-wk weekly low $8.274e-06 (price already at the 52-wk closing floor $3.63e-05)",
@@ -1207,11 +1207,11 @@
      "how": "market/limit at right after the Sunday 8 PM ET weekly close that prints the Max Buy"
     }
    ],
-   "buys_error": "weekly ATR $0.002164 is 6082% of price (launch/crash distortion): \u22121/\u22122 wATR rungs would be at or below zero; not computed",
+   "buys_error": "weekly ATR $0.002164 is 6082% of price (launch/crash distortion): −1/−2 wATR rungs would be at or below zero; not computed",
    "exits": {
     "stop": null,
     "stop_rule": "none: WOOD has no price stop (standing rule)",
-    "error": "weekly ATR $0.002164 is 6082% of price (launch/crash distortion): \u22121/\u22122 wATR rungs would be at or below zero; not computed"
+    "error": "weekly ATR $0.002164 is 6082% of price (launch/crash distortion): −1/−2 wATR rungs would be at or below zero; not computed"
    }
   },
   "AVGO": {
@@ -1246,14 +1246,14 @@
      "rung": 2,
      "pct": 40,
      "price": 298.04,
-     "how": "GTC limit at \u22121 weekly ATR below the rung-1 fill (provisional anchor = today's price) (squeezed Nov 24 11 PM: the \u22121 wATR level $266.65 sat at/below the $290.0 cut; floor = cut + ~1.5% of price, rounded)",
+     "how": "GTC limit at −1 weekly ATR below the rung-1 fill (provisional anchor = today's price) (squeezed Nov 24 11 PM: the −1 wATR level $266.65 sat at/below the $290.0 cut; floor = cut + ~1.5% of price, rounded)",
      "orig_price": 266.65
     },
     {
      "rung": 3,
      "pct": 40,
      "price": 295.0,
-     "how": "GTC limit at \u22122 weekly ATR below the rung-1 fill (provisional anchor) (squeezed Nov 24 11 PM: the \u22122 wATR level $232.21 sat at/below the $290.0 cut; floor = cut + ~1.5% of price, rounded)",
+     "how": "GTC limit at −2 weekly ATR below the rung-1 fill (provisional anchor) (squeezed Nov 24 11 PM: the −2 wATR level $232.21 sat at/below the $290.0 cut; floor = cut + ~1.5% of price, rounded)",
      "orig_price": 232.21
     }
    ],
@@ -1267,7 +1267,7 @@
     ],
     "stop": {
      "price": 290.0,
-     "rule": "weekly close of AVGO below \u2192 buy to close (or roll) the short put; otherwise assignment at $340 is the entry and held-name exits get set that day"
+     "rule": "weekly close of AVGO below → buy to close (or roll) the short put; otherwise assignment at $340 is the entry and held-name exits get set that day"
     },
     "trail_pct": null,
     "trail_rule": "n/a (short option)"
@@ -1305,14 +1305,14 @@
      "rung": 2,
      "pct": 40,
      "price": 86.39,
-     "how": "GTC limit at \u22121 weekly ATR below the rung-1 fill (provisional anchor = today's price) (squeezed Nov 24 11 PM: the \u22121 wATR level $56.57 sat at/below the $82.5 cut; floor = cut + ~1.5% of price, rounded)",
+     "how": "GTC limit at −1 weekly ATR below the rung-1 fill (provisional anchor = today's price) (squeezed Nov 24 11 PM: the −1 wATR level $56.57 sat at/below the $82.5 cut; floor = cut + ~1.5% of price, rounded)",
      "orig_price": 56.57
     },
     {
      "rung": 3,
      "pct": 40,
      "price": 84.0,
-     "how": "GTC limit at \u22122 weekly ATR below the rung-1 fill (provisional anchor) (squeezed Nov 24 11 PM: the \u22122 wATR level $24.36 sat at/below the $82.5 cut; floor = cut + ~1.5% of price, rounded)",
+     "how": "GTC limit at −2 weekly ATR below the rung-1 fill (provisional anchor) (squeezed Nov 24 11 PM: the −2 wATR level $24.36 sat at/below the $82.5 cut; floor = cut + ~1.5% of price, rounded)",
      "orig_price": 24.36
     }
    ],
@@ -1326,7 +1326,7 @@
     ],
     "stop": {
      "price": 82.5,
-     "rule": "weekly close of CBRS below \u2192 buy to close (or roll) the short put; otherwise assignment at $80 is the entry and held-name exits get set that day"
+     "rule": "weekly close of CBRS below → buy to close (or roll) the short put; otherwise assignment at $80 is the entry and held-name exits get set that day"
     },
     "trail_pct": null,
     "trail_rule": "n/a (short option)"
@@ -1364,14 +1364,14 @@
      "rung": 2,
      "pct": 40,
      "price": 116.41,
-     "how": "GTC limit at \u22121 weekly ATR below the rung-1 fill (provisional anchor = today's price) (squeezed Nov 24 11 PM: rung 3 sat under the $105.0 cut and the rounded floor $110 was above rung 2, so both evenly spaced to a $107 floor)",
+     "how": "GTC limit at −1 weekly ATR below the rung-1 fill (provisional anchor = today's price) (squeezed Nov 24 11 PM: rung 3 sat under the $105.0 cut and the rounded floor $110 was above rung 2, so both evenly spaced to a $107 floor)",
      "orig_price": 109.0
     },
     {
      "rung": 3,
      "pct": 40,
      "price": 107.0,
-     "how": "GTC limit at \u22122 weekly ATR below the rung-1 fill (provisional anchor) (squeezed Nov 24 11 PM: rung 3 sat under the $105.0 cut and the rounded floor $110 was above rung 2, so both evenly spaced to a $107 floor)",
+     "how": "GTC limit at −2 weekly ATR below the rung-1 fill (provisional anchor) (squeezed Nov 24 11 PM: rung 3 sat under the $105.0 cut and the rounded floor $110 was above rung 2, so both evenly spaced to a $107 floor)",
      "orig_price": 92.2
     }
    ]
@@ -1408,13 +1408,13 @@
      "rung": 2,
      "pct": 40,
      "price": 135.75,
-     "how": "GTC limit at \u22121 weekly ATR below the rung-1 fill (provisional anchor = today's price)"
+     "how": "GTC limit at −1 weekly ATR below the rung-1 fill (provisional anchor = today's price)"
     },
     {
      "rung": 3,
      "pct": 40,
      "price": 130.0,
-     "how": "GTC limit at \u22122 weekly ATR below the rung-1 fill (provisional anchor) (squeezed Nov 24 11 PM: the \u22122 wATR level $116.12 sat at/below the $125.0 cut; floor = cut + ~1.5% of price, rounded)",
+     "how": "GTC limit at −2 weekly ATR below the rung-1 fill (provisional anchor) (squeezed Nov 24 11 PM: the −2 wATR level $116.12 sat at/below the $125.0 cut; floor = cut + ~1.5% of price, rounded)",
      "orig_price": 116.12
     }
    ]
@@ -1451,13 +1451,13 @@
      "rung": 2,
      "pct": 40,
      "price": 94.0,
-     "how": "GTC limit at \u22121 weekly ATR below the rung-1 fill (provisional anchor = today's price)"
+     "how": "GTC limit at −1 weekly ATR below the rung-1 fill (provisional anchor = today's price)"
     },
     {
      "rung": 3,
      "pct": 40,
      "price": 80.5,
-     "how": "GTC limit at \u22122 weekly ATR below the rung-1 fill (provisional anchor) (squeezed Nov 24 11 PM: the \u22122 wATR level $56.43 sat at/below the $78.5 cut; floor = cut + ~1.5% of price, rounded)",
+     "how": "GTC limit at −2 weekly ATR below the rung-1 fill (provisional anchor) (squeezed Nov 24 11 PM: the −2 wATR level $56.43 sat at/below the $78.5 cut; floor = cut + ~1.5% of price, rounded)",
      "orig_price": 56.43
     }
    ]
@@ -1494,13 +1494,13 @@
      "rung": 2,
      "pct": 40,
      "price": 122.63,
-     "how": "GTC limit at \u22121 weekly ATR below the rung-1 fill (provisional anchor = today's price)"
+     "how": "GTC limit at −1 weekly ATR below the rung-1 fill (provisional anchor = today's price)"
     },
     {
      "rung": 3,
      "pct": 40,
      "price": 115.0,
-     "how": "GTC limit at \u22122 weekly ATR below the rung-1 fill (provisional anchor) (squeezed Nov 24 11 PM: the \u22122 wATR level $83.69 sat at/below the $110.0 cut; floor = cut + ~1.5% of price, rounded)",
+     "how": "GTC limit at −2 weekly ATR below the rung-1 fill (provisional anchor) (squeezed Nov 24 11 PM: the −2 wATR level $83.69 sat at/below the $110.0 cut; floor = cut + ~1.5% of price, rounded)",
      "orig_price": 83.69
     }
    ]
@@ -1537,14 +1537,14 @@
      "rung": 2,
      "pct": 40,
      "price": 41.55,
-     "how": "GTC limit at \u22121 weekly ATR below the rung-1 fill (provisional anchor = today's price) (squeezed Nov 24 11 PM: the \u22121 wATR level $28.72 sat at/below the $39.5 cut; floor = cut + ~1.5% of price, rounded)",
+     "how": "GTC limit at −1 weekly ATR below the rung-1 fill (provisional anchor = today's price) (squeezed Nov 24 11 PM: the −1 wATR level $28.72 sat at/below the $39.5 cut; floor = cut + ~1.5% of price, rounded)",
      "orig_price": 28.72
     },
     {
      "rung": 3,
      "pct": 40,
      "price": 40.5,
-     "how": "GTC limit at \u22122 weekly ATR below the rung-1 fill (provisional anchor) (squeezed Nov 24 11 PM: the \u22122 wATR level $14.82 sat at/below the $39.5 cut; floor = cut + ~1.5% of price, rounded)",
+     "how": "GTC limit at −2 weekly ATR below the rung-1 fill (provisional anchor) (squeezed Nov 24 11 PM: the −2 wATR level $14.82 sat at/below the $39.5 cut; floor = cut + ~1.5% of price, rounded)",
      "orig_price": 14.82
     }
    ]
@@ -1581,14 +1581,14 @@
      "rung": 2,
      "pct": 40,
      "price": 64.9,
-     "how": "GTC limit at \u22121 weekly ATR below the rung-1 fill (provisional anchor = today's price) (squeezed Nov 24 11 PM: the \u22121 wATR level $52.51 sat at/below the $55.0 cut; floor = cut + ~1.5% of price, rounded)",
+     "how": "GTC limit at −1 weekly ATR below the rung-1 fill (provisional anchor = today's price) (squeezed Nov 24 11 PM: the −1 wATR level $52.51 sat at/below the $55.0 cut; floor = cut + ~1.5% of price, rounded)",
      "orig_price": 52.51
     },
     {
      "rung": 3,
      "pct": 40,
      "price": 56.5,
-     "how": "GTC limit at \u22122 weekly ATR below the rung-1 fill (provisional anchor) (squeezed Nov 24 11 PM: the \u22122 wATR level $31.71 sat at/below the $55.0 cut; floor = cut + ~1.5% of price, rounded)",
+     "how": "GTC limit at −2 weekly ATR below the rung-1 fill (provisional anchor) (squeezed Nov 24 11 PM: the −2 wATR level $31.71 sat at/below the $55.0 cut; floor = cut + ~1.5% of price, rounded)",
      "orig_price": 31.71
     }
    ]
@@ -1611,7 +1611,7 @@
    "cut_why": "52-wk weekly low $94.82, set under the already-planned $100 rung (nearest swing-low close $133.04 would void rungs 2-3)",
    "breakout": 200.0,
    "breakout_why": "last unbroken weekly lower-high close $195.98 (wk ending 2026-10-02)",
-   "gemini": "Max Buy Nov 9 week (confirmed) \u2014 spot ladder $151/$122/$100 already planned",
+   "gemini": "Max Buy Nov 9 week (confirmed) — spot ladder $151/$122/$100 already planned",
    "buy_trigger": "Closed-week Gemini weekly Max Buy with the weekly close above $94.5, or a weekly close above $200.0 (last unbroken weekly lower-high close $195.98 (wk ending 2026-10-02))",
    "buys": [
     {
@@ -1636,7 +1636,7 @@
      "how": "Buy 64 POWL, Limit $100, GTC"
     }
    ],
-   "buys_check": "rule check: \u22121/\u22122 wATR from $153.88 = $131.35 / $108.83"
+   "buys_check": "rule check: −1/−2 wATR from $153.88 = $131.35 / $108.83"
   },
   "LEU": {
    "t": "LEU",
@@ -1670,14 +1670,14 @@
      "rung": 2,
      "pct": 40,
      "price": 83.27,
-     "how": "GTC limit at \u22121 weekly ATR below the rung-1 fill (provisional anchor = today's price) (squeezed Nov 24 11 PM: the \u22121 wATR level $62.33 sat at/below the $81.0 cut; floor = cut + ~1.5% of price, rounded)",
+     "how": "GTC limit at −1 weekly ATR below the rung-1 fill (provisional anchor = today's price) (squeezed Nov 24 11 PM: the −1 wATR level $62.33 sat at/below the $81.0 cut; floor = cut + ~1.5% of price, rounded)",
      "orig_price": 62.33
     },
     {
      "rung": 3,
      "pct": 40,
      "price": 82.5,
-     "how": "GTC limit at \u22122 weekly ATR below the rung-1 fill (provisional anchor) (squeezed Nov 24 11 PM: the \u22122 wATR level $40.63 sat at/below the $81.0 cut; floor = cut + ~1.5% of price, rounded)",
+     "how": "GTC limit at −2 weekly ATR below the rung-1 fill (provisional anchor) (squeezed Nov 24 11 PM: the −2 wATR level $40.63 sat at/below the $81.0 cut; floor = cut + ~1.5% of price, rounded)",
      "orig_price": 40.63
     }
    ]
@@ -1714,14 +1714,14 @@
      "rung": 2,
      "pct": 40,
      "price": 352.03,
-     "how": "GTC limit at \u22121 weekly ATR below the rung-1 fill (provisional anchor = today's price) (squeezed Nov 24 11 PM: the \u22121 wATR level $337.41 sat at/below the $340.0 cut; floor = cut + ~1.5% of price, rounded)",
+     "how": "GTC limit at −1 weekly ATR below the rung-1 fill (provisional anchor = today's price) (squeezed Nov 24 11 PM: the −1 wATR level $337.41 sat at/below the $340.0 cut; floor = cut + ~1.5% of price, rounded)",
      "orig_price": 337.41
     },
     {
      "rung": 3,
      "pct": 40,
      "price": 350.0,
-     "how": "GTC limit at \u22122 weekly ATR below the rung-1 fill (provisional anchor) (squeezed Nov 24 11 PM: the \u22122 wATR level $320.76 sat at/below the $340.0 cut; floor = cut + ~1.5% of price, rounded)",
+     "how": "GTC limit at −2 weekly ATR below the rung-1 fill (provisional anchor) (squeezed Nov 24 11 PM: the −2 wATR level $320.76 sat at/below the $340.0 cut; floor = cut + ~1.5% of price, rounded)",
      "orig_price": 320.76
     }
    ]
@@ -1758,14 +1758,14 @@
      "rung": 2,
      "pct": 40,
      "price": 248.64,
-     "how": "GTC limit at \u22121 weekly ATR below the rung-1 fill (provisional anchor = today's price) (squeezed Nov 24 11 PM: the \u22121 wATR level $235.81 sat at/below the $240.0 cut; floor = cut + ~1.5% of price, rounded)",
+     "how": "GTC limit at −1 weekly ATR below the rung-1 fill (provisional anchor = today's price) (squeezed Nov 24 11 PM: the −1 wATR level $235.81 sat at/below the $240.0 cut; floor = cut + ~1.5% of price, rounded)",
      "orig_price": 235.81
     },
     {
      "rung": 3,
      "pct": 40,
      "price": 245.0,
-     "how": "GTC limit at \u22122 weekly ATR below the rung-1 fill (provisional anchor) (squeezed Nov 24 11 PM: the \u22122 wATR level $219.33 sat at/below the $240.0 cut; floor = cut + ~1.5% of price, rounded)",
+     "how": "GTC limit at −2 weekly ATR below the rung-1 fill (provisional anchor) (squeezed Nov 24 11 PM: the −2 wATR level $219.33 sat at/below the $240.0 cut; floor = cut + ~1.5% of price, rounded)",
      "orig_price": 219.33
     }
    ]
@@ -1802,13 +1802,13 @@
      "rung": 2,
      "pct": 40,
      "price": 337.49,
-     "how": "GTC limit at \u22121 weekly ATR below the rung-1 fill (provisional anchor = today's price)"
+     "how": "GTC limit at −1 weekly ATR below the rung-1 fill (provisional anchor = today's price)"
     },
     {
      "rung": 3,
      "pct": 40,
      "price": 293.88,
-     "how": "GTC limit at \u22122 weekly ATR below the rung-1 fill (provisional anchor)"
+     "how": "GTC limit at −2 weekly ATR below the rung-1 fill (provisional anchor)"
     }
    ]
   },
@@ -1844,13 +1844,13 @@
      "rung": 2,
      "pct": 40,
      "price": 508.57,
-     "how": "GTC limit at \u22121 weekly ATR below the rung-1 fill (provisional anchor = today's price)"
+     "how": "GTC limit at −1 weekly ATR below the rung-1 fill (provisional anchor = today's price)"
     },
     {
      "rung": 3,
      "pct": 40,
      "price": 387.36,
-     "how": "GTC limit at \u22122 weekly ATR below the rung-1 fill (provisional anchor)"
+     "how": "GTC limit at −2 weekly ATR below the rung-1 fill (provisional anchor)"
     }
    ]
   },
@@ -1886,14 +1886,14 @@
      "rung": 2,
      "pct": 40,
      "price": 49.16,
-     "how": "GTC limit at \u22121 weekly ATR below the rung-1 fill (provisional anchor = today's price) (squeezed Nov 24 11 PM: the \u22121 wATR level $40.33 sat at/below the $42.5 cut; floor = cut + ~1.5% of price, rounded)",
+     "how": "GTC limit at −1 weekly ATR below the rung-1 fill (provisional anchor = today's price) (squeezed Nov 24 11 PM: the −1 wATR level $40.33 sat at/below the $42.5 cut; floor = cut + ~1.5% of price, rounded)",
      "orig_price": 40.33
     },
     {
      "rung": 3,
      "pct": 40,
      "price": 43.5,
-     "how": "GTC limit at \u22122 weekly ATR below the rung-1 fill (provisional anchor) (squeezed Nov 24 11 PM: the \u22122 wATR level $25.83 sat at/below the $42.5 cut; floor = cut + ~1.5% of price, rounded)",
+     "how": "GTC limit at −2 weekly ATR below the rung-1 fill (provisional anchor) (squeezed Nov 24 11 PM: the −2 wATR level $25.83 sat at/below the $42.5 cut; floor = cut + ~1.5% of price, rounded)",
      "orig_price": 25.83
     }
    ]
@@ -1930,14 +1930,14 @@
      "rung": 2,
      "pct": 40,
      "price": 341.34,
-     "how": "GTC limit at \u22121 weekly ATR below the rung-1 fill (provisional anchor = today's price) (squeezed Nov 24 11 PM: the \u22121 wATR level $305.54 sat at/below the $325.0 cut; floor = cut + ~1.5% of price, rounded)",
+     "how": "GTC limit at −1 weekly ATR below the rung-1 fill (provisional anchor = today's price) (squeezed Nov 24 11 PM: the −1 wATR level $305.54 sat at/below the $325.0 cut; floor = cut + ~1.5% of price, rounded)",
      "orig_price": 305.54
     },
     {
      "rung": 3,
      "pct": 40,
      "price": 335.0,
-     "how": "GTC limit at \u22122 weekly ATR below the rung-1 fill (provisional anchor) (squeezed Nov 24 11 PM: the \u22122 wATR level $263.4 sat at/below the $325.0 cut; floor = cut + ~1.5% of price, rounded)",
+     "how": "GTC limit at −2 weekly ATR below the rung-1 fill (provisional anchor) (squeezed Nov 24 11 PM: the −2 wATR level $263.4 sat at/below the $325.0 cut; floor = cut + ~1.5% of price, rounded)",
      "orig_price": 263.4
     }
    ]
@@ -1974,13 +1974,13 @@
      "rung": 2,
      "pct": 40,
      "price": 313.07,
-     "how": "GTC limit at \u22121 weekly ATR below the rung-1 fill (provisional anchor = today's price)"
+     "how": "GTC limit at −1 weekly ATR below the rung-1 fill (provisional anchor = today's price)"
     },
     {
      "rung": 3,
      "pct": 40,
      "price": 295.0,
-     "how": "GTC limit at \u22122 weekly ATR below the rung-1 fill (provisional anchor) (squeezed Nov 24 11 PM: the \u22122 wATR level $276.95 sat at/below the $285.0 cut; floor = cut + ~1.5% of price, rounded)",
+     "how": "GTC limit at −2 weekly ATR below the rung-1 fill (provisional anchor) (squeezed Nov 24 11 PM: the −2 wATR level $276.95 sat at/below the $285.0 cut; floor = cut + ~1.5% of price, rounded)",
      "orig_price": 276.95
     }
    ]
@@ -2017,13 +2017,13 @@
      "rung": 2,
      "pct": 40,
      "price": 42.66,
-     "how": "GTC limit at \u22121 weekly ATR below the rung-1 fill (provisional anchor = today's price)"
+     "how": "GTC limit at −1 weekly ATR below the rung-1 fill (provisional anchor = today's price)"
     },
     {
      "rung": 3,
      "pct": 40,
      "price": 38.5,
-     "how": "GTC limit at \u22122 weekly ATR below the rung-1 fill (provisional anchor) (squeezed Nov 24 11 PM: the \u22122 wATR level $36.95 sat at/below the $37.5 cut; floor = cut + ~1.5% of price, rounded)",
+     "how": "GTC limit at −2 weekly ATR below the rung-1 fill (provisional anchor) (squeezed Nov 24 11 PM: the −2 wATR level $36.95 sat at/below the $37.5 cut; floor = cut + ~1.5% of price, rounded)",
      "orig_price": 36.95
     }
    ]
@@ -2060,14 +2060,14 @@
      "rung": 2,
      "pct": 40,
      "price": 8.43,
-     "how": "GTC limit at \u22121 weekly ATR below the rung-1 fill (provisional anchor = today's price) (squeezed Nov 24 11 PM: the \u22121 wATR level $4.99 sat at/below the $7.85 cut; floor = cut + ~1.5% of price, rounded)",
+     "how": "GTC limit at −1 weekly ATR below the rung-1 fill (provisional anchor = today's price) (squeezed Nov 24 11 PM: the −1 wATR level $4.99 sat at/below the $7.85 cut; floor = cut + ~1.5% of price, rounded)",
      "orig_price": 4.99
     },
     {
      "rung": 3,
      "pct": 40,
      "price": 8.0,
-     "how": "GTC limit at \u22122 weekly ATR below the rung-1 fill (provisional anchor) (squeezed Nov 24 11 PM: the \u22122 wATR level $1.11 sat at/below the $7.85 cut; floor = cut + ~1.5% of price, rounded)",
+     "how": "GTC limit at −2 weekly ATR below the rung-1 fill (provisional anchor) (squeezed Nov 24 11 PM: the −2 wATR level $1.11 sat at/below the $7.85 cut; floor = cut + ~1.5% of price, rounded)",
      "orig_price": 1.11
     }
    ]
@@ -2104,14 +2104,14 @@
      "rung": 2,
      "pct": 40,
      "price": 34.78,
-     "how": "GTC limit at \u22121 weekly ATR below the rung-1 fill (provisional anchor = today's price) (squeezed Nov 24 11 PM: the \u22121 wATR level $30.33 sat at/below the $33.5 cut; floor = cut + ~1.5% of price, rounded)",
+     "how": "GTC limit at −1 weekly ATR below the rung-1 fill (provisional anchor = today's price) (squeezed Nov 24 11 PM: the −1 wATR level $30.33 sat at/below the $33.5 cut; floor = cut + ~1.5% of price, rounded)",
      "orig_price": 30.33
     },
     {
      "rung": 3,
      "pct": 40,
      "price": 34.5,
-     "how": "GTC limit at \u22122 weekly ATR below the rung-1 fill (provisional anchor) (squeezed Nov 24 11 PM: the \u22122 wATR level $25.59 sat at/below the $33.5 cut; floor = cut + ~1.5% of price, rounded)",
+     "how": "GTC limit at −2 weekly ATR below the rung-1 fill (provisional anchor) (squeezed Nov 24 11 PM: the −2 wATR level $25.59 sat at/below the $33.5 cut; floor = cut + ~1.5% of price, rounded)",
      "orig_price": 25.59
     }
    ]
@@ -2148,13 +2148,13 @@
      "rung": 2,
      "pct": 40,
      "price": 141.98,
-     "how": "GTC limit at \u22121 weekly ATR below the rung-1 fill (provisional anchor = today's price)"
+     "how": "GTC limit at −1 weekly ATR below the rung-1 fill (provisional anchor = today's price)"
     },
     {
      "rung": 3,
      "pct": 40,
      "price": 122.79,
-     "how": "GTC limit at \u22122 weekly ATR below the rung-1 fill (provisional anchor)"
+     "how": "GTC limit at −2 weekly ATR below the rung-1 fill (provisional anchor)"
     }
    ]
   },
@@ -2190,13 +2190,13 @@
      "rung": 2,
      "pct": 40,
      "price": 337.44,
-     "how": "GTC limit at \u22121 weekly ATR below the rung-1 fill (provisional anchor = today's price)"
+     "how": "GTC limit at −1 weekly ATR below the rung-1 fill (provisional anchor = today's price)"
     },
     {
      "rung": 3,
      "pct": 40,
      "price": 261.62,
-     "how": "GTC limit at \u22122 weekly ATR below the rung-1 fill (provisional anchor)"
+     "how": "GTC limit at −2 weekly ATR below the rung-1 fill (provisional anchor)"
     }
    ]
   },
@@ -2232,13 +2232,13 @@
      "rung": 2,
      "pct": 40,
      "price": 1193.0,
-     "how": "GTC limit at \u22121 weekly ATR below the rung-1 fill (provisional anchor = today's price)"
+     "how": "GTC limit at −1 weekly ATR below the rung-1 fill (provisional anchor = today's price)"
     },
     {
      "rung": 3,
      "pct": 40,
      "price": 1051.0,
-     "how": "GTC limit at \u22122 weekly ATR below the rung-1 fill (provisional anchor)"
+     "how": "GTC limit at −2 weekly ATR below the rung-1 fill (provisional anchor)"
     }
    ]
   },
@@ -2274,14 +2274,14 @@
      "rung": 2,
      "pct": 40,
      "price": 677.83,
-     "how": "GTC limit at \u22121 weekly ATR below the rung-1 fill (provisional anchor = today's price) (squeezed Nov 24 11 PM: the \u22121 wATR level $618.16 sat at/below the $620.0 cut; floor = cut + ~1.5% of price, rounded)",
+     "how": "GTC limit at −1 weekly ATR below the rung-1 fill (provisional anchor = today's price) (squeezed Nov 24 11 PM: the −1 wATR level $618.16 sat at/below the $620.0 cut; floor = cut + ~1.5% of price, rounded)",
      "orig_price": 618.16
     },
     {
      "rung": 3,
      "pct": 40,
      "price": 635.0,
-     "how": "GTC limit at \u22122 weekly ATR below the rung-1 fill (provisional anchor) (squeezed Nov 24 11 PM: the \u22122 wATR level $515.68 sat at/below the $620.0 cut; floor = cut + ~1.5% of price, rounded)",
+     "how": "GTC limit at −2 weekly ATR below the rung-1 fill (provisional anchor) (squeezed Nov 24 11 PM: the −2 wATR level $515.68 sat at/below the $620.0 cut; floor = cut + ~1.5% of price, rounded)",
      "orig_price": 515.68
     }
    ]
@@ -2318,14 +2318,14 @@
      "rung": 2,
      "pct": 40,
      "price": 530.32,
-     "how": "GTC limit at \u22121 weekly ATR below the rung-1 fill (provisional anchor = today's price) (squeezed Nov 24 11 PM: the \u22121 wATR level $473.26 sat at/below the $510.0 cut; floor = cut + ~1.5% of price, rounded)",
+     "how": "GTC limit at −1 weekly ATR below the rung-1 fill (provisional anchor = today's price) (squeezed Nov 24 11 PM: the −1 wATR level $473.26 sat at/below the $510.0 cut; floor = cut + ~1.5% of price, rounded)",
      "orig_price": 473.26
     },
     {
      "rung": 3,
      "pct": 40,
      "price": 520.0,
-     "how": "GTC limit at \u22122 weekly ATR below the rung-1 fill (provisional anchor) (squeezed Nov 24 11 PM: the \u22122 wATR level $405.88 sat at/below the $510.0 cut; floor = cut + ~1.5% of price, rounded)",
+     "how": "GTC limit at −2 weekly ATR below the rung-1 fill (provisional anchor) (squeezed Nov 24 11 PM: the −2 wATR level $405.88 sat at/below the $510.0 cut; floor = cut + ~1.5% of price, rounded)",
      "orig_price": 405.88
     }
    ]
@@ -2362,14 +2362,14 @@
      "rung": 2,
      "pct": 40,
      "price": 412.41,
-     "how": "GTC limit at \u22121 weekly ATR below the rung-1 fill (provisional anchor = today's price) (squeezed Nov 24 11 PM: the \u22121 wATR level $379.69 sat at/below the $400.0 cut; floor = cut + ~1.5% of price, rounded)",
+     "how": "GTC limit at −1 weekly ATR below the rung-1 fill (provisional anchor = today's price) (squeezed Nov 24 11 PM: the −1 wATR level $379.69 sat at/below the $400.0 cut; floor = cut + ~1.5% of price, rounded)",
      "orig_price": 379.69
     },
     {
      "rung": 3,
      "pct": 40,
      "price": 410.0,
-     "how": "GTC limit at \u22122 weekly ATR below the rung-1 fill (provisional anchor) (squeezed Nov 24 11 PM: the \u22122 wATR level $344.54 sat at/below the $400.0 cut; floor = cut + ~1.5% of price, rounded)",
+     "how": "GTC limit at −2 weekly ATR below the rung-1 fill (provisional anchor) (squeezed Nov 24 11 PM: the −2 wATR level $344.54 sat at/below the $400.0 cut; floor = cut + ~1.5% of price, rounded)",
      "orig_price": 344.54
     }
    ]
@@ -2406,14 +2406,14 @@
      "rung": 2,
      "pct": 40,
      "price": 89.95,
-     "how": "GTC limit at \u22121 weekly ATR below the rung-1 fill (provisional anchor = today's price) (squeezed Nov 24 11 PM: the \u22121 wATR level $79.76 sat at/below the $87.5 cut; floor = cut + ~1.5% of price, rounded)",
+     "how": "GTC limit at −1 weekly ATR below the rung-1 fill (provisional anchor = today's price) (squeezed Nov 24 11 PM: the −1 wATR level $79.76 sat at/below the $87.5 cut; floor = cut + ~1.5% of price, rounded)",
      "orig_price": 79.76
     },
     {
      "rung": 3,
      "pct": 40,
      "price": 89.0,
-     "how": "GTC limit at \u22122 weekly ATR below the rung-1 fill (provisional anchor) (squeezed Nov 24 11 PM: the \u22122 wATR level $68.62 sat at/below the $87.5 cut; floor = cut + ~1.5% of price, rounded)",
+     "how": "GTC limit at −2 weekly ATR below the rung-1 fill (provisional anchor) (squeezed Nov 24 11 PM: the −2 wATR level $68.62 sat at/below the $87.5 cut; floor = cut + ~1.5% of price, rounded)",
      "orig_price": 68.62
     }
    ]
@@ -2450,14 +2450,14 @@
      "rung": 2,
      "pct": 40,
      "price": 65.5,
-     "how": "GTC limit at \u22121 weekly ATR below the rung-1 fill (provisional anchor = today's price) (squeezed Nov 24 11 PM: the \u22121 wATR level $60.96 sat at/below the $64.0 cut; floor = cut + ~1.5% of price, rounded)",
+     "how": "GTC limit at −1 weekly ATR below the rung-1 fill (provisional anchor = today's price) (squeezed Nov 24 11 PM: the −1 wATR level $60.96 sat at/below the $64.0 cut; floor = cut + ~1.5% of price, rounded)",
      "orig_price": 60.96
     },
     {
      "rung": 3,
      "pct": 40,
      "price": 65.0,
-     "how": "GTC limit at \u22122 weekly ATR below the rung-1 fill (provisional anchor) (squeezed Nov 24 11 PM: the \u22122 wATR level $55.92 sat at/below the $64.0 cut; floor = cut + ~1.5% of price, rounded)",
+     "how": "GTC limit at −2 weekly ATR below the rung-1 fill (provisional anchor) (squeezed Nov 24 11 PM: the −2 wATR level $55.92 sat at/below the $64.0 cut; floor = cut + ~1.5% of price, rounded)",
      "orig_price": 55.92
     }
    ]
@@ -2494,14 +2494,14 @@
      "rung": 2,
      "pct": 40,
      "price": 148.72,
-     "how": "GTC limit at \u22121 weekly ATR below the rung-1 fill (provisional anchor = today's price) (squeezed Nov 24 11 PM: the \u22121 wATR level $123.71 sat at/below the $140.0 cut; floor = cut + ~1.5% of price, rounded)",
+     "how": "GTC limit at −1 weekly ATR below the rung-1 fill (provisional anchor = today's price) (squeezed Nov 24 11 PM: the −1 wATR level $123.71 sat at/below the $140.0 cut; floor = cut + ~1.5% of price, rounded)",
      "orig_price": 123.71
     },
     {
      "rung": 3,
      "pct": 40,
      "price": 145.0,
-     "how": "GTC limit at \u22122 weekly ATR below the rung-1 fill (provisional anchor) (squeezed Nov 24 11 PM: the \u22122 wATR level $94.97 sat at/below the $140.0 cut; floor = cut + ~1.5% of price, rounded)",
+     "how": "GTC limit at −2 weekly ATR below the rung-1 fill (provisional anchor) (squeezed Nov 24 11 PM: the −2 wATR level $94.97 sat at/below the $140.0 cut; floor = cut + ~1.5% of price, rounded)",
      "orig_price": 94.97
     }
    ]
@@ -2538,14 +2538,14 @@
      "rung": 2,
      "pct": 40,
      "price": 614.15,
-     "how": "GTC limit at \u22121 weekly ATR below the rung-1 fill (provisional anchor = today's price) (squeezed Nov 24 11 PM: the \u22121 wATR level $408.96 sat at/below the $485.0 cut; floor = cut + ~1.5% of price, rounded)",
+     "how": "GTC limit at −1 weekly ATR below the rung-1 fill (provisional anchor = today's price) (squeezed Nov 24 11 PM: the −1 wATR level $408.96 sat at/below the $485.0 cut; floor = cut + ~1.5% of price, rounded)",
      "orig_price": 408.96
     },
     {
      "rung": 3,
      "pct": 40,
      "price": 500.0,
-     "how": "GTC limit at \u22122 weekly ATR below the rung-1 fill (provisional anchor) (squeezed Nov 24 11 PM: the \u22122 wATR level $89.6 sat at/below the $485.0 cut; floor = cut + ~1.5% of price, rounded)",
+     "how": "GTC limit at −2 weekly ATR below the rung-1 fill (provisional anchor) (squeezed Nov 24 11 PM: the −2 wATR level $89.6 sat at/below the $485.0 cut; floor = cut + ~1.5% of price, rounded)",
      "orig_price": 89.6
     }
    ]
@@ -2582,14 +2582,14 @@
      "rung": 2,
      "pct": 40,
      "price": 2.19,
-     "how": "GTC limit at \u22121 weekly ATR below the rung-1 fill (provisional anchor = today's price) (squeezed Nov 24 11 PM: the \u22121 wATR level $1.3 sat at/below the $2.0 cut; floor = cut + ~1.5% of price, rounded)",
+     "how": "GTC limit at −1 weekly ATR below the rung-1 fill (provisional anchor = today's price) (squeezed Nov 24 11 PM: the −1 wATR level $1.3 sat at/below the $2.0 cut; floor = cut + ~1.5% of price, rounded)",
      "orig_price": 1.3
     },
     {
      "rung": 3,
      "pct": 40,
      "price": 2.05,
-     "how": "GTC limit at \u22122 weekly ATR below the rung-1 fill (provisional anchor) (squeezed Nov 24 11 PM: the \u22122 wATR level $0.2615 sat at/below the $2.0 cut; floor = cut + ~1.5% of price, rounded)",
+     "how": "GTC limit at −2 weekly ATR below the rung-1 fill (provisional anchor) (squeezed Nov 24 11 PM: the −2 wATR level $0.2615 sat at/below the $2.0 cut; floor = cut + ~1.5% of price, rounded)",
      "orig_price": 0.2615
     }
    ]
@@ -2626,18 +2626,19 @@
      "rung": 2,
      "pct": 40,
      "price": 1.21,
-     "how": "GTC limit at \u22121 weekly ATR below the rung-1 fill (provisional anchor = today's price) (squeezed Nov 24 11 PM: the \u22121 wATR level $0.9435 sat at/below the $1.1 cut; floor = cut + ~1.5% of price, rounded)",
+     "how": "GTC limit at −1 weekly ATR below the rung-1 fill (provisional anchor = today's price) (squeezed Nov 24 11 PM: the −1 wATR level $0.9435 sat at/below the $1.1 cut; floor = cut + ~1.5% of price, rounded)",
      "orig_price": 0.9435
     },
     {
      "rung": 3,
      "pct": 40,
      "price": 1.15,
-     "how": "GTC limit at \u22122 weekly ATR below the rung-1 fill (provisional anchor) (squeezed Nov 24 11 PM: the \u22122 wATR level $0.6157 sat at/below the $1.1 cut; floor = cut + ~1.5% of price, rounded)",
+     "how": "GTC limit at −2 weekly ATR below the rung-1 fill (provisional anchor) (squeezed Nov 24 11 PM: the −2 wATR level $0.6157 sat at/below the $1.1 cut; floor = cut + ~1.5% of price, rounded)",
      "orig_price": 0.6157
     }
    ]
   }
  },
- "squeeze_rule": "Nov 24 11 PM (Pablo): where rung 2/3 (\u22121/\u22122 wATR) would sit at/below the cut, squeeze above it: floor = cut + ~1.5% of price rounded up to a clean number; if rung 2 is also under the cut both go evenly spaced (rung 2 = midpoint of price and floor, rung 3 = floor), else only rung 3 moves to the floor. Cut lines and rung 1 unchanged; POWL unchanged."
+ "squeeze_rule": "Nov 24 11 PM (Pablo): where rung 2/3 (−1/−2 wATR) would sit at/below the cut, squeeze above it: floor = cut + ~1.5% of price rounded up to a clean number; if rung 2 is also under the cut both go evenly spaced (rung 2 = midpoint of price and floor, rung 3 = floor), else only rung 3 moves to the floor. Cut lines and rung 1 unchanged; POWL unchanged.",
+ "superseded_note": "Nov 25 2026: the BUY side of these lines (20% next open / -1 / -2 weekly ATR rungs) is superseded by the Max Buy house recipe (plans.json sets <T>-mbr-20261125; maxbuy-labels.json). Cut lines, breakouts and held exits here are unchanged."
 }
