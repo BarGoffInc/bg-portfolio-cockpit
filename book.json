@@ -7,7 +7,7 @@
   "interim": true,
   "version": "interim-2026.09.19-refresh",
   "totals": {
-    "book_usd": 521815.55,
+    "book_usd": 528017.15,
     "cash_usd": 109214.25,
     "cash_gross": 120297.22,
     "cash_net": 109214.25,
@@ -20,10 +20,10 @@
       "hyperliquid_spot": 96024.15,
       "hyperliquid_perps_margin": 4.3
     },
-    "cash_pct": 20.93,
-    "cash_gross_pct": 23.06,
+    "cash_pct": 20.68,
+    "cash_gross_pct": 22.78,
     "cash_note": "cash = fiat + stablecoins (USDC/USDT/USDG/PYUSD/USDe/DAI...) across all venues and wallets; net subtracts negative margin cash. Already inside book_usd (not additive).",
-    "uPnL_usd": -48786.95,
+    "uPnL_usd": -48779.17,
     "note": "Book total includes Coinbase, E*TRADE, Robinhood, Hyperliquid perps (main + Conviction sub-account incl. its spot USDC), and all EVM/Solana wallet MVs from live Zerion/Helius. HL spot USDC not double-counted. Coinbase cost basis still incomplete for many transfer-ins.",
     "excluded": [
       "retirement"
@@ -35,13 +35,13 @@
       "name": "Coinbase",
       "kind": "broker",
       "status": "live",
-      "value": 232809.21,
+      "value": 239010.81,
       "cash": 20159.53,
       "cash_on_hold": 0.0,
       "cash_free": 20159.53,
-      "uPnL": -43168.6,
-      "position_count": 22,
-      "note": "Qty from Coinbase Advanced Trade available+hold, plus staked balances and DEX-wallet tokens (PLATFORM_WALLET, e.g. STONK) from the portfolio breakdown (not added again when already in liquid qty). cash_on_hold = USD/USDC reserved by open orders. Live marks. V2 bank buys are fills only. Cost basis preserved from prior where fills incomplete (transfer-ins).",
+      "uPnL": -43160.82,
+      "position_count": 23,
+      "note": "Qty from Coinbase Advanced Trade available+hold, plus staked balances, DEX-wallet tokens (PLATFORM_WALLET, e.g. STONK), and CCM equity/stock holdings (PLATFORM_CCM, e.g. POWL) from the portfolio breakdown (not added again when already in liquid qty). cash_on_hold = USD/USDC reserved by open orders. Live marks. V2 bank buys are fills only. Cost basis preserved from prior where fills incomplete (transfer-ins).",
       "sol_basis_fixed": true
     },
     {
@@ -99,7 +99,7 @@
     },
     {
       "id": "hl_conviction",
-      "name": "Hyperliquid \u00b7 Conviction",
+      "name": "Hyperliquid · Conviction",
       "kind": "perp",
       "owner": "A",
       "buyer": "A",
@@ -114,7 +114,7 @@
     },
     {
       "id": "solana1",
-      "name": "Solana 1 \u00b7 F5DS\u2026tmUi",
+      "name": "Solana 1 · F5DS…tmUi",
       "kind": "wallet",
       "status": "live",
       "wallet": "F5DSyXxc6i1de548wSYCzMuEhnCC8KPwqv4Qj71QtmUi",
@@ -127,7 +127,7 @@
     },
     {
       "id": "solana2",
-      "name": "Solana 2 \u00b7 9AT1\u2026NGNL",
+      "name": "Solana 2 · 9AT1…NGNL",
       "kind": "wallet",
       "status": "live",
       "wallet": "9AT17mgyzesULv6D8CqiDqenFB7huACXJKSyuf5oNGNL",
@@ -140,7 +140,7 @@
     },
     {
       "id": "evm_ac40",
-      "name": "EVM \u00b7 0xAC40\u2026d9cB (legacy HL label)",
+      "name": "EVM · 0xAC40…d9cB (legacy HL label)",
       "kind": "wallet",
       "status": "live_empty",
       "wallet": "0xAC407064CA22E72CDCBc918625A420Ec9FE6d9cB",
@@ -154,7 +154,7 @@
     },
     {
       "id": "evm_acb6",
-      "name": "EVM \u00b7 0xACB6\u202662aD",
+      "name": "EVM · 0xACB6…62aD",
       "kind": "wallet",
       "status": "live",
       "wallet": "0xACB6bE8D3E6A582e98dB6F4cDe91Ac6e705162aD",
@@ -175,7 +175,7 @@
     },
     {
       "id": "evm_453e",
-      "name": "EVM \u00b7 0x453e\u2026E1DE",
+      "name": "EVM · 0x453e…E1DE",
       "kind": "wallet",
       "status": "live",
       "wallet": "0x453e101591d317982AADebB66E8677500168E1DE",
@@ -195,7 +195,7 @@
     },
     {
       "id": "evm_622f",
-      "name": "EVM \u00b7 0x622F\u2026fdda",
+      "name": "EVM · 0x622F…fdda",
       "kind": "wallet",
       "status": "live",
       "wallet": "0x622Fad71b701A0249e69BD723415415A6D0bfdda",
@@ -213,7 +213,7 @@
     },
     {
       "id": "evm_hl_spot",
-      "name": "EVM \u00b7 HL trading 0x8E43\u2026500f",
+      "name": "EVM · HL trading 0x8E43…500f",
       "kind": "wallet",
       "status": "live_empty_tokens",
       "wallet": "0x8E4387b4Ddaf01F6B70B5A477d22b0F22f8D500f",
@@ -444,6 +444,20 @@
         "buyer": "A"
       },
       {
+        "symbol": "POWL",
+        "kind": "stock",
+        "qty": 40.0,
+        "cost_basis": 154.8455,
+        "mark": 155.04,
+        "mv": 6201.6,
+        "uPnL": 7.78,
+        "cost_total": 6193.82,
+        "basis_status": "coinbase_equity_avg_entry",
+        "position_type": "coinbase_ccm_equity",
+        "name": "POWL (Coinbase stock)",
+        "buyer": "P"
+      },
+      {
         "symbol": "HYPE",
         "kind": "crypto",
         "qty": 59.44299052,
@@ -623,7 +637,7 @@
     ],
     "solana1": [
       {
-        "symbol": "JupSOL \u00b7 LST",
+        "symbol": "JupSOL · LST",
         "kind": "defi",
         "qty": 505.051505809,
         "mark": 86.1839,
@@ -1002,7 +1016,7 @@
         "uPnL": -2458.3,
         "uPnL_pct": -99.27,
         "basis_status": "verified",
-        "basis_source": "Robinhood Chain tx 0xd978984d\u2026: 2,476.43 USDC bridged in and swapped to WOOD on 2026-09-12"
+        "basis_source": "Robinhood Chain tx 0xd978984d…: 2,476.43 USDC bridged in and swapped to WOOD on 2026-09-12"
       },
       {
         "symbol": "CND",
@@ -1266,8 +1280,8 @@
       "accounts": [
         "Coinbase",
         "Hyperliquid",
-        "EVM \u00b7 0xACB6\u202662aD",
-        "EVM \u00b7 0x453e\u2026E1DE"
+        "EVM · 0xACB6…62aD",
+        "EVM · 0x453e…E1DE"
       ],
       "mv": 120292.91,
       "qty": 120294.79,
@@ -1301,11 +1315,11 @@
     },
     {
       "symbol": "SOL",
-      "account": "Solana 1 \u00b7 F5DS\u2026tmUi + Solana 2 \u00b7 9AT1\u2026NGNL",
+      "account": "Solana 1 · F5DS…tmUi + Solana 2 · 9AT1…NGNL",
       "account_id": "merged",
       "accounts": [
-        "Solana 1 \u00b7 F5DS\u2026tmUi",
-        "Solana 2 \u00b7 9AT1\u2026NGNL"
+        "Solana 1 · F5DS…tmUi",
+        "Solana 2 · 9AT1…NGNL"
       ],
       "mv": 45396.71,
       "qty": 531.55,
@@ -1362,12 +1376,12 @@
     },
     {
       "symbol": "ETH",
-      "account": "EVM \u00b7 0xACB6\u202662aD + EVM \u00b7 0x453e\u2026E1DE + EVM \u00b7 0x622F\u2026fdda",
+      "account": "EVM · 0xACB6…62aD + EVM · 0x453e…E1DE + EVM · 0x622F…fdda",
       "account_id": "merged",
       "accounts": [
-        "EVM \u00b7 0xACB6\u202662aD",
-        "EVM \u00b7 0x453e\u2026E1DE",
-        "EVM \u00b7 0x622F\u2026fdda"
+        "EVM · 0xACB6…62aD",
+        "EVM · 0x453e…E1DE",
+        "EVM · 0x622F…fdda"
       ],
       "mv": 12626.13,
       "qty": 7.48,
@@ -1423,12 +1437,24 @@
       "buyer": "P"
     },
     {
+      "symbol": "POWL",
+      "account": "Coinbase",
+      "account_id": "coinbase",
+      "accounts": [
+        "Coinbase"
+      ],
+      "mv": 6201.6,
+      "qty": 40.0,
+      "chain": null,
+      "buyer": "P"
+    },
+    {
       "symbol": "PONS",
-      "account": "Coinbase + EVM \u00b7 0xACB6\u202662aD",
+      "account": "Coinbase + EVM · 0xACB6…62aD",
       "account_id": "merged",
       "accounts": [
         "Coinbase",
-        "EVM \u00b7 0xACB6\u202662aD"
+        "EVM · 0xACB6…62aD"
       ],
       "mv": 4811.47,
       "qty": 57051.39,
@@ -1506,11 +1532,11 @@
     },
     {
       "symbol": "DJI6930",
-      "account": "Solana 1 \u00b7 F5DS\u2026tmUi + Solana 2 \u00b7 9AT1\u2026NGNL",
+      "account": "Solana 1 · F5DS…tmUi + Solana 2 · 9AT1…NGNL",
       "account_id": "merged",
       "accounts": [
-        "Solana 1 \u00b7 F5DS\u2026tmUi",
-        "Solana 2 \u00b7 9AT1\u2026NGNL"
+        "Solana 1 · F5DS…tmUi",
+        "Solana 2 · 9AT1…NGNL"
       ],
       "mv": 2138.16,
       "qty": 743001.58,
@@ -1552,31 +1578,24 @@
       "qty": -1.0,
       "chain": null,
       "buyer": "P"
-    },
-    {
-      "symbol": "NEAR",
-      "account": "Coinbase",
-      "account_id": "coinbase",
-      "accounts": [
-        "Coinbase"
-      ],
-      "mv": 599.78,
-      "qty": 198.5,
-      "chain": null,
-      "buyer": "A"
     }
   ],
   "fills": [
     {
       "ts": "2026-11-25T20:54:16.402Z",
       "account": "Coinbase",
-      "symbol": "dc5f61b757b04bad3b4fe2349e85b29d54e6095cc0c34fe86e51382885355789",
+      "symbol": "POWL",
       "side": "BUY",
       "qty": 40.0,
       "price": 154.8455,
       "notional": 6193.82,
       "source": "coinbase_advanced_trade",
-      "raw_type": "BUY"
+      "raw_type": "BUY",
+      "id": "2c55acbc-7ae3-4aaf-8cc2-24bca8e1c64a",
+      "instrument": "stock",
+      "product_type": "EQUITY",
+      "buyer": "P",
+      "note": "Coinbase CCM equity (stock). product_id hash resolved via /products to POWL (Powell Industries). Commission $0. Funded from USDC. Limit $158.02 GTD, avg fill $154.8455."
     },
     {
       "ts": "2026-11-23T14:04:41Z",
@@ -3115,7 +3134,7 @@
       "buyer": "P"
     }
   ],
-  "fills_note": "History merges broker fills (SnapTrade / Coinbase / Hyperliquid / Robinhood CSV) with on-chain wallet activity (Zerion + Helius). Solana rows often lack USD. Not complete all-time cost-basis \u2014 see gaps and wallet-tx-history snapshot. SPCX 100-share CSP assignment (2026-09-19) forced into History from journal. Showing latest 120 of 673 fills.",
+  "fills_note": "History merges broker fills (SnapTrade / Coinbase / Hyperliquid / Robinhood CSV) with on-chain wallet activity (Zerion + Helius). Solana rows often lack USD. Not complete all-time cost-basis — see gaps and wallet-tx-history snapshot. SPCX 100-share CSP assignment (2026-09-19) forced into History from journal. Showing latest 120 of 673 fills.",
   "price_sources": {
     "stocks_options": "SnapTrade live marks",
     "crypto": "Coinbase Exchange public tickers + Advanced Trade balances + portfolio staked balances",
@@ -3126,19 +3145,20 @@
     "wallet_deepen": "Zerion+Helius live refresh"
   },
   "roles": {
-    "manager": "Manager \u2014 full book",
+    "manager": "Manager — full book",
     "owner": "view-only share (no Connections secrets, no edit)"
   },
   "gaps": [
-    "Coinbase: Advanced Trade fill history short \u2014 many holdings lack solid cost basis (transfer-ins).",
+    "Coinbase: Advanced Trade fill history short — many holdings lack solid cost basis (transfer-ins).",
     "Retirement accounts intentionally excluded.",
     "Negative E*TRADE cash reflects margin / unsettled.",
-    "EVM 0xAC40\u2026 and HL trading addr show $0 token balances on Zerion (HL equity in Hyperliquid account).",
+    "EVM 0xAC40… and HL trading addr show $0 token balances on Zerion (HL equity in Hyperliquid account).",
     "Solana 2 historically heavy Orca/Jupiter LP activity but no open LP MV now; phishing airdrop NFTs ignored.",
-    "Helius Solana enhanced history has little/no USD \u2014 on-chain activity notional often blank.",
+    "Helius Solana enhanced history has little/no USD — on-chain activity notional often blank.",
     "Zerion EVM history includes spam airdrops; activity feed filters claim/phishing symbols.",
     "Harmony via public RPC only (Zerion unsupported). HOOKR not found on Robinhood chain.",
-    "Wallet FIFO cost basis seeded 2026-09-20 for ETH/WETH, SOL, JupSOL, WOOD, USDC (archives+CB dailies; not tax-grade)."
+    "Wallet FIFO cost basis seeded 2026-09-20 for ETH/WETH, SOL, JupSOL, WOOD, USDC (archives+CB dailies; not tax-grade).",
+    "Coinbase stock/CCM equity (PLATFORM_CCM) is not in Advanced Trade brokerage accounts; holdings come from portfolio breakdown equity_positions and fills' product_details.ticker. Wired into refresh_book.py 2026-11-25."
   ],
   "broker_history": {
     "robinhood": {
@@ -3152,7 +3172,7 @@
   "activity": [
     {
       "date": "2026-09-12T19:08:12+00:00",
-      "account": "EVM \u00b7 0xACB6\u202662aD",
+      "account": "EVM · 0xACB6…62aD",
       "chain": "robinhood",
       "type": "receive",
       "symbol": "WOOD",
@@ -3163,7 +3183,7 @@
     },
     {
       "date": "2026-09-12T19:08:11+00:00",
-      "account": "EVM \u00b7 0xACB6\u202662aD",
+      "account": "EVM · 0xACB6…62aD",
       "chain": "ethereum",
       "type": "send",
       "symbol": "USDC",
@@ -3174,7 +3194,7 @@
     },
     {
       "date": "2026-08-17T13:05:40+00:00",
-      "account": "Solana 2 \u00b7 9AT1\u2026NGNL",
+      "account": "Solana 2 · 9AT1…NGNL",
       "chain": "solana",
       "tx": "2FFHgUjaPbyiozKDVPxWwvuss9DtkCuyBj2ao8qF9vBFqDtsF6HJS3j7a9EJ6KUATLKJYUR5vKAXYmN2by8EupYP",
       "source": "helius:SYSTEM_PROGRAM",
@@ -3185,7 +3205,7 @@
     },
     {
       "date": "2026-08-10T19:12:01+00:00",
-      "account": "EVM \u00b7 0x622F\u2026fdda",
+      "account": "EVM · 0x622F…fdda",
       "chain": "robinhood",
       "type": "receive",
       "symbol": "WETH",
@@ -3196,7 +3216,7 @@
     },
     {
       "date": "2026-08-10T19:11:59+00:00",
-      "account": "EVM \u00b7 0x622F\u2026fdda",
+      "account": "EVM · 0x622F…fdda",
       "chain": "ethereum",
       "type": "execute",
       "symbol": "ETH",
@@ -3207,7 +3227,7 @@
     },
     {
       "date": "2026-07-31T15:17:09+00:00",
-      "account": "Solana 2 \u00b7 9AT1\u2026NGNL",
+      "account": "Solana 2 · 9AT1…NGNL",
       "chain": "solana",
       "tx": "Q5SQNVfAKhjkgFBgYP3HHXpnpxpgCU3gFcp8ARLZjU6rG5WeEzFHeiccDXM7UNfPXYw3e4cTBTFJbt81gmYiQ6G",
       "source": "helius:SYSTEM_PROGRAM",
@@ -3218,7 +3238,7 @@
     },
     {
       "date": "2026-07-31T15:16:57+00:00",
-      "account": "Solana 2 \u00b7 9AT1\u2026NGNL",
+      "account": "Solana 2 · 9AT1…NGNL",
       "chain": "solana",
       "tx": "43ArLWmb4dVFxjnZrJp2yGe58xp89kB3H1wp4QT8H32iQf5s4wzSQD2w5p6xjy6vvEAzGpKAVinERM5ueXVGQrTu",
       "source": "helius:SYSTEM_PROGRAM",
@@ -3229,7 +3249,7 @@
     },
     {
       "date": "2026-07-31T14:28:41+00:00",
-      "account": "Solana 2 \u00b7 9AT1\u2026NGNL",
+      "account": "Solana 2 · 9AT1…NGNL",
       "chain": "solana",
       "tx": "49AwVmFeS5dQsKomESYnCuaixT5tMYZ45CdVRoDbmCd1wYrTBFgK5j4x9we4MjmtnbfubaiaamNFN1BXh68mZY2S",
       "source": "helius:SYSTEM_PROGRAM",
@@ -3240,7 +3260,7 @@
     },
     {
       "date": "2026-07-31T13:30:28+00:00",
-      "account": "Solana 2 \u00b7 9AT1\u2026NGNL",
+      "account": "Solana 2 · 9AT1…NGNL",
       "chain": "solana",
       "tx": "372pzVsGqaASCUE9oa5jBQsTuzXi2wxG9hqjkLBZHBzcGYqzC18W82PRN52AQ6uwAFMZ3HwQCiWFJbLwHbGjyLK9",
       "source": "helius:SYSTEM_PROGRAM",
@@ -3251,7 +3271,7 @@
     },
     {
       "date": "2026-07-30T00:38:15+00:00",
-      "account": "Solana 2 \u00b7 9AT1\u2026NGNL",
+      "account": "Solana 2 · 9AT1…NGNL",
       "chain": "solana",
       "tx": "4aF8T5YkVgTm4LkqRgVcHMRtk9ZspkRjkzc4jPmnhhDSy8LZEM3eH4aSrz1pbMV9H35z7NKgbKAANEGqwLS4phso",
       "source": "helius:SYSTEM_PROGRAM",
@@ -3262,7 +3282,7 @@
     },
     {
       "date": "2026-07-29T19:34:49+00:00",
-      "account": "Solana 2 \u00b7 9AT1\u2026NGNL",
+      "account": "Solana 2 · 9AT1…NGNL",
       "chain": "solana",
       "tx": "2HrAepFhdDTBazhZNJDmiTVLbdKg5AXMgQx1EQ7NQGUoTbaMsZQY955zMucEWhPBcQwbYmWciM6ejJWhcsqZMhZ3",
       "source": "helius:SYSTEM_PROGRAM",
@@ -3273,7 +3293,7 @@
     },
     {
       "date": "2026-07-29T14:15:46+00:00",
-      "account": "Solana 2 \u00b7 9AT1\u2026NGNL",
+      "account": "Solana 2 · 9AT1…NGNL",
       "chain": "solana",
       "tx": "EGkZSgLyoY36ur69FH5A7NGAU1mDDoB8aGeHRS4YP2p53r26FBMf3uSL89XNhM8KJ86HmiP2uU9fBNyTAQQpxg9",
       "source": "helius:SYSTEM_PROGRAM",
@@ -3284,7 +3304,7 @@
     },
     {
       "date": "2026-07-10T16:37:40+00:00",
-      "account": "Solana 2 \u00b7 9AT1\u2026NGNL",
+      "account": "Solana 2 · 9AT1…NGNL",
       "chain": "solana",
       "tx": "GMRSKDkLdwV9W3VGSpHKvn7brFzB8VZkaDiHjhhAAA5jZzuaW7E4MovPUHyF8AXwjcgpdxVLZodscUHvizwcWD8",
       "source": "helius:SYSTEM_PROGRAM",
@@ -3295,7 +3315,7 @@
     },
     {
       "date": "2026-07-09T19:14:24+00:00",
-      "account": "Solana 2 \u00b7 9AT1\u2026NGNL",
+      "account": "Solana 2 · 9AT1…NGNL",
       "chain": "solana",
       "tx": "3kXdAzdBX7UivmfjBWUoP7Qbx83TEzotMfL5b5LptppCC8e4SNWRRoS3jcqs7po9rhL2kiPBVs7JGjiELVjZicuf",
       "source": "helius:SYSTEM_PROGRAM",
@@ -3306,18 +3326,18 @@
     },
     {
       "date": "2026-07-08T21:06:19+00:00",
-      "account": "Solana 1 \u00b7 F5DS\u2026tmUi",
+      "account": "Solana 1 · F5DS…tmUi",
       "chain": "solana",
       "tx": "52ae8a6UXSMxD1uBkPp9AJMNbxaTogiJgx4phbCWso5HuCNiiybjPWKnVFpZ9sU92m41rzfyDUJw7RsuncCCGGfj",
       "source": "helius:PUMP_AMM",
       "type": "swap",
-      "symbol": "So11\u20261112\u2192WjZo\u2026pump",
+      "symbol": "So11…1112→WjZo…pump",
       "qty": 8e-06,
       "amount_usd": null
     },
     {
       "date": "2026-07-08T21:01:56+00:00",
-      "account": "Solana 2 \u00b7 9AT1\u2026NGNL",
+      "account": "Solana 2 · 9AT1…NGNL",
       "chain": "solana",
       "tx": "3rw9Bt56uyVD1RZPv8hqyNtAkEcZhwrw6NUoKuJDmqmfV4SdR85CBWmTYrrZ1RA45hFfAWwu4HtwaMHsriGtoVaS",
       "source": "helius:SYSTEM_PROGRAM",
@@ -3328,7 +3348,7 @@
     },
     {
       "date": "2026-07-08T21:00:14+00:00",
-      "account": "Solana 2 \u00b7 9AT1\u2026NGNL",
+      "account": "Solana 2 · 9AT1…NGNL",
       "chain": "solana",
       "tx": "3PDUe5MreKoX78xgxt6QmZXr8MdypomtWLxux72Qj7HcLqHhewomrRkKfLJGXiBp6pwSEntVoiwJVQuPiVCw9vME",
       "source": "helius:SYSTEM_PROGRAM",
@@ -3339,7 +3359,7 @@
     },
     {
       "date": "2026-06-26T14:02:39+00:00",
-      "account": "Solana 2 \u00b7 9AT1\u2026NGNL",
+      "account": "Solana 2 · 9AT1…NGNL",
       "chain": "solana",
       "tx": "ghMH2LyV1uq3jJ4N5fiSAXUVVyDbb3ovgreF9mfsEVgWPfB2NKuCR3FuthDC72xrKQF3r4aZV42UoyGeH2h64UU",
       "source": "helius:SYSTEM_PROGRAM",
@@ -3350,7 +3370,7 @@
     },
     {
       "date": "2026-06-26T13:43:11+00:00",
-      "account": "Solana 2 \u00b7 9AT1\u2026NGNL",
+      "account": "Solana 2 · 9AT1…NGNL",
       "chain": "solana",
       "tx": "4AQBKVf8E8FdJ7d78Rm9yykqGY3Ax4GChhrsKoNxqYq8Pdfvyfe1u15WeKR249erhUA7X3cfWSdFRS1cgfaEmG8C",
       "source": "helius:SYSTEM_PROGRAM",
@@ -3361,7 +3381,7 @@
     },
     {
       "date": "2026-06-25T16:43:56+00:00",
-      "account": "Solana 2 \u00b7 9AT1\u2026NGNL",
+      "account": "Solana 2 · 9AT1…NGNL",
       "chain": "solana",
       "tx": "5ErvCzJxfVCHbM73FGLC9XvVLuFob5Q1rqUMb2e8Y3NsDQ4wFK8MMu6HtFnVVsuEGkD6XKj2FeBXDbukWVTniawi",
       "source": "helius:SYSTEM_PROGRAM",
@@ -3372,7 +3392,7 @@
     },
     {
       "date": "2026-06-25T13:25:14+00:00",
-      "account": "Solana 2 \u00b7 9AT1\u2026NGNL",
+      "account": "Solana 2 · 9AT1…NGNL",
       "chain": "solana",
       "tx": "5VJhhZcFxhCw6qK8ozjTRiaxiLcGNdg46neyasdXoJqjr6ZV7urthTxkmbmfNAz68TX59Pn9z6d9oMXHWdcRiz8Y",
       "source": "helius:SYSTEM_PROGRAM",
@@ -3383,7 +3403,7 @@
     },
     {
       "date": "2026-06-25T12:56:23+00:00",
-      "account": "Solana 2 \u00b7 9AT1\u2026NGNL",
+      "account": "Solana 2 · 9AT1…NGNL",
       "chain": "solana",
       "tx": "2vzEJCWRHrmtLcguVfb4AToDxB5QjT9oKXXBa4FoYiVnQpABUn4yQmYafPVwnpwAZkuXXeqG7Yb7xDwtksB46Qoc",
       "source": "helius:SYSTEM_PROGRAM",
@@ -3394,18 +3414,18 @@
     },
     {
       "date": "2026-06-24T15:48:50+00:00",
-      "account": "Solana 2 \u00b7 9AT1\u2026NGNL",
+      "account": "Solana 2 · 9AT1…NGNL",
       "chain": "solana",
       "tx": "3w7Q14ofwq1uYgXA9cB1RYUKXCgkn76zZMbfkPJ2qRhJcotLGxSxZBkWyWQfuQcpT33Dakg3uQTrWynFL98sVhP5",
       "source": "helius:JUPITER",
       "type": "swap",
-      "symbol": "SOL\u2192SOL",
+      "symbol": "SOL→SOL",
       "qty": 0.0030624,
       "amount_usd": null
     },
     {
       "date": "2026-06-24T15:42:04+00:00",
-      "account": "Solana 2 \u00b7 9AT1\u2026NGNL",
+      "account": "Solana 2 · 9AT1…NGNL",
       "chain": "solana",
       "tx": "2qYkoYDpRoQ8bPCcqwsiNQNMmqRbyfDSSZ51kA22t7f4YYyn7SQXzUhWPDDvd4TWiDz6e67bjAvJsD2952uR1RBi",
       "source": "helius:SYSTEM_PROGRAM",
@@ -3416,7 +3436,7 @@
     },
     {
       "date": "2026-06-23T23:00:50+00:00",
-      "account": "Solana 2 \u00b7 9AT1\u2026NGNL",
+      "account": "Solana 2 · 9AT1…NGNL",
       "chain": "solana",
       "tx": "5Nec3pncV6GvSfYzjRWDHGPRbv6e6bw7NJaZiuBKunoxBjbsf9sXvq6d7fW87SwGE5KgkDTEbeGS1pefgxiFAUci",
       "source": "helius:SYSTEM_PROGRAM",
@@ -3427,7 +3447,7 @@
     },
     {
       "date": "2026-06-23T17:06:13+00:00",
-      "account": "Solana 2 \u00b7 9AT1\u2026NGNL",
+      "account": "Solana 2 · 9AT1…NGNL",
       "chain": "solana",
       "tx": "477Gud3tpzgoo9NBrm3gpmC7fEmCdmCoxcQqvYHFuWJ8PprSmxFk2eZ4ZwGbCMhbxBSpv5s4Wt3MusyygirAVbNp",
       "source": "helius:SYSTEM_PROGRAM",
@@ -3438,7 +3458,7 @@
     },
     {
       "date": "2026-06-23T17:02:46+00:00",
-      "account": "Solana 2 \u00b7 9AT1\u2026NGNL",
+      "account": "Solana 2 · 9AT1…NGNL",
       "chain": "solana",
       "tx": "5ZL39cXQtcMvprdoyXVkD23V8LFoXX45vHE4SPictY9qVzcvL2kiexzRhdcTJbwnD1EgvLePsSTQ9pRcKZF8GoJj",
       "source": "helius:SYSTEM_PROGRAM",
@@ -3449,7 +3469,7 @@
     },
     {
       "date": "2026-06-23T14:32:44+00:00",
-      "account": "Solana 2 \u00b7 9AT1\u2026NGNL",
+      "account": "Solana 2 · 9AT1…NGNL",
       "chain": "solana",
       "tx": "5qZCGRDnpLVaa21CnKPvaKQxzPdEhEnoMHpdgtpyj4a6YDPcdKUR4kVqty7Q4N4NnQbk23n4fTmJUmfCFNj72Kww",
       "source": "helius:SYSTEM_PROGRAM",
@@ -3460,7 +3480,7 @@
     },
     {
       "date": "2026-06-23T14:17:04+00:00",
-      "account": "Solana 2 \u00b7 9AT1\u2026NGNL",
+      "account": "Solana 2 · 9AT1…NGNL",
       "chain": "solana",
       "tx": "3WZPtrCJ5BVURgA4mAt9MvP1yRu12UcSJci8NpGqeuNmfWx2Snh5ko1a7CmBUSmgcidgnCUrjxKbZcZEGT9bSiYq",
       "source": "helius:SYSTEM_PROGRAM",
@@ -3471,7 +3491,7 @@
     },
     {
       "date": "2026-06-23T12:15:36+00:00",
-      "account": "Solana 2 \u00b7 9AT1\u2026NGNL",
+      "account": "Solana 2 · 9AT1…NGNL",
       "chain": "solana",
       "tx": "65uyowyThZFHtXc9vMY5phKVwx68V7NCaeBf7ym9m2cbH3VXA14kuDmsveh4yjciCizesnPLWtCEJ869RJ6kWPBN",
       "source": "helius:SYSTEM_PROGRAM",
@@ -3482,7 +3502,7 @@
     },
     {
       "date": "2026-06-23T12:01:21+00:00",
-      "account": "Solana 2 \u00b7 9AT1\u2026NGNL",
+      "account": "Solana 2 · 9AT1…NGNL",
       "chain": "solana",
       "tx": "4dtLU3CrpZ3WAwXWT8LfF9cXes8DUn9mXNejpc6UkazvuuJrpkmyViVY3X9J2PF6beBdpyw2ics6Gcz2wCM1SwUb",
       "source": "helius:SYSTEM_PROGRAM",
@@ -3493,7 +3513,7 @@
     },
     {
       "date": "2026-06-20T23:56:15+00:00",
-      "account": "Solana 2 \u00b7 9AT1\u2026NGNL",
+      "account": "Solana 2 · 9AT1…NGNL",
       "chain": "solana",
       "tx": "bxPRkFVQMk66co4dPcWihADzEwo95ZxoSGk67SQAnY4twU1jahWtay1AYyUVi4nviVRPXvt6DGh1PuSNJn3RxVt",
       "source": "helius:SYSTEM_PROGRAM",
@@ -3504,18 +3524,18 @@
     },
     {
       "date": "2026-06-20T23:32:55+00:00",
-      "account": "Solana 2 \u00b7 9AT1\u2026NGNL",
+      "account": "Solana 2 · 9AT1…NGNL",
       "chain": "solana",
       "tx": "UEKVbVqGgjcuG6FvHSMk28rorHPzHayZwzaU76c4tTuULHEGp2SQBcN4r4dkx8LwwDHJPSfMhoGusGGwTj6WJEP",
       "source": "helius:JUPITER",
       "type": "swap",
-      "symbol": "SOL\u2192SOL",
+      "symbol": "SOL→SOL",
       "qty": 0.0030624,
       "amount_usd": null
     },
     {
       "date": "2026-06-20T22:28:55+00:00",
-      "account": "Solana 2 \u00b7 9AT1\u2026NGNL",
+      "account": "Solana 2 · 9AT1…NGNL",
       "chain": "solana",
       "tx": "34H8Zz5KS78DxYNDZGyTxQukssS8msFUwBSmFpL1w63nYz4bTkU7pcE3H8NkwP3DtmRknP9weR9QiragQYYNk3K1",
       "source": "helius:SYSTEM_PROGRAM",
@@ -3526,18 +3546,18 @@
     },
     {
       "date": "2026-06-20T14:09:46+00:00",
-      "account": "Solana 2 \u00b7 9AT1\u2026NGNL",
+      "account": "Solana 2 · 9AT1…NGNL",
       "chain": "solana",
       "tx": "4RM8ri6GgMngreNnZL777ecyUjYWSCUYvwD2Eoqe16QnEoBAjkH9nEJ7L9qVWguprJXJf8Cj1PRYr2GiLcgkBoHK",
       "source": "helius:JUPITER",
       "type": "swap",
-      "symbol": "SOL\u2192SOL",
+      "symbol": "SOL→SOL",
       "qty": 0.00203928,
       "amount_usd": null
     },
     {
       "date": "2026-06-20T13:54:15+00:00",
-      "account": "Solana 2 \u00b7 9AT1\u2026NGNL",
+      "account": "Solana 2 · 9AT1…NGNL",
       "chain": "solana",
       "tx": "4TiSPkiZkowvyJDhUnUEEC4yiizKyZKU4RjTCMcAo7XZdhQj6Lt7djEqfqjCMMFjLWpNpBNE2TZqovJyXtqYkqkg",
       "source": "helius:SYSTEM_PROGRAM",
@@ -3548,7 +3568,7 @@
     },
     {
       "date": "2026-06-20T13:28:06+00:00",
-      "account": "Solana 2 \u00b7 9AT1\u2026NGNL",
+      "account": "Solana 2 · 9AT1…NGNL",
       "chain": "solana",
       "tx": "28dRwJuki8RjY7P1NQ9FE4iY2ZVjFfvZS2BsPDMH22TPfqSV2edsJk1y1qcMjugYj161QiRVXLzikrT2uZrybHiL",
       "source": "helius:SYSTEM_PROGRAM",
@@ -3559,7 +3579,7 @@
     },
     {
       "date": "2026-06-19T18:50:13+00:00",
-      "account": "Solana 2 \u00b7 9AT1\u2026NGNL",
+      "account": "Solana 2 · 9AT1…NGNL",
       "chain": "solana",
       "tx": "3v6WUizLEGDe27JLCiZxFqzRVVyn2mPm5yPD1kAHGeagr2KTsWDpbPMSMgPZTWxSEoSsrXcGq5u1E84R7QT2bnL9",
       "source": "helius:SYSTEM_PROGRAM",
@@ -3570,7 +3590,7 @@
     },
     {
       "date": "2026-06-19T18:39:57+00:00",
-      "account": "Solana 2 \u00b7 9AT1\u2026NGNL",
+      "account": "Solana 2 · 9AT1…NGNL",
       "chain": "solana",
       "tx": "RjaaAeEmVCZFZEXxw6j47AgSHv8oqivGqQtsBj8j7YtuN6LnYU4EHJ79nazgJJYCgP2RarmcsaqZDKnm2YB52zP",
       "source": "helius:SYSTEM_PROGRAM",
@@ -3581,18 +3601,18 @@
     },
     {
       "date": "2026-06-19T16:15:54+00:00",
-      "account": "Solana 2 \u00b7 9AT1\u2026NGNL",
+      "account": "Solana 2 · 9AT1…NGNL",
       "chain": "solana",
       "tx": "4YBiysbGarjggJVzCMKnyekxnsZDiYX5dUWH9qdu4pVNeF422QnViikG2YKZkVnLjXiQCN1xvYjUmq4N6NNhRBRL",
       "source": "helius:JUPITER",
       "type": "swap",
-      "symbol": "SOL\u2192SOL",
+      "symbol": "SOL→SOL",
       "qty": 0.0030624,
       "amount_usd": null
     },
     {
       "date": "2026-06-19T15:04:07+00:00",
-      "account": "Solana 2 \u00b7 9AT1\u2026NGNL",
+      "account": "Solana 2 · 9AT1…NGNL",
       "chain": "solana",
       "tx": "5PquZc9nvF6Hb4n7Sa86QwctLBkp1qLvyiAoGMGMK5QPJSYN3SifzLLsS7yr22JnjnGXxRHmmh5D3HwfsQJjmL36",
       "source": "helius:SYSTEM_PROGRAM",
@@ -3603,7 +3623,7 @@
     },
     {
       "date": "2026-06-19T14:37:02+00:00",
-      "account": "Solana 2 \u00b7 9AT1\u2026NGNL",
+      "account": "Solana 2 · 9AT1…NGNL",
       "chain": "solana",
       "tx": "4UZ7yRduWtrNZuyzcDSuY8u6p1TAsuFYJS9ngfD4rpaM8QsyCd3NYMdEzoesVyAXdjfwVHrYx6RqdG7zCEn4pkob",
       "source": "helius:SYSTEM_PROGRAM",
@@ -3614,7 +3634,7 @@
     },
     {
       "date": "2026-06-19T14:06:57+00:00",
-      "account": "Solana 2 \u00b7 9AT1\u2026NGNL",
+      "account": "Solana 2 · 9AT1…NGNL",
       "chain": "solana",
       "tx": "5x5ECnrxfaHKSHn9SX9Bjd5zVamYiiiebgrtpSzysW3VqGWD9BJgXv5EdLqwZwLnE5dZXgnRK3dY4ScZAHThutsa",
       "source": "helius:SYSTEM_PROGRAM",
@@ -3625,7 +3645,7 @@
     },
     {
       "date": "2026-06-19T14:02:44+00:00",
-      "account": "Solana 2 \u00b7 9AT1\u2026NGNL",
+      "account": "Solana 2 · 9AT1…NGNL",
       "chain": "solana",
       "tx": "3AomJASQ5Ewd785puRgEmJ1AHHiAZ4uzrNkyHUXQzuyo6oHpwSxjYANJaNR9phZLcPaUDzT5kjQxC546F5mTLPB",
       "source": "helius:SYSTEM_PROGRAM",
@@ -3636,7 +3656,7 @@
     },
     {
       "date": "2026-06-19T13:41:31+00:00",
-      "account": "Solana 2 \u00b7 9AT1\u2026NGNL",
+      "account": "Solana 2 · 9AT1…NGNL",
       "chain": "solana",
       "tx": "5JC6CG2BH6zxy9s8DpjdpxYMaoUcgHBYsvndh56MMPDQXnmEvbKpUqH2tg5NmphmhKPiiDwQjq5VLT9duau3ghR2",
       "source": "helius:SYSTEM_PROGRAM",
@@ -3647,7 +3667,7 @@
     },
     {
       "date": "2026-06-19T13:38:06+00:00",
-      "account": "Solana 2 \u00b7 9AT1\u2026NGNL",
+      "account": "Solana 2 · 9AT1…NGNL",
       "chain": "solana",
       "tx": "2cWNyCZA6s1XTdHnUem2KJWTSX242Db2LqWyDsxsA7JVgqSVPND8VYS9dsUFjG42RUcQA1QvQJTtkrJ3GfokWbBC",
       "source": "helius:SYSTEM_PROGRAM",
@@ -3658,7 +3678,7 @@
     },
     {
       "date": "2026-06-19T13:21:20+00:00",
-      "account": "Solana 2 \u00b7 9AT1\u2026NGNL",
+      "account": "Solana 2 · 9AT1…NGNL",
       "chain": "solana",
       "tx": "3fUrafzkNnpxipFfGqspQ4FnX6yUZmAmfUeoWCv4P5aFircDbLtmVTF7yvU6xfkcqfeKfJ3rTgsiyg1HvA2Q2xZK",
       "source": "helius:SYSTEM_PROGRAM",
@@ -3669,51 +3689,51 @@
     },
     {
       "date": "2026-06-18T19:11:44+00:00",
-      "account": "Solana 2 \u00b7 9AT1\u2026NGNL",
+      "account": "Solana 2 · 9AT1…NGNL",
       "chain": "solana",
       "tx": "3yn7PntWqobC8JeMJEu2AJNdf2sZpeNL57B4xY8jBJ2bn8frQ32HiS4JPwW2YeYeVh4hwS4Cw2CJwQr6YSN8LGxi",
       "source": "helius:DFLOW",
       "type": "swap",
-      "symbol": "98sM\u2026Mh5g\u2192Es9v\u2026wNYB",
+      "symbol": "98sM…Mh5g→Es9v…wNYB",
       "qty": 0.00203928,
       "amount_usd": null
     },
     {
       "date": "2026-06-18T16:19:42+00:00",
-      "account": "Solana 2 \u00b7 9AT1\u2026NGNL",
+      "account": "Solana 2 · 9AT1…NGNL",
       "chain": "solana",
       "tx": "gFzEjThhr2Ru4J3NyzUh92uqbJfe6DUPCh97deq5d45UkJVbvkYRHYs2gKjcQAzgEby88mPbBZyFCanSrMJMfdQ",
       "source": "helius:JUPITER",
       "type": "swap",
-      "symbol": "SOL\u2192SOL",
+      "symbol": "SOL→SOL",
       "qty": 0.0030624,
       "amount_usd": null
     },
     {
       "date": "2026-06-18T15:44:24+00:00",
-      "account": "Solana 2 \u00b7 9AT1\u2026NGNL",
+      "account": "Solana 2 · 9AT1…NGNL",
       "chain": "solana",
       "tx": "36SMfcbfvdA4c4QSdUfJN6xJ17iQkh9n137nqBEE3CJ6jnaW2EtCQfmHfHsb7ZVAXo4MW3eoWXv7i2A9M1BqELK8",
       "source": "helius:JUPITER",
       "type": "swap",
-      "symbol": "SOL\u2192SOL",
+      "symbol": "SOL→SOL",
       "qty": 0.0030624,
       "amount_usd": null
     },
     {
       "date": "2026-06-18T15:36:42+00:00",
-      "account": "Solana 2 \u00b7 9AT1\u2026NGNL",
+      "account": "Solana 2 · 9AT1…NGNL",
       "chain": "solana",
       "tx": "2Cj9PWx9oizMK1KgkJrBgytX2hHKdQSPxyy5obbqNoJcc6o7T7yGAp6x6yGA7bfoVqXNXPocc56GrbgqXeQYVidh",
       "source": "helius:JUPITER",
       "type": "swap",
-      "symbol": "SOL\u2192SOL",
+      "symbol": "SOL→SOL",
       "qty": 0.0030624,
       "amount_usd": null
     },
     {
       "date": "2026-06-18T14:07:10+00:00",
-      "account": "Solana 2 \u00b7 9AT1\u2026NGNL",
+      "account": "Solana 2 · 9AT1…NGNL",
       "chain": "solana",
       "tx": "4iYhveunySuCTffHiaW648tWr87miGNkHqGrmHZSwiJnr1nhx68TzkEz2zvVC1b7iNbzVjMuuiQdDZUmA2o9uAfF",
       "source": "helius:SYSTEM_PROGRAM",
@@ -3724,7 +3744,7 @@
     },
     {
       "date": "2026-06-18T14:07:01+00:00",
-      "account": "Solana 2 \u00b7 9AT1\u2026NGNL",
+      "account": "Solana 2 · 9AT1…NGNL",
       "chain": "solana",
       "tx": "4XhLakQ7iuqFLm4GCd8TAkddXW4yhMw3XRsEA967Hd9QMSKCanN4GT7SfAb6wfEF1UEd7y7jiVokV3MtHeRai1Ky",
       "source": "helius:SYSTEM_PROGRAM",
@@ -3735,7 +3755,7 @@
     },
     {
       "date": "2026-06-18T13:48:28+00:00",
-      "account": "Solana 2 \u00b7 9AT1\u2026NGNL",
+      "account": "Solana 2 · 9AT1…NGNL",
       "chain": "solana",
       "tx": "4VoDF5d38nq698dLpp9EVZyfShmhLfNVYSUpa67hfLTNLxHU18JfmgjjVSRAfLZBQdRVDAtNWR8mCtN1xpnVDwin",
       "source": "helius:SYSTEM_PROGRAM",
@@ -3746,7 +3766,7 @@
     },
     {
       "date": "2026-06-18T13:32:04+00:00",
-      "account": "Solana 2 \u00b7 9AT1\u2026NGNL",
+      "account": "Solana 2 · 9AT1…NGNL",
       "chain": "solana",
       "tx": "3TbpmjswgWSBPbtSqafix5PJoCGgQ9tXrU7neQGA5T6B86Cv7cwJzgqXmHV33vhD5p1xXde7d7C4fbspD5Ai8JVC",
       "source": "helius:SYSTEM_PROGRAM",
@@ -3757,18 +3777,18 @@
     },
     {
       "date": "2026-06-17T16:53:09+00:00",
-      "account": "Solana 2 \u00b7 9AT1\u2026NGNL",
+      "account": "Solana 2 · 9AT1…NGNL",
       "chain": "solana",
       "tx": "5reeBuHqYYPa4NWJT4CStHN1ozwQfKTkQ4uGZr5F9Ynoun8cr2WGGNgoDviVrJGR1XjkkJoVETTajg2qtdrPy7gM",
       "source": "helius:JUPITER",
       "type": "open_position",
-      "symbol": "3NZ9\u2026qmJh",
+      "symbol": "3NZ9…qmJh",
       "qty": null,
       "amount_usd": null
     },
     {
       "date": "2026-06-17T16:52:50+00:00",
-      "account": "Solana 2 \u00b7 9AT1\u2026NGNL",
+      "account": "Solana 2 · 9AT1…NGNL",
       "chain": "solana",
       "tx": "3qQnDaASpaVq62iGmRW9nw3R22L1xwsqPobNZXyjfYP1RqnsiMJMeDqB7WQ4U9xJjghob13k4nGHt2YetFFLy2Yu",
       "source": "helius:SYSTEM_PROGRAM",
@@ -3779,7 +3799,7 @@
     },
     {
       "date": "2026-06-17T16:26:47+00:00",
-      "account": "Solana 2 \u00b7 9AT1\u2026NGNL",
+      "account": "Solana 2 · 9AT1…NGNL",
       "chain": "solana",
       "tx": "2xwnv3ENVCbimu9HB3RE3SBnHq2so143991t8XhQ65DZdMi7kS9ZjmFk4NjUWmpjs1fYAhhNfahJwBHLCEP8zELB",
       "source": "helius:SYSTEM_PROGRAM",
@@ -3790,62 +3810,62 @@
     },
     {
       "date": "2026-06-17T16:09:28+00:00",
-      "account": "Solana 2 \u00b7 9AT1\u2026NGNL",
+      "account": "Solana 2 · 9AT1…NGNL",
       "chain": "solana",
       "tx": "3nJCFBBj4Ad74rVPDRjbWQjztTB1kMDtj36Dnz7qRc3LromqrSVyY3ch5Dxrp13CmLrJW9p86J3xbMDqv652q3E2",
       "source": "helius:JUPITER",
       "type": "swap",
-      "symbol": "SOL\u2192SOL",
+      "symbol": "SOL→SOL",
       "qty": 0.0030624,
       "amount_usd": null
     },
     {
       "date": "2026-06-17T16:09:03+00:00",
-      "account": "Solana 2 \u00b7 9AT1\u2026NGNL",
+      "account": "Solana 2 · 9AT1…NGNL",
       "chain": "solana",
       "tx": "2Z7FQtmP4MkVrhVcDLaKPGfkbEF3oYx2FchkzS2B7X7nbSntUD29pJqka1s6B2n7qpSee2rrrMnDFpX1d1GJuK9S",
       "source": "helius:JUPITER",
       "type": "swap",
-      "symbol": "SOL\u2192SOL",
+      "symbol": "SOL→SOL",
       "qty": 0.0030624,
       "amount_usd": null
     },
     {
       "date": "2026-06-17T15:46:19+00:00",
-      "account": "Solana 2 \u00b7 9AT1\u2026NGNL",
+      "account": "Solana 2 · 9AT1…NGNL",
       "chain": "solana",
       "tx": "ScLubELa6zKQMeUiSjGzKdpAKANgndEKwPA4kAus3yyFLahDXXtpUPHk6uZFvhKdcz6yTAJMm2ohhsYCqqW936M",
       "source": "helius:JUPITER",
       "type": "swap",
-      "symbol": "SOL\u2192SOL",
+      "symbol": "SOL→SOL",
       "qty": 0.0030624,
       "amount_usd": null
     },
     {
       "date": "2026-06-17T15:35:46+00:00",
-      "account": "Solana 2 \u00b7 9AT1\u2026NGNL",
+      "account": "Solana 2 · 9AT1…NGNL",
       "chain": "solana",
       "tx": "5u2w3wuXMbUYughyYHY36iGonMGVHhyzBKniFUTEuemDPdsy3RUZYBdJdB7v555wJt94m7SAU5dxS2G5mJQXsnQq",
       "source": "helius:JUPITER",
       "type": "swap",
-      "symbol": "SOL\u2192SOL",
+      "symbol": "SOL→SOL",
       "qty": 0.0030624,
       "amount_usd": null
     },
     {
       "date": "2026-06-17T13:39:03+00:00",
-      "account": "Solana 2 \u00b7 9AT1\u2026NGNL",
+      "account": "Solana 2 · 9AT1…NGNL",
       "chain": "solana",
       "tx": "3RRHnur1BuRftfMj7VBJWx5Egk2EWqa7LcRc1XQkGsTCPtNLF6vYoUkKHQJ5c46Um7csf7gTKrNTDxS2TyG7ybD7",
       "source": "helius:JUPITER",
       "type": "swap",
-      "symbol": "SOL\u2192SOL",
+      "symbol": "SOL→SOL",
       "qty": 0.0030624,
       "amount_usd": null
     },
     {
       "date": "2026-06-10T12:39:55+00:00",
-      "account": "EVM \u00b7 0x453e\u2026E1DE",
+      "account": "EVM · 0x453e…E1DE",
       "chain": "base",
       "type": "receive",
       "symbol": "ETH",
@@ -3856,7 +3876,7 @@
     },
     {
       "date": "2026-06-10T12:37:35+00:00",
-      "account": "EVM \u00b7 0x453e\u2026E1DE",
+      "account": "EVM · 0x453e…E1DE",
       "chain": "ethereum",
       "type": "receive",
       "symbol": "ETH",
@@ -3867,7 +3887,7 @@
     },
     {
       "date": "2026-06-10T11:36:23+00:00",
-      "account": "EVM \u00b7 0x453e\u2026E1DE",
+      "account": "EVM · 0x453e…E1DE",
       "chain": "ethereum",
       "type": "receive",
       "symbol": "ETH",
@@ -3878,7 +3898,7 @@
     },
     {
       "date": "2026-05-07T19:31:00+00:00",
-      "account": "Solana 2 \u00b7 9AT1\u2026NGNL",
+      "account": "Solana 2 · 9AT1…NGNL",
       "chain": "solana",
       "tx": "3q3AK26zVTBXHpu5G3GbW5ApBdeWusZTr4BsL1rmz8HNwuuSAQb5mo8dJWynjggZPrwsAmS4ExtkixwuJaLyjKkH",
       "source": "helius:SYSTEM_PROGRAM",
@@ -3889,7 +3909,7 @@
     },
     {
       "date": "2026-05-07T16:48:23+00:00",
-      "account": "Solana 2 \u00b7 9AT1\u2026NGNL",
+      "account": "Solana 2 · 9AT1…NGNL",
       "chain": "solana",
       "tx": "3JEFn2Lc6R94KUQB9476pBxZ5hA91uoshxuTfKTaKxig8zDCnVjKFHXEZ9WypXQpZnMEebgD4TCm1uWfY89mVFfL",
       "source": "helius:SYSTEM_PROGRAM",
@@ -3900,7 +3920,7 @@
     },
     {
       "date": "2026-05-07T16:31:51+00:00",
-      "account": "Solana 2 \u00b7 9AT1\u2026NGNL",
+      "account": "Solana 2 · 9AT1…NGNL",
       "chain": "solana",
       "tx": "4t6gLX1jg8jyymnsuqBtVUxpsJtweUpU2ojemLcKoGV5idwTf8Wiq6XEP5pZJhHp12vqsbHTnx3ae3BkC4Nvz6jr",
       "source": "helius:SYSTEM_PROGRAM",
@@ -3911,7 +3931,7 @@
     },
     {
       "date": "2026-05-07T13:21:25+00:00",
-      "account": "Solana 2 \u00b7 9AT1\u2026NGNL",
+      "account": "Solana 2 · 9AT1…NGNL",
       "chain": "solana",
       "tx": "pLRtvNfb9VXxYJTC1htu1rETiHHaLUowzyUR9oWofMVzPYdSTmFRnBouNEC96wY2YYcPmEYsuJyJVCRAzwhkTMe",
       "source": "helius:SYSTEM_PROGRAM",
@@ -3922,7 +3942,7 @@
     },
     {
       "date": "2026-05-07T12:26:20+00:00",
-      "account": "Solana 2 \u00b7 9AT1\u2026NGNL",
+      "account": "Solana 2 · 9AT1…NGNL",
       "chain": "solana",
       "tx": "2X331rwpTWLGnsb4PKr4MMdFX7oFRMpcsgdFnWCWY9i4kenv6QVx98jLeEQzuzESxRi3c67VXdgdscMPv4W52QES",
       "source": "helius:SYSTEM_PROGRAM",
@@ -3933,18 +3953,18 @@
     },
     {
       "date": "2026-05-05T13:06:59+00:00",
-      "account": "Solana 2 \u00b7 9AT1\u2026NGNL",
+      "account": "Solana 2 · 9AT1…NGNL",
       "chain": "solana",
       "tx": "4SEeh2z7mWKTtZRJSj9nKDqK1oYuSaQVc6UUDEseZEk3eVqMjTabV6vLPQoAzn62RXHtcLBA2sXuVc4AD1AeREiv",
       "source": "helius:JUPITER",
       "type": "swap",
-      "symbol": "SOL\u2192SOL",
+      "symbol": "SOL→SOL",
       "qty": 0.0030624,
       "amount_usd": null
     },
     {
       "date": "2026-05-05T12:15:59+00:00",
-      "account": "Solana 2 \u00b7 9AT1\u2026NGNL",
+      "account": "Solana 2 · 9AT1…NGNL",
       "chain": "solana",
       "tx": "2FxEUhK45FbaDthZ4NRDNziB61EtWCS2Kp7MzteAva42kusvE9Dta4E3S5Fgp9qZC84P45kEEbJb4n8iWtEwJVWS",
       "source": "helius:SYSTEM_PROGRAM",
@@ -3955,7 +3975,7 @@
     },
     {
       "date": "2026-05-05T12:02:16+00:00",
-      "account": "Solana 2 \u00b7 9AT1\u2026NGNL",
+      "account": "Solana 2 · 9AT1…NGNL",
       "chain": "solana",
       "tx": "44amhfhUE2YCdouaffApxjHu9MhDXLjQrSeHp4S1otmGAujB6LQZvZ3zshNnX8VWeqiiE1y6tm6FhRyo6x2jnWsT",
       "source": "helius:SYSTEM_PROGRAM",
@@ -3966,7 +3986,7 @@
     },
     {
       "date": "2026-05-04T21:15:45+00:00",
-      "account": "Solana 2 \u00b7 9AT1\u2026NGNL",
+      "account": "Solana 2 · 9AT1…NGNL",
       "chain": "solana",
       "tx": "3BkX5h93jkapq9sXwNB175gNKRLHtjz2L4r7CMN5aUGKbagKZBhReRVwUqVS6XB4VUJ3ziFCZboSaagnKph6qZc7",
       "source": "helius:SYSTEM_PROGRAM",
@@ -3977,7 +3997,7 @@
     },
     {
       "date": "2026-05-04T12:21:40+00:00",
-      "account": "Solana 2 \u00b7 9AT1\u2026NGNL",
+      "account": "Solana 2 · 9AT1…NGNL",
       "chain": "solana",
       "tx": "uALrCCDgy1oJ9ycx6vDEt16mKSqJZy2wet8GV8PGJCGt3dPjcjaRw3YumB24oBmhrqgcEi99NFuaZRJ7V4RbSX8",
       "source": "helius:SYSTEM_PROGRAM",
@@ -3988,18 +4008,18 @@
     },
     {
       "date": "2026-05-04T03:02:56+00:00",
-      "account": "Solana 2 \u00b7 9AT1\u2026NGNL",
+      "account": "Solana 2 · 9AT1…NGNL",
       "chain": "solana",
       "tx": "5P7hWqxzyvseSenJmKtkWiMhrtrs3cPhqgePdd4YntgkV8XcK6RQ5i8LmTZSTp6dRrv5wVPrtGuKD7YCwnYzFSUC",
       "source": "helius:JUPITER",
       "type": "swap",
-      "symbol": "SOL\u2192SOL",
+      "symbol": "SOL→SOL",
       "qty": 0.00203928,
       "amount_usd": null
     },
     {
       "date": "2026-05-04T01:41:17+00:00",
-      "account": "Solana 2 \u00b7 9AT1\u2026NGNL",
+      "account": "Solana 2 · 9AT1…NGNL",
       "chain": "solana",
       "tx": "2bhdyA3KWEC6aZ7JLCMibzmuvj8GEUMAmY4zHCcgheonqgwAdTwY5cgQeLfmHr3SzjExL13rqw4QLSMpbXDNnyNK",
       "source": "helius:SYSTEM_PROGRAM",
@@ -4010,7 +4030,7 @@
     },
     {
       "date": "2026-05-04T00:23:43+00:00",
-      "account": "Solana 2 \u00b7 9AT1\u2026NGNL",
+      "account": "Solana 2 · 9AT1…NGNL",
       "chain": "solana",
       "tx": "2RsWQ5eTfgrwRJn6tV5adCnZL9dNQVWqAikUEXzJ9dc1X2uLNgDeEHqWwSLrAUJcdZTavaixN9Ty6pz2d6zX7xf3",
       "source": "helius:SYSTEM_PROGRAM",
@@ -4021,7 +4041,7 @@
     },
     {
       "date": "2026-05-03T22:34:23+00:00",
-      "account": "Solana 2 \u00b7 9AT1\u2026NGNL",
+      "account": "Solana 2 · 9AT1…NGNL",
       "chain": "solana",
       "tx": "4wrbkHRM339SySaR7AkCEr9j37pfYAjQG17GX43UXJd1SdZcQGUVaA4ygqmYTyL2TuRfbq174mXvQFWgz4RuMuKB",
       "source": "helius:SYSTEM_PROGRAM",
@@ -4032,7 +4052,7 @@
     },
     {
       "date": "2026-05-03T20:51:44+00:00",
-      "account": "Solana 2 \u00b7 9AT1\u2026NGNL",
+      "account": "Solana 2 · 9AT1…NGNL",
       "chain": "solana",
       "tx": "KsK9fsQimYA4hPjvCZE4F6e8i7bd8qf84GpD5b6zYRda41yWXEVyNpTUzN8orQ7rWKvvRTPfRNd8wcGGSbU5Tqq",
       "source": "helius:SYSTEM_PROGRAM",
@@ -4043,7 +4063,7 @@
     },
     {
       "date": "2026-05-03T18:28:00+00:00",
-      "account": "Solana 2 \u00b7 9AT1\u2026NGNL",
+      "account": "Solana 2 · 9AT1…NGNL",
       "chain": "solana",
       "tx": "2ohH1EkuPvnUH2HuiuH9QYMW23FJesD94NKwgGVyFsTbobz3wpHXGmP4y27rrHDDmcVHJZgDaV1Vkc73mHkqjwmB",
       "source": "helius:SYSTEM_PROGRAM",
@@ -4054,7 +4074,7 @@
     },
     {
       "date": "2026-05-03T16:07:32+00:00",
-      "account": "Solana 2 \u00b7 9AT1\u2026NGNL",
+      "account": "Solana 2 · 9AT1…NGNL",
       "chain": "solana",
       "tx": "2Y2K1u3mWEod3skPNirpCXP9ZE7We1Tdm4ME4QkBGApPBPzxcXAfaoaPTd7tjEWttaLnREVrewh8LfCWUp8QSAfn",
       "source": "helius:SYSTEM_PROGRAM",
@@ -4065,7 +4085,7 @@
     },
     {
       "date": "2026-05-03T16:01:19+00:00",
-      "account": "Solana 2 \u00b7 9AT1\u2026NGNL",
+      "account": "Solana 2 · 9AT1…NGNL",
       "chain": "solana",
       "tx": "RT8iMJhXY1q84YCxFzDS9kRPWuNeWGekV4LePUW31cKugw9Ux5aoKCJ2ZZhBmypGjHi5HueVDkkCPsaQYNgLr71",
       "source": "helius:SYSTEM_PROGRAM",
@@ -4076,7 +4096,7 @@
     },
     {
       "date": "2026-05-03T15:27:35+00:00",
-      "account": "Solana 2 \u00b7 9AT1\u2026NGNL",
+      "account": "Solana 2 · 9AT1…NGNL",
       "chain": "solana",
       "tx": "618HLSBkzR15pcx5ckzXKT4p7by8xK2Bw9dtMqZx8LHM7UjZeCTQ9j4N7rkfSDFiWrLMQJQBcW9ZP1u3JYitZ19b",
       "source": "helius:SYSTEM_PROGRAM",
@@ -4087,7 +4107,7 @@
     },
     {
       "date": "2026-05-03T12:24:46+00:00",
-      "account": "Solana 2 \u00b7 9AT1\u2026NGNL",
+      "account": "Solana 2 · 9AT1…NGNL",
       "chain": "solana",
       "tx": "4JESyAYS4i8XgiAhZeBpJyMgEa8Ezp67ARnUxt2i7t2FyFuoM8QWFDz3dijvB848M5xtkYAHWCD5rQ51NTFfUcN1",
       "source": "helius:SYSTEM_PROGRAM",
@@ -4098,7 +4118,7 @@
     },
     {
       "date": "2026-05-01T21:59:08+00:00",
-      "account": "Solana 2 \u00b7 9AT1\u2026NGNL",
+      "account": "Solana 2 · 9AT1…NGNL",
       "chain": "solana",
       "tx": "66npzAzGuDeupT8qtyhLLvpC7KzXBWgiKRJdj6amVg7UK6orqJcieJAaspMGRdNsuAkp18RR45vxF7XX1UQKYBRR",
       "source": "helius:SYSTEM_PROGRAM",
@@ -4109,7 +4129,7 @@
     },
     {
       "date": "2026-05-01T17:10:58+00:00",
-      "account": "Solana 2 \u00b7 9AT1\u2026NGNL",
+      "account": "Solana 2 · 9AT1…NGNL",
       "chain": "solana",
       "tx": "4Aizsx9EN76cKSCh7oYMMfMjA3astKiqqfhcN36AHDQ9KorQhD65JEFjGxZ4dZu6hBtJRJ6urKL1nt8qjJBtPWNN",
       "source": "helius:SYSTEM_PROGRAM",
@@ -4120,18 +4140,18 @@
     },
     {
       "date": "2026-05-01T16:49:30+00:00",
-      "account": "Solana 2 \u00b7 9AT1\u2026NGNL",
+      "account": "Solana 2 · 9AT1…NGNL",
       "chain": "solana",
       "tx": "2wZa1hi8aKGcCXeeit4jspke82oCNUZvW18nCQX8r7WNfMeo1kdqNMwWXr4QfKe4Ydt3fF8onniEP4S8vmvdGFuL",
       "source": "helius:JUPITER",
       "type": "swap",
-      "symbol": "SOL\u2192SOL",
+      "symbol": "SOL→SOL",
       "qty": 0.0030624,
       "amount_usd": null
     },
     {
       "date": "2026-05-01T16:24:25+00:00",
-      "account": "Solana 2 \u00b7 9AT1\u2026NGNL",
+      "account": "Solana 2 · 9AT1…NGNL",
       "chain": "solana",
       "tx": "25qDYZssChaaKXiFDDJ2Em687UJFqXkdxoXMZ9wpr4gJfmxLU6HRNPRcDhq84vhdi4qWBEjLPYnBHMkM3xb5BfJ5",
       "source": "helius:SYSTEM_PROGRAM",
@@ -4142,7 +4162,7 @@
     },
     {
       "date": "2026-05-01T15:14:12+00:00",
-      "account": "Solana 2 \u00b7 9AT1\u2026NGNL",
+      "account": "Solana 2 · 9AT1…NGNL",
       "chain": "solana",
       "tx": "58Cu8kMo2hnLPrsZjPBspCC37AmFyckpJuLwc1KRfZ6NyuGwdaxX2MSpJzXjMZ3Jzw7HLdv69YjGKSBUm2PCpWub",
       "source": "helius:SYSTEM_PROGRAM",
@@ -4153,29 +4173,29 @@
     },
     {
       "date": "2026-05-01T14:26:20+00:00",
-      "account": "Solana 2 \u00b7 9AT1\u2026NGNL",
+      "account": "Solana 2 · 9AT1…NGNL",
       "chain": "solana",
       "tx": "KMg1KdC6XwzN8nrDwnPpjYJYiYEjitpqzzqkiBRtTSnBihRxCRC2WX496gDo65MPTMeBsKKuStaVvAhbFMSXoUr",
       "source": "helius:JUPITER",
       "type": "swap",
-      "symbol": "SOL\u2192SOL",
+      "symbol": "SOL→SOL",
       "qty": 0.00203928,
       "amount_usd": null
     },
     {
       "date": "2026-05-01T13:01:38+00:00",
-      "account": "Solana 2 \u00b7 9AT1\u2026NGNL",
+      "account": "Solana 2 · 9AT1…NGNL",
       "chain": "solana",
       "tx": "4PMyGYAoj1ybjY6QeKhcqLQu6vamTyKvsvo1mTARVirB4zgXix4faDdKeZNtRAyCR5TwfK9iHFxFCzLBjRMS5mhX",
       "source": "helius:JUPITER",
       "type": "swap",
-      "symbol": "SOL\u2192SOL",
+      "symbol": "SOL→SOL",
       "qty": 0.00203928,
       "amount_usd": null
     },
     {
       "date": "2026-05-01T13:01:04+00:00",
-      "account": "Solana 2 \u00b7 9AT1\u2026NGNL",
+      "account": "Solana 2 · 9AT1…NGNL",
       "chain": "solana",
       "tx": "5jmA2iwVYg1HJPoteB4cEWV6sAreCaNyik2pM8L59gUTyfJXbQBzX7YnofQrGhpaCKZCEagZRt8tVig7wFdrGtGC",
       "source": "helius:SYSTEM_PROGRAM",
@@ -4186,18 +4206,18 @@
     },
     {
       "date": "2026-05-01T12:23:11+00:00",
-      "account": "Solana 2 \u00b7 9AT1\u2026NGNL",
+      "account": "Solana 2 · 9AT1…NGNL",
       "chain": "solana",
       "tx": "5xCrcQFSgdNqz3i5hVAvJehTdwsF2eMYugSGpeuPKkrpPU3wAX5ptM62rkaN3msot4ez7TtNNAvECgQePH7YRpup",
       "source": "helius:JUPITER",
       "type": "swap",
-      "symbol": "SOL\u2192SOL",
+      "symbol": "SOL→SOL",
       "qty": 0.00203928,
       "amount_usd": null
     },
     {
       "date": "2026-05-01T10:46:20+00:00",
-      "account": "Solana 2 \u00b7 9AT1\u2026NGNL",
+      "account": "Solana 2 · 9AT1…NGNL",
       "chain": "solana",
       "tx": "2tBChwPX4PMatXaKXobsBv1c5ruoZZAAmcgeAjdBtX2NWbBo8TXdZvN7BywRnXgJ4Pf8xS2NT8dXPASFNsj3LEDW",
       "source": "helius:SYSTEM_PROGRAM",
@@ -4208,7 +4228,7 @@
     },
     {
       "date": "2026-05-01T10:45:55+00:00",
-      "account": "Solana 2 \u00b7 9AT1\u2026NGNL",
+      "account": "Solana 2 · 9AT1…NGNL",
       "chain": "solana",
       "tx": "3ozRWgCJmhc9nNibdAWB9TjY1W8kuXWphuikvMc2ErvpVBL1FdkB2JAnFNoj2HeqRw3c1xhJ2u9JfWyyoEThsnDd",
       "source": "helius:SYSTEM_PROGRAM",
@@ -4219,7 +4239,7 @@
     },
     {
       "date": "2026-04-30T13:36:50+00:00",
-      "account": "Solana 2 \u00b7 9AT1\u2026NGNL",
+      "account": "Solana 2 · 9AT1…NGNL",
       "chain": "solana",
       "tx": "4sACugmotmQUWtvZW2XBjVbJsBU8iEoEDQk8EzdK5zQ7nL9PUXoCMYjovNuCrg81QzhoSNib9JeLZ3qiKvG3bXM",
       "source": "helius:SYSTEM_PROGRAM",
@@ -4230,18 +4250,18 @@
     },
     {
       "date": "2026-04-30T02:16:27+00:00",
-      "account": "Solana 2 \u00b7 9AT1\u2026NGNL",
+      "account": "Solana 2 · 9AT1…NGNL",
       "chain": "solana",
       "tx": "4ohWpCV9TaM4KcxfX4c8UinxzBS1NiAkXAEx6CRebrBHqXiLoa65UxAYqtwSki22mRX69DvcnZxQoyo7FeLQu9hg",
       "source": "helius:JUPITER",
       "type": "swap",
-      "symbol": "SOL\u2192SOL",
+      "symbol": "SOL→SOL",
       "qty": 0.0030624,
       "amount_usd": null
     },
     {
       "date": "2026-04-30T00:08:12+00:00",
-      "account": "Solana 2 \u00b7 9AT1\u2026NGNL",
+      "account": "Solana 2 · 9AT1…NGNL",
       "chain": "solana",
       "tx": "4P4gpWvduq1JgZTdZFKV9E8zD28hX7Kxrurx1g1pq7CeLZjh3FCRxerXTsixzsLUchchfEXFgnuLrCL3vSawUPP3",
       "source": "helius:SYSTEM_PROGRAM",
@@ -4252,7 +4272,7 @@
     },
     {
       "date": "2026-04-29T22:12:05+00:00",
-      "account": "Solana 2 \u00b7 9AT1\u2026NGNL",
+      "account": "Solana 2 · 9AT1…NGNL",
       "chain": "solana",
       "tx": "3hVGJj3S3ifHUQS7Rh7mZY5WohabVMv5EcsnZQbj2zC4bfisTzbxk3Wx25ucW4uFjwadwvYqpozhj2xPArCrZC8q",
       "source": "helius:SYSTEM_PROGRAM",
@@ -4263,7 +4283,7 @@
     },
     {
       "date": "2026-04-29T20:03:20+00:00",
-      "account": "Solana 2 \u00b7 9AT1\u2026NGNL",
+      "account": "Solana 2 · 9AT1…NGNL",
       "chain": "solana",
       "tx": "f4MXmxQ1BJYXPdYXFcnkP2USetEUvdGWSuu38vHV36edeaBB673DwG5DsiHEf73SVMWytxngMySjxhVhZsapvDs",
       "source": "helius:SYSTEM_PROGRAM",
@@ -4274,7 +4294,7 @@
     },
     {
       "date": "2026-04-29T19:33:05+00:00",
-      "account": "Solana 2 \u00b7 9AT1\u2026NGNL",
+      "account": "Solana 2 · 9AT1…NGNL",
       "chain": "solana",
       "tx": "5UHhU6LgBi3kgQgq4AAQ3vCs6s4ei8GBCmq2uvtn3jAgFLM5si4CjMvxz9uUk7EgfaudRppjWTHrnrfrdGBP3fgp",
       "source": "helius:SYSTEM_PROGRAM",
@@ -4285,7 +4305,7 @@
     },
     {
       "date": "2026-04-29T19:14:11+00:00",
-      "account": "Solana 2 \u00b7 9AT1\u2026NGNL",
+      "account": "Solana 2 · 9AT1…NGNL",
       "chain": "solana",
       "tx": "4tbw6UyJNv3H7pGva1haJG64AGr33pfeMsMEdnhEuB3nRGfdDJU8PMrVtsZZ8owARedKhcLUbDFbYaWvSwey2BNG",
       "source": "helius:SYSTEM_PROGRAM",
@@ -4296,7 +4316,7 @@
     },
     {
       "date": "2026-04-29T18:53:50+00:00",
-      "account": "Solana 2 \u00b7 9AT1\u2026NGNL",
+      "account": "Solana 2 · 9AT1…NGNL",
       "chain": "solana",
       "tx": "5fuqXf5mz4Ta3jiQ7J3hvwDMKonCiNtWcej7ANYJ9wcqULcjFtrSkZ3iQRSaMgt5E1zdWDzcJZFfyjJXxUEBQ7Rf",
       "source": "helius:SYSTEM_PROGRAM",
@@ -4307,7 +4327,7 @@
     },
     {
       "date": "2026-04-29T18:36:03+00:00",
-      "account": "Solana 2 \u00b7 9AT1\u2026NGNL",
+      "account": "Solana 2 · 9AT1…NGNL",
       "chain": "solana",
       "tx": "zhC8u9KhGF1X3hwwUobq3msQoodZc3uvJYJTavgRJswb7bkZgDgbRLBmTKsACwDfEh916gKxbWztvo1payXUnJ2",
       "source": "helius:SYSTEM_PROGRAM",
@@ -4318,7 +4338,7 @@
     },
     {
       "date": "2026-04-29T15:52:15+00:00",
-      "account": "Solana 2 \u00b7 9AT1\u2026NGNL",
+      "account": "Solana 2 · 9AT1…NGNL",
       "chain": "solana",
       "tx": "rw9pDGDUVXHVr7XA7zAfW1o83hJhpbNbeu7PUZn6TJ3ZNuHVdHD81B7go6uRwCPCDoJ6DZA2C8wNs5UTCksNCwx",
       "source": "helius:SYSTEM_PROGRAM",
@@ -4329,7 +4349,7 @@
     },
     {
       "date": "2026-04-29T13:25:28+00:00",
-      "account": "Solana 2 \u00b7 9AT1\u2026NGNL",
+      "account": "Solana 2 · 9AT1…NGNL",
       "chain": "solana",
       "tx": "4RPmDono5g8wYWbDZ2CXHW4H6FL9a949V3quyaMLmtA76qyNh3HeiTCiAMMpqMGWE5zZ2CqduEaAFrMk618t8jEA",
       "source": "helius:SYSTEM_PROGRAM",
@@ -4340,7 +4360,7 @@
     },
     {
       "date": "2026-04-29T12:01:14+00:00",
-      "account": "Solana 2 \u00b7 9AT1\u2026NGNL",
+      "account": "Solana 2 · 9AT1…NGNL",
       "chain": "solana",
       "tx": "58LnMhHzqpNTUHbQ8Tao116yRJCje7Trgw24Nu4agsLpQy8ncGZ7SaFcHeVka2MRzndZhuQyNYJQ7bcN7uPsCnvW",
       "source": "helius:SYSTEM_PROGRAM",
@@ -4351,122 +4371,122 @@
     },
     {
       "date": "2026-04-25T18:49:08+00:00",
-      "account": "Solana 2 \u00b7 9AT1\u2026NGNL",
+      "account": "Solana 2 · 9AT1…NGNL",
       "chain": "solana",
       "tx": "63KrsRX8bquZgoAuvTX3p1T7x5WWasCLGvgj8KWDUGdiua8uRc1MrgvG2FQ7egukWytNANbBsNcHY7BvPL3iCimB",
       "source": "helius:JUPITER",
       "type": "swap",
-      "symbol": "SOL\u2192SOL",
+      "symbol": "SOL→SOL",
       "qty": 0.0030624,
       "amount_usd": null
     },
     {
       "date": "2026-04-25T13:41:07+00:00",
-      "account": "Solana 2 \u00b7 9AT1\u2026NGNL",
+      "account": "Solana 2 · 9AT1…NGNL",
       "chain": "solana",
       "tx": "3EUkgquaQk9hExgaTKTybFqmxwnic3PjTFQASdvCnDbqGyXNBrerseinoAiekubLx4yjT34ZG5PofS9HFjJMrHSS",
       "source": "helius:JUPITER",
       "type": "swap",
-      "symbol": "SOL\u2192SOL",
+      "symbol": "SOL→SOL",
       "qty": 0.00203928,
       "amount_usd": null
     },
     {
       "date": "2026-04-25T00:29:24+00:00",
-      "account": "Solana 2 \u00b7 9AT1\u2026NGNL",
+      "account": "Solana 2 · 9AT1…NGNL",
       "chain": "solana",
       "tx": "4n9r5qJVPTWREuDX7iRR8BXXrixnvRuz4pfy1r7MyiMzgyaDTKsBiD4di2Kmet28sMVHKX4yrHcEwvyM7pJk3xud",
       "source": "helius:JUPITER",
       "type": "swap",
-      "symbol": "SOL\u2192SOL",
+      "symbol": "SOL→SOL",
       "qty": 0.0030624,
       "amount_usd": null
     },
     {
       "date": "2026-04-25T00:27:40+00:00",
-      "account": "Solana 2 \u00b7 9AT1\u2026NGNL",
+      "account": "Solana 2 · 9AT1…NGNL",
       "chain": "solana",
       "tx": "3dxahG36XPsiWqFyxmRivVKRG5NwvAVWaddY34U67yg7P8VHASdXMq1x4D1cRTC9qKDcd4otEXPDq4NkQbKPqjgf",
       "source": "helius:JUPITER",
       "type": "swap",
-      "symbol": "SOL\u2192SOL",
+      "symbol": "SOL→SOL",
       "qty": 0.0030624,
       "amount_usd": null
     },
     {
       "date": "2026-04-25T00:26:03+00:00",
-      "account": "Solana 2 \u00b7 9AT1\u2026NGNL",
+      "account": "Solana 2 · 9AT1…NGNL",
       "chain": "solana",
       "tx": "4bdWykQRHywjwyNxhWKRtpYQ7nv2H1mmMfb7mhMaLqWs9e6EHyBUKjTkFUXbGQP1YW24NRDshdbDUT2mw516NTWr",
       "source": "helius:JUPITER",
       "type": "swap",
-      "symbol": "SOL\u2192SOL",
+      "symbol": "SOL→SOL",
       "qty": 0.0030624,
       "amount_usd": null
     },
     {
       "date": "2026-04-24T22:59:58+00:00",
-      "account": "Solana 2 \u00b7 9AT1\u2026NGNL",
+      "account": "Solana 2 · 9AT1…NGNL",
       "chain": "solana",
       "tx": "ydSLMi9CcRjjzoXPryE3TTPpyKxP8aqwMD1nHmCi7oNaBjfwVTESXuV9tduQtjAD9CKCBjL5u9Fj3DwKS7496bv",
       "source": "helius:JUPITER",
       "type": "swap",
-      "symbol": "SOL\u2192SOL",
+      "symbol": "SOL→SOL",
       "qty": 0.0030624,
       "amount_usd": null
     },
     {
       "date": "2026-04-24T12:07:24+00:00",
-      "account": "Solana 2 \u00b7 9AT1\u2026NGNL",
+      "account": "Solana 2 · 9AT1…NGNL",
       "chain": "solana",
       "tx": "3hQSPnLZEsr9rZ8HAa2pUEDLPrPPe1LgPbzB7jViBHP7F4rvX1Vdz7KL7hc6wCGiMYF79fKaNm1SyHesTxNKFBQx",
       "source": "helius:JUPITER",
       "type": "swap",
-      "symbol": "SOL\u2192SOL",
+      "symbol": "SOL→SOL",
       "qty": 0.0030624,
       "amount_usd": null
     },
     {
       "date": "2026-04-23T17:02:49+00:00",
-      "account": "Solana 2 \u00b7 9AT1\u2026NGNL",
+      "account": "Solana 2 · 9AT1…NGNL",
       "chain": "solana",
       "tx": "2oe3oBtPfv4tEQ1AHCxrYkptHBFC61UxaunkY9NPyFeDKZGgZpLPiUok4rLJKFXzGqwAgtDK1vDji5635Werdnf2",
       "source": "helius:JUPITER",
       "type": "swap",
-      "symbol": "SOL\u2192SOL",
+      "symbol": "SOL→SOL",
       "qty": 0.0030624,
       "amount_usd": null
     },
     {
       "date": "2026-04-23T11:52:27+00:00",
-      "account": "Solana 2 \u00b7 9AT1\u2026NGNL",
+      "account": "Solana 2 · 9AT1…NGNL",
       "chain": "solana",
       "tx": "WqxHut3MLfY8VtSh6xp7jPsY4sYcXqhq7jrS78xfaNwVjoW87Wr7zDjmBZp7qGpaZ87eUf28E3K8ug6oiJ51Ba3",
       "source": "helius:JUPITER",
       "type": "swap",
-      "symbol": "SOL\u2192SOL",
+      "symbol": "SOL→SOL",
       "qty": 0.00203928,
       "amount_usd": null
     },
     {
       "date": "2026-04-22T17:45:51+00:00",
-      "account": "Solana 2 \u00b7 9AT1\u2026NGNL",
+      "account": "Solana 2 · 9AT1…NGNL",
       "chain": "solana",
       "tx": "4XVBoNQMQXRwA7uw5a9KtGZZqXB9jb4AmeRWXwj9KbNjr3pY5hM5cp6NogY8UpoQ4wGGMyckLBacsSDJiYReF5pR",
       "source": "helius:JUPITER",
       "type": "swap",
-      "symbol": "SOL\u2192SOL",
+      "symbol": "SOL→SOL",
       "qty": 0.00203928,
       "amount_usd": null
     },
     {
       "date": "2026-04-22T16:20:44+00:00",
-      "account": "Solana 2 \u00b7 9AT1\u2026NGNL",
+      "account": "Solana 2 · 9AT1…NGNL",
       "chain": "solana",
       "tx": "4jFgVAwdtcD4a9HgaT5BKetEa4zuf61rWLrV5DDi12McAZZkuXf8fZWRe7nUKVULNEBKUhoFAeYtH9CiVQ5SkEtc",
       "source": "helius:JUPITER",
       "type": "swap",
-      "symbol": "SOL\u2192SOL",
+      "symbol": "SOL→SOL",
       "qty": 0.0030624,
       "amount_usd": null
     }
@@ -4516,7 +4536,7 @@
     "wallets": [
       {
         "id": "evm_ac40",
-        "label": "EVM 0xAC40\u2026d9cB (legacy HL label)",
+        "label": "EVM 0xAC40…d9cB (legacy HL label)",
         "address": "0xAC407064CA22E72CDCBc918625A420Ec9FE6d9cB",
         "family": "evm",
         "status": "untrackable",
@@ -4542,13 +4562,13 @@
         "flags": [
           {
             "kind": "untrackable",
-            "msg": "Zerion: address not trackable (HTTP 400) on any chain; Hyperliquid shows no fills/funding either \u2014 nothing to P/L."
+            "msg": "Zerion: address not trackable (HTTP 400) on any chain; Hyperliquid shows no fills/funding either — nothing to P/L."
           }
         ]
       },
       {
         "id": "evm_acb6",
-        "label": "EVM 0xACB6\u202662aD (WOOD wallet)",
+        "label": "EVM 0xACB6…62aD (WOOD wallet)",
         "address": "0xACB6bE8D3E6A582e98dB6F4cDe91Ac6e705162aD",
         "family": "evm",
         "status": "ok",
@@ -5027,17 +5047,17 @@
           {
             "kind": "explorer_mismatch",
             "chain": "celo",
-            "msg": "celo: celo.blockscout.com lists 21 tx hashes Zerion doesn't (Zerion 2, explorer 23) \u2014 mostly spam airdrops Zerion filters, check if large."
+            "msg": "celo: celo.blockscout.com lists 21 tx hashes Zerion doesn't (Zerion 2, explorer 23) — mostly spam airdrops Zerion filters, check if large."
           },
           {
             "kind": "explorer_mismatch",
             "chain": "ethereum",
-            "msg": "ethereum: api.routescan.io lists 15 tx hashes Zerion doesn't (Zerion 54, explorer 69) \u2014 mostly spam airdrops Zerion filters, check if large."
+            "msg": "ethereum: api.routescan.io lists 15 tx hashes Zerion doesn't (Zerion 54, explorer 69) — mostly spam airdrops Zerion filters, check if large."
           },
           {
             "kind": "explorer_mismatch",
             "chain": "optimism",
-            "msg": "optimism: explorer.optimism.io lists 32 tx hashes Zerion doesn't (Zerion 8, explorer 40) \u2014 mostly spam airdrops Zerion filters, check if large."
+            "msg": "optimism: explorer.optimism.io lists 32 tx hashes Zerion doesn't (Zerion 8, explorer 40) — mostly spam airdrops Zerion filters, check if large."
           },
           {
             "kind": "explorer_gap",
@@ -5058,7 +5078,7 @@
       },
       {
         "id": "evm_453e",
-        "label": "EVM 0x453e\u2026E1DE",
+        "label": "EVM 0x453e…E1DE",
         "address": "0x453e101591d317982AADebB66E8677500168E1DE",
         "family": "evm",
         "status": "ok",
@@ -5563,12 +5583,12 @@
           {
             "kind": "explorer_mismatch",
             "chain": "celo",
-            "msg": "celo: celo.blockscout.com lists 38 tx hashes Zerion doesn't (Zerion 9, explorer 47) \u2014 mostly spam airdrops Zerion filters, check if large."
+            "msg": "celo: celo.blockscout.com lists 38 tx hashes Zerion doesn't (Zerion 9, explorer 47) — mostly spam airdrops Zerion filters, check if large."
           },
           {
             "kind": "explorer_mismatch",
             "chain": "ethereum",
-            "msg": "ethereum: api.routescan.io lists 10 tx hashes Zerion doesn't (Zerion 67, explorer 77) \u2014 mostly spam airdrops Zerion filters, check if large."
+            "msg": "ethereum: api.routescan.io lists 10 tx hashes Zerion doesn't (Zerion 67, explorer 77) — mostly spam airdrops Zerion filters, check if large."
           },
           {
             "kind": "explorer_gap",
@@ -5578,7 +5598,7 @@
           {
             "kind": "explorer_mismatch",
             "chain": "optimism",
-            "msg": "optimism: explorer.optimism.io lists 34 tx hashes Zerion doesn't (Zerion 8, explorer 42) \u2014 mostly spam airdrops Zerion filters, check if large."
+            "msg": "optimism: explorer.optimism.io lists 34 tx hashes Zerion doesn't (Zerion 8, explorer 42) — mostly spam airdrops Zerion filters, check if large."
           },
           {
             "kind": "explorer_gap",
@@ -5594,7 +5614,7 @@
       },
       {
         "id": "evm_622f",
-        "label": "EVM 0x622F\u2026fdda",
+        "label": "EVM 0x622F…fdda",
         "address": "0x622Fad71b701A0249e69BD723415415A6D0bfdda",
         "family": "evm",
         "status": "ok",
@@ -5825,12 +5845,12 @@
           {
             "kind": "explorer_mismatch",
             "chain": "ethereum",
-            "msg": "ethereum: api.routescan.io lists 4 tx hashes Zerion doesn't (Zerion 14, explorer 18) \u2014 mostly spam airdrops Zerion filters, check if large."
+            "msg": "ethereum: api.routescan.io lists 4 tx hashes Zerion doesn't (Zerion 14, explorer 18) — mostly spam airdrops Zerion filters, check if large."
           },
           {
             "kind": "explorer_mismatch",
             "chain": "optimism",
-            "msg": "optimism: explorer.optimism.io lists 15 tx hashes Zerion doesn't (Zerion 2, explorer 17) \u2014 mostly spam airdrops Zerion filters, check if large."
+            "msg": "optimism: explorer.optimism.io lists 15 tx hashes Zerion doesn't (Zerion 2, explorer 17) — mostly spam airdrops Zerion filters, check if large."
           },
           {
             "kind": "explorer_gap",
@@ -5851,7 +5871,7 @@
       },
       {
         "id": "evm_hl_spot",
-        "label": "EVM 0x8E43\u2026500f (HL trading)",
+        "label": "EVM 0x8E43…500f (HL trading)",
         "address": "0x8E4387b4Ddaf01F6B70B5A477d22b0F22f8D500f",
         "family": "evm",
         "status": "ok",
@@ -5922,7 +5942,7 @@
       },
       {
         "id": "solana1",
-        "label": "Solana 1 F5DS\u2026tmUi",
+        "label": "Solana 1 F5DS…tmUi",
         "address": "F5DSyXxc6i1de548wSYCzMuEhnCC8KPwqv4Qj71QtmUi",
         "family": "solana",
         "status": "ok",
@@ -6006,7 +6026,7 @@
         },
         "assets": [
           {
-            "sym": "JupSOL \u00b7 LST",
+            "sym": "JupSOL · LST",
             "chain": "solana",
             "value": 43527.29,
             "held_qty": 505.051505809,
@@ -6567,13 +6587,13 @@
           {
             "kind": "explorer_mismatch",
             "chain": "solana",
-            "msg": "solana: Helius RPC getSignaturesForAddress (successful sigs) lists 132 tx hashes Zerion doesn't (Zerion 1616, explorer 731) \u2014 mostly spam airdrops Zerion filters, check if large."
+            "msg": "solana: Helius RPC getSignaturesForAddress (successful sigs) lists 132 tx hashes Zerion doesn't (Zerion 1616, explorer 731) — mostly spam airdrops Zerion filters, check if large."
           }
         ]
       },
       {
         "id": "solana2",
-        "label": "Solana 2 9AT1\u2026NGNL",
+        "label": "Solana 2 9AT1…NGNL",
         "address": "9AT17mgyzesULv6D8CqiDqenFB7huACXJKSyuf5oNGNL",
         "family": "solana",
         "status": "ok",
@@ -7887,17 +7907,17 @@
         "flags": [
           {
             "kind": "venue_gap",
-            "msg": "Robinhood Crypto: SnapTrade returns no activity history \u2014 crypto P/L limited to live positions."
+            "msg": "Robinhood Crypto: SnapTrade returns no activity history — crypto P/L limited to live positions."
           },
           {
             "kind": "basis_disagree",
             "asset": "TSLA",
-            "msg": "Robinhood TSLA: history basis $423.43/sh (assignment premium in basis) vs broker $478.14/sh \u2014 using history."
+            "msg": "Robinhood TSLA: history basis $423.43/sh (assignment premium in basis) vs broker $478.14/sh — using history."
           },
           {
             "kind": "basis_disagree",
             "asset": "ALAB",
-            "msg": "Robinhood ALAB: history basis $353.56/sh (assignment premium in basis) vs broker $325.68/sh \u2014 using history."
+            "msg": "Robinhood ALAB: history basis $353.56/sh (assignment premium in basis) vs broker $325.68/sh — using history."
           }
         ]
       },
@@ -7918,7 +7938,7 @@
         "history": {
           "first_ts": "2023-10-05",
           "last_ts": "2026-11-20T14:30:04Z",
-          "source": "trade-confirm ledger 2023-10\u21922026-09-18 + SnapTrade activities after; margin interest from SnapTrade (27 months)"
+          "source": "trade-confirm ledger 2023-10→2026-09-18 + SnapTrade activities after; margin interest from SnapTrade (27 months)"
         },
         "crosscheck": null,
         "ledger_flows": null,
@@ -7974,7 +7994,7 @@
           },
           {
             "kind": "venue_gap",
-            "msg": "E*TRADE: SPCX 100-share put-assignment confirm not in PDFs \u2014 inferred from short SPCX 152.5 put + SnapTrade holdings + journal note."
+            "msg": "E*TRADE: SPCX 100-share put-assignment confirm not in PDFs — inferred from short SPCX 152.5 put + SnapTrade holdings + journal note."
           },
           {
             "kind": "venue_gap",
@@ -7993,7 +8013,7 @@
     "rows": [
       {
         "id": "evm_ac40",
-        "name": "EVM 0xAC40\u2026d9cB (legacy HL label)",
+        "name": "EVM 0xAC40…d9cB (legacy HL label)",
         "kind": "wallet",
         "realized": null,
         "unrealized": null,
@@ -8011,7 +8031,7 @@
       },
       {
         "id": "evm_acb6",
-        "name": "EVM 0xACB6\u202662aD (WOOD wallet)",
+        "name": "EVM 0xACB6…62aD (WOOD wallet)",
         "kind": "wallet",
         "realized": 546.93,
         "unrealized": -8046.74,
@@ -8029,7 +8049,7 @@
       },
       {
         "id": "evm_453e",
-        "name": "EVM 0x453e\u2026E1DE",
+        "name": "EVM 0x453e…E1DE",
         "kind": "wallet",
         "realized": 2659.27,
         "unrealized": -5018.14,
@@ -8047,7 +8067,7 @@
       },
       {
         "id": "evm_622f",
-        "name": "EVM 0x622F\u2026fdda",
+        "name": "EVM 0x622F…fdda",
         "kind": "wallet",
         "realized": 600.52,
         "unrealized": -4124.67,
@@ -8065,7 +8085,7 @@
       },
       {
         "id": "evm_hl_spot",
-        "name": "EVM 0x8E43\u2026500f (HL trading)",
+        "name": "EVM 0x8E43…500f (HL trading)",
         "kind": "wallet",
         "realized": 0.0,
         "unrealized": 0.0,
@@ -8083,7 +8103,7 @@
       },
       {
         "id": "solana1",
-        "name": "Solana 1 F5DS\u2026tmUi",
+        "name": "Solana 1 F5DS…tmUi",
         "kind": "wallet",
         "realized": 52908.51,
         "unrealized": -40286.9,
@@ -8101,7 +8121,7 @@
       },
       {
         "id": "solana2",
-        "name": "Solana 2 9AT1\u2026NGNL",
+        "name": "Solana 2 9AT1…NGNL",
         "kind": "wallet",
         "realized": 2795.26,
         "unrealized": -2633.95,
@@ -8119,7 +8139,7 @@
       },
       {
         "id": "hyperliquid",
-        "name": "Hyperliquid \u00b7 0x8E43\u2026",
+        "name": "Hyperliquid · 0x8E43…",
         "kind": "venue",
         "realized": -812.18,
         "unrealized": 0.0,
@@ -8134,7 +8154,7 @@
       },
       {
         "id": "hl_0xac40",
-        "name": "Hyperliquid \u00b7 0xAC40\u2026",
+        "name": "Hyperliquid · 0xAC40…",
         "kind": "venue",
         "realized": 0.0,
         "unrealized": 0.0,
@@ -8149,7 +8169,7 @@
       },
       {
         "id": "hl_0x43aa",
-        "name": "Hyperliquid \u00b7 0x43aa\u2026",
+        "name": "Hyperliquid · 0x43aa…",
         "kind": "venue",
         "realized": 0.0,
         "unrealized": 0.0,
@@ -8236,7 +8256,7 @@
       441000,
       461000
     ],
-    "start_nav_method": "bottom-up rebuild estimate \u00b1$10k. $451,000 starting capital on Aug 15, 2026, pending Aug 14\u201315 venue statements.",
+    "start_nav_method": "bottom-up rebuild estimate ±$10k. $451,000 starting capital on Aug 15, 2026, pending Aug 14–15 venue statements.",
     "book_usd": 521815.55,
     "net_flows_usd": 178182.57,
     "flows_by_source": {
@@ -9308,8 +9328,8 @@
       {
         "id": "start_capital",
         "severity": "medium",
-        "amount": "About \u00b1$10k. It moves true P&L dollar for dollar. The split across venues on Aug 15 is still unknown.",
-        "text": "The $451,000 starting capital on Aug 15 is a bottom-up rebuild estimate \u00b1$10k, pending Aug 14\u201315 venue statements. The split across venues on Aug 15 is unknown, so P&L by venue can't be shown."
+        "amount": "About ±$10k. It moves true P&L dollar for dollar. The split across venues on Aug 15 is still unknown.",
+        "text": "The $451,000 starting capital on Aug 15 is a bottom-up rebuild estimate ±$10k, pending Aug 14–15 venue statements. The split across venues on Aug 15 is unknown, so P&L by venue can't be shown."
       },
       {
         "id": "etrade_feed",
@@ -9321,7 +9341,7 @@
         "id": "withdrawals",
         "severity": "medium",
         "amount": "None found. Any missed withdrawal would make true P&L better by the same amount.",
-        "text": "No withdrawals were found since Aug 15 on Coinbase, Robinhood, E*TRADE or Hyperliquid. On-chain sends to outside addresses (and the 0xac39\u2026/0x6b9e\u2026 hop wallets) are treated as internal and haven't been audited."
+        "text": "No withdrawals were found since Aug 15 on Coinbase, Robinhood, E*TRADE or Hyperliquid. On-chain sends to outside addresses (and the 0xac39…/0x6b9e… hop wallets) are treated as internal and haven't been audited."
       },
       {
         "id": "wallet_inkind",
@@ -9339,11 +9359,11 @@
     "data_needed": [
       "Account statements (or balances) for Aug 14/15, 2026 at Coinbase, E*TRADE, Robinhood, Hyperliquid and each wallet, to confirm the $451,000 estimate and split it by venue.",
       "A list of every deposit and withdrawal since Aug 15 that didn't go through a Coinbase bank buy or a Robinhood ACH: bank wires, Zelle to a broker, crypto you sent in or took out, and any cash you pulled.",
-      "Who owns wallets 0xac39B4e7\u2026 and 0x6b9e7731\u2026 (the Oct 7 hop to Hyperliquid). If they're not yours, that hop is a withdrawal plus a deposit, not an internal move.",
+      "Who owns wallets 0xac39B4e7… and 0x6b9e7731… (the Oct 7 hop to Hyperliquid). If they're not yours, that hop is a withdrawal plus a deposit, not an internal move.",
       "Coinbase full transaction-history CSV (Aug 15 to today), to confirm no fiat withdrawals or outside crypto sends were missed.",
       "Whether the Nov 2 Robinhood deposit came with any other cash movement (the margin paydown you mentioned)."
     ],
-    "starting_capital_note": "bottom-up rebuild estimate \u00b1$10k, pending Aug 14\u201315 venue statements",
-    "method": "Inception Aug 15, 2026 with $451,000 starting capital (bottom-up rebuild estimate \u00b1$10k, pending Aug 14\u201315 venue statements). Contributions = bank-funded Coinbase buys, fiat deposits, broker ACH deposits and in-kind transfers in, minus withdrawals. Moves between our own venues and wallets are internal. Buys, sells and swaps aren't flows, and their result is already in the value. MWR = XIRR on dated contributions. TWR = Dietz to Oct 7 (first complete daily book), then verified days chained, then live."
+    "starting_capital_note": "bottom-up rebuild estimate ±$10k, pending Aug 14–15 venue statements",
+    "method": "Inception Aug 15, 2026 with $451,000 starting capital (bottom-up rebuild estimate ±$10k, pending Aug 14–15 venue statements). Contributions = bank-funded Coinbase buys, fiat deposits, broker ACH deposits and in-kind transfers in, minus withdrawals. Moves between our own venues and wallets are internal. Buys, sells and swaps aren't flows, and their result is already in the value. MWR = XIRR on dated contributions. TWR = Dietz to Oct 7 (first complete daily book), then verified days chained, then live."
   }
 }

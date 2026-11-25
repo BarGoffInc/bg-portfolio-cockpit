@@ -1,7 +1,7 @@
 {
  "version": 1,
  "about": "Append-only plan log for charts.html. Edit only via plans.py.",
- "updated_at": "2026-11-25T00:45:16-05:00",
+ "updated_at": "2026-11-25T16:14:00-05:00",
  "entries": [
   {
    "id": "TAO-20261115-001",
@@ -30124,13 +30124,24 @@
    "source": "recipe 2026-11-25 (CON-31 Max Buy house recipe, approved by Pablo Nov 25)",
    "chart": true,
    "supersedes": [],
-   "fills": [],
-   "status": "planned",
+   "fills": [
+    "2c55acbc-7ae3-4aaf-8cc2-24bca8e1c64a"
+   ],
+   "status": "filled",
    "status_history": [
     {
      "at": "2026-11-25T00:45:00-05:00",
      "status": "planned",
      "note": "created"
+    },
+    {
+     "at": "2026-11-25T16:13:00-05:00",
+     "status": "filled",
+     "note": "matched API fill: Coinbase BUY 40 POWL @ $154.8455 on Nov 25, 3:54:16 PM ET (trade_id 2c55acbc-7ae3-4aaf-8cc2-24bca8e1c64a, notional $6,193.82, commission $0, funded from USDC). 40 shares is the first 40% starter (budget $15,915; $6,193.82 vs $6,366 planned). Lowest price paid $154.8455. Exits PLANNED, NOT PLACED: no resting stop; sell by hand only on a weekly close under $94.50. Adds (20/20/20) only after a Friday weekly close below BOTH the Max Buy close $133.04 and the lowest price paid $154.8455 (binding level is $133.04). Scale out on Gemini Trim labels; hold 18+ months. No pre-set dollar trim targets on file.",
+     "by": "conviction",
+     "fill_ids": [
+      "2c55acbc-7ae3-4aaf-8cc2-24bca8e1c64a"
+     ]
     }
    ],
    "cond_short": "MB close $133.04",
@@ -30323,6 +30334,12 @@
      "at": "2026-11-25T00:45:00-05:00",
      "status": "planned",
      "note": "created"
+    },
+    {
+     "at": "2026-11-25T16:13:00-05:00",
+     "status": "planned",
+     "note": "Now held (Coinbase 40 sh @ $154.8455). Alert only — Pablo sells by hand on a confirmed weekly close below $94.50. Do not rest a stop. PLANNED, NOT PLACED.",
+     "by": "conviction"
     }
    ]
   },
@@ -39241,6 +39258,28 @@
    "kind": "note",
    "text": "SPX6900: hold the existing bag; buy recipe and reserve removed. Adds only if Conviction later has real conviction.",
    "ids": []
+  },
+  {
+   "at": "2026-11-25T16:13:00-05:00",
+   "at_et": "Nov 25, 2026 4:13 PM ET",
+   "ticker": "POWL",
+   "kind": "fill",
+   "text": "API-confirmed first buy filled: Coinbase 40 POWL @ $154.8455 ($6,193.82) at 3:54:16 PM ET Nov 25. Rung 1 of the Max Buy recipe (40% of $15,915) is filled. Exits PLANNED, NOT PLACED: weekly-close cut $94.50 (sell by hand, no resting stop). Adds 2–4 ($3,183 each) only after a Friday weekly close below both the Max Buy close $133.04 and lowest paid $154.8455 (binding: $133.04). Scale out on Gemini Trim labels; hold 18+ months. No pre-set dollar trim/max-sell targets on file.",
+   "ids": [
+    "POWL-20261125-001",
+    "POWL-20261125-005"
+   ]
+  },
+  {
+   "at": "2026-11-25T16:12:00-05:00",
+   "at_et": "Nov 25, 2026 4:12 PM ET",
+   "ticker": "MRVL",
+   "kind": "note",
+   "text": "NOT A FILL. Pablo's xyz:MRVL starter is an unfilled open order on Hyperliquid main (not hl_conviction). As of 4:12 PM ET Nov 25, frontendOpenOrders on dex xyz: BUY 20 xyz:MRVL limit $125.00, GTC, reduce-only false, isolated 3x (oid 616782821579, placed 4:06:42 PM ET, origSz 20, fully unfilled). Replaced the earlier unfilled BUY 10 @ $128.96 (oid 616774416852, 3:57:08 PM ET). Market at 4:12:02 PM ET: bid $130.65, ask $130.70, mark $130.56 — limit sits $5.65 below the bid, so it rests until price trades down to $125. Notional at the limit $2,500 (20 × $125), reserved margin $833.33, implied 3.0x; xyz:MRVL is isolated-only. No position, so no official liquidation price. Conservative isolated estimate at a $125 fill and 3x: liq at least ~$83.33 (entry × (1 − 1/3)); maintenance margin would only push liq higher. That sits ABOVE the $78.50 weekly kill line. Plan was leverage at most 2.1x so liq sits under $78.50 (~$65.48 before maintenance at $125). First buy rung stays PLANNED, NOT PLACED. Do not log a position or fill.",
+   "ids": [
+    "MRVL-20261125-001",
+    "MRVL-20261125-005"
+   ]
   }
  ],
  "hidden_tickers": [
